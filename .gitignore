@@ -1,0 +1,28 @@
+# 录屏等大文件不进 git，网盘链接放 runs/*/recording.txt
+*.mp4
+*.mkv
+*.avi
+*.mov
+*.webm
+
+# 敏感信息绝不入库
+*.env
+*.key
+*_credentials*
+secrets/
+
+# 系统/编辑器杂项
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# 本地草稿（不想公开的工作文件）
+_local/

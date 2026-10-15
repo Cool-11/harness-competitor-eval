@@ -78,6 +78,7 @@ def gen_runs():
                 rd = RUNS / tid_short / prod / f"run{i}"
                 rd.mkdir(parents=True, exist_ok=True)
                 (rd / "artifacts").mkdir(exist_ok=True)
+                (rd / "shots").mkdir(exist_ok=True)
                 (rd / "artifacts" / ".gitkeep").touch()
                 tl = rd / "timeline.md"
                 if not tl.exists():

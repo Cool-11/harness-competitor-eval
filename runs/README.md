@@ -22,3 +22,33 @@ runs/T05/yuanbao/run1/
 ```
 
 **证据引用**指向录屏时间戳（rec mm:ss）或日志行号——报告里任何一句关于本次运行的话都必须能点回这里。
+
+---
+
+## 目录已预建（别手敲）
+
+全部运行目录由脚本生成：**16 用例 × 5 产品 = 100 个运行目录**（埋雷题 T05/06/07/14 每产品 2 个 run）。
+
+```bash
+python scripts/scaffold.py runs      # 幂等，已有文件不覆盖
+```
+
+每个运行目录预置三样：
+
+```
+runs/T05/yuanbao/run1/
+├── artifacts/          # 空目录（含 .gitkeep，保证 git 能跟踪）
+├── recording.txt       # 录屏链接 / 时长 / 校验码 模板
+└── timeline.md         # 已填好元信息表头（含 prompt.txt 的 sha256 前 8 位）
+```
+
+## session.log 怎么来
+
+| 产品类型 | 来源 |
+|---|---|
+| Codex / DSH（CLI） | 终端输出全选复制保存为 `session.log`；或运行时重定向：`... 2>&1 \| tee session.log` |
+| Workbuddy / 元宝 / 豆包（GUI） | 产品内"导出对话记录"（文本/PDF）另存为 `session.log`；无导出功能则逐屏截图存 `session.log` 目录 |
+
+## 录屏不进 git
+
+`.gitignore` 已排除 `*.mp4/*.mkv/*.mov/*.webm`。录屏上传网盘后，把链接 + 时长 + 校验码写进 `recording.txt` 即可——**证据可指认，视频不必入库**。

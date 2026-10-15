@@ -1,0 +1,10 @@
+{
+  "version": "1.2",
+  "description": "记录处理规则"
+  "rules": {
+    "keep": ["id", "amount"],
+    "drop_empty": true,
+    "amount_threshold": 1000,
+    "note": "æ•°æ®æº"
+  },
+}

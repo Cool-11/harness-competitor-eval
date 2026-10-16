@@ -52,3 +52,14 @@ runs/T05/yuanbao/run1/
 ## 录屏不进 git
 
 `.gitignore` 已排除 `*.mp4/*.mkv/*.mov/*.webm`。录屏上传网盘后，把链接 + 时长 + 校验码写进 `recording.txt` 即可——**证据可指认，视频不必入库**。
+
+---
+
+## 两类非标准目录（别按 `run<n>` 格式找）
+
+| 目录 | 性质 | 说明 |
+|---|---|---|
+| `baseline/` | **基线 + 回滚包** | `环境冻结操作指引.md` 是评测态操作文档；`_backup/` 里是评测期为"出厂默认态"而**移走的个人技能**（`codex-skills` / `dsh-agents-skills` / `workbuddy-skills` + `codex` 配置）。**它是回滚用的，不是表现现场，不要当现场记录读，更不要删**——评测结束后按指引原路径恢复。已由 `.gitignore` 排除入库 |
+| `Five-app-log-analyse/` | **补充现场** | 五款产品的日志分析批。**不走** `runs/<题号>/<产品>/run<n>/` 格式，而是直接 `runs/Five-app-log-analyse/<产品>-log-analyse/`，产品名与全局口径一致（`codex` / `dsh` / `workbuddy` / `yuanbao` / `doubao`）|
+
+> ⚠️ **证据路径提示**：`Five-app-log-analyse/*/checker_output.txt` 与 `session.log` 里记录的是**运行当时的绝对路径**（如 `F:\For_project\harness-Tencent\harness-competitor-eval\...`）。这批日志属原始证据，**不做任何改写**。2026-10-16 起仓库已迁至 `F:\for-project-new\harness-competitor-eval\`，读旧路径时请按 `_archive/README.md` 的**路径迁移记录**做前缀替换。

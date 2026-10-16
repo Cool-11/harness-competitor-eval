@@ -1,0 +1,1 @@
+请阅读附件 participants.txt 中的会议名单，将其整理为一个 Markdown 表格并保存为文件 attendees.md，表格须包含"姓名、单位、职务"三列，按表格中姓名出现顺序排列。

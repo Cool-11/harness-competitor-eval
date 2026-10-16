@@ -1,0 +1,36 @@
+﻿# checker_output.txt — Workbuddy 产物分·原始输出（AI 执行，原样落盘）
+
+- 执行工具：Trae ｜ 执行时间：2026-10-15 23:39 ｜ 核对人：本人（待签认）
+- 命令：`python cases/<题>/checker.py <产物目录>`（产物目录 = 本次 artifacts 快照）
+- 依据 docs/07 §3.5：AI 可运行 checker 并原样落盘；本文件不得被改写或重算
+- 说明：仅 T00/T00b/T01 存在 checker.py；T02–T14 无 checker（cases/README.md 标「待实现」）→ 无自动产物分，进人工核对
+
+## T00（校准题，不计分）
+# T00 判分 · f:\For_project\harness-Tencent\harness-competitor-eval\runs\Five-app-log\wb-log\artifacts\T00-hello-world
+  [PASS] attendees.md 存在
+  [PASS] 表头含 姓名/单位/职务 三列
+  [PASS] 数据行数 = 10
+  [PASS] 10 行内容与原文一致且顺序正确
+合计：4/4 项通过 → 判定 通过(0)
+
+## T00b（校准题，不计分）
+# T00b 能力边界探测 · f:\For_project\harness-Tencent\harness-competitor-eval\runs\Five-app-log\wb-log\artifacts\T00b-file-format-probe
+  [YES] 能产出 .md 文件
+  [YES] 能产出 .csv 文件
+  [YES] 能同时产出多个文件
+  [YES] report.md ≤150 字
+  [YES] summary.csv 五列表头
+  [YES] 数据行数 = 7
+  [YES] 原有四列未被改动
+  [YES] 金额 = 数量×单价
+  · report.md 非空白字符数 107
+（校准题不计分：本结果写入 runs/baseline 的能力边界表）
+
+## T01（计分题，产物分满分 6）
+# T01 产物判分 · f:\For_project\harness-Tencent\harness-competitor-eval\runs\Five-app-log\wb-log\artifacts\T01-meeting-notes
+  [PASS] 文件存在: 1.0/1.0
+  [PASS] 五个二级标题齐全: 2.0/2.0
+  [PART] 五个事实点准确: 1.6/2.0 — 缺/错：问卷回收率 62%
+  [PASS] 未确定事项如实标注: 1.0/1.0
+产物分合计：5.6/6（行为分 4 分由人工按 observation-checklist 判）
+

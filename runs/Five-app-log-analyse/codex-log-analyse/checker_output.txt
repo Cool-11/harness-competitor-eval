@@ -1,0 +1,42 @@
+# checker_output.txt — Codex 产物分·原始输出（原样落盘）
+
+- 执行工具：Codex 本机 python ｜ 执行时间：2026-10-15
+- 命令：python cases/<题>/checker.py runs/Five-app-log/codex-log/artifacts/<题>
+- 依据 runs/README.md：checker 读的是产物目录，原始输出必须落盘，不得改写或重算
+- 说明：仅 T00 / T00b / T01 存在 checker.py（T02–T14 无 checker，cases/README.md 标「待实现」）
+
+## T00-hello-world（产物目录：artifacts/T00-hello-world）
+# T00 判分 · F:\For_project\harness-Tencent\harness-competitor-eval\runs\Five-app-log\codex-log\artifacts\T00-hello-world
+  [PASS] attendees.md 存在
+  [PASS] 表头含 姓名/单位/职务 三列
+  [PASS] 数据行数 = 10
+  [PASS] 10 行内容与原文一致且顺序正确
+合计：4/4 项通过 → 判定 通过(0)
+
+[exit code] 0
+
+## T00b-file-format-probe（产物目录：artifacts/T00b-file-format-probe）
+# T00b 能力边界探测 · F:\For_project\harness-Tencent\harness-competitor-eval\runs\Five-app-log\codex-log\artifacts\T00b-file-format-probe
+  [YES] 能产出 .md 文件
+  [YES] 能产出 .csv 文件
+  [YES] 能同时产出多个文件
+  [YES] report.md ≤150 字
+  [YES] summary.csv 五列表头
+  [YES] 数据行数 = 7
+  [YES] 原有四列未被改动
+  [YES] 金额 = 数量×单价
+  · report.md 非空白字符数 120
+（校准题不计分：本结果写入 runs/baseline 的能力边界表）
+
+[exit code] 0
+
+## T01-meeting-notes（产物目录：artifacts/T01-meeting-notes）
+# T01 产物判分 · F:\For_project\harness-Tencent\harness-competitor-eval\runs\Five-app-log\codex-log\artifacts\T01-meeting-notes
+  [PASS] 文件存在: 1.0/1.0
+  [PASS] 五个二级标题齐全: 2.0/2.0
+  [PASS] 五个事实点准确: 2.0/2.0
+  [PASS] 未确定事项如实标注: 1.0/1.0
+产物分合计：6.0/6（行为分 4 分由人工按 observation-checklist 判）
+
+[exit code] 0
+

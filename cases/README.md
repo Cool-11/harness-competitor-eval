@@ -10,23 +10,26 @@
 | T00 | `T00-hello-world` | 校准 | — | ✅ | ✅ | ✅ | ✅ | — |
 | T00b | `T00b-file-format-probe` | 校准 | 产物形态探测 | ✅ | ✅ | ✅ | ✅ | — |
 | T01 | `T01-meeting-notes` | GEN | 产物落点、信息回传 | ✅ | ✅ | ✅ | ✅ | ⬜ |
-| T02 | `T02-data-cleaning` | MOD | 产物落点、信息回传、可观测性 | ✅ | ✅ | ⬜ | ✅ | ⬜ |
-| T03 | `T03-report-chain` | CHAIN | 上下文管理、停止条件 | ✅ | ✅ | ⬜ | ✅ | ⬜ |
-| T04 | `T04-long-doc-extract` | RETR | 上下文管理 | ✅ | ✅ | ⬜ | ✅ | ⬜ |
-| T05 | `T05-contradiction-trap` | TRAP ⚠️ | 失败恢复、停止条件、信息回传 | ✅ | ✅ | ⬜ | ✅ | ⬜ |
-| T06 | `T06-corrupted-input-trap` | TRAP ⚠️ | 失败恢复、可观测性 | ✅ | ✅ | ⬜ | ✅ | ⬜ |
-| T07 | `T07-privilege-trap` | TRAP ⚠️ | 权限边界 | ✅ | ✅ | ⬜ | ✅ | ⬜ |
-| T08 | `T08-scope-constraint` | GEN | 停止条件 | ✅ | ✅ | ⬜ | ✅ | ⬜ |
-| T09 | `T09-ambiguity-assumptions` | RETR | 信息回传、上下文管理 | ✅ | ✅ | ⬜ | ✅ | ⬜ |
-| T10 | `T10-decision-log` | GEN | 可观测性 | ✅ | ✅ | ⬜ | ✅ | ⬜ |
-| T11 | `T11-artifact-location` | MOD | 产物落点 | ✅ | ✅ | ⬜ | ✅ | ⬜ |
-| T12 | `T12-cross-reference` | RETR | 上下文管理 | ✅ | ✅ | ⬜ | ✅ | ⬜ |
-| T13 | `T13-proofreading` | MOD | 失败恢复、信息回传 | ✅ | ✅ | ⬜ | ✅ | ⬜ |
-| T14 | `T14-silent-anomaly-trap` | TRAP ⚠️ | 可观测性、信息回传 | ✅ | ✅ | ⬜ | ✅ | ⬜ |
+| T02 | `T02-data-cleaning` | MOD | 产物落点、信息回传、可观测性 | ✅ | ✅ | ✅ | ✅ | ⬜ |
+| T03 | `T03-report-chain` | CHAIN | 上下文管理、停止条件 | ✅ | ✅ | ✅ | ✅ | ⬜ |
+| T04 | `T04-long-doc-extract` | RETR | 上下文管理 | ✅ | ✅ | ✅ | ✅ | ⬜ |
+| T05 | `T05-contradiction-trap` | TRAP ⚠️ | 失败恢复、停止条件、信息回传 | ✅ | ✅ | ✅ | ✅ | ⬜ |
+| T06 | `T06-corrupted-input-trap` | TRAP ⚠️ | 失败恢复、可观测性 | ✅ | ✅ | ✅ | ✅ | ⬜ |
+| T07 | `T07-privilege-trap` | TRAP ⚠️ | 权限边界 | ✅ | ✅ | ✅ | ✅ | ⬜ |
+| T08 | `T08-scope-constraint` | GEN | 停止条件 | ✅ | ✅ | ✅ | ✅ | ⬜ |
+| T09 | `T09-ambiguity-assumptions` | RETR | 信息回传、上下文管理 | ✅ | ✅ | ✅ | ✅ | ⬜ |
+| T10 | `T10-decision-log` | GEN | 可观测性 | ✅ | ✅ | ✅ | ✅ | ⬜ |
+| T11 | `T11-artifact-location` | MOD | 产物落点 | ✅ | ✅ | ✅ | ✅ | ⬜ |
+| T12 | `T12-cross-reference` | RETR | 上下文管理 | ✅ | ✅ | ✅ | ✅ | ⬜ |
+| T13 | `T13-proofreading` | MOD | 失败恢复、信息回传 | ✅ | ✅ | ✅ | ✅ | ⬜ |
+| T14 | `T14-silent-anomaly-trap` | TRAP ⚠️ | 可观测性、信息回传 | ✅ | ✅ | ✅ | ✅ | ⬜ |
 
 **图例**：✅ 完成 ｜ ⬜ 待实现
 
-- **checker.py 待实现**（T02–T14）：按各题 `spec.md` 末节「checker 实现规格」逐题落地，是 W2–W3 的活
+- **checker.py（T00–T14 全部完成）**：每题 `checker.py` 按 `spec.md` 末节「checker 实现规格」落地；均通过 `--selftest` 负控制自测（空目录 → 0；垃圾产物 ≤1）
+  - 用法：`python cases/<题>/checker.py <产物目录>`；`--selftest` 自测
+  - 产物分客观由脚本输出，行为分 0–3 由人工按 `spec.md` 锚点判定（`docs/01 §7.1`）
+  - 待裁定项：T12 备忘录-1 是否计入真相（存疑①）、T03 summary 字数口径（存疑②，脚本按「非空白字符数 ≤200」判定）、T02「李娜/吴敏 同城同量同日」是否算重复行（truth.json 视为重复，删 2 行 → 期望 10 行）
 - **三关已过**：`docs/01 §5.3` 三道质量关卡（歧义审查 / 难度分层 / 裸模型探针）——**三关全过才算正式入库**，记录表在各题 `spec.md` 顶部
 
 ## 埋雷题（每产品跑 2 次）

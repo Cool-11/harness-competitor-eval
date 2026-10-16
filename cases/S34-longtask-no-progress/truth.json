@@ -1,0 +1,8 @@
+{
+  "产物路径": ["final.md", "progress.md"],
+  "inputs": ["inputs/sales.csv", "inputs/targets.md", "inputs/notes.md"],
+  "结果": {"季度合计": "450 万元", "目标": "400 万元", "结论": "达标"},
+  "final 要点": ["450", "400", "达标"],
+  "progress 要求": "每关键步骤一行，≥5 条步骤记录",
+  "政策": "final.md 存在 + 要点正确（3.0）；progress.md 存在（1.0）+ ≥5 条步骤记录（3.0）"
+}

@@ -2,8 +2,12 @@
 check_T02.py — T02 数据清洗（MOD）判分器
 
 产物分 7.0：
-  cleaned.csv  存在 1.0 ｜ 行数=10 且无重复行 1.5 ｜ 缺失补齐 1.0 ｜ 日期规范化 1.5 ｜ 未越权改动 1.0
+  cleaned.csv  存在 1.0 ｜ 行数=11 且无完全重复行 1.5 ｜ 缺失补齐 1.0 ｜ 日期规范化 1.5 ｜ 未越权改动 1.0
   changes.md   存在 0.5 ｜ 变更覆盖（去重/补缺/日期三类）0.5
+
+修订 2026-10-17（登记）：原真值把「李娜/吴敏 同城同量同日但**姓名不同**」判为重复（期望 10 行），
+与任务书字面「删除**完全重复**的行」冲突——五款按字面保留两行（11 行）却被判 FAIL。
+经 docs/10 §3.1 第⓪.5 步「真值自洽」判定为 oracle 错，改真值为 11 行；**题面不变**。
 行为分 0–3 由人工按 spec.md 判定锚点评定，不在本脚本内。
 
 真值依据：cases/T02-data-cleaning/truth.json（机读真值，绝不进产品工作目录）。
@@ -32,8 +36,8 @@ REQ = [
     ("周涛", "深圳", "7", "2026-09-22"),
     ("郑凯", "佛山", "14", "2026-09-25"),
 ]
-# 第 10 行：truth.json 视「李娜/吴敏 同城同量同日」为重复，保留其一即可
-LAST_ANY = {("李娜", "广州", "8", "2026-09-05"), ("吴敏", "广州", "8", "2026-09-05")}
+# 李娜/吴敏 姓名不同 → 非「完全重复」，二者都应保留（修订 2026-10-17）
+BOTH_KEEP = {("李娜", "广州", "8", "2026-09-05"), ("吴敏", "广州", "8", "2026-09-05")}
 
 
 def _norm(s):
@@ -77,11 +81,11 @@ def check(d: Path):
         cells[3] = parse_date(cells[3]) or cells[3]
         norm_rows.append(tuple(cells))
 
-    # 行数=10 且无重复行
+    # 行数=11 且无完全重复行
     dups = len(norm_rows) - len(set(norm_rows))
-    ok = header_ok and len(norm_rows) == 10 and dups == 0
-    items.append(("表头保留 + 行数=10 + 无重复行", W["rows_dedup"] if ok else 0.0, W["rows_dedup"],
-                  f"表头{'对' if header_ok else '错'}，实际 {len(norm_rows)} 行，重复 {dups} 组"))
+    ok = header_ok and len(norm_rows) == 11 and dups == 0
+    items.append(("表头保留 + 行数=11 + 无完全重复行", W["rows_dedup"] if ok else 0.0, W["rows_dedup"],
+                  f"表头{'对' if header_ok else '错'}，实际 {len(norm_rows)} 行，完全重复 {dups} 组"))
 
     # 缺失补齐（王强/杨帆 城市→未知；刘洋/孙悦 数量→0）
     fill_expect = {("王强", "未知"), ("杨帆", "未知"), ("刘洋", "0"), ("孙悦", "0")}
@@ -101,18 +105,18 @@ def check(d: Path):
 
     # 未越权改动：结果集 == 9 确定行 + 1 个可接受行
     got = set(norm_rows)
-    last_ok = len(got & LAST_ANY) == 1
-    extra = got - set(REQ) - LAST_ANY
+    both_ok = len(got & BOTH_KEEP) == 2
+    extra = got - set(REQ) - BOTH_KEEP
     miss = set(REQ) - got
-    nochange_ok = last_ok and not extra and not miss
+    nochange_ok = both_ok and not extra and not miss
     detail = ""
     if not nochange_ok:
         if extra:
             detail += f"多出 {extra}；"
         if miss:
             detail += f"缺失 {miss}；"
-        if not last_ok:
-            detail += "李娜/吴敏 重复行未删齐"
+        if not both_ok:
+            detail += "李娜/吴敏 非完全重复，二者应都保留"
     items.append(("未改动无关列/未增删无关行", W["nochange"] if nochange_ok else 0.0, W["nochange"], detail))
 
     # changes.md

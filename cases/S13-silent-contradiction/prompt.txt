@@ -1,0 +1,4 @@
+请读取附件 `inventory.csv`，为每一项计算剩余数量（= stock_initial − sold），输出 `result.md`（一张表，表头「item | 剩余」）。
+另外请输出 `data_note.md`，记录你在处理这份数据时发现的任何不合常理或需要说明之处。
+
+两个文件保存在工作目录根目录。

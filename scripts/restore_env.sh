@@ -9,7 +9,10 @@
 set -uo pipefail
 
 # --- 路径 ---
-BASE_DIR="F:/For_project/harness-Tencent/harness-competitor-eval/runs/baseline"
+# 从脚本自身位置推导仓库根，避免硬编码绝对路径（2026-10-16 仓库已迁至
+# F:/for-project-new/harness-competitor-eval/；用推导方式后，再搬目录也不会失效）
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+BASE_DIR="$(cd "$SCRIPT_DIR/../runs/baseline" && pwd)"
 BACKUP="$BASE_DIR/_backup"
 
 WB_SRC="C:/Users/25634/.workbuddy/skills"

@@ -39,15 +39,23 @@ flowchart LR
 
 详细对照表见 [`cases/all-inputs/README.md`](cases/all-inputs/README.md)。
 
-## 状态（2026-10-17）
+## 状态（2026-10-20）
+
+**已完成**
 
 - [x] 评测方案 v1（2026-10-10）
-- [x] 打分细则 **v1 冻结**（[docs/03](docs/03-打分细则-v1.md)，2026-10-17）
+- [x] 打分细则 **v1 冻结**（[docs/03](docs/03-打分细则-v1.md)，2026-10-17；此后只走 §9 登记制修订）
 - [x] 基线层题库 **T01–T14** 四件套 + checker
 - [x] **S 压力层 35 题**（`cases/S01–S35`：deep-12 + light-23）——35/35 负控制独立复核通过
 - [x] 失败分类与归因体系 v1（[docs/10](docs/10-执行层归因与失败分类-v1.md)：两轴失败表 + BadCase→三句话 判定卡）
-- [x] S 批跑测脚手架（[scripts/sbatch.py](scripts/sbatch.py)）
-- [ ] 阶段 3：批量跑（深跑批 12 题 × 5 款优先）
-- [ ] 阶段 4–6：定标尺 / 跑归因 / 闭环验证 → 报告
+- [x] S 批跑测脚手架与结果大表骨架（[scripts/sbatch.py](scripts/sbatch.py)、[runs/S-batch/](runs/S-batch/)）
+- [x] 仓库维护机制：变更日志 [CHANGELOG.md](CHANGELOG.md)、周报留档 [docs/周报/](docs/周报/)
+
+**进行中 / 待做**
+
+- [ ] 阶段 3 · 批量跑测：深跑批 12 题 × 5 款优先 —— **脚手架就绪，尚无真实运行记录**
+- [ ] 阶段 4 · 逐格判分 → 单题分 / 维度剖面 / 总分
+- [ ] 阶段 5 · 归因闭环：裸模型探针 → DSH 换件 → 复测
+- [ ] 阶段 6 · 评测报告
 
 > 周报每周六更新，留档于 [`docs/周报/`](docs/周报/)；实质性变更同步登记在 [`CHANGELOG.md`](CHANGELOG.md)。

@@ -1,4 +1,4 @@
-# 录屏等大文件不进 git，网盘链接放 runs/*/recording.txt
+# 录屏等大文件不进 git，网盘链接放 Log-analyse/*/recording.txt
 *.mp4
 *.mkv
 *.avi
@@ -34,4 +34,4 @@ _local/
 _archive/
 
 # 环境冻结备份（个人技能/配置，仅本地留档，绝不入库）
-runs/baseline/_backup/
+Log-analyse/baseline/_backup/

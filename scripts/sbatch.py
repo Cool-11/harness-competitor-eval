@@ -26,8 +26,8 @@ import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-CASES = REPO / "cases"
-SBATCH = REPO / "runs" / "S-batch"
+CASES = REPO / "tasks" / "second_tasks"
+SBATCH = REPO / "Log-analyse" / "S-batch"
 TMP_ROOT = Path(r"F:\runs_tmp")
 PRODUCTS = ["codex", "dsh", "workbuddy", "yuanbao", "doubao"]
 

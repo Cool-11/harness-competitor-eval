@@ -1,9 +1,9 @@
 """
-scaffold.py — 生成 ①每题独立的投喂用 prompt.txt ②runs/ 运行记录目录脚手架
+scaffold.py — 生成 ①每题独立的投喂用 prompt.txt ②Log-analyse/ 运行记录目录脚手架
 
 用法：
   python scripts/scaffold.py prompt     # 只生成 prompt.txt
-  python scripts/scaffold.py runs       # 只生成 runs/ 目录结构
+  python scripts/scaffold.py runs       # 只生成 Log-analyse/ 目录结构
   python scripts/scaffold.py all
 """
 import hashlib
@@ -11,8 +11,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-CASES = ROOT / "cases"
-RUNS = ROOT / "runs"
+CASES = ROOT / "tasks" / "first_tasks"
+RUNS = ROOT / "Log-analyse"
 
 PRODUCTS = ["codex", "workbuddy", "dsh", "yuanbao", "doubao"]
 PRODUCT_CN = {"codex": "Codex", "workbuddy": "Workbuddy", "dsh": "DSH",
@@ -114,7 +114,7 @@ def gen_runs():
                 (rd / "recording.txt").write_text(
                     "录屏链接：\n时长：\n校验码（如 md5）：\n", encoding="utf-8")
     total = sum(1 for _ in RUNS.glob("T*/*/run*/timeline.md"))
-    print(f"runs/ 脚手架就绪：{total} 个运行记录目录")
+    print(f"Log-analyse/ 脚手架就绪：{total} 个运行记录目录")
 
 
 if __name__ == "__main__":

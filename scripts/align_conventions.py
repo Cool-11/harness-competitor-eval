@@ -2,14 +2,14 @@
 align_conventions.py — 把 T00–T14 用例对齐仓库既有约定
 依据：docs/01 §5.2（每题四件套：task.md / inputs/ / checker.py / spec.md）
      docs/01 §7.1（行为分锚点 0–3 四级）
-     cases/_template/task.md（任务书纯净规则）
-     cases/_template/spec.md（质量关卡 + 判定锚点）
+     tasks/_template/task.md（任务书纯净规则）
+     tasks/_template/spec.md（质量关卡 + 判定锚点）
 """
 import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-CASES = ROOT / "cases"
+CASES = ROOT / "tasks" / "first_tasks"
 
 # 每题：主测/副测维度、为什么能区分、运行次数、锚点表
 META = {
@@ -84,7 +84,7 @@ META = {
 
 
 def build_task_md(tid, m, old: str) -> str:
-    """按 cases/_template/task.md 的章节结构重排 task.md，保留原任务指令与完成条件。"""
+    """按 tasks/_template/task.md 的章节结构重排 task.md，保留原任务指令与完成条件。"""
     # 抽取原有内容
     instr = old.split("## 任务指令（原文，五款一字不差）")[1].split("## 投喂说明")[0].strip()
     comp = old.split("## 完成条件")[1].split("## 观察格位")[0].strip() if "## 完成条件" in old else ""

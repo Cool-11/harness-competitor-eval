@@ -6,6 +6,32 @@
 
 ---
 
+## [2026-10-21]
+
+### 整理
+
+- **题库按批次重构**：`cases/` → `tasks/`，T 批（T00/T00b/T01–T14）落 `tasks/first_tasks/`，S 批（S01–S35）落 `tasks/second_tasks/`；取件区相应拆为两批各自的 `all-inputs/`
+- **现场目录独立**：`runs/` → `Log-analyse/`（仓库根，内层已拍平）；`Five-app-log-analyse/` → `<产品>-log-analyse/`，产物按 `first-run-artifact` / `second-run-artifact` 分轮次
+- 清理 T 批 16 个空运行目录（仅模板、无实测），需要时 `python scripts/scaffold.py runs` 可重建
+- 脚本路径口径同步：`scaffold.py`、`align_conventions.py` → `tasks/first_tasks`；`sbatch.py` → `tasks/second_tasks`
+
+### 变更
+
+- `整理报告-2026-10-16.md` 校订：导航路径改为现状口径、关闭已完成遗留项、补记本次重构（§九）
+
+### 修复
+
+- 全仓库路径清扫：`docs/`、`tasks/`、`scripts/`、根 `README.md` 中的 `cases/`、`runs/` 旧路径改为新口径
+
+### 文档
+
+- `docs/08-目录与命名规范.md`：增补批次层、产品目录改名、会话策略（方案 A）等口径
+- 新增 `docs/12-批量日志接收与时间线补全.md`；新增 `docs/周报/readme.md`
+- 新增 `Log-analyse/README-batch1.md`；`Log-analyse/README.md`、`Log-analyse/S-batch/README.md` 随目录重构重写
+- 移除 `docs/week-conclusion/` 下的周报 PDF，仅保留 `docs/周报/` 的 markdown 留档
+
+---
+
 ## [2026-10-20]
 
 ### 文档

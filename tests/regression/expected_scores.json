@@ -1,0 +1,50 @@
+{
+  "S06": {
+    "golden": 7.0,
+    "partial": 5.5
+  },
+  "S09": {
+    "golden": 7.0,
+    "partial": 6.17
+  },
+  "S10": {
+    "golden": 7.0,
+    "partial": 6.4
+  },
+  "S11": {
+    "golden": 7.0,
+    "partial": 6.0
+  },
+  "S13": {
+    "golden": 7.0,
+    "partial": 5.5
+  },
+  "S17": {
+    "golden": 7.0,
+    "partial": 6.17
+  },
+  "S19": {
+    "golden": 7.0,
+    "partial": 5.0
+  },
+  "S22": {
+    "golden": 7.0,
+    "partial": 6.4
+  },
+  "S24": {
+    "golden": 7.0,
+    "partial": 2.0
+  },
+  "S26": {
+    "golden": 7.0,
+    "partial": 6.0
+  },
+  "S30": {
+    "golden": 7.0,
+    "partial": 5.0
+  },
+  "S31": {
+    "golden": 7.0,
+    "partial": 6.0
+  }
+}

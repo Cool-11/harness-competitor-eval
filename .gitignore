@@ -23,6 +23,7 @@ desktop.ini
 __pycache__/
 *.pyc
 .venv/
+.pytest_cache/
 
 # 本地草稿（不想公开的工作文件）
 _local/

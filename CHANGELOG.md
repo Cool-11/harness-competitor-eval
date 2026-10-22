@@ -12,12 +12,17 @@
 
 - `docs/08 §8`：任务卡 YAML 头、checker 可选 `METRICS_JSON`、运行证据三件套（`manifest/usage/score.json`）、"形态不支持"口径、真值封存三步
 - `scripts/sbatch.py`：`prepare` 写 `prepare.json`（开始时间 / prompt 与 inputs 哈希）；`collect` 自动生成三件套，新增 `--interventions` / `--turns` / `--elapsed` / `--timed-out` / `--rerun`
+- `tests/`：P1 全量测试（题包完整性、truth 解析、checker `--selftest`、空/垃圾负控制、sbatch 三件套、题库发现契约）+ P0 fixture 分数快照
+- `tests/fixtures/`：深跑 12 题 golden/partial + `WHY.md`；`SIGNOFF.md` 签署表；`KNOWN_ISSUES.md`（S13/S17 口径差异）
+- `pytest.ini`、`requirements-dev.txt`（pytest 9.1.1）、项目内 `.venv`
+- `scripts/update_expected_scores.py`：从 fixture 生成/校验回归快照
 
 ### 变更
 
 - `docs/09 §5.3`：DSH 换件最低交付钉死为 **3 件 × 2 题 × 2 次 = 12 次**（P3/P8/P9 → S30/S31/S26），其余标"未做 / 证据不足"，不得升级为 A 级
 - `tasks/S-README.md`：出题规范增第 8 条（任务卡 YAML 头，存量 35 题只回填头、不改题面）
 - `docs/04 §6`：登记 WildClawBench `tasks/` 结构借鉴（搬 5 条机制，不搬规模与容器隔离）
+- `整理报告-2026-10-21.md` → `docs/sort/`：归档留档，不进入首页导航
 
 ### 修复
 

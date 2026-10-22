@@ -12,6 +12,7 @@
 5. **字数口径**：凡"N 字以内"一律按**非空白字符数（含标点）**（`docs/03 §2.5`）。
 6. **归属前过三步互证**（`docs/03 §4.5`）：题面/真值先自洽，再谈是不是 Harness。
 7. 真值放 `truth.json`，**绝不进产品工作目录**。
+8. **任务卡 YAML 头**（2026-10-22 起）：`task.md` 顶部必须有 frontmatter（`id/batch/dimension/part/failure_code/stress/breaking_point/failure_signature/timeout_seconds/modality/repeat`），字段口径见 `docs/08 §8.1`；存量 35 题**只回填头，不改题面**。
 
 ## 覆盖矩阵（9 零件 × 失败编码；●=主测 ○=副测）
 

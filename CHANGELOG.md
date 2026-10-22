@@ -6,6 +6,25 @@
 
 ---
 
+## [2026-10-22]
+
+### 新增
+
+- `docs/08 §8`：任务卡 YAML 头、checker 可选 `METRICS_JSON`、运行证据三件套（`manifest/usage/score.json`）、"形态不支持"口径、真值封存三步
+- `scripts/sbatch.py`：`prepare` 写 `prepare.json`（开始时间 / prompt 与 inputs 哈希）；`collect` 自动生成三件套，新增 `--interventions` / `--turns` / `--elapsed` / `--timed-out` / `--rerun`
+
+### 变更
+
+- `docs/09 §5.3`：DSH 换件最低交付钉死为 **3 件 × 2 题 × 2 次 = 12 次**（P3/P8/P9 → S30/S31/S26），其余标"未做 / 证据不足"，不得升级为 A 级
+- `tasks/S-README.md`：出题规范增第 8 条（任务卡 YAML 头，存量 35 题只回填头、不改题面）
+- `docs/04 §6`：登记 WildClawBench `tasks/` 结构借鉴（搬 5 条机制，不搬规模与容器隔离）
+
+### 修复
+
+- 根 `README.md`、`docs/08 §7` 自检命令：`cases/`、`runs/` 旧路径改为 `tasks/`、`Log-analyse/`（补 2026-10-21 登记的清扫遗漏）
+
+---
+
 ## [2026-10-21]
 
 ### 整理

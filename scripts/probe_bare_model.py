@@ -41,6 +41,14 @@ TASKS = {
 }
 
 API_BASE = os.environ.get("DEEPSEEK_BASE_URL", "https://api.deepseek.com").rstrip("/")
+KEY_FILE = REPO / ".secrets" / "deepseek.key"
+
+
+def get_key():
+    key = os.environ.get("DEEPSEEK_API_KEY", "").strip()
+    if not key and KEY_FILE.is_file():
+        key = KEY_FILE.read_text(encoding="utf-8").strip()
+    return key
 
 
 def build_messages(task):
@@ -100,10 +108,11 @@ def main():
     ap.add_argument("--model", default="deepseek-chat")
     args = ap.parse_args()
 
-    key = os.environ.get("DEEPSEEK_API_KEY", "").strip()
+    key = get_key()
     if not key:
-        print("缺少 DEEPSEEK_API_KEY。请先在当前终端设置环境变量后重跑：")
-        print('  $env:DEEPSEEK_API_KEY="sk-..."')
+        print("缺少 DeepSeek API key。二选一：")
+        print('  1) $env:DEEPSEEK_API_KEY="sk-..."')
+        print(f"  2) 把 key 写入 {KEY_FILE}（已由 .gitignore 的 *.key 忽略，不会入库）")
         sys.exit(2)
 
     task = TASKS[args.task]

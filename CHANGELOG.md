@@ -28,6 +28,7 @@
 - `tests/fixtures/tampered/S13-silent-contradiction/`：K1 回归样本（B 静默改写为 0）+ `WHY.md`（写明破坏点与预期 ≤1.0）
 - `tests/fixtures/tampered/S17-multifile-crossref/`：K2 回归样本（明细全对、漏总计行）+ `WHY.md`（预期 6.0）
 - `tests/regression/evidence/`：S13 / S17 修复前后 checker 输出、pytest junit XML（2026-10-23）
+- **S13 fixture 签署**：`tests/fixtures/SIGNOFF.md` 的 S13 行改为 `signed`（hjs，2026-10-23），含 tampered 变体；签署后 7.0 / 5.5 / 0.5 可对外引用
 - **`docs/周报/周报02-2026-10-23.md`**：运行账 5/5/0/0 + 现场链接 + 两处漏洞修复 + T02 归因 + 下周 3 项可验收目标
 - **`docs/18-未知登记表.md`**：未知分类（未跑/证据不足/形态不支持/口径未裁）+ 下一步 + 停止条件 + 截止；4 条开放、5 条已结清（U-00a / U-00b / U-01 / U-02 / U-07）
 - **`docs/reports/阶段报告-01-2026-10-24.md`**：阶段报告 v0.1（运行账、K1 闭环、S06 5/5、T02 归因卡、未知账、本轮不做）

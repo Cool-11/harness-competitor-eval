@@ -9,7 +9,7 @@
 | S09 | draft | draft | — | — |
 | S10 | draft | draft | — | — |
 | S11 | draft | draft | — | — |
-| S13 | draft | draft | — | — |
+| S13 | signed | signed | hjs | 2026-10-23 |
 | S17 | draft | draft | — | — |
 | S19 | draft | draft | — | — |
 | S22 | draft | draft | — | — |
@@ -18,4 +18,6 @@
 | S30 | draft | draft | — | — |
 | S31 | draft | draft | — | — |
 
-> 另：S13 增加 `tampered` 变体（B 行静默改写为 0）用于 K1 回归，状态同为 `draft`，不计入上表"12 题 × 2 类"；预期 0.5/7，见 `tests/fixtures/tampered/S13-silent-contradiction/WHY.md`。
+> 另：S13 增加 `tampered` 变体（B 行静默改写为 0）用于 K1 回归，**已于 2026-10-23 由 hjs 签署**，不计入上表"12 题 × 2 类"；预期 0.5/7，见 `tests/fixtures/tampered/S13-silent-contradiction/WHY.md`。
+>
+> 当前进度：**S13 已签（1/12 题，含 tampered）**；其余 11 题仍为 `draft`。

@@ -1,0 +1,13 @@
+{
+  "case": "S06-artifact-deep-path",
+  "product": "doubao",
+  "run": 1,
+  "variant": "default",
+  "root": "F:\\tmp_run",
+  "work_dir": "F:\\tmp_run\\S06-artifact-deep-path\\doubao\\run1\\work",
+  "started_at": "2026-10-23T12:27:33",
+  "prompt_sha8": "94eae96e",
+  "inputs_sha8": {
+    "notes.md": "0d1b0f58"
+  }
+}

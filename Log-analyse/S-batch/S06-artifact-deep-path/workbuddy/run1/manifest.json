@@ -1,0 +1,21 @@
+{
+  "case": "S06-artifact-deep-path",
+  "product": "workbuddy",
+  "run": 1,
+  "variant": "default",
+  "root": "F:\\tmp_run",
+  "work_dir": "F:\\tmp_run\\S06-artifact-deep-path\\workbuddy\\run1\\work",
+  "started_at": "2026-10-23T02:43:02",
+  "ended_at": "2026-10-23T02:43:49",
+  "retrofit": true,
+  "time_note": "先跑后建目录；started_at/ended_at 是补录时间，不是真实跑测起止时间",
+  "prompt_sha8": "94eae96e",
+  "inputs_sha8": {
+    "notes.md": "0d1b0f58"
+  },
+  "artifacts_count": 2,
+  "checker_exit": 0,
+  "interventions": 0,
+  "rerun": false,
+  "product_revision": "8b197013"
+}

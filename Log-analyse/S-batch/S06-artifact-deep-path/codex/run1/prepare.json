@@ -1,0 +1,13 @@
+{
+  "case": "S06-artifact-deep-path",
+  "product": "codex",
+  "run": 1,
+  "variant": "default",
+  "root": "F:\\tmp_run",
+  "work_dir": "F:\\tmp_run\\S06-artifact-deep-path\\codex\\run1\\work",
+  "started_at": "2026-10-23T23:29:00",
+  "prompt_sha8": "94eae96e",
+  "inputs_sha8": {
+    "notes.md": "0d1b0f58"
+  }
+}

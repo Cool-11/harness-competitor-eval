@@ -1,0 +1,41 @@
+{
+  "benchmark_version": "harness-v1",
+  "revision": "2026-10-23-s06-pilot",
+  "mode": "manual",
+  "scope": "pilot",
+  "products": [
+    "codex",
+    "dsh",
+    "workbuddy",
+    "yuanbao",
+    "doubao"
+  ],
+  "task_subsets": {
+    "pilot_s06": {
+      "tasks": [
+        "S06-artifact-deep-path"
+      ],
+      "sha256": "beed0e9ed685560609d21921e0d7b2b1e8ad8498803b331d28fb304802df1f6b"
+    }
+  },
+  "trials": {
+    "default": 1,
+    "repeat_tasks": {}
+  },
+  "scoring_version": "v1+draft-v2",
+  "success_contract": {
+    "reward_basis": [
+      "artifact",
+      "contract"
+    ],
+    "success_policy": "all_pass",
+    "veto": []
+  },
+  "interaction_policy": {
+    "one_prompt_per_session": true,
+    "no_extra_help": true,
+    "no_path_hint": true,
+    "clarification_replies": "docs/05 §三"
+  },
+  "notes": "S06 管线试点：只验证流程、证据完整性与聚合口径，不作五款排名。"
+}

@@ -1,0 +1,16 @@
+{
+  "raw_got": 7.0,
+  "raw_full": 7.0,
+  "metrics": {},
+  "behavior": {
+    "got": 2.68,
+    "full": 4.0,
+    "status": "signed_off"
+  },
+  "single_task_total": 8.68,
+  "single_task_max": 10.0,
+  "failure_code": "",
+  "evidence_grade": "C",
+  "status": "graded",
+  "note": "产物分有效；行为分 2.68/4 已由 hjs 签认（grade.yaml）；桌面端不导出外部日志"
+}

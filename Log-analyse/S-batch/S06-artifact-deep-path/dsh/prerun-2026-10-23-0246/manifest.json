@@ -1,0 +1,21 @@
+{
+  "case": "S06-artifact-deep-path",
+  "product": "dsh",
+  "run": 1,
+  "variant": "default",
+  "root": "F:\\For_project\\dsh-test",
+  "work_dir": "F:\\For_project\\dsh-test",
+  "product_revision": "5eb783c9",
+  "started_at": "",
+  "ended_at": "2026-10-23T22:47:40",
+  "prompt_sha8": "94eae96e",
+  "inputs_sha8": {
+    "notes.md": "0d1b0f58"
+  },
+  "artifacts_count": 1,
+  "checker_exit": 0,
+  "interventions": 0,
+  "rerun": false,
+  "started_at_note": "未记录；prepare 为事后补建（12:27:33），不作起始时间",
+  "retrofit": true
+}

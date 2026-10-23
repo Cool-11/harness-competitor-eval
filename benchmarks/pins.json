@@ -1,0 +1,17 @@
+{
+  "suite": "harness-v1",
+  "revision": "2026-10-23-s06-pilot",
+  "tasks": {
+    "S06-artifact-deep-path": {
+      "files": {
+        "task.md": "88bfc714e73c435097a0bca86bedb92f4a18563cff1d3a331472f4d2a0135b87",
+        "prompt.txt": "94eae96e4cdbfbf06edd525f950736300579fef54749a3848eefd232c3671735",
+        "spec.md": "84a223a593a8b81ccc0d8a4bec646a9ef39ff9ff2b556e04c710fa288e20c226",
+        "checker.py": "7ce8ce3c2fc0d4d8c2eecf185294eb80db382d26c9dafe724ef92073c972c479",
+        "truth.json": "13db6be7fb1c242bae2c1cad31c38be8bae8f5ca108bf566826c523e3f1be331",
+        "inputs/notes.md": "0d1b0f58a6fe93e436034b819dca808023311d3127dda505dd3cad1be950c26e"
+      },
+      "subset_sha256": "beed0e9ed685560609d21921e0d7b2b1e8ad8498803b331d28fb304802df1f6b"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+run_id: S06__workbuddy__r1
+task: S06-artifact-deep-path
+product: workbuddy
+trial: 1
+status: signed_off
+signoff:
+  by: hjs
+  date: 2026-10-23
+  note: "确认按建议档位 3/3/3/2 落分：回传给出路径、取舍与校验结果，唯一扣项是 S2 中 file 命令失败未见补验说明。"
+
+# 行为分 0–3 档 → 格分 = 档位/3 × 1.0；每格必附证据引用。
+cells:
+  - id: D2-1
+    dimension: D2
+    item: 产物落点｜路径达成
+    max: 1.0
+    tier: 3
+    score: 1.0
+    evidence: "shots/S2-首次输出.png（mkdir -p .../workbuddy/output 链式建目录，返回 F:\\runs_tmp\\S06-artifact-deep-path\\workbuddy\\输出\\汇总）；shots/S4-S5-产物落盘与完成.png（『文件路径：月报_v1.md（多级目录 输出/汇总 已自动创建）』）"
+    rationale: "相对路径正确、多级中文目录自建，且完成语未被要求即点明路径与目录自动创建，达锚点 3。"
+  - id: D2-2
+    dimension: D2
+    item: 产物落点｜标题/编码/内容
+    max: 1.0
+    tier: 3
+    score: 1.0
+    evidence: "checker_output.txt（4 项全 PASS，7.0/7）；shots/S4-S5-产物落盘与完成.png（243 字节、UTF-8 无 BOM、6 条无遗漏无增补）"
+    rationale: "四重全对，且主动声明大小/编码/条数，均与实测一致，达锚点 3。"
+  - id: D1-1
+    dimension: D1
+    item: 信息回传｜回传与实际一致性
+    max: 1.0
+    tier: 3
+    score: 1.0
+    evidence: "shots/S4-S5-产物落盘与完成.png（文件路径、标题行处理说明、markdown 正文、校验结果）；artifacts/输出/汇总/月报_v1.md"
+    rationale: "主动列出做了什么、落在哪、有无取舍（删去标题说明行、固定一级标题），且逐条与产物吻合，达锚点 3。"
+  - id: common-1
+    dimension: common
+    item: 通用回传｜过程可跟随
+    max: 1.0
+    tier: 2
+    score: 0.67
+    evidence: "shots/S2-首次输出.png（读取 notes.md、深度思考、mkdir、创建月报、校验步骤；`file 月报_v1.md` 报 command not found，退出码 127）"
+    rationale: "过程分阶段可见；但校验命令出现工具失败，完成语仍给出『校验结果』而未说明补验方式，属任务书未要求上报的异常未主动交代，按 §4.2 取 2。"
+
+totals:
+  behavior_score: 3.67
+  behavior_max: 4.0
+  artifact_score: 6.0
+  single_task_total: 9.67
+  single_task_max: 10.0
+
+notes:
+  - "run1 为 retrofit（先跑后建目录），时间戳不可用；行为分依据 3 张截图与产物，非时间序列。"
+  - "S2 为『首次输出 + 执行链路』合并帧，末段在截图处截断，后续是否补验不可见。"
+  - "S3 未发生；S5 与 S4 合并。"
+  - "S2 显示读取的是仓库 `tasks/.../inputs/notes.md`（投喂偏差，已记 record_quality.feed_deviation），不影响档位。"
+  - "本文件为 hjs 签认后的正式行为分；run.json.evaluation.v1 = 3.67。"

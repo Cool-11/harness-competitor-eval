@@ -1,0 +1,14 @@
+{
+  "elapsed_seconds": 18.986,
+  "turns": 1,
+  "timed_out": false,
+  "manual_interventions": 0,
+  "elapsed_note": "turn/start 23:00:28.354 → turn/end 23:00:47.340（session.log L6/L56）= 18.99s；界面『用时 18 秒』为显示取整；prepare 22:57:25 至投喂约 3 分钟为准备间隔，未计入",
+  "tokens": {
+    "uncached_input": 7690,
+    "output": 1285,
+    "cache_read": 43136,
+    "cache_write": 0
+  },
+  "tokens_source": "session_projcache.sessions.session-46bb5e1c-982c-4006-87e1-e9daeedd90ed.json → tokenUsage.totals"
+}

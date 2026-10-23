@@ -1,0 +1,60 @@
+{
+  "suite": "harness-v1",
+  "task": "S06-artifact-deep-path",
+  "trial": 1,
+  "scope": "pilot",
+  "official": false,
+  "coverage": {
+    "expected": 5,
+    "found": 5,
+    "missing": 0
+  },
+  "by_product": {
+    "codex": {
+      "product": "codex",
+      "status": "scored",
+      "raw_got": 7.0,
+      "raw_full": 7.0,
+      "success": 1,
+      "v1": 2.68,
+      "failure_code": ""
+    },
+    "dsh": {
+      "product": "dsh",
+      "status": "scored",
+      "raw_got": 7.0,
+      "raw_full": 7.0,
+      "success": 1,
+      "v1": 4.0,
+      "failure_code": ""
+    },
+    "workbuddy": {
+      "product": "workbuddy",
+      "status": "scored",
+      "raw_got": 7.0,
+      "raw_full": 7.0,
+      "success": 1,
+      "v1": 3.67,
+      "failure_code": ""
+    },
+    "yuanbao": {
+      "product": "yuanbao",
+      "status": "scored",
+      "raw_got": 7.0,
+      "raw_full": 7.0,
+      "success": 1,
+      "v1": 2.68,
+      "failure_code": ""
+    },
+    "doubao": {
+      "product": "doubao",
+      "status": "scored",
+      "raw_got": 7.0,
+      "raw_full": 7.0,
+      "success": 1,
+      "v1": 3.0,
+      "failure_code": ""
+    }
+  },
+  "notes": "管线试点，不作五款排名；success 仅由 checker 产物分推导，行为分另见 grade.yaml。dsh 为 2026-10-23 23:00 重跑并计入 run1；旧 dsh 现场归档于 dsh/prerun-2026-10-23-0246，不计入。"
+}

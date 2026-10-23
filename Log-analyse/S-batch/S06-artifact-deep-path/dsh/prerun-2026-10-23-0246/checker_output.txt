@@ -1,0 +1,6 @@
+# S06 产物判分 · F:\for-project-new\harness-competitor-eval\Log-analyse\S-batch\S06-artifact-deep-path\dsh\run1\artifacts
+  [PASS] 输出/汇总/月报_v1.md 存在: 2.0/2.0
+  [PASS] UTF-8 合法: 1.0/1.0
+  [PASS] 首个非空行 == # 九月月报: 1.5/1.5
+  [PASS] 6 条事项齐全（无遗漏/增补）: 2.5/2.5 — 命中 6/6
+产物分合计：7.0/7（行为分 0–3 由人工按 spec.md 锚点判定）

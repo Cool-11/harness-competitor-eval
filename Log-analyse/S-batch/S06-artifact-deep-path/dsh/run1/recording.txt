@@ -1,0 +1,8 @@
+产品未提供本轮外部日志。
+
+- 产品形态：DSH 桌面端（DeepSeek Harness，Electron）。运行时日志目录 `%APPDATA%\@deepseek-ai\dsh-desktop\logs\` 仅含历史 `crash-*.log`（最新 2026-10-22T13-19-23Z），与本轮无关；无 main/renderer 常规日志、无错误栈导出。
+- 会话层证据（非外部日志）：原生 session 存储
+  `%USERPROFILE%\.dsh\sessions\--F-tmp_run-S06-artifact-deep-path-dsh-run1-work--\session-46bb5e1c-982c-4006-87e1-e9daeedd90ed\session.v4.jsonl.zstd`
+  已解压为 `session.log`（56 行 JSONL，未改写）；压缩原件另存 `session.v4.jsonl.zstd`。
+- 元数据：`%USERPROFILE%\.dsh\storages\session_projcache\sessions\session-46bb5e1c-982c-4006-87e1-e9daeedd90ed.json`（标题、tokenUsage、sandboxMode）。
+- 说明：外部日志这一层确为“未提供”，不是漏存；过程可观测性由会话事件流承担，不补造运行时日志。

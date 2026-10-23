@@ -1,0 +1,8 @@
+{
+  "elapsed_seconds": null,
+  "elapsed_note": "先跑后建目录，真实墙钟时间未记录；47.5 秒是补录 prepare→collect 的时间，不可用",
+  "retrofit": true,
+  "turns": 1,
+  "timed_out": false,
+  "manual_interventions": 0
+}

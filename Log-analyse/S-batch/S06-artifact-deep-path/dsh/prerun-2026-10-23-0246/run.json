@@ -1,0 +1,79 @@
+{
+  "run_id": "S06__dsh__r1",
+  "suite": "harness-v1",
+  "task": "S06-artifact-deep-path",
+  "product": "dsh",
+  "trial": 1,
+  "variant": "default",
+  "status": "scored",
+  "environment": {
+    "root": "F:\\For_project\\dsh-test",
+    "work_dir": "F:\\For_project\\dsh-test"
+  },
+  "binding": {
+    "prompt_sha8": "94eae96e",
+    "inputs_sha8": {
+      "notes.md": "0d1b0f58"
+    },
+    "task_revision": "2026-10-23-s06-pilot",
+    "product_revision": "5eb783c9",
+    "product_config": {
+      "version": "DeepSeek Harness 0.2.0-rc.2（注册表 DisplayVersion）",
+      "channel": "本地源码/桌面端",
+      "account": "日常账号",
+      "config": "默认插件集与默认模型路由；个人 Skill 停用",
+      "observability": [
+        "终端输出",
+        "桌面/网页可见输出",
+        "会话日志"
+      ],
+      "notes": "评测面以 docs/01 与 baseline 为准；安装路径 D:\\dsh-harness\\installation"
+    },
+    "evaluator_revision": "docs/14-v0.1"
+  },
+  "termination": {
+    "reason": "product_declared_done",
+    "timed_out": false,
+    "turns": null,
+    "manual_interventions": 0,
+    "note": "会话轮次未记录（retrofit）"
+  },
+  "evaluation": {
+    "reward_basis": [
+      "artifact",
+      "contract"
+    ],
+    "components": {
+      "artifact": 1.0
+    },
+    "success": 1,
+    "v1": null,
+    "note": "checker 7/7 PASS：落点/标题/编码/6 条事项全过；contract 由 checker 覆盖"
+  },
+  "diagnostics": {
+    "failure_code": "",
+    "first_error": null,
+    "evidence_grade": "C",
+    "evidence_grade_note": "单产品单跑、无行为分；仅产物形态与落点观察，等级按 docs/03 取 C（跨产品同款复现，非换件因果）"
+  },
+  "evidence": {
+    "run_dir": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\dsh\\prerun-2026-10-23-0246",
+    "timeline": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\dsh\\prerun-2026-10-23-0246\\timeline.md",
+    "session_log": "",
+    "artifacts": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\dsh\\prerun-2026-10-23-0246\\artifacts",
+    "shots": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\dsh\\prerun-2026-10-23-0246\\shots",
+    "recording": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\dsh\\prerun-2026-10-23-0246\\recording.txt"
+  },
+  "record_quality": {
+    "retrofit": true,
+    "missing_evidence": [
+      "S3 澄清/报错/越权（未发生）",
+      "S5 独立结束帧（与 S4 合并）",
+      "完整会话导出",
+      "产品外部日志",
+      "起始时间戳"
+    ],
+    "note": "先跑后建目录：prepare.json 生成于 12:27:33，晚于产物 mtime；墙钟/turns 不可用，只保留产物分",
+    "product_side_dir": "F:\\For_project\\dsh-test"
+  }
+}

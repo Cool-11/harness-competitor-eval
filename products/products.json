@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-10-23",
+  "note": "五款产品的评测态基线。一次填写后，prepare 会自动带入 run.json.binding；版本/账号/配置变化时更新本文件并重新 prepare。版本号的来源统一为：本机 Windows 卸载注册表 DisplayVersion（CLI 产品用 <cmd> --version 实测），记录日期 2026-10-23。",
+  "products": {
+    "codex": {
+      "version": "OpenAI Codex 桌面端 26.1016.8622.0（Appx 包清单 DisplayVersion）",
+      "channel": "桌面端",
+      "account": "日常账号",
+      "config": "桌面端出厂默认；个人 Skill / 自定义指令停用；不再走 CLI `~/.codex/config.toml` custom provider 路径",
+      "observability": ["界面可见输出", "截图"],
+      "notes": "2026-10-23 由 CLI 口径改为桌面端；安装包 OpenAI.Codex_26.1016.8622.0_x64（WindowsApps），用户目录 %LOCALAPPDATA%\\OpenAI\\Codex；桌面端不导出终端日志，外部日志不可得"
+    },
+    "dsh": {
+      "version": "DeepSeek Harness 0.2.0-rc.2（注册表 DisplayVersion）",
+      "channel": "本地源码/桌面端",
+      "account": "日常账号",
+      "config": "默认插件集与默认模型路由；个人 Skill 停用",
+      "observability": ["终端输出", "桌面/网页可见输出", "会话日志"],
+      "notes": "评测面以 docs/01 与 baseline 为准；安装路径 D:\\dsh-harness\\installation"
+    },
+    "workbuddy": {
+      "version": "WorkBuddy 5.8.3（注册表 DisplayVersion）",
+      "channel": "桌面端",
+      "account": "日常账号",
+      "config": "出厂默认；个人 Skill / 自定义指令停用",
+      "observability": ["可见输出", "导出会话"],
+      "notes": "本轮 run1 为 retrofit（先跑后建目录），行为/时间证据不完整"
+    },
+    "yuanbao": {
+      "version": "元宝 2.89.0.612（注册表 DisplayVersion）",
+      "channel": "桌面端·专家模式",
+      "account": "日常账号",
+      "config": "专家模式开启；个人 Skill / 自定义指令停用",
+      "observability": ["可见输出", "导出会话（如支持）"],
+      "notes": "安装路径 D:\\元宝\\installation\\Yuanbao；无“工作区”选项，产物默认落其沙箱 /data/workspace；run1 的 输出/汇总/月报_v1.md 已由评测者从会话文件卡片手动导出"
+    },
+    "doubao": {
+      "version": "豆包 2.28.13（注册表 DisplayVersion）",
+      "channel": "桌面端·办公入口",
+      "account": "日常账号",
+      "config": "出厂默认；不添加自定义智能体/指令",
+      "observability": ["可见输出", "导出会话（如支持）"],
+      "notes": "run1 产物落在 F:\\runs_tmp\\S06-artifact-deep-path\\doubao\\输出\\汇总\\；本轮为 retrofit"
+    }
+  }
+}

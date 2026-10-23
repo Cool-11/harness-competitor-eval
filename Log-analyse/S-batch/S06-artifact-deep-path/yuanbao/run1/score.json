@@ -1,0 +1,16 @@
+{
+  "raw_got": 7.0,
+  "raw_full": 7.0,
+  "metrics": {},
+  "behavior": {
+    "got": 2.68,
+    "full": 4.0,
+    "status": "signed_off"
+  },
+  "single_task_total": 8.68,
+  "single_task_max": 10.0,
+  "failure_code": "",
+  "evidence_grade": "C",
+  "status": "graded",
+  "note": "产物分有效；产物由评测者从元宝会话手动导出，文件名/相对路径按产品落点归档；行为分 2.68/4 已由评测者签认（grade.yaml）"
+}

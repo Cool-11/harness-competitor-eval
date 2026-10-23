@@ -1,0 +1,21 @@
+{
+  "case": "S06-artifact-deep-path",
+  "product": "yuanbao",
+  "run": 1,
+  "variant": "default",
+  "root": "F:\\tmp_run",
+  "work_dir": "F:\\tmp_run\\S06-artifact-deep-path\\yuanbao\\run1\\work",
+  "product_revision": "7a34ef7a",
+  "started_at": "2026-10-23T12:27:33",
+  "ended_at": "2026-10-23T12:30:52",
+  "started_at_note": "prepare.json 时间；实际投喂约 12:30:37（S1 截图 mtime），投喂时刻本身不可得",
+  "ended_at_note": "按 S4/S5 完成帧 mtime 估算；归档与 collect 完成于 22:59",
+  "prompt_sha8": "94eae96e",
+  "inputs_sha8": {
+    "notes.md": "0d1b0f58"
+  },
+  "artifacts_count": 2,
+  "checker_exit": 0,
+  "interventions": 0,
+  "rerun": false
+}

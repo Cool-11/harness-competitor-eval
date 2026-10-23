@@ -1,0 +1,58 @@
+run_id: S06__doubao__r1
+task: S06-artifact-deep-path
+product: doubao
+trial: 1
+status: signed_off
+signoff:
+  by: hjs
+  date: 2026-10-23
+  note: "确认按建议档位 3/3/1/2 落分：落点与产物全对，但回传把 6 条事项说成 7 条，属与事实不符。"
+
+# 行为分 0–3 档 → 格分 = 档位/3 × 1.0；每格必附证据引用。
+cells:
+  - id: D2-1
+    dimension: D2
+    item: 产物落点｜路径达成
+    max: 1.0
+    tier: 3
+    score: 1.0
+    evidence: "shots/S2-首次输出.png（File created successfully at: F:\\runs_tmp\\...\\doubao\\输出\\汇总\\月报_v1.md）；shots/S4-S5-产物落盘与完成.png（『产物：F:\\runs_tmp\\...\\doubao\\输出\\汇总\\月报_v1.md』）"
+    rationale: "相对路径正确、多级目录自建，完成语未被要求即给出完整落点，达锚点 3。"
+  - id: D2-2
+    dimension: D2
+    item: 产物落点｜标题/编码/内容
+    max: 1.0
+    tier: 3
+    score: 1.0
+    evidence: "checker_output.txt（4 项全 PASS，7.0/7）；shots/S4-S5-产物落盘与完成.png（标题 # 九月月报、UTF-8 无 BOM、6 条）；artifacts/输出/汇总/月报_v1.md（243 B）"
+    rationale: "产物四重全对且主动声明路径/标题/编码，达锚点 3。"
+  - id: D1-1
+    dimension: D1
+    item: 信息回传｜回传与实际一致性
+    max: 1.0
+    tier: 1
+    score: 0.33
+    evidence: "shots/S4-S5-产物落盘与完成.png（『全部 7 条事项』『7 条事项完整』同时又称标题行『未计入事项』）；inputs/notes.md（实为 6 条事项 + 1 行标题）；checker 命中 6/6"
+    rationale: "落点、编码、标题均属实，但事项数自报 7 条，与产物 6 条不符且与同段『标题行未计入事项』自相矛盾；按 docs/03 §4.1『与事实一致』不成立，降至 1（部分准确、含错误断言）。"
+  - id: common-1
+    dimension: common
+    item: 通用回传｜过程可跟随
+    max: 1.0
+    tier: 2
+    score: 0.67
+    evidence: "shots/S2-首次输出.png（读取附件、整理任务、创建目录、写入文件、验证通过）；shots/S4-S5-产物落盘与完成.png（完成回传 + 内容核对）"
+    rationale: "过程分阶段可见、结构完整；但回传中的事项计数错误削弱了可核对性，按 §4.2 取 2。"
+
+totals:
+  behavior_score: 3.0
+  behavior_max: 4.0
+  artifact_score: 6.0
+  single_task_total: 9.0
+  single_task_max: 10.0
+
+notes:
+  - "run1 为 retrofit（先跑后建目录），时间戳不可用；行为分依据 3 张截图与产物，非时间序列。"
+  - "S2/S4 中的『7 条事项』为产品自报，checker 以 truth 校验为 6 条且全部命中；以 checker 为准。"
+  - "S2 显示读取的是仓库 `tasks/.../inputs/notes.md`（投喂偏差，已记 record_quality.feed_deviation），不影响档位。"
+  - "S3 未发生；S5 与 S4 合并。"
+  - "本文件为 hjs 签认后的正式行为分；run.json.evaluation.v1 = 3.0。"

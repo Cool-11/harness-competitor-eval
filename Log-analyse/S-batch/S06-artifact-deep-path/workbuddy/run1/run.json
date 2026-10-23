@@ -1,0 +1,83 @@
+{
+  "run_id": "S06__workbuddy__r1",
+  "suite": "harness-v1",
+  "task": "S06-artifact-deep-path",
+  "product": "workbuddy",
+  "trial": 1,
+  "variant": "default",
+  "status": "scored",
+  "environment": {
+    "root": "F:\\tmp_run",
+    "work_dir": "F:\\tmp_run\\S06-artifact-deep-path\\workbuddy\\run1\\work"
+  },
+  "binding": {
+    "prompt_sha8": "94eae96e",
+    "inputs_sha8": {
+      "notes.md": "0d1b0f58"
+    },
+    "task_revision": "2026-10-23-s06-pilot",
+    "product_revision": "bd033a9c",
+    "evaluator_revision": "docs/14-v0.1",
+    "product_config": {
+      "version": "WorkBuddy 5.8.3（注册表 DisplayVersion）",
+      "channel": "桌面端",
+      "account": "日常账号",
+      "config": "出厂默认；个人 Skill / 自定义指令停用",
+      "observability": [
+        "可见输出",
+        "导出会话"
+      ],
+      "notes": "本轮 run1 为 retrofit（先跑后建目录），行为/时间证据不完整"
+    }
+  },
+  "termination": {
+    "reason": "product_declared_done",
+    "timed_out": false,
+    "turns": 1,
+    "manual_interventions": 0
+  },
+  "evaluation": {
+    "reward_basis": [
+      "artifact",
+      "contract"
+    ],
+    "components": {
+      "artifact": 1.0,
+      "contract": 1.0
+    },
+    "success": 1,
+    "v1": 3.67,
+    "v1_max": 4.0,
+    "v1_note": "hjs 签认（2026-10-23）：D2-1 / D2-2 / D1-1 档 3，common-1 档 2，逐格见 grade.yaml",
+    "single_task_total": 9.67,
+    "single_task_max": 10.0,
+    "note": "checker 7/7 PASS；路径/标题/编码/内容均通过；contract 由 checker 的落点与格式项覆盖"
+  },
+  "diagnostics": {
+    "failure_code": "",
+    "first_error": null,
+    "evidence_grade": "C",
+    "evidence_grade_note": "单产品单跑且为 retrofit（产物 mtime 早于 prepare，先后不可靠）；产物分与同题其余四款同指纹（5/5 均 7.0/7）；行为/时间不可复核。按 docs/01 §4.2 取 C（指纹/行为学证据），不得表述为因果；数据完整度另见 record_quality。"
+  },
+  "record_quality": {
+    "retrofit": true,
+    "missing_evidence": [
+      "S3 澄清/报错/越权（未发生）",
+      "S5 独立结束帧（与 S4 合并）",
+      "产品外部日志（未提供）",
+      "原始会话导出"
+    ],
+    "note": "先跑后建目录；时间线与起止时间不可靠，已标 retrofit；S1/S2/S4-S5 截图已归档，命名见 shots/README.md",
+    "feed_deviation": [
+      "S2 显示读取的是仓库 tasks/second_tasks/S06-artifact-deep-path/inputs/notes.md，而非工作目录副本；属 retrofit 期投喂所致，未见读取 spec.md / truth.json"
+    ]
+  },
+  "evidence": {
+    "run_dir": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\workbuddy\\run1",
+    "timeline": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\workbuddy\\run1\\timeline.md",
+    "session_log": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\workbuddy\\run1\\session.log",
+    "artifacts": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\workbuddy\\run1\\artifacts",
+    "shots": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\workbuddy\\run1\\shots",
+    "recording": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\workbuddy\\run1\\recording.txt"
+  }
+}

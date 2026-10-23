@@ -12,7 +12,7 @@ python scripts/sbatch.py prepare <题号> <产品> --run 1
 # 2) 按 docs/05：新开会话，把 prompt.txt 全文粘贴投喂；录屏 / 日志留痕
 
 # 3) 归档 + 判分 + 记入结果表
-python scripts/sbatch.py collect <题号> <产品> --run 1 --work "F:\runs_tmp\<题号>\<产品>\run1\work"
+python scripts/sbatch.py collect <题号> <产品> --run 1 --work "F:\tmp_run\<题号>\<产品>\run1\work"
 ```
 
 - **产品口径**：`codex` / `dsh` / `workbuddy` / `yuanbao` / `doubao`

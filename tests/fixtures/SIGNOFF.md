@@ -17,3 +17,5 @@
 | S26 | draft | draft | — | — |
 | S30 | draft | draft | — | — |
 | S31 | draft | draft | — | — |
+
+> 另：S13 增加 `tampered` 变体（B 行静默改写为 0）用于 K1 回归，状态同为 `draft`，不计入上表"12 题 × 2 类"；预期 0.5/7，见 `tests/fixtures/tampered/S13-silent-contradiction/WHY.md`。

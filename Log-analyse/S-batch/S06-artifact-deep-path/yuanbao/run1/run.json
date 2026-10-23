@@ -1,0 +1,82 @@
+{
+  "run_id": "S06__yuanbao__r1",
+  "suite": "harness-v1",
+  "task": "S06-artifact-deep-path",
+  "product": "yuanbao",
+  "trial": 1,
+  "variant": "default",
+  "status": "scored",
+  "environment": {
+    "root": "F:\\tmp_run",
+    "work_dir": "F:\\tmp_run\\S06-artifact-deep-path\\yuanbao\\run1\\work"
+  },
+  "binding": {
+    "prompt_sha8": "94eae96e",
+    "inputs_sha8": {
+      "notes.md": "0d1b0f58"
+    },
+    "task_revision": "2026-10-23-s06-pilot",
+    "product_revision": "7a34ef7a",
+    "product_config": {
+      "version": "元宝 2.89.0.612（注册表 DisplayVersion）",
+      "channel": "桌面端·专家模式",
+      "account": "日常账号",
+      "config": "专家模式开启；个人 Skill / 自定义指令停用",
+      "observability": [
+        "可见输出",
+        "导出会话（如支持）"
+      ],
+      "notes": "安装路径 D:\\元宝\\installation\\Yuanbao；无“工作区”选项，产物默认落其沙箱 /data/workspace；run1 的 输出/汇总/月报_v1.md 已由评测者从会话文件卡片手动导出"
+    },
+    "evaluator_revision": "docs/14-v0.1"
+  },
+  "termination": {
+    "reason": "product_declared_done",
+    "timed_out": false,
+    "turns": 1,
+    "manual_interventions": 0,
+    "note": "1 轮投喂；S4/S5 完成帧约 12:30:52，产品自述完成"
+  },
+  "evaluation": {
+    "reward_basis": [
+      "artifact",
+      "contract"
+    ],
+    "components": {
+      "artifact": 1.0,
+      "contract": 1.0
+    },
+    "success": 1,
+    "v1": 2.68,
+    "v1_max": 4.0,
+    "v1_note": "评测者签认（2026-10-23）：D2-1 / D2-2 / D1-1 / common-1 均档 2，逐格见 grade.yaml",
+    "single_task_total": 8.68,
+    "single_task_max": 10.0,
+    "note": "checker 7/7 PASS：落点（输出/汇总/月报_v1.md）、UTF-8、首行标题、6 条事项全过；contract 由 checker 的落点与格式项覆盖；行为分 2.68/4 已签认，单题合计 8.68/10"
+  },
+  "diagnostics": {
+    "failure_code": "",
+    "first_error": null,
+    "evidence_grade": "C",
+    "evidence_grade_note": "单产品单跑、无行为分；仅产物形态与落点观察，等级按 docs/03 取 C（跨产品同款复现，非换件因果）"
+  },
+  "record_quality": {
+    "retrofit": false,
+    "product_side_dir": "/data/workspace（元宝沙箱；产品无“工作区”选项）",
+    "missing_evidence": [
+      "S3 澄清/报错/越权（未发生）",
+      "S5 独立结束帧（与 S4 合并）",
+      "完整会话导出",
+      "精确投喂/完成时刻（仅截图 mtime）"
+    ],
+    "note": "prepare.json 12:27:33 早于投喂帧 12:30:37，属完整现场；产物由评测者从会话文件卡片手动导出为 输出/汇总/月报_v1.md，根目录差异按相对路径计通过；recording.txt 为评测者提供的元宝外部输出日志"
+  },
+  "evidence": {
+    "run_dir": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\yuanbao\\run1",
+    "timeline": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\yuanbao\\run1\\timeline.md",
+    "session_log": "",
+    "artifacts": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\yuanbao\\run1\\artifacts",
+    "shots": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\yuanbao\\run1\\shots",
+    "recording": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\yuanbao\\run1\\recording.txt"
+  }
+}

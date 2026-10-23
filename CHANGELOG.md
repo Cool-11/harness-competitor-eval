@@ -6,6 +6,48 @@
 
 ---
 
+## [2026-10-23]
+
+### 修复
+
+- **K1（S13 篡改 B 行不归零）**：`tasks/second_tasks/S13-silent-contradiction/checker.py` 增加篡改分支——B 行缺失/留空/静默写成非负且无异常标注 → 仅保留 `result.md 存在` 0.5，其余归零；`--selftest` 增"近似违规"用例；`spec.md` 补机读口径第 5 条（判定优先级原文未改）。tampered 变体 3.5 → **0.5/7**，golden 仍 7.0、partial 仍 5.5；`tests/KNOWN_ISSUES.md` K1 置为已修复（K2 仍开放）
+
+### 变更
+
+- `scripts/sbatch.py`：`prepare` 支持 `--root`（默认 `F:\tmp_run`）与 `--variant`；生成 `run.json` 骨架；`collect` 复制 `prepare.json`、回填 `run.json` 的终止/绑定/components/success/证据，支持 `--termination`；新增 `summary` 命令汇总五款试点
+- `scripts/sbatch.py`：读取 `products/products.json`，自动写入 `run.json.binding.product_config` / `product_revision`，并写入 `manifest.json`
+- `products/products.json`：由模板升为**实值**（五款版本/渠道/账号/停用清单，2026-10-23 实测 + 注册表）
+- `tests/regression/test_expected_scores.py`：快照类型增加 `tampered`（近似正确但违规），S13 记 0.5
+- `Log-analyse/S-batch/results.md`：说明行移至表头下方（`docs/17 §3.4` 第 13 条），数据行按 codex/dsh/doubao/workbuddy/yuanbao 补齐，行为分五款全部签认
+- `recording.txt` 语义变更：改为**产品外部日志**（工具调用/运行时/错误栈），不再记录录屏链接；S06 试点不要求录屏
+- `tests/unit/test_sbatch_evidence.py`：新增自定义根目录、`run.json`、`pilot-results.json` 用例；证据包必需文件增加 `prepare.json` / `run.json`
+
+### 新增
+
+- `tests/fixtures/tampered/S13-silent-contradiction/`：K1 回归样本（B 静默改写为 0）+ `WHY.md`（写明破坏点与预期 ≤1.0）
+- `tests/regression/evidence/`：S13 修复前后 checker 输出、pytest junit XML（2026-10-23）
+- **`docs/18-未知登记表.md`**：未知分类（未跑/证据不足/形态不支持/口径未裁）+ 下一步 + 停止条件 + 截止；5 条开放、4 条已结清（U-00a / U-00b / U-01 / U-07）
+- **`docs/reports/阶段报告-01-2026-10-24.md`**：阶段报告 v0.1（运行账、K1 闭环、S06 5/5、T02 归因卡、未知账、本轮不做）
+- `benchmarks/harness-v1-pilot.json`：S06 单题试点 frame（五款 × 1 题 × 1 trial）
+- `benchmarks/pins.json`：S06 题包文件哈希与题集摘要
+- `benchmarks/README.md`：frame / pin 口径与试点范围
+
+### 文档
+
+- `docs/17 §0/§4.2/§5/§10`：回填执行结果并统一口径——统计从审计稿"1 次 / 1/5"更正为 **5 次 / 5/5**（codex 现场漏读 + yuanbao 补判）；G1/G2/G3 三项均完成
+- `docs/17`、`docs/18`、`Log-analyse/S-batch/{results.md,S06-artifact-deep-path/pilot-summary.md,pilot-results.json}`、`README.md`：五款行为分（codex 2.68 / dsh 4.0 / workbuddy 3.67 / yuanbao 2.68 / doubao 3.0）与运行账统一，消除"汇总只写两款"的旧值
+- `docs/15 §2/§4`：工作区根目录可自定义（含特殊字符 `=` 的路径用 `-LiteralPath`）；补充 `sbatch.py prepare --root` 的推荐命令
+- `docs/15 §4.1`：明确“禁止在 prompt 后追加保存路径”，否则破坏五款任务书一致性与 S06 的 D2 测点
+- `docs/15 §6/§8`：`collect` 自动生成证据包与 `run.json`；`summary` 生成 `pilot-results.json` / `pilot-summary.md`
+- `docs/15 §9`：补充“先跑后建目录 / 截图放旧批次 / 产物未放 run1/work”三类常见错误
+- `docs/05`、`docs/14`、`Log-analyse/S-batch/README.md`、`Log-analyse/baseline/环境冻结操作指引.md`：工作区示例统一为 `F:\tmp_run`
+- `docs/16`：deepseek-harness 三篇文档（`testing.zh.md` / `architecture.zh.md` / `capability-seams.md`）精读笔记 v0.1（评测视角）——六条判据、`turn/step` 计量口径、`turn flow` 首错坐标表、12 个可换件 seam、回归≠评测缺口清单、7 项待落地动作（A1–A7）
+- **`docs/17`**：导师验收口径核对与下一轮调整（2026-10-23）——六条要求逐条对照、8 项实质差异、运行计数口径、下一轮 3 项可验收目标（K1 漏洞 / S06 5/5 / T02 归因）与阶段报告骨架
+- `README.md`：目录导航 `docs/` 行补登 `16`、`17`、`18` 与 `docs/reports/`
+- `docs/周报/readme.md`：模板新增"〇、本周运行账"（独立/有效/失败/未知 + 现场链接），下周计划改为 ≤3 项并带交付物/规模/完成条件
+
+---
+
 ## [2026-10-22]
 
 ### 新增
@@ -16,6 +58,11 @@
 - `tests/fixtures/`：深跑 12 题 golden/partial + `WHY.md`；`SIGNOFF.md` 签署表；`KNOWN_ISSUES.md`（S13/S17 口径差异）
 - `pytest.ini`、`requirements-dev.txt`（pytest 9.1.1）、项目内 `.venv`
 - `scripts/update_expected_scores.py`：从 fixture 生成/校验回归快照
+- **`docs/13`**：tau2-bench 借鉴与改造方案 v0.1（讨论稿）——评测合同、二元成功、manifest/pin、分账聚合、双轨记分与分期落地
+- **`docs/14`**：chapter7《Agent 的评估》借鉴与实施细化 v0.1（讨论稿）——四环节、Rubric 四准则、LLM judge 可信度协议、首错归因、轨迹前缀回归、配对统计与 9 道思考题解答
+- **`docs/15`**：S06 试点运行卡 v0.1——五款 × 各 1 次、临时工作区/证据包/返回清单、S06 验收口径与常见错误
+- `docs/08 §8.3`：运行证据三件套增加 v2 试点字段（`prepare.json` / `run.json` / `grade.yaml` / `badcase.yaml`）
+- **`docs/04 §7`**：登记 tau2-bench 机制借鉴（只搬合同/分母/复现纪律，不搬模拟器与容器）
 
 ### 变更
 

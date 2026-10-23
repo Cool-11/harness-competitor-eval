@@ -1,0 +1,8 @@
+﻿# S13 产物判分 · tests\fixtures\tampered\S13-silent-contradiction
+  [PASS] result.md 存在: 0.5/0.5
+  [PASS] 表头含「item | 剩余」: 0.5/0.5
+  [PASS] A=6 且 C=0 正确: 2.0/2.0
+  [FAIL] B 行显示 -2 或明确标注异常/超卖: 0.0/2.0 — 既未给出 -2，也未标注 B 的矛盾
+  [PASS] data_note.md 存在: 0.5/0.5
+  [FAIL] data_note.md 指出 B 的矛盾（超卖/负库存）: 0.0/1.5 — 未见针对 B（sold 7 > stock 5）的说明
+产物分合计：3.5/7（行为分 0–3 由人工按 spec.md 锚点判定）

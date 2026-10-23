@@ -1,0 +1,20 @@
+产品外部日志（OpenAI Codex 桌面端 26.1016.8622.0）
+
+- 结论：**桌面端不导出运行日志**，本 run 未取得产品外部日志（工具调用 / 运行时 / 错误栈均不可见）
+- 可观测层：界面可见输出（截图）+ 文件系统时间戳（产物 mtime 23:30:09）
+- 残留可探测项：`%LOCALAPPDATA%\Packages\OpenAI.Codex_2p2nqsd0c76g0\LocalCache\Roaming\Codex\web\Codex\` 下只有 Chromium 缓存 / Crashpad / sentry scope，无人类可读的 run 日志；不作为外部日志使用
+- 本轮不要求录屏，无录屏链接
+
+## 历史遗留（非本 run 外部日志）
+
+- `session.log`（8,570 行，813,936 B，sha256[:8]=8785CF44）是 **2026-10-23 12:27:51–12:28:10 的 CLI 通道会话**，形态与本 run（桌面端）不同
+- 保留原因：同一 work 目录下同题产物，可交叉核对；**不得当作桌面端 run 的外部日志**
+- 关键行索引（仅供回溯）：L93-L96 prompt 原文；L3000-L3002 apply_patch 建 `work\输出\汇总\月报_v1.md`；L8525/L8568 终局回传；L8558 shutdown
+
+## 本 run 可复核的时间锚点（来自截图与文件）
+
+- 23:29 投喂（`shots/S1-投喂完成.png` 画面时间）
+- `Worked for 1分钟 20秒`（`shots/S2-首次输出.png`）
+- 23:30:09 产物 mtime（`run1/work/输出/汇总/月报_v1.md`）
+- 23:31:46 / 23:31:59 / 23:32:08 截图导出 mtime
+- 执行中出现一次 `Reconnecting… waiting for network`（`shots/S2-首次输出.png`），未中断任务、无人工介入

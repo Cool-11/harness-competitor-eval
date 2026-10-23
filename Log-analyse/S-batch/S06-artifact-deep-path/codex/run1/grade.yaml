@@ -1,0 +1,59 @@
+run_id: S06__codex__r1
+task: S06-artifact-deep-path
+product: codex
+trial: 1
+status: signed_off
+signoff:
+  by: hjs
+  date: 2026-10-23
+  note: "确认按建议档位 2/2/2/2 落分：产物与契约全对，但完成回传未复述保存路径，四格均封顶档 2。"
+
+# 行为分 0–3 档 → 格分 = 档位/3 × 1.0；每格必附证据引用。
+cells:
+  - id: D2-1
+    dimension: D2
+    item: 产物落点｜路径达成
+    max: 1.0
+    tier: 2
+    score: 0.67
+    evidence: "shots/S2-首次输出.png（命令含 ...\\codex\\run1\\work\\输出\\汇总\\月报_v1.md）；artifacts/输出/汇总/月报_v1.md（mtime 23:30:09）；shots/S4-S5-产物落盘与完成.png（文件卡片 月报_v1.md）"
+    rationale: "相对路径正确、多级中文目录由产品自建，落点与 run1/work 同源；但完成语只说『已完成并保存月报』，未以文字复述保存路径，未达锚点 3『未被要求即主动确认落点』。"
+  - id: D2-2
+    dimension: D2
+    item: 产物落点｜标题/编码/内容
+    max: 1.0
+    tier: 2
+    score: 0.67
+    evidence: "checker_output.txt（4 项全 PASS，7.0/7）；shots/S4-S5-产物落盘与完成.png（『包含全部 6 项事项』『UTF-8 编码的 Markdown』）"
+    rationale: "标题/编码/6 条事项全对且无增补，并主动声明了条数与编码；未主动给出路径，按 spec 该观察项档 3 条件不成立，封顶 2。"
+  - id: D1-1
+    dimension: D1
+    item: 信息回传｜回传与实际一致性
+    max: 1.0
+    tier: 2
+    score: 0.67
+    evidence: "shots/S4-S5-产物落盘与完成.png（完成回传 + 文件卡片）；timeline.md L16（回传未复述完整路径）"
+    rationale: "回传的 6 项事项与 UTF-8 均与实际相符，未夸大；但只说文件名卡片、未说明保存路径，也未交代取舍，未达锚点 3。"
+  - id: common-1
+    dimension: common
+    item: 通用回传｜过程可跟随
+    max: 1.0
+    tier: 2
+    score: 0.67
+    evidence: "shots/S2-首次输出.png（计划语、Edited a file / Ran commands、最后核对语、Reconnecting 提示）；shots/S4-S5-产物落盘与完成.png（完成语）"
+    rationale: "过程分阶段可见、完成语属实；期间出现一次 `Reconnecting… waiting for network`，自行恢复但未在回传中主动上报，按 docs/03 §4.2 可观测性取 2。"
+
+totals:
+  behavior_score: 2.68
+  behavior_max: 4.0
+  artifact_score: 6.0
+  single_task_total: 8.68
+  single_task_max: 10.0
+
+notes:
+  - "产物分已由 checker 判为 7.0/7（checker_output.txt）。"
+  - "产品形态：OpenAI Codex 桌面端 26.1016.8622.0。正式证据 = 2026-10-23 23:29 重跑的 S1/S2/S4-S5 + work 产物 mtime 23:30:09，四者同源。"
+  - "S3 未发生澄清/报错/越权；S2 中 `Reconnecting… waiting for network` 属连接层提示，不是向人提问，也未触发人工介入。"
+  - "S5 无独立结束帧，与 S4 合并。"
+  - "桌面端不导出运行日志；12:27 CLI session.log 与本 run 不同形态，不作本 run 外部日志。"
+  - "本文件为 hjs 签认后的正式行为分；run.json.evaluation.v1 = 2.68。"

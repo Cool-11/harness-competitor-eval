@@ -10,7 +10,7 @@
 | S10 | draft | draft | — | — |
 | S11 | draft | draft | — | — |
 | S13 | signed | signed | hjs | 2026-10-23 |
-| S17 | draft | draft | — | — |
+| S17 | signed | signed | hjs | 2026-10-24 |
 | S19 | draft | draft | — | — |
 | S22 | draft | draft | — | — |
 | S24 | draft | draft | — | — |
@@ -18,6 +18,7 @@
 | S30 | draft | draft | — | — |
 | S31 | draft | draft | — | — |
 
-> 另：S13 增加 `tampered` 变体（B 行静默改写为 0）用于 K1 回归，**已于 2026-10-23 由 hjs 签署**，不计入上表"12 题 × 2 类"；预期 0.5/7，见 `tests/fixtures/tampered/S13-silent-contradiction/WHY.md`。
+> 另：S13 增加 `tampered` 变体（B 行静默改写为 0）用于 K1 回归，**已于 2026-10-23 由 hjs 签署**，预期 0.5/7，见 `tests/fixtures/tampered/S13-silent-contradiction/WHY.md`。
+> 另：S17 增加 `tampered` 变体（漏写总计行）用于 K2 回归，**已于 2026-10-24 由 hjs 签署**，预期 6.0/7，见 `tests/fixtures/tampered/S17-multifile-crossref/WHY.md`。
 >
-> 当前进度：**S13 已签（1/12 题，含 tampered）**；其余 11 题仍为 `draft`。
+> 当前进度：**S13、S17 已签（2/12 题，各含 tampered）**；其余 10 题仍为 `draft`。

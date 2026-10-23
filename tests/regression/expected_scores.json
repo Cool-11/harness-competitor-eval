@@ -22,7 +22,8 @@
   },
   "S17": {
     "golden": 7.0,
-    "partial": 6.17
+    "partial": 6.33,
+    "tampered": 6.0
   },
   "S19": {
     "golden": 7.0,

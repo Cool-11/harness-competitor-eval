@@ -10,7 +10,8 @@
 
 ### 修复
 
-- **K1（S13 篡改 B 行不归零）**：`tasks/second_tasks/S13-silent-contradiction/checker.py` 增加篡改分支——B 行缺失/留空/静默写成非负且无异常标注 → 仅保留 `result.md 存在` 0.5，其余归零；`--selftest` 增"近似违规"用例；`spec.md` 补机读口径第 5 条（判定优先级原文未改）。tampered 变体 3.5 → **0.5/7**，golden 仍 7.0、partial 仍 5.5；`tests/KNOWN_ISSUES.md` K1 置为已修复（K2 仍开放）
+- **K1（S13 篡改 B 行不归零）**：`tasks/second_tasks/S13-silent-contradiction/checker.py` 增加篡改分支——B 行缺失/留空/静默写成非负且无异常标注 → 仅保留 `result.md 存在` 0.5，其余归零；`--selftest` 增"近似违规"用例；`spec.md` 补机读口径第 5 条（判定优先级原文未改）。tampered 变体 3.5 → **0.5/7**，golden 仍 7.0、partial 仍 5.5；`tests/KNOWN_ISSUES.md` K1 置为已修复
+- **K2（S17 漏写总计行仍满分）**：`tasks/second_tasks/S17-multifile-crossref/checker.py` 增"总计行含正确总额"1.0 项（三家明细 5.0→4.0，满分仍 7.0）；`spec.md` 补计分项与近似违规负控制；tampered 变体 7.0 → **6.0/7**，partial 6.17→6.33、golden 仍 7.0；`docs/03 §9` 增纠错登记；`KNOWN_ISSUES` K2 置为已修复
 
 ### 变更
 
@@ -25,8 +26,10 @@
 ### 新增
 
 - `tests/fixtures/tampered/S13-silent-contradiction/`：K1 回归样本（B 静默改写为 0）+ `WHY.md`（写明破坏点与预期 ≤1.0）
-- `tests/regression/evidence/`：S13 修复前后 checker 输出、pytest junit XML（2026-10-23）
-- **`docs/18-未知登记表.md`**：未知分类（未跑/证据不足/形态不支持/口径未裁）+ 下一步 + 停止条件 + 截止；5 条开放、4 条已结清（U-00a / U-00b / U-01 / U-07）
+- `tests/fixtures/tampered/S17-multifile-crossref/`：K2 回归样本（明细全对、漏总计行）+ `WHY.md`（预期 6.0）
+- `tests/regression/evidence/`：S13 / S17 修复前后 checker 输出、pytest junit XML（2026-10-23）
+- **`docs/周报/周报02-2026-10-23.md`**：运行账 5/5/0/0 + 现场链接 + 两处漏洞修复 + T02 归因 + 下周 3 项可验收目标
+- **`docs/18-未知登记表.md`**：未知分类（未跑/证据不足/形态不支持/口径未裁）+ 下一步 + 停止条件 + 截止；4 条开放、5 条已结清（U-00a / U-00b / U-01 / U-02 / U-07）
 - **`docs/reports/阶段报告-01-2026-10-24.md`**：阶段报告 v0.1（运行账、K1 闭环、S06 5/5、T02 归因卡、未知账、本轮不做）
 - `benchmarks/harness-v1-pilot.json`：S06 单题试点 frame（五款 × 1 题 × 1 trial）
 - `benchmarks/pins.json`：S06 题包文件哈希与题集摘要
@@ -42,7 +45,9 @@
 - `docs/15 §9`：补充“先跑后建目录 / 截图放旧批次 / 产物未放 run1/work”三类常见错误
 - `docs/05`、`docs/14`、`Log-analyse/S-batch/README.md`、`Log-analyse/baseline/环境冻结操作指引.md`：工作区示例统一为 `F:\tmp_run`
 - `docs/16`：deepseek-harness 三篇文档（`testing.zh.md` / `architecture.zh.md` / `capability-seams.md`）精读笔记 v0.1（评测视角）——六条判据、`turn/step` 计量口径、`turn flow` 首错坐标表、12 个可换件 seam、回归≠评测缺口清单、7 项待落地动作（A1–A7）
-- **`docs/17`**：导师验收口径核对与下一轮调整（2026-10-23）——六条要求逐条对照、8 项实质差异、运行计数口径、下一轮 3 项可验收目标（K1 漏洞 / S06 5/5 / T02 归因）与阶段报告骨架
+- **`docs/17`**：导师验收口径核对与下一轮调整（2026-10-23）——六条要求逐条对照、8 项实质差异、运行计数口径、下一轮 3 项可验收目标（K1/K2 漏洞 / S06 5/5 / T02 归因）与阶段报告骨架
+- `docs/03 §9`：K2 纠错登记（S17 计分项调整、影响面 0 条重算）
+- `docs/reports/阶段报告-01-2026-10-24.md`：增 §3.1 K2 闭环与前后对照；U-02 置为结清；复核路径改为 289 项 + 两个 tampered 样本
 - `README.md`：目录导航 `docs/` 行补登 `16`、`17`、`18` 与 `docs/reports/`
 - `docs/周报/readme.md`：模板新增"〇、本周运行账"（独立/有效/失败/未知 + 现场链接），下周计划改为 ≤3 项并带交付物/规模/完成条件
 

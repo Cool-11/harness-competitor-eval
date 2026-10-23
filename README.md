@@ -53,9 +53,10 @@ flowchart LR
 - [x] S 批跑测脚手架与结果大表（[scripts/sbatch.py](scripts/sbatch.py)、[Log-analyse/S-batch/](Log-analyse/S-batch/)）
 - [x] 任务卡与运行证据规范（[docs/08 §8](docs/08-目录与命名规范.md)，2026-10-22）：YAML 头 + 证据三件套 + "形态不支持"口径
 - [x] **S06 单题试点 5/5**（五款各 1 次；产物分与行为分均已签认，证据等级 C）——[pilot-summary](Log-analyse/S-batch/S06-artifact-deep-path/pilot-summary.md)
-- [x] **K1 判卷漏洞已修复**（S13 篡改 B 行：tampered 3.5→0.5，golden 7.0；[KNOWN_ISSUES](tests/KNOWN_ISSUES.md)）
+- [x] **K1、K2 判卷漏洞已修复**（S13 篡改 B 行 3.5→0.5；S17 漏总计行 7.0→6.0；[KNOWN_ISSUES](tests/KNOWN_ISSUES.md)）
 - [x] **T02 原因验证已结清**（判真值错、非 Harness，证据等级 B；[阶段报告 §5](docs/reports/阶段报告-01-2026-10-24.md)）
-- [x] **未知登记表**（[docs/18](docs/18-未知登记表.md)：5 条开放 + 4 条已结清，均带下一步与停止条件）
+- [x] **周报 02 已出**（运行账 5/5/0/0 + 现场链接 + 3 项可验收目标；[周报02](docs/周报/周报02-2026-10-23.md)）
+- [x] **未知登记表**（[docs/18](docs/18-未知登记表.md)：4 条开放 + 5 条已结清，均带下一步与停止条件）
 - [x] 仓库维护机制：变更日志 [CHANGELOG.md](CHANGELOG.md)、周报留档 [docs/周报/](docs/周报/)
 
 **进行中 / 待做**

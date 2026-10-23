@@ -3,7 +3,8 @@ check_S17.py — S17 多文件交叉汇总（跨文件检索 + 上下文管理�
 
 产物分 7.0：
   cross_ref.md 存在 0.5 ｜ 表头「供应商|合同数|总金额」1.0
-  三家供应商的合同数与总金额全部正确 5.0（按供应商部分分）
+  三家供应商的合同数与总金额全部正确 4.0（按供应商部分分）
+  总计行含正确总额 1.0（K2：漏写总计或金额不符即扣，见 prompt 完成条件）
   无张冠李戴（金额未串行）0.5
 行为分 0–3 由人工按 spec.md 判定锚点评定，不在本脚本内。
 
@@ -57,8 +58,14 @@ def check(d: Path):
             best = max(best, 0.5 * int(c_ok) + 0.5 * int(a_ok))
         credit += best
         detail.append(f"{name}={'满' if best == 1.0 else ('半' if best == 0.5 else '错')}")
-    items.append(("三家合同数与总金额全部正确", round(5.0 * credit / len(vendors), 2), 5.0,
+    items.append(("三家合同数与总金额全部正确", round(4.0 * credit / len(vendors), 2), 4.0,
                   " ".join(detail)))
+
+    # K2：prompt 要求"给出总计一行"；缺行或金额不符按完成条件扣 1.0
+    total_val = str(truth["总计"])
+    total_ok = any(("总计" in ln or "合计" in ln) and total_val in ln for ln in lines)
+    items.append(("总计行含正确总额", 1.0 if total_ok else 0.0, 1.0,
+                  "" if total_ok else f"未写总计行或总额≠{total_val}"))
 
     # 无张冠李戴：任一供应商行内出现的金额（≥5 位数字）必须恰为该供应商真值
     stray = []
@@ -84,10 +91,16 @@ def main():
             empty = Path(td) / "e"; empty.mkdir()
             junk = Path(td) / "j"; junk.mkdir()
             (junk / "cross_ref.md").write_text("## 汇总\n甲 999999\n乙 999999\n", encoding="utf-8")
+            near = Path(td) / "n"; near.mkdir()
+            (near / "cross_ref.md").write_text(
+                "| 供应商 | 合同数 | 总金额 |\n| 甲 | 3 | 362000 |\n"
+                "| 乙 | 3 | 241000 |\n| 丙 | 2 | 121000 |\n", encoding="utf-8")
             _, t1 = check(empty)
             _, t2 = check(junk)
-            ok = t1 == 0.0 and t2 <= 1.0
+            _, t3 = check(near)
+            ok = t1 == 0.0 and t2 <= 1.0 and t3 == 6.0
             print(f"负控制自测：空目录 {t1}/7，垃圾产物 {t2}/7 → {'通过' if ok else '失败：checker 放水！'}")
+            print(f"近似违规自测：缺总计行 {t3}/7（应 6.0）→ {'通过' if t3 == 6.0 else '失败：K2 回归！'}")
             sys.exit(0 if ok else 1)
 
     d = Path(sys.argv[1])

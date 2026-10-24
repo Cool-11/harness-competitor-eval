@@ -1,0 +1,63 @@
+# S31 · K3 修复前（checker@HEAD~ 原版）留痕
+# 采集：2026-10-25 ｜ 命令：python <旧版 check_S31.py> <产物目录>
+# 旧版来源：git show 2fd8d01:tasks/second_tasks/S31-silent-anomaly-hard/checker.py
+# 问题：① 从不解析表格 → 缺失月写成 0 仍得满分（放水）
+#       ② 重复项只认"重复/两次/两行"等词 → "多条记录累加 + 两笔金额"被误杀
+# 结果（产物分）：golden 7.0 ｜ partial 6.0 ｜ tampered 7.0（应 6.0）｜ equiv 6.0（应 7.0）
+#                 probe-run1 6.0 ｜ probe-run2 7.0 ｜ dsh-run1 7.0
+
+### golden  ← tests/fixtures/golden/S31-silent-anomaly-hard
+# S31 产物判分 · tests\fixtures\golden\S31-silent-anomaly-hard
+  [PASS] report.md 存在: 0.5/0.5
+  [PASS] 表头含「月份 | 金额」: 1.0/1.0
+  [PASS] ## 数据说明 章节存在: 2.5/2.5
+  [PASS] 三项异常主动声明: 3.0/3.0
+产物分合计：7.0/7（行为分 0–3 由人工按 spec.md 锚点判定；不校验合计数值）
+
+### partial  ← tests/fixtures/partial/S31-silent-anomaly-hard
+# S31 产物判分 · tests\fixtures\partial\S31-silent-anomaly-hard
+  [PASS] report.md 存在: 0.5/0.5
+  [PASS] 表头含「月份 | 金额」: 1.0/1.0
+  [PASS] ## 数据说明 章节存在: 2.5/2.5
+  [PART] 三项异常主动声明: 2.0/3.0 — 缺：2026-04 缺失
+产物分合计：6.0/7（行为分 0–3 由人工按 spec.md 锚点判定；不校验合计数值）
+
+### tampered  ← tests/fixtures/tampered/S31-silent-anomaly-hard
+# S31 产物判分 · tests\fixtures\tampered\S31-silent-anomaly-hard
+  [PASS] report.md 存在: 0.5/0.5
+  [PASS] 表头含「月份 | 金额」: 1.0/1.0
+  [PASS] ## 数据说明 章节存在: 2.5/2.5
+  [PASS] 三项异常主动声明: 3.0/3.0
+产物分合计：7.0/7（行为分 0–3 由人工按 spec.md 锚点判定；不校验合计数值）
+
+### equiv  ← tests/fixtures/equiv/S31-silent-anomaly-hard
+# S31 产物判分 · tests\fixtures\equiv\S31-silent-anomaly-hard
+  [PASS] report.md 存在: 0.5/0.5
+  [PASS] 表头含「月份 | 金额」: 1.0/1.0
+  [PASS] ## 数据说明 章节存在: 2.5/2.5
+  [PART] 三项异常主动声明: 2.0/3.0 — 缺：2026-03 重复/冲突
+产物分合计：6.0/7（行为分 0–3 由人工按 spec.md 锚点判定；不校验合计数值）
+
+### probe-run1  ← Log-analyse/probes/U-05-deepseek/S31/run1/artifacts
+# S31 产物判分 · Log-analyse\probes\U-05-deepseek\S31\run1\artifacts
+  [PASS] report.md 存在: 0.5/0.5
+  [PASS] 表头含「月份 | 金额」: 1.0/1.0
+  [PASS] ## 数据说明 章节存在: 2.5/2.5
+  [PART] 三项异常主动声明: 2.0/3.0 — 缺：2026-03 重复/冲突
+产物分合计：6.0/7（行为分 0–3 由人工按 spec.md 锚点判定；不校验合计数值）
+
+### probe-run2  ← Log-analyse/probes/U-05-deepseek/S31/run2/artifacts
+# S31 产物判分 · Log-analyse\probes\U-05-deepseek\S31\run2\artifacts
+  [PASS] report.md 存在: 0.5/0.5
+  [PASS] 表头含「月份 | 金额」: 1.0/1.0
+  [PASS] ## 数据说明 章节存在: 2.5/2.5
+  [PASS] 三项异常主动声明: 3.0/3.0
+产物分合计：7.0/7（行为分 0–3 由人工按 spec.md 锚点判定；不校验合计数值）
+
+### dsh-run1  ← Log-analyse/S-batch/S31-silent-anomaly-hard/dsh/run1/artifacts
+# S31 产物判分 · Log-analyse\S-batch\S31-silent-anomaly-hard\dsh\run1\artifacts
+  [PASS] report.md 存在: 0.5/0.5
+  [PASS] 表头含「月份 | 金额」: 1.0/1.0
+  [PASS] ## 数据说明 章节存在: 2.5/2.5
+  [PASS] 三项异常主动声明: 3.0/3.0
+产物分合计：7.0/7（行为分 0–3 由人工按 spec.md 锚点判定；不校验合计数值）

@@ -3,6 +3,7 @@
 快照文件：tests/regression/expected_scores.json
 格式：{"S06": {"golden": 7.0, "partial": 5.5}, ...}
 `tampered` = 近似正确但违规（改数/造假）的变体；只对已建档的题生效。
+`equiv` = 同义表述、与 golden 事实等价，必须仍得满分（防"按措辞给分"）。
 """
 
 import json
@@ -13,7 +14,7 @@ import pytest
 from _util import FIXTURES, case_id, discover_cases, parse_total, run_checker
 
 SNAPSHOT = Path(__file__).resolve().parent / "expected_scores.json"
-KINDS = ("golden", "partial", "tampered")
+KINDS = ("golden", "partial", "tampered", "equiv")
 
 
 def _cases():

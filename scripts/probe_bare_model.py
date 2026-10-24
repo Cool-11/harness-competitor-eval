@@ -37,6 +37,13 @@ TASKS = {
         "dir": REPO / "tasks" / "second_tasks" / "S06-artifact-deep-path",
         "attach": "notes.md",
         "artifact": Path("输出") / "汇总" / "月报_v1.md",
+        "full": 7.0,
+    },
+    "S31": {
+        "dir": REPO / "tasks" / "second_tasks" / "S31-silent-anomaly-hard",
+        "attach": "sales.csv",
+        "artifact": Path("report.md"),
+        "full": 7.0,
     },
 }
 
@@ -151,14 +158,14 @@ def main():
                 "run": i,
                 "elapsed_s": elapsed,
                 "score": total,
-                "full": 7.0,
+                "full": task["full"],
                 "usage": usage,
                 "timestamp": dt.datetime.now().isoformat(timespec="seconds"),
             }, ensure_ascii=False, indent=2),
             encoding="utf-8",
         )
         results.append((i, total, elapsed, usage))
-        print(f"  产物分 {total}/7（{elapsed}s）")
+        print(f"  产物分 {total}/{task['full']:g}（{elapsed}s）")
 
     scores = [r[1] for r in results]
     lines = [
@@ -175,9 +182,14 @@ def main():
     ]
     for (i, total, elapsed, usage) in results:
         lines.append(
-            f"| {i} | {total}/7 | {elapsed} | {usage.get('prompt_tokens', '')} | {usage.get('completion_tokens', '')} |"
+            f"| {i} | {total}/{task['full']:g} | {elapsed} | {usage.get('prompt_tokens', '')} | {usage.get('completion_tokens', '')} |"
         )
-    lines += ["", f"**结论候选**：两次均 {'7.0' if all(s == 7.0 for s in scores) else '/'.join(map(str, scores))}。"]
+    full = task["full"]
+    if all(s == full for s in scores):
+        verdict = f"两次均 {full:g}/{full:g}，一致。"
+    else:
+        verdict = "两次分别为 " + " / ".join(f"{s:g}" for s in scores) + "，不一致。"
+    lines += ["", f"**结论候选**：{verdict}"]
     (outdir / "summary.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"汇总：{outdir / 'summary.md'}")
 

@@ -1,0 +1,14 @@
+{
+  "task": "S31",
+  "model": "deepseek-chat",
+  "run": 2,
+  "score": 6.0,
+  "full": 7.0,
+  "authoritative": true,
+  "supersedes": "score.json",
+  "checker_version": "S31-K3 (2026-10-25)",
+  "score_before_k3": 7.0,
+  "deduction": "2026-04 缺失被写成数值（说明称缺失、表格写 0，声明与产物矛盾）→ 该项不计分",
+  "evidence": "check.after-K3.txt",
+  "note": "K3 修复：①表格缺失月写数值不再计分（原放水）；②两笔原始金额同现即视为已披露重复行（原误杀）"
+}

@@ -6,6 +6,21 @@
 
 ---
 
+## [2026-10-24]
+
+### 新增
+
+- `Log-analyse/probes/U-05-deepseek/S06/`：裸模型探针现场（run1/run2 的原始请求、响应、产物、checker 输出与 `summary.md`）
+
+### 文档
+
+- `tests/fixtures/SIGNOFF.md`：S17 golden/partial 置 `signed`（hjs，2026-10-24），tampered 同步签署；累计 2/12
+- `docs/reports/阶段报告-01-2026-10-24.md`：增 §6 U-05 探针——同模型 2 次均 7.0/7、输出 SHA256 一致、请求 `deepseek-chat` 实际返回 `deepseek-flash`；未知章重编号为 §7
+- `docs/17`、`docs/18`：第 3/4 条转 ✅；U-05 结清，U-02 移入已结清；开放未知降为 3 条（U-03/U-04/U-06）
+- `README.md`：状态更新至 2026-10-24，阶段 5 记为"探针 2/2 已跑、换件 0"
+
+---
+
 ## [2026-10-23]
 
 ### 修复

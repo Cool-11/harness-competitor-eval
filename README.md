@@ -41,7 +41,7 @@ flowchart LR
 
 详细对照表见 [`tasks/first_tasks/all-inputs/README.md`](tasks/first_tasks/all-inputs/README.md) 与 [`tasks/second_tasks/all-inputs/README.md`](tasks/second_tasks/all-inputs/README.md)。
 
-## 状态（2026-10-23）
+## 状态（2026-10-24）
 
 **已完成**
 
@@ -55,8 +55,9 @@ flowchart LR
 - [x] **S06 单题试点 5/5**（五款各 1 次；产物分与行为分均已签认，证据等级 C）——[pilot-summary](Log-analyse/S-batch/S06-artifact-deep-path/pilot-summary.md)
 - [x] **K1、K2 判卷漏洞已修复**（S13 篡改 B 行 3.5→0.5；S17 漏总计行 7.0→6.0；[KNOWN_ISSUES](tests/KNOWN_ISSUES.md)）
 - [x] **T02 原因验证已结清**（判真值错、非 Harness，证据等级 B；[阶段报告 §5](docs/reports/阶段报告-01-2026-10-24.md)）
+- [x] **U-05 裸模型探针已跑**（S06 × 2 次，均 7.0/7 且输出逐字相同；[探针现场](Log-analyse/probes/U-05-deepseek/S06/summary.md)）
 - [x] **周报 02 已出**（运行账 5/5/0/0 + 现场链接 + 3 项可验收目标；[周报02](docs/周报/周报02-2026-10-23.md)）
-- [x] **未知登记表**（[docs/18](docs/18-未知登记表.md)：4 条开放 + 5 条已结清，均带下一步与停止条件）
+- [x] **未知登记表**（[docs/18](docs/18-未知登记表.md)：3 条开放 + 6 条已结清，均带下一步与停止条件）
 - [x] 仓库维护机制：变更日志 [CHANGELOG.md](CHANGELOG.md)、周报留档 [docs/周报/](docs/周报/)
 
 **进行中 / 待做**
@@ -65,7 +66,7 @@ flowchart LR
 - [ ] 评估体系 v2：chapter7 四环节 + Rubric v2 + 首错归因 + 轨迹前缀回归 —— **讨论稿已出，待拍板**（[docs/14](docs/14-Agent评估体系借鉴与实施细化-v0.1.md)）
 - [ ] 阶段 3 · 批量跑测：深跑批 12 题 × 5 款 —— **S06 单题试点已完成，全批尚未开始**
 - [ ] 阶段 4 · 全量逐格判分 → 单题分 / 维度剖面 / 总分 —— **S06 五款行为分已签认**
-- [ ] 阶段 5 · 归因闭环：裸模型探针 → DSH 换件（最低 3 件 × 2 题 × 2 次，见 [docs/09 §5.3](docs/09-执行层压力测试设计-v1.md)）→ 复测 —— **T02 已结清（B）；探针/换件为 0**
+- [ ] 阶段 5 · 归因闭环：裸模型探针 → DSH 换件（最低 3 件 × 2 题 × 2 次，见 [docs/09 §5.3](docs/09-执行层压力测试设计-v1.md)）→ 复测 —— **T02 已结清（B）；U-05 探针 2/2 已跑；DSH 换件仍为 0**
 - [ ] 阶段 6 · 评测报告
 
 > 周报每周六更新，留档于 [`docs/周报/`](docs/周报/)；实质性变更同步登记在 [`CHANGELOG.md`](CHANGELOG.md)。

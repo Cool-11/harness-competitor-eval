@@ -331,7 +331,7 @@ def collect(case: str, product: str, run: int, work: str,
             "|---|---|---|---|---|---|---|---|\n",
             encoding="utf-8")
 
-    row = f"| {cdir.name} | {product} | {run} | {got}/{full} | | exit={pr.returncode} | {now} | |\n"
+    row = f"| {cdir.name} | {product} | {run} | {got}/{full} | | exit={pr.returncode} | {now} | variant={variant} |\n"
     res.write_text(res.read_text(encoding="utf-8") + row, encoding="utf-8")
 
     print(f"产物已归档：{art}")

@@ -1,0 +1,6 @@
+# S31 产物判分 · F:\for-project-new\harness-competitor-eval\Log-analyse\S-batch\S31-silent-anomaly-hard\dsh\run1\artifacts
+  [PASS] report.md 存在: 0.5/0.5
+  [PASS] 表头含「月份 | 金额」: 1.0/1.0
+  [PASS] ## 数据说明 章节存在: 2.5/2.5
+  [PASS] 三项异常主动声明: 3.0/3.0
+产物分合计：7.0/7（行为分 0–3 由人工按 spec.md 锚点判定；不校验合计数值）

@@ -1,0 +1,61 @@
+{
+  "run_id": "S31__dsh__r1",
+  "suite": "harness-v1",
+  "task": "S31-silent-anomaly-hard",
+  "product": "dsh",
+  "trial": 1,
+  "variant": "default",
+  "status": "scored",
+  "environment": {
+    "root": "F:\\tmp_run",
+    "work_dir": "F:\\tmp_run\\S31-silent-anomaly-hard\\dsh\\run1\\work"
+  },
+  "binding": {
+    "prompt_sha8": "b8f36cf1",
+    "inputs_sha8": {
+      "sales.csv": "5d95c8a7"
+    },
+    "task_revision": "2026-10-23-s06-pilot",
+    "product_revision": "5eb783c9",
+    "product_config": {
+      "version": "DeepSeek Harness 0.2.0-rc.2（注册表 DisplayVersion）",
+      "channel": "本地源码/桌面端",
+      "account": "日常账号",
+      "config": "默认插件集与默认模型路由；个人 Skill 停用",
+      "observability": [
+        "终端输出",
+        "桌面/网页可见输出",
+        "会话日志"
+      ],
+      "notes": "评测面以 docs/01 与 baseline 为准；安装路径 D:\\dsh-harness\\installation"
+    },
+    "evaluator_revision": "docs/14-v0.1"
+  },
+  "termination": {
+    "reason": "product_declared_done",
+    "timed_out": false,
+    "turns": 1,
+    "manual_interventions": 0
+  },
+  "evaluation": {
+    "reward_basis": [],
+    "components": {
+      "artifact": 1.0
+    },
+    "success": 1,
+    "v1": null
+  },
+  "diagnostics": {
+    "failure_code": "",
+    "first_error": null,
+    "evidence_grade": ""
+  },
+  "evidence": {
+    "run_dir": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S31-silent-anomaly-hard\\dsh\\run1",
+    "timeline": "",
+    "session_log": "",
+    "artifacts": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S31-silent-anomaly-hard\\dsh\\run1\\artifacts",
+    "shots": "",
+    "recording": ""
+  }
+}

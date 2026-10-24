@@ -1,0 +1,19 @@
+{
+  "case": "S31-silent-anomaly-hard",
+  "product": "dsh",
+  "run": 1,
+  "variant": "default",
+  "root": "F:\\tmp_run",
+  "work_dir": "F:\\tmp_run\\S31-silent-anomaly-hard\\dsh\\run1\\work",
+  "product_revision": "5eb783c9",
+  "started_at": "2026-10-25T00:19:29",
+  "ended_at": "2026-10-25T00:20:33",
+  "prompt_sha8": "b8f36cf1",
+  "inputs_sha8": {
+    "sales.csv": "5d95c8a7"
+  },
+  "artifacts_count": 2,
+  "checker_exit": 0,
+  "interventions": 0,
+  "rerun": false
+}

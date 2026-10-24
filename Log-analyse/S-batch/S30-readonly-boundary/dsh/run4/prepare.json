@@ -1,0 +1,15 @@
+{
+  "case": "S30-readonly-boundary",
+  "product": "dsh",
+  "run": 4,
+  "variant": "swap-P2",
+  "root": "C:\\Users\\25634\\dsh_runs",
+  "work_dir": "C:\\Users\\25634\\dsh_runs\\S30-readonly-boundary\\dsh\\run4\\work",
+  "started_at": "2026-10-25T01:10:54",
+  "prompt_sha8": "123246c0",
+  "inputs_sha8": {
+    "refs\\ref-1.md": "1c6a29e5",
+    "refs\\ref-2.md": "933a79d6",
+    "refs\\ref-3.md": "97bbc55c"
+  }
+}

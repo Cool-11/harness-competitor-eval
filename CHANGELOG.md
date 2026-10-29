@@ -6,6 +6,28 @@
 
 ---
 
+## [2026-10-25]
+
+### 修复
+
+- **K3-①（S31 缺失被写成 0 仍满分）**：`tasks/second_tasks/S31-silent-anomaly-hard/checker.py` 原先只做"主体月 + 判定词"词面共现、**从不解析表格**，因此 `| 2026-04 | 0 |`（把缺失月写成 0）仍拿满"三项异常"3.0。现增分支：缺失月单元格必须为占位符（`—`/`-`/`无`/`空`/`不适用`）或省略整行，写数值即该项不计分（依 `docs/03 §2.3` 纪律 1 与 `§3.1` 自述矛盾=0；**未改锚点、未改权重、满分仍 7.0**）。新增 `tests/fixtures/tampered/S31-silent-anomaly-hard/`（修前 7.0 → 修后 6.0）
+- **K3-②（S31 同义表述被误杀）**：`DUPLICATE_KW` 只认"重复/两次/两行/冲突"，"同一月份的多条记录累加（2026-03 为 110000 + 5000 = 115000）"被判"未披露"（6.0）。现增"两笔原始金额同现即视为已披露重复行"（依 `§5.2` 多路径等价）；新增 `tests/fixtures/equiv/S31-silent-anomaly-hard/`（修前 6.0 → 修后 7.0），并把 `equiv` 纳入 `tests/regression` 的快照类型
+- **`scripts/sbatch.py` `collect` 表列错位**：`results.md` 表头 10 列而 `collect` 只写 8 列，导致 `exit/时间/备注` 整体右移、`归一分/行为分/合计` 缺格；表头模板与数据行同时改为 10 列，`variant` 落备注
+
+### 变更
+
+- `Log-analyse/S-batch/results.md`：S31 行补 `归一分 4.0`（埋雷型权重 4）、`行为分 未判`、`单题合计 —`，备注写明"无 timeline/shots、无 `evidence_grade`、只跑 1 次、F: 盘环境降级"；S30 五行按 10 列归位（数值留空待人工判）
+- `Log-analyse/probes/U-05-deepseek/S31/`：两跑按 K3 重判为 **6.0/6.0**（原 6.0/7.0）；`summary.md` 撤回"两次不一致"，改为"判分器词面敏感 + 模型稳定把缺失写成 0"；新增 `check.after-K3.txt`（原 `check.txt` 不覆盖）
+
+### 文档
+
+- `docs/03` §9 纠错登记：新增 K3 两条口径修订与影响面；**补记 K1**（此前只登在 `tests/KNOWN_ISSUES.md`，与 `docs/17 §3.2-8`"均已登记"的表述不一致）
+- `tasks/second_tasks/S31-silent-anomaly-hard/spec.md`：实现规格增 3a（同义等价）/3b（声明与产物一致性）；裸模型探针关卡由"待跑"改为"已跑 2 次"
+- `tests/KNOWN_ISSUES.md`：新增 K3（修前/修后全量输出见 `tests/regression/evidence/S31-K3-{before,after}.txt`）
+- `docs/18-未知登记表.md`：新增 **U-11**（S31 产品侧现场：无 timeline/shots、只 1 次、F: 盘环境降级 → 行为分不可判），并据阶段报告 02 §6 补登 U-08（P8 绑定错配）/ U-09（P7 不可单变量）/ U-10（F: 盘 pwsh 缺陷），开放未知 3 → 7 条
+
+---
+
 ## [2026-10-24]
 
 ### 新增
@@ -18,6 +40,24 @@
 - `docs/reports/阶段报告-01-2026-10-24.md`：增 §6 U-05 探针——同模型 2 次均 7.0/7、输出 SHA256 一致、请求 `deepseek-chat` 实际返回 `deepseek-flash`；未知章重编号为 §7
 - `docs/17`、`docs/18`：第 3/4 条转 ✅；U-05 结清，U-02 移入已结清；开放未知降为 3 条（U-03/U-04/U-06）
 - `README.md`：状态更新至 2026-10-24，阶段 5 记为"探针 2/2 已跑、换件 0"
+
+---
+
+## [2026-10-25]
+
+### 新增
+
+- **`scripts/dsh_export.py`**：dsh 原始会话日志导出器。读 `session.vN.jsonl[.zstd]`，产出 `derived/tools.csv`（一次调用一行，含耗时/成败/目标路径）、`derived/tool-trace.md`（逐事件时间线）、`derived/evidence-7d.json`（D1–D7 原始信号）。支持 `--batch` 盘点（默认不落盘）
+- **`docs/20`**：dsh 原始会话日志取数手册 v0.1——日志位置与代际规则、21 种事件全景、工具调用字段路径表、七维度可判度矩阵、三个坑、7 个未归档 run 盘点
+
+### 变更
+
+- **D6 权限边界口径升级**：由"须凭录屏判定"改为"日志可判"——`permission/preset` + `sandbox/mode` + `approval/policy` 配置态 + 工具参数中 `cwd` 外绝对路径 + `blocked_by_policy` 差集
+- `scripts/dsh_export.py --batch`：默认只打表不落盘，避免污染 `~/.dsh/sessions`
+
+### 文档
+
+- `README.md`：`scripts/` 行补登 `dsh_export.py`；`docs/` 行补登 `20`
 
 ---
 

@@ -15,7 +15,7 @@
 
 | 目录 | 角色 | 关键说明 |
 |---|---|---|
-| `docs/` | **方法与规范** | 评测方案、题库骨架（基线层）、打分细则（`03` **v1 冻结**）、跑测手册、命名规范（`08`）、**压力测试设计（`09`）**、**归因与失败分类（`10`）**、**问题清单（`11`）**、**tau2 借鉴与改造方案（`13` 讨论稿）**、**chapter7 评估体系实施细化（`14` 讨论稿）**、**S06 试点运行卡（`15`）**、**dsh 三篇文档精读（`16`，评测视角）**、**导师验收口径核对与下一轮调整（`17`）**、**未知登记表（`18`）**、**阶段报告（`docs/reports/`）** |
+| `docs/` | **方法与规范** | 评测方案、题库骨架（基线层）、打分细则（`03` **v1 冻结**）、跑测手册、命名规范（`08`）、**压力测试设计（`09`）**、**归因与失败分类（`10`）**、**问题清单（`11`）**、**tau2 借鉴与改造方案（`13` 讨论稿）**、**chapter7 评估体系实施细化（`14` 讨论稿）**、**S06 试点运行卡（`15`）**、**dsh 三篇文档精读（`16`，评测视角）**、**导师验收口径核对与下一轮调整（`17`）**、**未知登记表（`18`）**、**dsh 原始日志取数手册（`20`，工具调用 + 七维度）**、**阶段报告（`docs/reports/`）** |
 | `benchmarks/` | **评测 frame** | `harness-v1-pilot.json`（五款 × S06 × 1 trial）+ `pins.json`（题包哈希）；试点结果不作排名 |
 | `products/` | **产品基线** | `products.json`：五款版本/账号/配置一次填；`prepare` 自动带入 `run.json.binding` |
 | `tasks/<批次>/<题号>/` | **唯一真源** | 每题四件套：`task.md`（不投喂）· `prompt.txt`（投喂指令原文）· `inputs/`（投喂附件）· `checker.py` · `spec.md`，另加可选 `truth.json` / `判分记录表.md` |
@@ -23,7 +23,7 @@
 | `Log-analyse/` | **表现现场** | `Log-analyse/<题号>/<产品>/run<n>/`：`timeline.md` + `session.log` + `artifacts/` + `shots/` + `recording.txt` + 证据三件套（`manifest/usage/score.json`） |
 | `Log-analyse/<产品>-log-analyse/` | 补充现场 | 五款日志分析批，**不走** `<题号>/<产品>/run<n>` 格式，直接按产品目录组织 |
 | `Log-analyse/baseline/` | **基线 + 回滚包** | 冻结操作指引；`_backup/` 是评测期移走的个人技能（回滚用，**非现场记录**，不入 git）|
-| `scripts/` | 辅助脚本 | 脚手架、用例生成、快照归档、判分汇总 |
+| `scripts/` | 辅助脚本 | 脚手架、用例生成、快照归档、判分汇总；**`dsh_export.py`** 导出 dsh 原始会话日志的工具调用与七维度信号 |
 | `docs/周报/` | **周报留档** | 每周周报的 markdown 版，与邮件发送版一致 |
 | `CHANGELOG.md` | **变更日志** | 按日期记录实质性变更（方案/题库/脚本/文档）；每次实质提交同步登记 |
 | `_archive/` | **整理前快照** | 历史整理前的副本留档，不入 git（见其 `README.md` 的路径迁移记录）|
@@ -41,7 +41,7 @@ flowchart LR
 
 详细对照表见 [`tasks/first_tasks/all-inputs/README.md`](tasks/first_tasks/all-inputs/README.md) 与 [`tasks/second_tasks/all-inputs/README.md`](tasks/second_tasks/all-inputs/README.md)。
 
-## 状态（2026-10-24）
+## 状态（2026-10-25）
 
 **已完成**
 
@@ -53,7 +53,7 @@ flowchart LR
 - [x] S 批跑测脚手架与结果大表（[scripts/sbatch.py](scripts/sbatch.py)、[Log-analyse/S-batch/](Log-analyse/S-batch/)）
 - [x] 任务卡与运行证据规范（[docs/08 §8](docs/08-目录与命名规范.md)，2026-10-22）：YAML 头 + 证据三件套 + "形态不支持"口径
 - [x] **S06 单题试点 5/5**（五款各 1 次；产物分与行为分均已签认，证据等级 C）——[pilot-summary](Log-analyse/S-batch/S06-artifact-deep-path/pilot-summary.md)
-- [x] **K1、K2 判卷漏洞已修复**（S13 篡改 B 行 3.5→0.5；S17 漏总计行 7.0→6.0；[KNOWN_ISSUES](tests/KNOWN_ISSUES.md)）
+- [x] **K1、K2、K3 判卷漏洞已修复**（S13 篡改 B 行 3.5→0.5；S17 漏总计行 7.0→6.0；S31 缺失写成 `0` 仍满分 7.0→6.0、同义表述被误杀 6.0→7.0；[KNOWN_ISSUES](tests/KNOWN_ISSUES.md)）
 - [x] **T02 原因验证已结清**（判真值错、非 Harness，证据等级 B；[阶段报告 §5](docs/reports/阶段报告-01-2026-10-24.md)）
 - [x] **U-05 裸模型探针已跑**（S06 × 2 次，均 7.0/7 且输出逐字相同；[探针现场](Log-analyse/probes/U-05-deepseek/S06/summary.md)）
 - [x] **周报 02 已出**（运行账 5/5/0/0 + 现场链接 + 3 项可验收目标；[周报02](docs/周报/周报02-2026-10-23.md)）

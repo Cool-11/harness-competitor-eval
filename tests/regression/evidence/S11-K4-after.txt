@@ -1,0 +1,60 @@
+# S11 · K4 修复后（2026-10-25）
+# checker: tasks/second_tasks/S11-corrupt-recovery/checker.py（缺陷词同现版）
+
+## --selftest
+负控制自测：空目录 0.0/7，垃圾产物（无 result.md） 0.0/7
+K4 近似违规：只报 1 处（修复动作写成「末尾补上逗号」） 6.0/7（期望 6.0）
+K4 反向对照：两处缺陷都报 7.0/7（期望 7.0）
+→ 通过
+
+## 五场真实产物（F:\tmp_run\S11-corrupt-recovery\<产品>\run1\work）
+
+### codex
+# S11 产物判分 · F:\tmp_run\S11-corrupt-recovery\codex\run1\work
+  [PASS] result.md 存在: 0.5/0.5
+  [PASS] 保留 id 恰为 A1/A3/A5: 3.0/3.0
+  [PASS] id 均来自 data.csv（无编造）: 1.0/1.0
+  [PASS] error_report.md 存在: 0.5/0.5
+  [PASS] 指到 2 处损坏位置: 2.0/2.0 — 命中 2/2（缺逗号=1/尾逗号=1）
+产物分合计：7.0/7（行为分 0–3 由人工按 spec.md 锚点判定）
+exit=0
+
+### dsh
+# S11 产物判分 · F:\tmp_run\S11-corrupt-recovery\dsh\run1\work
+  [PASS] result.md 存在: 0.5/0.5
+  [PASS] 保留 id 恰为 A1/A3/A5: 3.0/3.0
+  [PASS] id 均来自 data.csv（无编造）: 1.0/1.0
+  [PASS] error_report.md 存在: 0.5/0.5
+  [PASS] 指到 2 处损坏位置: 2.0/2.0 — 命中 2/2（缺逗号=1/尾逗号=1）
+产物分合计：7.0/7（行为分 0–3 由人工按 spec.md 锚点判定）
+exit=0
+
+### workbuddy
+# S11 产物判分 · F:\tmp_run\S11-corrupt-recovery\workbuddy\run1\work
+  [PASS] result.md 存在: 0.5/0.5
+  [PASS] 保留 id 恰为 A1/A3/A5: 3.0/3.0
+  [PASS] id 均来自 data.csv（无编造）: 1.0/1.0
+  [PASS] error_report.md 存在: 0.5/0.5
+  [PASS] 指到 2 处损坏位置: 2.0/2.0 — 命中 2/2（缺逗号=1/尾逗号=1）
+产物分合计：7.0/7（行为分 0–3 由人工按 spec.md 锚点判定）
+exit=0
+
+### doubao
+# S11 产物判分 · F:\tmp_run\S11-corrupt-recovery\doubao\run1\work
+  [PASS] result.md 存在: 0.5/0.5
+  [PASS] 保留 id 恰为 A1/A3/A5: 3.0/3.0
+  [PASS] id 均来自 data.csv（无编造）: 1.0/1.0
+  [PASS] error_report.md 存在: 0.5/0.5
+  [PASS] 指到 2 处损坏位置: 2.0/2.0 — 命中 2/2（缺逗号=1/尾逗号=1）
+产物分合计：7.0/7（行为分 0–3 由人工按 spec.md 锚点判定）
+exit=0
+
+### yuanbao
+# S11 产物判分 · F:\tmp_run\S11-corrupt-recovery\yuanbao\run1\work
+  [PASS] result.md 存在: 0.5/0.5
+  [PASS] 保留 id 恰为 A1/A3/A5: 3.0/3.0
+  [PASS] id 均来自 data.csv（无编造）: 1.0/1.0
+  [PASS] error_report.md 存在: 0.5/0.5
+  [PART] 指到 2 处损坏位置: 1.0/2.0 — 命中 1/2（缺逗号=1/尾逗号=0）
+产物分合计：6.0/7（行为分 0–3 由人工按 spec.md 锚点判定）
+exit=1

@@ -38,14 +38,14 @@ def scored_cases():
 
 def run_checker(case_dir: Path, artifacts: Path):
     return subprocess.run(
-        [sys.executable, str(case_dir / "checker.py"), str(artifacts)],
+        [sys.executable, "-X", "utf8", str(case_dir / "checker.py"), str(artifacts)],
         capture_output=True, text=True, encoding="utf-8", errors="replace",
     )
 
 
 def run_selftest(case_dir: Path):
     return subprocess.run(
-        [sys.executable, str(case_dir / "checker.py"), "--selftest"],
+        [sys.executable, "-X", "utf8", str(case_dir / "checker.py"), "--selftest"],
         capture_output=True, text=True, encoding="utf-8", errors="replace",
     )
 

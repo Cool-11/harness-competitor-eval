@@ -13,7 +13,8 @@
   },
   "S11": {
     "golden": 7.0,
-    "partial": 6.0
+    "partial": 6.0,
+    "tampered": 6.0
   },
   "S13": {
     "golden": 7.0,

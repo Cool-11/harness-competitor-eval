@@ -1,0 +1,7 @@
+# S11 产物判分 · F:\for-project-new\harness-competitor-eval\Log-analyse\S-batch\S11-corrupt-recovery\workbuddy\run1\artifacts
+  [PASS] result.md 存在: 0.5/0.5
+  [PASS] 保留 id 恰为 A1/A3/A5: 3.0/3.0
+  [PASS] id 均来自 data.csv（无编造）: 1.0/1.0
+  [PASS] error_report.md 存在: 0.5/0.5
+  [PASS] 指到 2 处损坏位置: 2.0/2.0 — 命中 2/2（缺逗号=1/尾逗号=1）
+产物分合计：7.0/7（行为分 0–3 由人工按 spec.md 锚点判定）

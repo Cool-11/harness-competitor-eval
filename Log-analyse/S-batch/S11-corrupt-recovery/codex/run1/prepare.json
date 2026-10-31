@@ -1,0 +1,14 @@
+{
+  "case": "S11-corrupt-recovery",
+  "product": "codex",
+  "run": 1,
+  "variant": "default",
+  "root": "F:\\tmp_run",
+  "work_dir": "F:\\tmp_run\\S11-corrupt-recovery\\codex\\run1\\work",
+  "started_at": "2026-10-25T17:42:00",
+  "prompt_sha8": "41d608c4",
+  "inputs_sha8": {
+    "config.json": "4583ff08",
+    "data.csv": "fd668362"
+  }
+}

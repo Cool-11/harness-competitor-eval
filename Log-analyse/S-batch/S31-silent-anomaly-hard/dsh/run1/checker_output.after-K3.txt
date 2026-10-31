@@ -1,4 +1,4 @@
-# 2026-10-25 K3 修复后复判（原文 check 输出保留在同目录原文件名，不作覆盖）
+# 2026-10-25 K3 修复后复判（原 check 输出保留在同目录原文件名，不作覆盖）
 # 口径变更：缺失月写成数值 → 该项不计分；两笔金额同现 = 已披露重复行
 
 # S31 产物判分 · Log-analyse\S-batch\S31-silent-anomaly-hard\dsh\run1\artifacts

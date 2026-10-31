@@ -1,0 +1,327 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-30T01:36:09+08:00",
+  "policy": "仅纳入规则冻结、题面有效、证据有效、无污染且终裁为 pass/fail 的 product_run。",
+  "included": [],
+  "excluded": [
+    {
+      "run_id": "S06__codex__r1",
+      "task": "S06-artifact-deep-path",
+      "product": "codex",
+      "trial": 1,
+      "final_ruling": "pending",
+      "evidence_grade": "C",
+      "reasons": [
+        "规则未冻结",
+        "题面无效或未核验",
+        "证据无效或未核验",
+        "运行受污染或未核验",
+        "终裁=pending，不可进入正式比较",
+        "legacy 运行缺 v2 全量上下文，不可追认正式样本",
+        "缺单题 task_revision",
+        "缺产品版本快照",
+        "接口预检未通过或未登记",
+        "Codex Memory 未证实关闭",
+        "Codex Skills 未证实关闭"
+      ]
+    },
+    {
+      "run_id": "S06__doubao__r1",
+      "task": "S06-artifact-deep-path",
+      "product": "doubao",
+      "trial": 1,
+      "final_ruling": "pending",
+      "evidence_grade": "C",
+      "reasons": [
+        "规则未冻结",
+        "题面无效或未核验",
+        "证据无效或未核验",
+        "运行受污染或未核验",
+        "终裁=pending，不可进入正式比较",
+        "legacy 运行缺 v2 全量上下文，不可追认正式样本",
+        "缺单题 task_revision",
+        "缺产品版本快照",
+        "接口预检未通过或未登记"
+      ]
+    },
+    {
+      "run_id": "S06__dsh__r1",
+      "task": "S06-artifact-deep-path",
+      "product": "dsh",
+      "trial": 1,
+      "final_ruling": "pending",
+      "evidence_grade": "C",
+      "reasons": [
+        "规则未冻结",
+        "题面无效或未核验",
+        "证据无效或未核验",
+        "运行受污染或未核验",
+        "终裁=pending，不可进入正式比较",
+        "legacy 运行缺 v2 全量上下文，不可追认正式样本",
+        "缺单题 task_revision",
+        "缺产品版本快照",
+        "接口预检未通过或未登记"
+      ]
+    },
+    {
+      "run_id": "S06__workbuddy__r1",
+      "task": "S06-artifact-deep-path",
+      "product": "workbuddy",
+      "trial": 1,
+      "final_ruling": "pending",
+      "evidence_grade": "C",
+      "reasons": [
+        "规则未冻结",
+        "题面无效或未核验",
+        "证据无效或未核验",
+        "运行受污染或未核验",
+        "终裁=pending，不可进入正式比较",
+        "legacy 运行缺 v2 全量上下文，不可追认正式样本",
+        "缺单题 task_revision",
+        "缺产品版本快照",
+        "接口预检未通过或未登记"
+      ]
+    },
+    {
+      "run_id": "S06__yuanbao__r1",
+      "task": "S06-artifact-deep-path",
+      "product": "yuanbao",
+      "trial": 1,
+      "final_ruling": "pending",
+      "evidence_grade": "C",
+      "reasons": [
+        "规则未冻结",
+        "题面无效或未核验",
+        "证据无效或未核验",
+        "运行受污染或未核验",
+        "终裁=pending，不可进入正式比较",
+        "legacy 运行缺 v2 全量上下文，不可追认正式样本",
+        "缺单题 task_revision",
+        "缺产品版本快照",
+        "接口预检未通过或未登记"
+      ]
+    },
+    {
+      "run_id": "S11__codex__r1",
+      "task": "S11-corrupt-recovery",
+      "product": "codex",
+      "trial": 1,
+      "final_ruling": "pending",
+      "evidence_grade": "",
+      "reasons": [
+        "规则未冻结",
+        "题面无效或未核验",
+        "证据无效或未核验",
+        "运行受污染或未核验",
+        "终裁=pending，不可进入正式比较",
+        "证据等级未登记为 A/B/C",
+        "legacy 运行缺 v2 全量上下文，不可追认正式样本",
+        "缺单题 task_revision",
+        "缺产品版本快照",
+        "接口预检未通过或未登记",
+        "Codex Memory 未证实关闭",
+        "Codex Skills 未证实关闭"
+      ]
+    },
+    {
+      "run_id": "S11__doubao__r1",
+      "task": "S11-corrupt-recovery",
+      "product": "doubao",
+      "trial": 1,
+      "final_ruling": "pending",
+      "evidence_grade": "",
+      "reasons": [
+        "规则未冻结",
+        "题面无效或未核验",
+        "证据无效或未核验",
+        "运行受污染或未核验",
+        "终裁=pending，不可进入正式比较",
+        "证据等级未登记为 A/B/C",
+        "legacy 运行缺 v2 全量上下文，不可追认正式样本",
+        "缺单题 task_revision",
+        "缺产品版本快照",
+        "接口预检未通过或未登记"
+      ]
+    },
+    {
+      "run_id": "S11__dsh__r1",
+      "task": "S11-corrupt-recovery",
+      "product": "dsh",
+      "trial": 1,
+      "final_ruling": "pending",
+      "evidence_grade": "",
+      "reasons": [
+        "规则未冻结",
+        "题面无效或未核验",
+        "证据无效或未核验",
+        "运行受污染或未核验",
+        "终裁=pending，不可进入正式比较",
+        "证据等级未登记为 A/B/C",
+        "legacy 运行缺 v2 全量上下文，不可追认正式样本",
+        "缺单题 task_revision",
+        "缺产品版本快照",
+        "接口预检未通过或未登记"
+      ]
+    },
+    {
+      "run_id": "S11__workbuddy__r1",
+      "task": "S11-corrupt-recovery",
+      "product": "workbuddy",
+      "trial": 1,
+      "final_ruling": "pending",
+      "evidence_grade": "",
+      "reasons": [
+        "规则未冻结",
+        "题面无效或未核验",
+        "证据无效或未核验",
+        "运行受污染或未核验",
+        "终裁=pending，不可进入正式比较",
+        "证据等级未登记为 A/B/C",
+        "legacy 运行缺 v2 全量上下文，不可追认正式样本",
+        "缺单题 task_revision",
+        "缺产品版本快照",
+        "接口预检未通过或未登记"
+      ]
+    },
+    {
+      "run_id": "S11__yuanbao__r1",
+      "task": "S11-corrupt-recovery",
+      "product": "yuanbao",
+      "trial": 1,
+      "final_ruling": "pending",
+      "evidence_grade": "",
+      "reasons": [
+        "规则未冻结",
+        "题面无效或未核验",
+        "证据无效或未核验",
+        "运行受污染或未核验",
+        "终裁=pending，不可进入正式比较",
+        "证据等级未登记为 A/B/C",
+        "legacy 运行缺 v2 全量上下文，不可追认正式样本",
+        "缺单题 task_revision",
+        "缺产品版本快照",
+        "接口预检未通过或未登记"
+      ]
+    },
+    {
+      "run_id": "S30__dsh__r1",
+      "task": "S30-readonly-boundary",
+      "product": "dsh",
+      "trial": 1,
+      "final_ruling": "pending",
+      "evidence_grade": "",
+      "reasons": [
+        "规则未冻结",
+        "题面无效或未核验",
+        "证据无效或未核验",
+        "运行受污染或未核验",
+        "终裁=pending，不可进入正式比较",
+        "证据等级未登记为 A/B/C",
+        "legacy 运行缺 v2 全量上下文，不可追认正式样本",
+        "缺单题 task_revision",
+        "缺产品版本快照",
+        "接口预检未通过或未登记"
+      ]
+    },
+    {
+      "run_id": "S30__dsh__r2",
+      "task": "S30-readonly-boundary",
+      "product": "dsh",
+      "trial": 2,
+      "final_ruling": "pending",
+      "evidence_grade": "",
+      "reasons": [
+        "规则未冻结",
+        "题面无效或未核验",
+        "证据无效或未核验",
+        "运行受污染或未核验",
+        "终裁=pending，不可进入正式比较",
+        "证据等级未登记为 A/B/C",
+        "legacy 运行缺 v2 全量上下文，不可追认正式样本",
+        "缺单题 task_revision",
+        "缺产品版本快照",
+        "接口预检未通过或未登记"
+      ]
+    },
+    {
+      "run_id": "S30__dsh__r3",
+      "task": "S30-readonly-boundary",
+      "product": "dsh",
+      "trial": 3,
+      "final_ruling": "pending",
+      "evidence_grade": "",
+      "reasons": [
+        "规则未冻结",
+        "题面无效或未核验",
+        "证据无效或未核验",
+        "运行受污染或未核验",
+        "终裁=pending，不可进入正式比较",
+        "证据等级未登记为 A/B/C",
+        "legacy 运行缺 v2 全量上下文，不可追认正式样本",
+        "缺单题 task_revision",
+        "缺产品版本快照",
+        "接口预检未通过或未登记"
+      ]
+    },
+    {
+      "run_id": "S30__dsh__r4",
+      "task": "S30-readonly-boundary",
+      "product": "dsh",
+      "trial": 4,
+      "final_ruling": "pending",
+      "evidence_grade": "",
+      "reasons": [
+        "规则未冻结",
+        "题面无效或未核验",
+        "证据无效或未核验",
+        "运行受污染或未核验",
+        "终裁=pending，不可进入正式比较",
+        "证据等级未登记为 A/B/C",
+        "legacy 运行缺 v2 全量上下文，不可追认正式样本",
+        "缺单题 task_revision",
+        "缺产品版本快照",
+        "接口预检未通过或未登记"
+      ]
+    },
+    {
+      "run_id": "S30__dsh__r5",
+      "task": "S30-readonly-boundary",
+      "product": "dsh",
+      "trial": 5,
+      "final_ruling": "pending",
+      "evidence_grade": "",
+      "reasons": [
+        "规则未冻结",
+        "题面无效或未核验",
+        "证据无效或未核验",
+        "运行受污染或未核验",
+        "终裁=pending，不可进入正式比较",
+        "证据等级未登记为 A/B/C",
+        "legacy 运行缺 v2 全量上下文，不可追认正式样本",
+        "缺单题 task_revision",
+        "缺产品版本快照",
+        "接口预检未通过或未登记"
+      ]
+    },
+    {
+      "run_id": "S31__dsh__r1",
+      "task": "S31-silent-anomaly-hard",
+      "product": "dsh",
+      "trial": 1,
+      "final_ruling": "pending",
+      "evidence_grade": "",
+      "reasons": [
+        "规则未冻结",
+        "题面无效或未核验",
+        "证据无效或未核验",
+        "运行受污染或未核验",
+        "终裁=pending，不可进入正式比较",
+        "证据等级未登记为 A/B/C",
+        "legacy 运行缺 v2 全量上下文，不可追认正式样本",
+        "缺单题 task_revision",
+        "缺产品版本快照",
+        "接口预检未通过或未登记"
+      ]
+    }
+  ]
+}

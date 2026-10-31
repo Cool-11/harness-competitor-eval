@@ -1,0 +1,11 @@
+你是评测 rubric 设计者。请基于随附的 `data/dev.jsonl`，为其中两个 task_id 生成候选行为评分 rubric。
+
+固定要求：
+1. 每个 criterion 使用 0、1、2、3 四档；每档必须描述可从 response 直接观察和复核的行为。
+2. 明确区分：客观产物正确性由 checker 判断；rubric 只判断行为与回传，不重复给分。
+3. 证据不足时输出 abstain；没有观察机会时输出 not_applicable。两者都不得映射为 0、1、2、3。
+4. 不得根据产品身份、文风、总分或主观“看起来不错”评分。
+5. 避免同一个证据在相邻 criterion 重复计分；特别检查失败恢复、损坏定位、信息回传之间的边界。
+6. 输出 `rubric-v2-generated.yaml`，包含 evidence_policy、逐题逐 criterion anchors、v1 风险、change_log 和需要验证的反例。
+
+你只能使用 dev 数据。不要请求、读取或推断 holdout、产品名称、源 run_id、人工 rationale、总分或排名。当前输出仅是候选规则，不得声称已验证或用于改写正式分。

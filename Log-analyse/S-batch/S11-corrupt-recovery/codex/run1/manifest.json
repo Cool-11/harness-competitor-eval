@@ -1,0 +1,20 @@
+{
+  "case": "S11-corrupt-recovery",
+  "product": "codex",
+  "run": 1,
+  "variant": "default",
+  "root": "F:\\tmp_run",
+  "work_dir": "F:\\tmp_run\\S11-corrupt-recovery\\codex\\run1\\work",
+  "product_revision": "ee25e6e3",
+  "started_at": "2026-10-25T17:42:00",
+  "ended_at": "2026-10-25T19:38:06",
+  "prompt_sha8": "41d608c4",
+  "inputs_sha8": {
+    "config.json": "4583ff08",
+    "data.csv": "fd668362"
+  },
+  "artifacts_count": 4,
+  "checker_exit": 0,
+  "interventions": 0,
+  "rerun": false
+}

@@ -1,0 +1,27 @@
+{
+  "experiment_status": "discovery_only_not_for_official_scoring",
+  "generated_at": "2026-10-31T13:02:49.968541+08:00",
+  "seed": "autorubric-pilot-v1",
+  "split_unit": "whole_run",
+  "holdout_per_task": 2,
+  "signed_runs": 10,
+  "cells": 40,
+  "dev_cells": 24,
+  "holdout_cells": 16,
+  "task_counts": {
+    "S06-artifact-deep-path": {
+      "dev_runs": 3,
+      "holdout_runs": 2
+    },
+    "S11-corrupt-recovery": {
+      "dev_runs": 3,
+      "holdout_runs": 2
+    }
+  },
+  "limitations": [
+    "Only two task families are represented.",
+    "Cells from the same run are correlated even though no run crosses splits.",
+    "Human labels inherit the current rubric and may contain rubric-specific bias.",
+    "The sample is suitable for rubric discovery, not production validation."
+  ]
+}

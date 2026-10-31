@@ -1,0 +1,63 @@
+{
+ "run_id": "S11__doubao__r1",
+ "suite": "harness-v1",
+ "task": "S11-corrupt-recovery",
+ "product": "doubao",
+ "trial": 1,
+ "variant": "default",
+ "status": "scored",
+ "environment": {
+  "root": "F:\\tmp_run",
+  "work_dir": "F:\\tmp_run\\S11-corrupt-recovery\\doubao\\run1\\work"
+ },
+ "binding": {
+  "prompt_sha8": "41d608c4",
+  "inputs_sha8": {
+   "config.json": "4583ff08",
+   "data.csv": "fd668362"
+  },
+  "task_revision": "2026-10-23-s06-pilot",
+  "product_revision": "d7795560",
+  "product_config": {
+   "version": "豆包 2.28.13（注册表 DisplayVersion）",
+   "channel": "桌面端·办公入口",
+   "account": "日常账号",
+   "config": "出厂默认；不添加自定义智能体/指令",
+   "observability": [
+    "可见输出",
+    "导出会话（如支持）"
+   ],
+   "notes": "run1 产物落在 F:\\runs_tmp\\S06-artifact-deep-path\\doubao\\输出\\汇总\\；本轮为 retrofit"
+  },
+  "evaluator_revision": "docs/14-v0.1"
+ },
+ "termination": {
+  "reason": "product_declared_done",
+  "timed_out": false,
+  "turns": 1,
+  "manual_interventions": 0
+ },
+ "evaluation": {
+  "reward_basis": [],
+  "components": {
+   "artifact": 1.0
+  },
+  "success": 1,
+  "v1": 5.5,
+  "v1_basis": "behavior_score (docs/03 §9.1 R1: 4×1.5)",
+  "grader": "ai_assisted+signoff(hjs 2026-10-25)"
+ },
+ "diagnostics": {
+  "failure_code": "",
+  "first_error": null,
+  "evidence_grade": ""
+ },
+ "evidence": {
+  "run_dir": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\doubao\\run1",
+  "timeline": "",
+  "session_log": "",
+  "artifacts": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\doubao\\run1\\artifacts",
+  "shots": "",
+  "recording": ""
+ }
+}

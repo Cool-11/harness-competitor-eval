@@ -1,4 +1,4 @@
-# S31 · K3 修复前（checker@HEAD~ 原版）留痕
+# S31 · K3 修复前（checker@2fd8d01 原版）留痕
 # 采集：2026-10-25 ｜ 命令：python <旧版 check_S31.py> <产物目录>
 # 旧版来源：git show 2fd8d01:tasks/second_tasks/S31-silent-anomaly-hard/checker.py
 # 问题：① 从不解析表格 → 缺失月写成 0 仍得满分（放水）

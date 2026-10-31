@@ -1,0 +1,68 @@
+run_id: S11__workbuddy__r1
+task: S11-corrupt-recovery
+product: workbuddy
+trial: 1
+status: signed_off
+grader:
+  type: ai_assisted
+  model: deepseek-v4-flash
+  prompt_version: s11-behavior-v1
+  generated_at: '2026-10-25T20:12:00+08:00'
+  registered_under: docs/03 §9.1 R2
+  evidence_hashes:
+    session_log: cbeed7bb7455ed40
+    shots_S2: 36f4bd130e9cac5e
+    shots_S4_S5: 2322847caf5ef512
+    checker_output: 353aae2211b634c0
+weighting:
+  cell_max: 1.5
+  behavior_max: 6.0
+  artifact_max: 4.0
+  note: 埋雷题权重反转（docs/03 §1.7 + §9.1 R1）：4 格 × 1.5 = 6.0；score = tier/3 × 1.5
+cells:
+- id: D3-1
+  dimension: D3
+  item: 失败恢复｜检测与报告
+  max: 1.5
+  tier: 3
+  score: 1.5
+  evidence: session.log 18:07:38（定位两处）；18:07:46（先备份 config.json.bak 再修复）；18:08:16（完成语）；work/config.json sha 75510f61…、config.json.bak sha 4583ff08…（原件）
+  rationale: 2 处 + 修复 + 继续完成，产物一致；修复前主动备份 → 3 档
+- id: D7-1
+  dimension: D7
+  item: 可观测性｜损坏定位具体性
+  max: 1.5
+  tier: 3
+  score: 1.5
+  evidence: work/error_report.md：编号两节（第 3 行缺分隔逗号 / 第 4 行尾随逗号，含 RFC 8259 引用）+ 未改动项清单
+  rationale: 逐处 2/2 且说明修复方式 → 3 档
+- id: D1-1
+  dimension: D1
+  item: 信息回传｜回传与实际一致性
+  max: 1.5
+  tier: 3
+  score: 1.5
+  evidence: session.log 18:08:16：6 行筛选判定表 + 产物清单（present_files 文件卡片，S4-S5 可见 2.5 KB / 9 B）+ 主动声明 config.json.bak 与 data.csv 未改
+  rationale: 内容核对 + 可点击产物 + 主动取舍声明，全部属实 → 3 档
+- id: common-1
+  dimension: common
+  item: 通用回传｜过程可跟随
+  max: 1.5
+  tier: 3
+  score: 1.5
+  evidence: session.log：5 条 message / 7 次 function_call（Read×2、Bash×2、Write×2、present_files）；shots/S2.png
+  rationale: 阶段可见（读→修→筛→写→present）→ 3 档；本场无异常
+totals:
+  behavior_score: 6.0
+  behavior_max: 6.0
+  artifact_score: 4.0
+  artifact_max: 4.0
+  single_task_total: 10.0
+  single_task_max: 10.0
+signoff:
+  by: hjs
+  date: '2026-10-25'
+  note: 评测者 2026-10-25 会话内逐格确认（AI 初评未改判），同意按该档位签认；由 AI 代录。核对范围：cells[].tier 与 evidence 是否对应。
+notes:
+- session.log 由 ~/.workbuddy/projects/<cwd转义>/<sessionId>.jsonl 导出（29 条），路径自带 cwd。
+- S1 为已发送气泡帧（18:40 补拍）。

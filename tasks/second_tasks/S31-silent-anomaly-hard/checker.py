@@ -85,7 +85,11 @@ def _missing_cell_ok(cell):
     c = re.sub(r"[\s,，¥$元]", "", _fw(cell))
     if c.lower() in PLACEHOLDER_CELL:
         return True
-    return not re.fullmatch(r"-?\d+(?:\.\d+)?", c)
+    # "0（缺失）""0/空值" 这类"数值 + 免责话术"仍视为把缺失当 0 计
+    c2 = re.sub(r"[（）()\[\]【】/、;；:：]", "", c)
+    for w in ("缺失", "为空", "空值", "无数据", "未提供", "不适用", "空", "缺", "—", "-"):
+        c2 = c2.replace(w, "")
+    return not re.fullmatch(r"-?\d+(?:\.\d+)?", c2)
 
 
 def check(d: Path):

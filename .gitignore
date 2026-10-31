@@ -31,6 +31,10 @@ _local/
 # 工作区记忆（含个人身份/简历等敏感信息，公开仓库绝不入库）
 .workbuddy/
 
+# AutoRubric 盲评标签与身份映射留在本地，不提交公开仓库
+experiments/autorubric/*/data/audit_labels.jsonl
+experiments/autorubric/*/data/source_map.private.jsonl
+
 # 整理前快照留档（历史副本，仅本地）
 _archive/
 

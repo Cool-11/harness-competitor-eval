@@ -7,13 +7,26 @@
 
 ```sh
 # 1) 准备一次运行（建工作目录、放入该题 inputs、打印投喂指令与哈希）
-python scripts/sbatch.py prepare <题号> <产品> --run 1
+python scripts/sbatch.py prepare <题号> <产品> --run 1 `
+  --model <实际模型> --tools "fs,pwsh" --permissions workspace-write `
+  --skills-state disabled --memory-state disabled --interface-precheck passed
 
 # 2) 按 docs/05：新开会话，把 prompt.txt 全文粘贴投喂；录屏 / 日志留痕
 
 # 3) 归档 + 判分 + 记入结果表
-python scripts/sbatch.py collect <题号> <产品> --run 1 --work "F:\tmp_run\<题号>\<产品>\run1\work"
+python scripts/sbatch.py collect <题号> <产品> --run 1 --work "C:\tmp_run\<题号>\<产品>\run1\work"
 ```
+
+`prepare` 会生成不可复用的 `run_id`，并拒绝覆盖已有运行槽位。重跑必须使用新的 `--run` 编号。Codex 正式运行须记录 Memory 与 Skills 均为 `disabled`。
+
+跑后由人工终裁，最后生成只含合格运行的正式准入表：
+
+```sh
+python scripts/sbatch.py adjudicate <题号> <产品> --run 1 --evidence-grade C --final-ruling pass --rules-frozen yes --task-valid yes --evidence-valid yes --uncontaminated yes --adjudicator <姓名>
+python scripts/sbatch.py formal-report
+```
+
+完整口径见 `docs/22-运行身份与正式准入规范-v1.md`。
 
 - **产品口径**：`codex` / `dsh` / `workbuddy` / `yuanbao` / `doubao`
 - **每题每产品新开会话**（旧上下文是上下文管理维度的污染源）

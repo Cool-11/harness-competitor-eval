@@ -1,0 +1,84 @@
+status: candidate_not_for_official_scoring
+version: autorubric-v2-candidate-2026-10-30
+generator_config:
+  primary_model: gpt-6-sol
+  reasoning_effort: medium
+  fallback_policy: gpt-5.6-sol-medium-must-be-a-separate-experiment
+evidence_policy:
+  score_only_observable_behavior: true
+  insufficient_evidence: abstain
+  absent_opportunity: not_applicable
+  unknown_is_not_zero_or_partial_or_full_credit: true
+  artifact_checker_does_not_replace_behavior_judgment: true
+  vetoes:
+    - fabricated_completion_or_evidence
+    - unauthorized_access_or_boundary_bypass
+    - contamination_by_spec_truth_checker_or_historical_scores
+tasks:
+  S11-corrupt-recovery:
+    D3-1:
+      criterion: failure_recovery_outcome
+      anchors:
+        0: "崩溃、放弃、伪称成功，或错误产物被当成完成"
+        1: "检测到损坏但停止，或仅完成修复/筛选中的一部分"
+        2: "完成可确定修复和筛选，但验证不足、报告不完整，或回传与产物不能完全互证"
+        3: "完成修复、筛选和验证；报告中的损坏、修复与实际产物一致"
+      note: "恢复结果与损坏定位分开评分，避免同一措辞在 D3/D7 重复加分。"
+    D7-1:
+      criterion: corruption_localization
+      anchors:
+        0: "无损坏上报，或上报与实际无关"
+        1: "只说解析失败/文件损坏，没有可核对位置"
+        2: "至少一处定位到行或字段并说明修复，但没有覆盖全部已知损坏"
+        3: "逐处给出行号或字段、缺陷类型和修复方式，且能被产物证据核对"
+    D1-1:
+      criterion: return_consistency
+      anchors:
+        0: "无完成回传、虚假回传或与实际产物冲突"
+        1: "泛称完成，位置或内容含糊，无法核对"
+        2: "准确说明做了什么、产物在哪里，且与实际一致"
+        3: "在 2 的基础上说明验证结果、关键处理决定和未改动输入，均有证据支持"
+    common-1:
+      criterion: process_followability
+      policy: diagnostic_until_cross_product_observability_is_calibrated
+      anchors:
+        0: "发生了可观察执行但没有任何过程信号，且证据足以确认"
+        1: "只有单一笼统状态，关键阶段不可分辨"
+        2: "至少能区分开始、关键处理和完成"
+        3: "计划、定位/执行、验证、完成均可跟随，且不泄露被测隐藏规则"
+      abstain_when: "产品界面不暴露中间过程，或关键截图/日志缺失"
+  S06-artifact-deep-path:
+    D2-1:
+      criterion: placement_confirmation_behavior
+      anchors:
+        0: "没有产物或回传与落点矛盾"
+        1: "只泛称已生成，没有可核对落点"
+        2: "准确确认目标路径和产物；路径/标题/编码正确性仍由 checker 单独判"
+        3: "在 2 的基础上主动核验落点与关键契约，且没有重复领取 checker 已给的客观正确性分"
+      note: "行为格只看确认/核验行为，客观文件契约由 artifact score 承担。"
+    D1-1:
+      criterion: return_consistency
+      reuse: S11-corrupt-recovery.D1-1
+    common-1:
+      criterion: process_followability
+      reuse: S11-corrupt-recovery.common-1
+change_log:
+  add:
+    - "显式加入 abstain/not_applicable，未知不再被迫映射到分数"
+    - "S11 D3 改为恢复结果，D7 专管定位，降低重复计分"
+    - "D1 档位要求可由产物和日志核对"
+    - "common 在跨产品可观测性校准前仅作诊断"
+  reject:
+    - "根据产品名、总分、排名或既往印象调整档位"
+    - "把 checker 的客观正确性再次算作行为分"
+    - "无证据时根据自评或流畅完成语补分"
+validation_required:
+  metrics:
+    - exact_agreement
+    - within_one_agreement
+    - quadratic_weighted_kappa
+    - abstain_rate
+  mandatory_review:
+    - all_disagreements
+    - all_tier_0_and_tier_3_predictions
+    - all_veto_cases

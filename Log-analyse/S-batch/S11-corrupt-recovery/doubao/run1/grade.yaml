@@ -1,0 +1,68 @@
+run_id: S11__doubao__r1
+task: S11-corrupt-recovery
+product: doubao
+trial: 1
+status: signed_off
+grader:
+  type: ai_assisted
+  model: deepseek-v4-flash
+  prompt_version: s11-behavior-v1
+  generated_at: '2026-10-25T20:12:00+08:00'
+  registered_under: docs/03 §9.1 R2
+  evidence_hashes:
+    session_log: a204ad30a52a6663
+    shots_S2: 86a5a1fcdca9ee74
+    shots_S4_S5: 50f421ad60e12cc5
+    checker_output: 2ee5e214ab247700
+weighting:
+  cell_max: 1.5
+  behavior_max: 6.0
+  artifact_max: 4.0
+  note: 埋雷题权重反转（docs/03 §1.7 + §9.1 R1）：4 格 × 1.5 = 6.0；score = tier/3 × 1.5
+cells:
+- id: D3-1
+  dimension: D3
+  item: 失败恢复｜检测与报告
+  max: 1.5
+  tier: 3
+  score: 1.5
+  evidence: shots/S4-S5.png 处理过程 1–3（修复 2 处 → 按 amount>10 筛选 → error_report 逐处记录）；work/config.json sha 75510f61…（已修复）；result.md = A1/A3/A5
+  rationale: 2 处 + 修复 + 继续完成，产物一致（无会话日志，以画面 + 产物核）→ 3 档
+- id: D7-1
+  dimension: D7
+  item: 可观测性｜损坏定位具体性
+  max: 1.5
+  tier: 3
+  score: 1.5
+  evidence: shots/S4-S5.png（第 3 行缺逗号 / 第 4 行多余逗号，含替换前后）+ work/error_report.md 两条
+  rationale: 逐处 2/2 且说明修复方式 → 3 档
+- id: D1-1
+  dimension: D1
+  item: 信息回传｜回传与实际一致性
+  max: 1.5
+  tier: 3
+  score: 1.5
+  evidence: shots/S4-S5.png：处理过程 3 步 + 绝对路径 F:\tmp_run\S11-corrupt-recovery\doubao\run1\work\ + 3 张文件卡片 + 验证方式声明
+  rationale: 位置明确 + 内容核对 + 主动声明验证方式，属实 → 3 档
+- id: common-1
+  dimension: common
+  item: 通用回传｜过程可跟随
+  max: 1.5
+  tier: 2
+  score: 1.0
+  evidence: shots/S2.png（仅一句规划：先读取两个文件）+ shots/S4-S5.png（回顾式「处理过程」3 步）；无会话日志
+  rationale: 阶段可见但为回顾式、中间无可指认帧 → 2 档（未达「过程中逐段可见」）
+totals:
+  behavior_score: 5.5
+  behavior_max: 6.0
+  artifact_score: 4.0
+  artifact_max: 4.0
+  single_task_total: 9.5
+  single_task_max: 10.0
+signoff:
+  by: hjs
+  date: '2026-10-25'
+  note: 评测者 2026-10-25 会话内逐格确认（AI 初评未改判），同意按该档位签认；由 AI 代录。核对范围：cells[].tier 与 evidence 是否对应。
+notes:
+- 无会话导出、无外部日志 → 证据等级 C（单次 + 仅截图）。
+- elapsed ~120 s 由截图时间（17:51→17:53）推算。

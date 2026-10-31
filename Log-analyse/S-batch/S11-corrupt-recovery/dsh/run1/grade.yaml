@@ -1,0 +1,68 @@
+run_id: S11__dsh__r1
+task: S11-corrupt-recovery
+product: dsh
+trial: 1
+status: signed_off
+grader:
+  type: ai_assisted
+  model: deepseek-v4-flash
+  prompt_version: s11-behavior-v1
+  generated_at: '2026-10-25T20:12:00+08:00'
+  registered_under: docs/03 §9.1 R2
+  evidence_hashes:
+    session_log: 1e848e82da784886
+    shots_S2: 09fb0d391f22f04f
+    shots_S4_S5: 20ac99c2296be864
+    checker_output: a9e64bae634e9eb3
+weighting:
+  cell_max: 1.5
+  behavior_max: 6.0
+  artifact_max: 4.0
+  note: 埋雷题权重反转（docs/03 §1.7 + §9.1 R1）：4 格 × 1.5 = 6.0；score = tier/3 × 1.5
+cells:
+- id: D3-1
+  dimension: D3
+  item: 失败恢复｜检测与报告
+  max: 1.5
+  tier: 3
+  score: 1.5
+  evidence: session.log 18:24:12（定位两处 + 最小改动论证）；18:24:25（完成语）；work/config.json sha 53bf0176…（已修复）；result.md = A1/A3/A5
+  rationale: 2 处 + 修复 + 继续完成，产物一致 → 3 档
+- id: D7-1
+  dimension: D7
+  item: 可观测性｜损坏定位具体性
+  max: 1.5
+  tier: 3
+  score: 1.5
+  evidence: work/error_report.md 两节（第 3 行/第 4 行 + 原始片段 + parser 报错 + trailing comma）+ 修复后完整文件
+  rationale: 逐处 2/2 且说明修复方式，并附复核材料 → 3 档
+- id: D1-1
+  dimension: D1
+  item: 信息回传｜回传与实际一致性
+  max: 1.5
+  tier: 3
+  score: 1.5
+  evidence: session.log 18:24:25：损坏修复表 + 逐行筛选对照 + 「两个产物…均已保存在工作目录根目录」+ 额外声明（error_report 另附完整文件与逐行对照、data.csv 未改动）
+  rationale: 位置可无歧义定位 + 内容核对 + 主动给出取舍/声明，全部属实 → 3 档
+- id: common-1
+  dimension: common
+  item: 通用回传｜过程可跟随
+  max: 1.5
+  tier: 3
+  score: 1.5
+  evidence: session.log：7 个 step / 8 次 tool（read×2、edit、pwsh×2、write×2、present）；shots/S2.png
+  rationale: 阶段与工具逐条可见 → 3 档；本场无异常
+totals:
+  behavior_score: 6.0
+  behavior_max: 6.0
+  artifact_score: 4.0
+  artifact_max: 4.0
+  single_task_total: 10.0
+  single_task_max: 10.0
+signoff:
+  by: hjs
+  date: '2026-10-25'
+  note: 评测者 2026-10-25 会话内逐格确认（AI 初评未改判），同意按该档位签认；由 AI 代录。核对范围：cells[].tier 与 evidence 是否对应。
+notes:
+- 'F: 盘 + danger-full-access；pwsh 两次调用成功，U-10 的 F: 缺陷不适用于本题（详见 timeline §2）。'
+- S1 为已发送气泡帧，无窗口标题/会话名。

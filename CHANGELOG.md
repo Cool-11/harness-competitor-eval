@@ -6,6 +6,32 @@
 
 ---
 
+## [2026-10-31]
+
+### 文档
+
+- 新增 [周报 03](docs/周报/周报03-2026-10-31.md) 与导师简稿，记录 S11 五款 run2 的探索性产物复评、K4 独立验收缺口和 AutoRubric 候选状态。
+- 新增 `Log-analyse/S-batch/S11-corrupt-recovery/run2-review-2026-10-31.md`：登记事后收件索引、五款产物检查和 DSH 原生会话所证实的跨题工作区错位。该批不追认为正式 v2，也不因补表启动 run3。
+
+## [2026-10-30]
+
+### 新增
+
+- `docs/22`：运行唯一身份、六类活动完全分账、正式比较硬门槛、未知项纪律、checker 修订包与结论五段结构。
+- `scripts/eval_ledger.py`：产品运行 / checker 自测 / 离线复算 / checker 回归 / 裸模型探针 / 接口预检六类活动分账，生成唯一 `record_id` 并校验重复。
+- `scripts/sbatch.py adjudicate/formal-report`：人工终裁后计算正式准入；正式表只收规则冻结、题面有效、证据有效且无污染的产品运行。
+- `docs/23`：以 S11/K4 为本周小闭环，按“观察—证据—解释—未排除因素—可复现实验”落结论草案与停止条件。
+
+### 变更
+
+- `scripts/sbatch.py prepare`：生成不可复用的 `run_id`，禁止覆盖已有运行槽位；记录单题 revision、产品版本、模型、工具、权限、Skills、Memory 与接口预检状态。Codex 未明确关闭 Memory/Skills 时不得进入正式比较。
+- 新运行默认根由 `F:\tmp_run` 改为 `C:\tmp_run`，规避已登记的 DSH/F: 盘沙箱异常；历史 legacy 运行不得补字段追认正式样本。
+
+### 修复
+
+- Windows checker 子进程固定使用 Python UTF-8 mode，消除系统代码页导致“合计”解析失败和大面积假回归。
+- `docs/18` 新增 U-13：16 个历史运行缺 v2 准入字段，保留为 legacy，不补字追认正式样本。
+
 ## [2026-10-28]
 
 ### 文档

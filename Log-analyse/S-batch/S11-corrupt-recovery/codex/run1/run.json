@@ -1,0 +1,63 @@
+{
+ "run_id": "S11__codex__r1",
+ "suite": "harness-v1",
+ "task": "S11-corrupt-recovery",
+ "product": "codex",
+ "trial": 1,
+ "variant": "default",
+ "status": "scored",
+ "environment": {
+  "root": "F:\\tmp_run",
+  "work_dir": "F:\\tmp_run\\S11-corrupt-recovery\\codex\\run1\\work"
+ },
+ "binding": {
+  "prompt_sha8": "41d608c4",
+  "inputs_sha8": {
+   "config.json": "4583ff08",
+   "data.csv": "fd668362"
+  },
+  "task_revision": "2026-10-23-s06-pilot",
+  "product_revision": "ee25e6e3",
+  "product_config": {
+   "version": "OpenAI Codex 桌面端 26.1016.8622.0（Appx 包清单 DisplayVersion）",
+   "channel": "桌面端",
+   "account": "日常账号",
+   "config": "桌面端出厂默认；个人 Skill / 自定义指令停用；不再走 CLI `~/.codex/config.toml` custom provider 路径",
+   "observability": [
+    "界面可见输出",
+    "截图"
+   ],
+   "notes": "2026-10-23 由 CLI 口径改为桌面端；安装包 OpenAI.Codex_26.1016.8622.0_x64（WindowsApps），用户目录 %LOCALAPPDATA%\\OpenAI\\Codex；桌面端不导出终端日志，外部日志不可得"
+  },
+  "evaluator_revision": "docs/14-v0.1"
+ },
+ "termination": {
+  "reason": "product_declared_done",
+  "timed_out": false,
+  "turns": 1,
+  "manual_interventions": 0
+ },
+ "evaluation": {
+  "reward_basis": [],
+  "components": {
+   "artifact": 1.0
+  },
+  "success": 1,
+  "v1": 5.5,
+  "v1_basis": "behavior_score (docs/03 §9.1 R1: 4×1.5)",
+  "grader": "ai_assisted+signoff(hjs 2026-10-25)"
+ },
+ "diagnostics": {
+  "failure_code": "",
+  "first_error": null,
+  "evidence_grade": ""
+ },
+ "evidence": {
+  "run_dir": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\codex\\run1",
+  "timeline": "",
+  "session_log": "",
+  "artifacts": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\codex\\run1\\artifacts",
+  "shots": "",
+  "recording": ""
+ }
+}

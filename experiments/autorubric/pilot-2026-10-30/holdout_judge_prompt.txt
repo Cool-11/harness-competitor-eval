@@ -1,0 +1,10 @@
+你是独立盲评者。请使用随附的冻结候选 rubric，对 `data/holdout.jsonl` 的每一行独立判定。
+
+固定要求：
+1. 只能使用该行的 task_id、criterion、query、response 与冻结 rubric；不得使用产品印象或补造未给出的事实。
+2. 证据足够时输出 score 0、1、2 或 3；证据不足输出 `score: null, decision: abstain`；没有观察机会输出 `score: null, decision: not_applicable`。
+3. 不要读取 `audit_labels.jsonl` 或 `source_map.private.jsonl`，也不要询问历史总分。
+4. 不得在评完部分样本后修改 rubric。若发现 rubric 缺陷，只在 `rubric_issues` 字段记录，仍按冻结版本完成全部判断。
+5. 输出 JSONL，每行字段固定为：`example_id`、`score`、`decision`、`evidence_quote`、`reason`、`rubric_issues`。
+
+保存为 `results/holdout_predictions.jsonl`。完成后只报告已评数量、abstain 数和输出路径，不计算与人工标签的一致率；一致率由裁判通道在盲评文件冻结后计算。

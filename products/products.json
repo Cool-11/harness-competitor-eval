@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-23",
-  "note": "五款产品的评测态基线。一次填写后，prepare 会自动带入 run.json.binding；版本/账号/配置变化时更新本文件并重新 prepare。版本号的来源统一为：本机 Windows 卸载注册表 DisplayVersion（CLI 产品用 <cmd> --version 实测），记录日期 2026-10-23。",
+  "updated_at": "2026-11-07",
+  "note": "五款产品的评测态基线。一次填写后，prepare 会自动带入 run.json.binding；版本/账号/配置变化时更新本文件并重新 prepare。其他产品版本来源与登记日期仍见各项说明；DSH 桌面端于 2026-11-01 核对，CLI 于 2026-11-07 固定安装并预检。",
   "products": {
     "codex": {
       "version": "OpenAI Codex 桌面端 26.1016.8622.0（Appx 包清单 DisplayVersion）",
@@ -12,12 +12,12 @@
       "notes": "2026-10-23 由 CLI 口径改为桌面端；安装包 OpenAI.Codex_26.1016.8622.0_x64（WindowsApps），用户目录 %LOCALAPPDATA%\\OpenAI\\Codex；桌面端不导出终端日志，外部日志不可得"
     },
     "dsh": {
-      "version": "DeepSeek Harness 0.2.0-rc.2（注册表 DisplayVersion）",
-      "channel": "本地源码/桌面端",
+      "version": "桌面端 0.2.1-rc.5（2026-11-01）；CLI 0.2.2-rc.1（2026-11-07，npm 精确版本）",
+      "channel": "本地桌面端 + npm CLI（固定版本）",
       "account": "日常账号",
-      "config": "默认插件集与默认模型路由；个人 Skill 停用",
+      "config": "2026-11-01 F 盘预检原生会话：standard preset；deepseek-official/deepseek-flash high；danger-full-access、approval never；Skills/Memory 未逐项确认",
       "observability": ["终端输出", "桌面/网页可见输出", "会话日志"],
-      "notes": "评测面以 docs/01 与 baseline 为准；安装路径 D:\\dsh-harness\\installation"
+      "notes": "评测面以 docs/01 与 baseline 为准；桌面端安装路径 D:\\dsh-harness\\installation；CLI 路径由 npm global 管理，2026-11-07 dsh --version=0.2.2-rc.1；F:\\for-project-tmp-run\\prechecks\\dsh\\2026-11-01\\work 的 pwsh/write 实测通过，范围仅此工作根"
     },
     "workbuddy": {
       "version": "WorkBuddy 5.8.3（注册表 DisplayVersion）",

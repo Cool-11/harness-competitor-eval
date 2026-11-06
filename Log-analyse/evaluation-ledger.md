@@ -4,12 +4,12 @@
 
 | 类型 | 数量 |
 |---|---:|
-| `product_run` | 16 |
+| `product_run` | 18 |
 | `checker_selftest` | 1 |
-| `offline_recompute` | 1 |
+| `offline_recompute` | 3 |
 | `checker_regression` | 1 |
 | `bare_model_probe` | 4 |
-| `interface_precheck` | 1 |
+| `interface_precheck` | 2 |
 
 ## 明细
 
@@ -39,3 +39,8 @@
 | BM-20261030T013722+0800-8f1b98bb | `bare_model_probe` | U-05 DeepSeek S31 run1 | passed | Log-analyse/probes/U-05-deepseek/S31/run1 |
 | BM-20261030T013722+0800-aab3c29a | `bare_model_probe` | U-05 DeepSeek S31 run2 | passed | Log-analyse/probes/U-05-deepseek/S31/run2 |
 | IP-20261030T013722+0800-5fe5c64b | `interface_precheck` | Windows checker subprocess UTF-8 decoding | passed | tests/regression/evidence/pytest-2026-10-30.xml |
+| IP-20261101T014848+0800-8a8c1c40 | `interface_precheck` | DSH F drive cwd/pwsh/write 2026-11-01 | passed | Log-analyse/probes/IP-DSH-F-2026-11-01.md |
+| PR-20261101T015830+0800-8239465c | `product_run` | S11-corrupt-recovery / dsh / run3 | invalid | Log-analyse/S-batch/S11-corrupt-recovery/dsh/run3/run.json |
+| OR-20261101T015836+0800-d565513b | `offline_recompute` | S11 DSH misrouted run3 content-only checker | passed | Log-analyse/S-batch/S11-corrupt-recovery/dsh/run3/invalid-attempt.md |
+| PR-20261101T022055+0800-c7d28ffb | `product_run` | S11-corrupt-recovery / dsh / run4 | passed | Log-analyse/S-batch/S11-corrupt-recovery/dsh/run4/run.json |
+| OR-20261101T022946+0800-7f467d12 | `offline_recompute` | S11 DSH run4 delegated behavior scoring and adjudication | passed | Log-analyse/S-batch/S11-corrupt-recovery/dsh/run4/grade.yaml |

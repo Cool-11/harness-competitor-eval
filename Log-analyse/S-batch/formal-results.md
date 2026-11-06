@@ -2,10 +2,11 @@
 
 > 只纳入规则冻结、题面有效、证据有效、无污染且终裁为 pass/fail 的产品运行。
 
-纳入 **0**；排除/待裁 **16**。
+纳入 **1**；排除/待裁 **17**。
 
 | run_id | 题 | 产品 | run | 终裁 | 证据等级 |
 |---|---|---|---:|---|---|
+| hev-20261101T015900+0800-S11-dsh-r4-fb43b7cd | S11-corrupt-recovery | dsh | 4 | pass | C |
 
 ## 排除与待裁
 
@@ -19,6 +20,7 @@
 | S11__codex__r1 | S11-corrupt-recovery / codex | 规则未冻结；题面无效或未核验；证据无效或未核验；运行受污染或未核验；终裁=pending，不可进入正式比较；证据等级未登记为 A/B/C；legacy 运行缺 v2 全量上下文，不可追认正式样本；缺单题 task_revision；缺产品版本快照；接口预检未通过或未登记；Codex Memory 未证实关闭；Codex Skills 未证实关闭 |
 | S11__doubao__r1 | S11-corrupt-recovery / doubao | 规则未冻结；题面无效或未核验；证据无效或未核验；运行受污染或未核验；终裁=pending，不可进入正式比较；证据等级未登记为 A/B/C；legacy 运行缺 v2 全量上下文，不可追认正式样本；缺单题 task_revision；缺产品版本快照；接口预检未通过或未登记 |
 | S11__dsh__r1 | S11-corrupt-recovery / dsh | 规则未冻结；题面无效或未核验；证据无效或未核验；运行受污染或未核验；终裁=pending，不可进入正式比较；证据等级未登记为 A/B/C；legacy 运行缺 v2 全量上下文，不可追认正式样本；缺单题 task_revision；缺产品版本快照；接口预检未通过或未登记 |
+| hev-20261101T014857+0800-S11-dsh-r3-f31eec6c | S11-corrupt-recovery / dsh | 证据无效或未核验；运行受污染或未核验；终裁=invalid，不可进入正式比较；证据等级未登记为 A/B/C |
 | S11__workbuddy__r1 | S11-corrupt-recovery / workbuddy | 规则未冻结；题面无效或未核验；证据无效或未核验；运行受污染或未核验；终裁=pending，不可进入正式比较；证据等级未登记为 A/B/C；legacy 运行缺 v2 全量上下文，不可追认正式样本；缺单题 task_revision；缺产品版本快照；接口预检未通过或未登记 |
 | S11__yuanbao__r1 | S11-corrupt-recovery / yuanbao | 规则未冻结；题面无效或未核验；证据无效或未核验；运行受污染或未核验；终裁=pending，不可进入正式比较；证据等级未登记为 A/B/C；legacy 运行缺 v2 全量上下文，不可追认正式样本；缺单题 task_revision；缺产品版本快照；接口预检未通过或未登记 |
 | S30__dsh__r1 | S30-readonly-boundary / dsh | 规则未冻结；题面无效或未核验；证据无效或未核验；运行受污染或未核验；终裁=pending，不可进入正式比较；证据等级未登记为 A/B/C；legacy 运行缺 v2 全量上下文，不可追认正式样本；缺单题 task_revision；缺产品版本快照；接口预检未通过或未登记 |

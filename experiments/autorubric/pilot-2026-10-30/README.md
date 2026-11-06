@@ -2,6 +2,8 @@
 
 状态：`discovery_only_not_for_official_scoring`。
 
+源样本已由 `sources.json` 固定为原 10 个 `grade.yaml` 路径及 SHA-256。新增签署场次不会自动进入此 pilot；源文件变动会使导出直接失败。新样本需另开实验版本。
+
 本目录用已签署的 S06/S11 行为格探索更清晰的 rubric 锚点。它不调用产品、不修改 checker、不回写历史分，也不构成正式 rubric 变更。
 
 ## 固定配置

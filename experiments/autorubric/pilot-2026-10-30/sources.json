@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "purpose": "Frozen 2026-10-30 pilot; new signed runs need a new experiment",
+  "sources": [
+    {
+      "source": "Log-analyse/S-batch/S06-artifact-deep-path/codex/run1/grade.yaml",
+      "sha256": "8f0a2912bcb2a3e813751b6f4fd38bec649b72941f3053efd0f6a0afde0f3836"
+    },
+    {
+      "source": "Log-analyse/S-batch/S06-artifact-deep-path/doubao/run1/grade.yaml",
+      "sha256": "b042791d032f760d486ed40f95314008776795ea4b95b1cd4404175b6defb1a0"
+    },
+    {
+      "source": "Log-analyse/S-batch/S06-artifact-deep-path/dsh/run1/grade.yaml",
+      "sha256": "717ce57970a02c002ee4231352f616759147029db128596b7bd14b90f752f44d"
+    },
+    {
+      "source": "Log-analyse/S-batch/S06-artifact-deep-path/workbuddy/run1/grade.yaml",
+      "sha256": "bbdc34410eeaadc9149dacfe6a7f45455e0a0774af5ee63d7450fa702b9f6bc7"
+    },
+    {
+      "source": "Log-analyse/S-batch/S06-artifact-deep-path/yuanbao/run1/grade.yaml",
+      "sha256": "df6cf3de42a33a068c5faf19e76903218874c3bcd78e2a2691e0b6ff885634c8"
+    },
+    {
+      "source": "Log-analyse/S-batch/S11-corrupt-recovery/codex/run1/grade.yaml",
+      "sha256": "ec4130a99be29a8ce5aa6e382fd8d7dcdfb955713cd3884517f81fab45bbfd96"
+    },
+    {
+      "source": "Log-analyse/S-batch/S11-corrupt-recovery/doubao/run1/grade.yaml",
+      "sha256": "7f0d738bf4160fee805bfbd0ba8606a62143b4c7d2478ecc11d5b581e6099a77"
+    },
+    {
+      "source": "Log-analyse/S-batch/S11-corrupt-recovery/dsh/run1/grade.yaml",
+      "sha256": "b78898654fda404820065aea81f73abcd595f4e0d829f236f0bddcd6b6621b90"
+    },
+    {
+      "source": "Log-analyse/S-batch/S11-corrupt-recovery/workbuddy/run1/grade.yaml",
+      "sha256": "5f52597f751daa8da42eba527c8480020f06cbdc213d3b0d4d2d428c3d426df1"
+    },
+    {
+      "source": "Log-analyse/S-batch/S11-corrupt-recovery/yuanbao/run1/grade.yaml",
+      "sha256": "a3d9fbb111c0779fd7fe5bca60fc1f7a8096a4bce6711e346f9531373a6ad237"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+本场无独立录屏或产品外部错误日志。可核的产品原生会话为仓库外 `F:\for-project-tmp-run\runs\S11-corrupt-recovery\dsh\run4\log\session.v4.jsonl.zstd`，SHA-256 `8bb8e2b3d39ff391a66d6ca429ca102b0be6b9ecb06c1736cff2e926f196bf97`。S1/S2/S4/S5 截图保存在同一外部 run4 的 `shots` 目录。原始压缩日志与截图不直接纳入 GitHub 仓库。

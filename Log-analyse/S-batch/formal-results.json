@@ -1,8 +1,18 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-30T01:36:09+08:00",
+  "generated_at": "2026-11-04T01:53:24+08:00",
   "policy": "仅纳入规则冻结、题面有效、证据有效、无污染且终裁为 pass/fail 的 product_run。",
-  "included": [],
+  "included": [
+    {
+      "run_id": "hev-20261101T015900+0800-S11-dsh-r4-fb43b7cd",
+      "task": "S11-corrupt-recovery",
+      "product": "dsh",
+      "trial": 4,
+      "final_ruling": "pass",
+      "evidence_grade": "C",
+      "reasons": []
+    }
+  ],
   "excluded": [
     {
       "run_id": "S06__codex__r1",
@@ -161,6 +171,20 @@
         "缺单题 task_revision",
         "缺产品版本快照",
         "接口预检未通过或未登记"
+      ]
+    },
+    {
+      "run_id": "hev-20261101T014857+0800-S11-dsh-r3-f31eec6c",
+      "task": "S11-corrupt-recovery",
+      "product": "dsh",
+      "trial": 3,
+      "final_ruling": "invalid",
+      "evidence_grade": "N",
+      "reasons": [
+        "证据无效或未核验",
+        "运行受污染或未核验",
+        "终裁=invalid，不可进入正式比较",
+        "证据等级未登记为 A/B/C"
       ]
     },
     {

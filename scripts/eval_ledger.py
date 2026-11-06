@@ -109,7 +109,7 @@ def sync_product_runs(batch_root: Path = None, path: Path = None) -> int:
     path = path or LEDGER
     records = read_records(path)
     existing = {
-        r.get("related_run_id") for r in records
+        r.get("related_run_id"): r for r in records
         if r.get("record_type") == "product_run" and r.get("related_run_id")
     }
     seen = set()
@@ -122,15 +122,17 @@ def sync_product_runs(batch_root: Path = None, path: Path = None) -> int:
         if run_id in seen:
             raise ValueError(f"产品现场 run_id 重复：{run_id}")
         seen.add(run_id)
-        if run_id in existing:
-            continue
         ruling = doc.get("adjudication", {}).get("final_ruling", "pending")
         status = {
             "pass": "passed", "fail": "failed", "invalid": "invalid",
             "not_applicable": "not_applicable",
         }.get(ruling, "unknown")
+        if run_id in existing:
+            existing[run_id]["status"] = status
+            existing[run_id].setdefault("metadata", {})["official_eligible"] = doc.get("adjudication", {}).get("official_eligible", False)
+            continue
         rel = run_path.relative_to(REPO).as_posix() if run_path.is_relative_to(REPO) else str(run_path)
-        register(
+        new_record = register(
             "product_run",
             f"{doc.get('task', '')} / {doc.get('product', '')} / run{doc.get('trial', '')}",
             status,
@@ -143,7 +145,10 @@ def sync_product_runs(batch_root: Path = None, path: Path = None) -> int:
             },
             path=path,
         )
+        records.append(new_record)
         added += 1
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("".join(json.dumps(r, ensure_ascii=False, sort_keys=True) + "\n" for r in records), encoding="utf-8")
     return added
 
 

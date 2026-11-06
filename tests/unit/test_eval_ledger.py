@@ -60,3 +60,11 @@ def test_sync_product_runs_is_idempotent(tmp_path):
     records = eval_ledger.read_records(ledger)
     assert records[0]["record_type"] == "product_run"
     assert records[0]["related_run_id"] == "hev-test-unique"
+    run = json.loads((run_dir / "run.json").read_text(encoding="utf-8"))
+    run["adjudication"] = {"final_ruling": "pass", "official_eligible": True}
+    (run_dir / "run.json").write_text(json.dumps(run), encoding="utf-8")
+    assert eval_ledger.sync_product_runs(batch, ledger) == 0
+    records = eval_ledger.read_records(ledger)
+    assert len(records) == 1
+    assert records[0]["status"] == "passed"
+    assert records[0]["metadata"]["official_eligible"] is True

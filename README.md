@@ -1,5 +1,11 @@
 # harness-competitor-eval
 
+> **当前执行状态（按本地运行账生成）**：见 [S11/S06 执行与覆盖快照](Log-analyse/S-batch/coverage-status.md)。题目设计覆盖、产品运行记录与正式准入覆盖分别统计；旧周报按其原截止时间保留。2026-11-06 后的新运行按 [评测执行架构 v3](docs/30-评测执行架构-v3-2026-11-06.md)；桌面产品使用 [v3 手工运行卡](docs/31-v3桌面手工运行卡-2026-11-06.md)。
+
+> v3 将 Codex/DSH CLI 批跑与三款桌面产品手工运行分开；录屏为可选补强，原始会话/日志导出与来源证明为必需。Harness 因果只接受同模型、同控制合同的 CLI 成对运行。
+
+> 下一步的自动/手工责任边界、10 格核心矩阵与 Harness 因果路线见 [v3 执行与覆盖路线图](docs/32-v3执行与覆盖路线图-2026-11-07.md)。
+
 五款 Agent 产品的 Harness 竞品评测（个人课题作业）
 
 **评测对象**：Codex ｜ Workbuddy ｜ DSH ｜ 元宝专家模式 ｜ 豆包办公
@@ -23,7 +29,7 @@
 | `Log-analyse/` | **表现现场** | `Log-analyse/<题号>/<产品>/run<n>/`：`timeline.md` + `session.log` + `artifacts/` + `shots/` + `recording.txt` + 证据三件套（`manifest/usage/score.json`） |
 | `Log-analyse/<产品>-log-analyse/` | 补充现场 | 五款日志分析批，**不走** `<题号>/<产品>/run<n>` 格式，直接按产品目录组织 |
 | `Log-analyse/baseline/` | **基线 + 回滚包** | 冻结操作指引；`_backup/` 是评测期移走的个人技能（回滚用，**非现场记录**，不入 git）|
-| `scripts/` | 辅助脚本 | 脚手架、用例生成、快照归档、判分汇总；**`dsh_export.py`** 导出 dsh 原始会话日志的工具调用与七维度信号 |
+| `scripts/` | 辅助脚本 | 脚手架、用例生成、快照归档、判分汇总；**`cli_batch.py`** 批跑 Codex/DSH CLI 并保存原生轨迹；**`dsh_export.py`** 导出 DSH 原始会话日志的工具调用与七维度信号 |
 | `docs/周报/` | **周报留档** | 每周周报的 markdown 版，与邮件发送版一致 |
 | `CHANGELOG.md` | **变更日志** | 按日期记录实质性变更（方案/题库/脚本/文档）；每次实质提交同步登记 |
 | `_archive/` | **整理前快照** | 历史整理前的副本留档，不入 git（见其 `README.md` 的路径迁移记录）|

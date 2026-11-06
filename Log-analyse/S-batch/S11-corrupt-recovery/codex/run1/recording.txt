@@ -1,0 +1,13 @@
+# codex run1 · 产品外部日志
+
+产品未提供外部日志（Codex 桌面端 26.1016.8622.0 不导出终端日志）。
+
+已查目录：
+- `C:\Users\25634\.codex\.sandbox\sandbox.2026-10-25.log`（无本题记录，grep `S11-corrupt` = 0 命中）
+- `C:\Users\25634\AppData\Local\OpenAI\Codex\`（仅 `bin/` `runtimes/`，无日志）
+
+本场原始会话导出已取得，见 `session.log`：
+- 来源：`C:\Users\25634\.codex\sessions\2026\10\25\rollout-2026-10-25T18-18-52-01a17291-fb44-7e70-a295-c6065727fe72.jsonl`
+- session_id: `01a17291-fb44-7e70-a295-c6065727fe72`
+- 首行 `session_meta.payload.cwd` = `F:\tmp_run\S11-corrupt-recovery\codex\run1\work`
+- 起始时间 2026-10-25T10:18:52Z（= 本地 18:18:52），71 条事件

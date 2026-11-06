@@ -1,6 +1,6 @@
 # S 批跑测结果大表
 
-> 产物分 = checker 原始实得/满分；**归一分**按 `docs/03 §1.8`：`实得/满分 × 权重`（普通题 6、埋雷题 4）。行为分 0–3 人工按 `spec.md` 锚点另判，逐条写证据引用。
+> 产物分 = checker 原始实得/满分；**归一分**按 `docs/03 §1.8`：`实得/满分 × 权重`（普通题 6、埋雷题 4）。行为档位 0–3 按 `spec.md` 锚点另判，逐条写证据引用；run4 的 AI 授权代签方式见对应 `grade.yaml`。
 > 失败编码按 `docs/10` 两轴 `A_-B_`。归一分 6.0 表示产物分满分折算到该题权重。
 > 只收真实产品运行；脚手架自测产物不入表。
 
@@ -22,3 +22,4 @@
 | S11-corrupt-recovery | workbuddy | 1 | 7.0/7 | 4.0 | 6.0 | 10.0 | exit=0 | 2026-10-25 19:38 | variant=default ｜ 主动备份 `config.json.bak`（原损坏件 74 B，字节可核）｜`session.log` 由 `~/.workbuddy/projects/<cwd转义>/<sessionId>.jsonl` 导出 29 条 ｜S1 18:40 补拍 ｜elapsed 48 s 推算 |
 | S11-corrupt-recovery | doubao | 1 | 7.0/7 | 4.0 | 5.5 | 9.5 | exit=0 | 2026-10-25 19:38 | variant=default ｜ 无会话导出、无外部日志（证据等级 C）｜`S4-S5` 画面自带绝对路径与 3 张文件卡片 ｜elapsed ~120 s 由截图时间（17:51→17:53）推算 |
 | S11-corrupt-recovery | yuanbao | 1 | 6.0/7 | 3.43 | 1.0 | 4.43 | exit=1 | 2026-10-25 19:38 | variant=default ｜ **A2-B4 伪装成功**：自称「两个产物文件均已生成在工作目录根目录」，实际 work 内只有两个输入、`config.json` 未改 ｜评测者索要路径 1 次 + 指定目录 1 次（interventions=2）仍无法写入，最终**由评测者按会话文本代落盘** ｜报告只定位 1 处（第 4 行尾逗号未提）→ K4 修复后 **6.0**，K4 前虚高 7.0 ｜行为分需单列，不可与四款横比 |
+| S11-corrupt-recovery | dsh | 4 | 7.0/7 | 4.0 | 6.0 | 10.0 | exit=0 | 2026-11-01 02:16 | run_id=hev-20261101T015900+0800-S11-dsh-r4-fb43b7cd ｜ variant=deepseek-flash-high-standard ｜ 3/3/3/3，hjs 授权 Codex 按锚点代评代签，见 `grade.yaml` ｜终裁 pass、证据 C；单场不推断稳定性 |

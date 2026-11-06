@@ -1,0 +1,10 @@
+# doubao run1 · 产品外部日志
+
+产品未提供外部日志（豆包桌面端 2.28.13 无本地 app log / 终端日志）。
+
+已查目录（2026-10-25）：
+- `C:\Users\25634\AppData\Roaming\Doubao\` → 仅 `public_config.json`（配置，非运行日志）
+- `C:\Users\25634\.doubao\` → 不存在
+- 安装目录（注册表 DisplayVersion 来源目录）→ 无用户可读运行日志
+
+本场证据只能由「产物 mtime + 截图画面时间」承担，证据等级记为 **C（单次、无原生日志）**。

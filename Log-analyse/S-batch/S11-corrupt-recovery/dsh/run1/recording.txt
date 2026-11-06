@@ -1,0 +1,15 @@
+# dsh run1 · 产品外部日志
+
+产品未提供外部日志（DSH 0.2.0-rc.2 没有独立的 app log / 前端日志）。
+
+已查目录：
+- `%USERPROFILE%\.dsh\`（仅 `sessions/`，无 logs/）
+- `D:\dsh-harness\installation\`（安装目录，未产生本题相关日志）
+
+本场可用的原生日志是 `session.log`（由 `%USERPROFILE%\.dsh\sessions\--F-tmp_run-S11-corrupt-recovery-dsh-run1-work--\session-956a7b07-87c1-4c66-a8cb-b11516637a97\session.v4.jsonl.zstd` 解压得到，64 行原生事件流），按 `docs/19 §3` 归入 `session.log` 而非本文件。
+
+会话标识（用于对应本次对话）：
+- session_id: `session-956a7b07-87c1-4c66-a8cb-b11516637a97`
+- session.log 首行 `cwd` = `F:\tmp_run\S11-corrupt-recovery\dsh\run1\work`
+- 首条 user 消息 = `prompt.txt` 全文（sha8 `41d608c4`）
+- 事件时间窗：1792923834435（18:23:54）→ 产物 mtime 18:24

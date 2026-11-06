@@ -1,0 +1,112 @@
+{
+  "schema_version": 2,
+  "record_type": "product_run",
+  "run_id": "hev-20261101T014857+0800-S11-dsh-r3-f31eec6c",
+  "run_key": "S11-corrupt-recovery__dsh__r3",
+  "suite": "harness-v1",
+  "task": "S11-corrupt-recovery",
+  "product": "dsh",
+  "trial": 3,
+  "variant": "deepseek-flash-high-standard",
+  "status": "prepared",
+  "environment": {
+    "root": "F:\\for-project-tmp-run\\runs",
+    "work_dir": "F:\\for-project-tmp-run\\runs\\S11-corrupt-recovery\\dsh\\run3\\work"
+  },
+  "execution_context": {
+    "product_version": "DeepSeek Harness 0.2.1-rc.5（2026-11-01 注册表 DisplayVersion、exe FileVersion）",
+    "account": "日常账号",
+    "model": "deepseek-flash",
+    "tools": [
+      "ask_user_question",
+      "create_goal",
+      "edit",
+      "exit_plan_mode",
+      "get_goal",
+      "glob",
+      "grep",
+      "interrupt_agent",
+      "job_kill",
+      "job_list",
+      "job_output",
+      "list_agents",
+      "load_workspace_dependencies",
+      "present",
+      "pwsh",
+      "read",
+      "read_image",
+      "send_message",
+      "skill",
+      "subagent",
+      "subagent_fork",
+      "todo_write",
+      "update_goal",
+      "web_fetch",
+      "web_search",
+      "workflow",
+      "write"
+    ],
+    "permissions": "danger-full-access;approval=never",
+    "skills_state": "unknown",
+    "memory_state": "unknown",
+    "interface_precheck": "passed"
+  },
+  "binding": {
+    "prompt_sha8": "41d608c4",
+    "inputs_sha8": {
+      "config.json": "4583ff08",
+      "data.csv": "fd668362"
+    },
+    "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+    "suite_revision": "2026-10-23-s06-pilot",
+    "product_revision": "c06b61b9",
+    "product_config": {
+      "version": "DeepSeek Harness 0.2.1-rc.5（2026-11-01 注册表 DisplayVersion、exe FileVersion）",
+      "channel": "本地源码/桌面端",
+      "account": "日常账号",
+      "config": "2026-11-01 F 盘预检原生会话：standard preset；deepseek-official/deepseek-flash high；danger-full-access、approval never；Skills/Memory 未逐项确认",
+      "observability": [
+        "终端输出",
+        "桌面/网页可见输出",
+        "会话日志"
+      ],
+      "notes": "评测面以 docs/01 与 baseline 为准；安装路径 D:\\dsh-harness\\installation；F:\\for-project-tmp-run\\prechecks\\dsh\\2026-11-01\\work 的 pwsh/write 实测通过，范围仅此工作根"
+    },
+    "evaluator_revision": "docs/14-v0.1"
+  },
+  "termination": {
+    "reason": "",
+    "timed_out": false,
+    "turns": null,
+    "manual_interventions": 0
+  },
+  "evaluation": {
+    "reward_basis": [],
+    "components": {},
+    "success": null,
+    "v1": null
+  },
+  "diagnostics": {
+    "failure_code": "",
+    "first_error": null,
+    "evidence_grade": "N"
+  },
+  "adjudication": {
+    "rules_frozen": "yes",
+    "task_valid": "yes",
+    "evidence_valid": "no",
+    "uncontaminated": "no",
+    "final_ruling": "invalid",
+    "official_eligible": false,
+    "exclusion_reasons": [
+      "证据无效或未核验",
+      "运行受污染或未核验",
+      "终裁=invalid，不可进入正式比较",
+      "证据等级未登记为 A/B/C"
+    ],
+    "adjudicator": "Codex evidence audit",
+    "adjudicated_at": "2026-11-01T01:58:17+08:00",
+    "notes": "Actual cwd/precheck workspace and repo input paths in native log; see invalid-attempt.md; content-only offline checker 7/7 is not product run score"
+  },
+  "evidence": {}
+}

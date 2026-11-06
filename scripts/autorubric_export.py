@@ -96,18 +96,24 @@ def anonymous_subject(run_id: str, seed: str) -> str:
 
 
 def load_signed_runs(repo_root: Path) -> list[dict[str, Any]]:
-    base = repo_root / "Log-analyse" / "S-batch"
+    frozen_path = repo_root / "experiments" / "autorubric" / "pilot-2026-10-30" / "sources.json"
+    if not frozen_path.is_file():
+        raise ValueError(f"frozen pilot source list missing: {frozen_path}")
+    frozen = json.loads(frozen_path.read_text(encoding="utf-8"))
     runs: list[dict[str, Any]] = []
-    for task in TASKS:
-        for grade_path in sorted((base / task).glob("*/run*/grade.yaml")):
-            data = parse_grade(grade_path)
-            if data.get("status") != "signed_off":
-                continue
-            if not data.get("cells"):
-                continue
-            data["_source"] = grade_path.relative_to(repo_root).as_posix()
-            data["_source_sha256"] = sha256_file(grade_path)
-            runs.append(data)
+    for entry in frozen["sources"]:
+        grade_path = repo_root / entry["source"]
+        if not grade_path.is_file():
+            raise ValueError(f"frozen grade missing: {grade_path}")
+        digest = sha256_file(grade_path)
+        if digest != entry["sha256"]:
+            raise ValueError(f"frozen grade changed: {grade_path}")
+        data = parse_grade(grade_path)
+        if data.get("status") != "signed_off" or not data.get("cells"):
+            raise ValueError(f"frozen grade no longer signed: {grade_path}")
+        data["_source"] = grade_path.relative_to(repo_root).as_posix()
+        data["_source_sha256"] = digest
+        runs.append(data)
     return runs
 
 

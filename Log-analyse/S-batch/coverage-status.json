@@ -1,0 +1,341 @@
+{
+  "generated_at": "2026-11-04T17:33:23+08:00",
+  "scope": [
+    "S06-artifact-deep-path",
+    "S11-corrupt-recovery"
+  ],
+  "planned_cells": 10,
+  "observed_run_records": 12,
+  "formal_run_records": 1,
+  "formal_cells": 1,
+  "cells": [
+    {
+      "task": "S06-artifact-deep-path",
+      "product": "codex",
+      "runs": [
+        {
+          "run_id": "S06__codex__r1",
+          "trial": 1,
+          "ruling": "pending",
+          "eligible": false,
+          "reasons": [
+            "规则未冻结",
+            "题面无效或未核验",
+            "证据无效或未核验",
+            "运行受污染或未核验",
+            "终裁=pending，不可进入正式比较",
+            "legacy 运行缺 v2 全量上下文，不可追认正式样本",
+            "缺单题 task_revision",
+            "缺产品版本快照",
+            "接口预检未通过或未登记",
+            "Codex Memory 未证实关闭",
+            "Codex Skills 未证实关闭"
+          ],
+          "task_revision": "2026-10-23-s06-pilot",
+          "product_revision": "ee25e6e3",
+          "artifact_score": 1.0,
+          "behavior_score": null,
+          "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S06-artifact-deep-path/codex/run1/run.json"
+        }
+      ],
+      "eligible_runs": 0
+    },
+    {
+      "task": "S06-artifact-deep-path",
+      "product": "dsh",
+      "runs": [
+        {
+          "run_id": "S06__dsh__r1",
+          "trial": 1,
+          "ruling": "pending",
+          "eligible": false,
+          "reasons": [
+            "规则未冻结",
+            "题面无效或未核验",
+            "证据无效或未核验",
+            "运行受污染或未核验",
+            "终裁=pending，不可进入正式比较",
+            "legacy 运行缺 v2 全量上下文，不可追认正式样本",
+            "缺单题 task_revision",
+            "缺产品版本快照",
+            "接口预检未通过或未登记"
+          ],
+          "task_revision": "2026-10-23-s06-pilot",
+          "product_revision": "5eb783c9",
+          "artifact_score": 1.0,
+          "behavior_score": null,
+          "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S06-artifact-deep-path/dsh/run1/run.json"
+        }
+      ],
+      "eligible_runs": 0
+    },
+    {
+      "task": "S06-artifact-deep-path",
+      "product": "workbuddy",
+      "runs": [
+        {
+          "run_id": "S06__workbuddy__r1",
+          "trial": 1,
+          "ruling": "pending",
+          "eligible": false,
+          "reasons": [
+            "规则未冻结",
+            "题面无效或未核验",
+            "证据无效或未核验",
+            "运行受污染或未核验",
+            "终裁=pending，不可进入正式比较",
+            "legacy 运行缺 v2 全量上下文，不可追认正式样本",
+            "缺单题 task_revision",
+            "缺产品版本快照",
+            "接口预检未通过或未登记"
+          ],
+          "task_revision": "2026-10-23-s06-pilot",
+          "product_revision": "bd033a9c",
+          "artifact_score": 1.0,
+          "behavior_score": null,
+          "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S06-artifact-deep-path/workbuddy/run1/run.json"
+        }
+      ],
+      "eligible_runs": 0
+    },
+    {
+      "task": "S06-artifact-deep-path",
+      "product": "yuanbao",
+      "runs": [
+        {
+          "run_id": "S06__yuanbao__r1",
+          "trial": 1,
+          "ruling": "pending",
+          "eligible": false,
+          "reasons": [
+            "规则未冻结",
+            "题面无效或未核验",
+            "证据无效或未核验",
+            "运行受污染或未核验",
+            "终裁=pending，不可进入正式比较",
+            "legacy 运行缺 v2 全量上下文，不可追认正式样本",
+            "缺单题 task_revision",
+            "缺产品版本快照",
+            "接口预检未通过或未登记"
+          ],
+          "task_revision": "2026-10-23-s06-pilot",
+          "product_revision": "7a34ef7a",
+          "artifact_score": 1.0,
+          "behavior_score": null,
+          "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S06-artifact-deep-path/yuanbao/run1/run.json"
+        }
+      ],
+      "eligible_runs": 0
+    },
+    {
+      "task": "S06-artifact-deep-path",
+      "product": "doubao",
+      "runs": [
+        {
+          "run_id": "S06__doubao__r1",
+          "trial": 1,
+          "ruling": "pending",
+          "eligible": false,
+          "reasons": [
+            "规则未冻结",
+            "题面无效或未核验",
+            "证据无效或未核验",
+            "运行受污染或未核验",
+            "终裁=pending，不可进入正式比较",
+            "legacy 运行缺 v2 全量上下文，不可追认正式样本",
+            "缺单题 task_revision",
+            "缺产品版本快照",
+            "接口预检未通过或未登记"
+          ],
+          "task_revision": "2026-10-23-s06-pilot",
+          "product_revision": "d7795560",
+          "artifact_score": 1.0,
+          "behavior_score": null,
+          "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S06-artifact-deep-path/doubao/run1/run.json"
+        }
+      ],
+      "eligible_runs": 0
+    },
+    {
+      "task": "S11-corrupt-recovery",
+      "product": "codex",
+      "runs": [
+        {
+          "run_id": "S11__codex__r1",
+          "trial": 1,
+          "ruling": "pending",
+          "eligible": false,
+          "reasons": [
+            "规则未冻结",
+            "题面无效或未核验",
+            "证据无效或未核验",
+            "运行受污染或未核验",
+            "终裁=pending，不可进入正式比较",
+            "证据等级未登记为 A/B/C",
+            "legacy 运行缺 v2 全量上下文，不可追认正式样本",
+            "缺单题 task_revision",
+            "缺产品版本快照",
+            "接口预检未通过或未登记",
+            "Codex Memory 未证实关闭",
+            "Codex Skills 未证实关闭"
+          ],
+          "task_revision": "2026-10-23-s06-pilot",
+          "product_revision": "ee25e6e3",
+          "artifact_score": 1.0,
+          "behavior_score": null,
+          "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S11-corrupt-recovery/codex/run1/run.json"
+        }
+      ],
+      "eligible_runs": 0
+    },
+    {
+      "task": "S11-corrupt-recovery",
+      "product": "dsh",
+      "runs": [
+        {
+          "run_id": "S11__dsh__r1",
+          "trial": 1,
+          "ruling": "pending",
+          "eligible": false,
+          "reasons": [
+            "规则未冻结",
+            "题面无效或未核验",
+            "证据无效或未核验",
+            "运行受污染或未核验",
+            "终裁=pending，不可进入正式比较",
+            "证据等级未登记为 A/B/C",
+            "legacy 运行缺 v2 全量上下文，不可追认正式样本",
+            "缺单题 task_revision",
+            "缺产品版本快照",
+            "接口预检未通过或未登记"
+          ],
+          "task_revision": "2026-10-23-s06-pilot",
+          "product_revision": "5eb783c9",
+          "artifact_score": 1.0,
+          "behavior_score": null,
+          "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S11-corrupt-recovery/dsh/run1/run.json"
+        },
+        {
+          "run_id": "hev-20261101T014857+0800-S11-dsh-r3-f31eec6c",
+          "trial": 3,
+          "ruling": "invalid",
+          "eligible": false,
+          "reasons": [
+            "证据无效或未核验",
+            "运行受污染或未核验",
+            "终裁=invalid，不可进入正式比较",
+            "证据等级未登记为 A/B/C"
+          ],
+          "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+          "product_revision": "c06b61b9",
+          "artifact_score": null,
+          "behavior_score": null,
+          "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S11-corrupt-recovery/dsh/run3/run.json"
+        },
+        {
+          "run_id": "hev-20261101T015900+0800-S11-dsh-r4-fb43b7cd",
+          "trial": 4,
+          "ruling": "pass",
+          "eligible": true,
+          "reasons": [],
+          "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+          "product_revision": "c06b61b9",
+          "artifact_score": 1.0,
+          "behavior_score": 1.0,
+          "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S11-corrupt-recovery/dsh/run4/run.json"
+        }
+      ],
+      "eligible_runs": 1
+    },
+    {
+      "task": "S11-corrupt-recovery",
+      "product": "workbuddy",
+      "runs": [
+        {
+          "run_id": "S11__workbuddy__r1",
+          "trial": 1,
+          "ruling": "pending",
+          "eligible": false,
+          "reasons": [
+            "规则未冻结",
+            "题面无效或未核验",
+            "证据无效或未核验",
+            "运行受污染或未核验",
+            "终裁=pending，不可进入正式比较",
+            "证据等级未登记为 A/B/C",
+            "legacy 运行缺 v2 全量上下文，不可追认正式样本",
+            "缺单题 task_revision",
+            "缺产品版本快照",
+            "接口预检未通过或未登记"
+          ],
+          "task_revision": "2026-10-23-s06-pilot",
+          "product_revision": "bd033a9c",
+          "artifact_score": 1.0,
+          "behavior_score": null,
+          "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S11-corrupt-recovery/workbuddy/run1/run.json"
+        }
+      ],
+      "eligible_runs": 0
+    },
+    {
+      "task": "S11-corrupt-recovery",
+      "product": "yuanbao",
+      "runs": [
+        {
+          "run_id": "S11__yuanbao__r1",
+          "trial": 1,
+          "ruling": "pending",
+          "eligible": false,
+          "reasons": [
+            "规则未冻结",
+            "题面无效或未核验",
+            "证据无效或未核验",
+            "运行受污染或未核验",
+            "终裁=pending，不可进入正式比较",
+            "证据等级未登记为 A/B/C",
+            "legacy 运行缺 v2 全量上下文，不可追认正式样本",
+            "缺单题 task_revision",
+            "缺产品版本快照",
+            "接口预检未通过或未登记"
+          ],
+          "task_revision": "2026-10-23-s06-pilot",
+          "product_revision": "7a34ef7a",
+          "artifact_score": 0.8571,
+          "behavior_score": null,
+          "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S11-corrupt-recovery/yuanbao/run1/run.json"
+        }
+      ],
+      "eligible_runs": 0
+    },
+    {
+      "task": "S11-corrupt-recovery",
+      "product": "doubao",
+      "runs": [
+        {
+          "run_id": "S11__doubao__r1",
+          "trial": 1,
+          "ruling": "pending",
+          "eligible": false,
+          "reasons": [
+            "规则未冻结",
+            "题面无效或未核验",
+            "证据无效或未核验",
+            "运行受污染或未核验",
+            "终裁=pending，不可进入正式比较",
+            "证据等级未登记为 A/B/C",
+            "legacy 运行缺 v2 全量上下文，不可追认正式样本",
+            "缺单题 task_revision",
+            "缺产品版本快照",
+            "接口预检未通过或未登记"
+          ],
+          "task_revision": "2026-10-23-s06-pilot",
+          "product_revision": "d7795560",
+          "artifact_score": 1.0,
+          "behavior_score": null,
+          "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S11-corrupt-recovery/doubao/run1/run.json"
+        }
+      ],
+      "eligible_runs": 0
+    }
+  ]
+}

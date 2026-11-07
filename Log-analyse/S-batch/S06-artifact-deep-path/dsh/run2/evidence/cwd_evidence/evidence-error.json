@@ -1,0 +1,9 @@
+{
+  "slot_id": "S06-artifact-deep-path__dsh__r2",
+  "stage": "process_launch",
+  "model_invoked": false,
+  "error_type": "FileNotFoundError",
+  "error": "[WinError 2] shell=False could not launch the bare dsh alias although preflight resolved dsh.CMD",
+  "disposition": "invalid_runner_failure",
+  "replacement_policy": "preserve run2 and allocate a new run number after the launcher fix"
+}

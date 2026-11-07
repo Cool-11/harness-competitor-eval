@@ -12,13 +12,21 @@
   "adapters": {
     "codex": {
       "executable": "codex",
-      "sandbox": "workspace-write",
+      "approval_mode": "approve_for_me",
       "extra_args": []
     },
     "dsh": {
       "executable": "dsh",
       "profile": "headless",
-      "extra_args": []
+      "required_env": [
+        "DEEPSEEK_API_KEY"
+      ],
+      "extra_args": [
+        "--permission-mode",
+        "workspace-write",
+        "--approval-policy",
+        "never"
+      ]
     }
   },
   "slots": [

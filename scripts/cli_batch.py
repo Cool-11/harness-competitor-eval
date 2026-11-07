@@ -124,6 +124,16 @@ def validate_plan(plan: dict) -> list[str]:
         if not isinstance(adapter, dict):
             errors.append(f"adapters.{product} 必须是对象")
             continue
+        if product == "codex":
+            approval_mode = adapter.get("approval_mode", "sandbox")
+            if approval_mode not in {"sandbox", "approve_for_me"}:
+                errors.append("adapters.codex.approval_mode 只允许 sandbox/approve_for_me")
+            if approval_mode == "approve_for_me" and "sandbox" in adapter:
+                errors.append("approve_for_me 与 sandbox 互斥；请删除 adapters.codex.sandbox")
+        required_env = adapter.get("required_env", [])
+        if (not isinstance(required_env, list)
+                or any(not isinstance(name, str) or not name.strip() for name in required_env)):
+            errors.append(f"adapters.{product}.required_env 必须是字符串名数组")
         command = adapter.get("command")
         if command is not None and (
             not isinstance(command, list) or not command
@@ -265,8 +275,12 @@ def _adapter_command(resolved: dict, slot: dict, work: Path) -> list[str]:
         command = [
             adapter.get("executable", "codex"), "exec", "--json", "--ephemeral",
             "--ignore-user-config", "--ignore-rules", "--skip-git-repo-check",
-            "--sandbox", adapter.get("sandbox", "workspace-write"), "-C", str(work),
         ]
+        if adapter.get("approval_mode", "sandbox") == "approve_for_me":
+            command.append("--approve-for-me")
+        else:
+            command.extend(["--sandbox", adapter.get("sandbox", "workspace-write")])
+        command.extend(["-C", str(work)])
         if model:
             command.extend(["--model", model])
         reasoning = slot.get("reasoning", adapter.get("reasoning", ""))
@@ -383,6 +397,15 @@ def preflight(resolved: dict, ledger: Path) -> tuple[bool, dict]:
             rows.append(row)
             continue
         adapter = resolved.get("adapters", {}).get(product, {})
+        required_env = adapter.get("required_env", [])
+        missing_env = [name for name in required_env if not os.environ.get(name)]
+        row["required_env"] = required_env
+        row["missing_required_env"] = missing_env
+        if missing_env:
+            row.update({"passed": False, "reason": "required_env_missing", "version": ""})
+            ok = False
+            rows.append(row)
+            continue
         if product == "codex":
             auth_source = _codex_auth_source(adapter)
             row["isolated_codex_home"] = True
@@ -427,6 +450,22 @@ def _preflight_version(receipt: dict, product: str) -> str:
         if row.get("product") == product:
             return row.get("version", "unknown") or "unknown"
     return "unknown"
+
+
+def _preflight_executable(receipt: dict, product: str) -> str:
+    """Return the exact launcher validated by preflight.
+
+    On Windows, ``shutil.which("dsh")`` commonly resolves to ``dsh.CMD``.
+    Passing the original bare alias to ``Popen(..., shell=False)`` does not
+    execute command scripts, so runtime must reuse the resolved path that was
+    actually checked.
+    """
+    for row in receipt.get("products", []):
+        if row.get("product") == product and row.get("passed"):
+            executable = row.get("resolved_executable", "")
+            if executable:
+                return executable
+    raise ValueError(f"{product} 缺少已通过预检的绝对启动器")
 
 
 def _assert_unused_targets(resolved: dict) -> None:
@@ -510,6 +549,7 @@ def run_batch(resolved: dict, ledger: Path) -> int:
         if input_mode not in {"stdin", "argv"}:
             raise ValueError(f"{product} input_mode 只允许 stdin/argv")
         command = _adapter_command(resolved, slot, work)
+        command[0] = _preflight_executable(receipt, product)
         if input_mode == "argv":
             command.append(prompt)
         if product == "codex":

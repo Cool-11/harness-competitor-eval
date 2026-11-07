@@ -1,0 +1,68 @@
+{
+  "schema_version": 3,
+  "protocol_version": "hev-v3",
+  "admission_track": "execution_behavior",
+  "comparison_track": "B_native_product",
+  "control_contract_sha256": "",
+  "record_type": "product_run",
+  "run_id": "hev-20261107T212229+0800-S11-codex-r4-0e5a40b2",
+  "case": "S11-corrupt-recovery",
+  "product": "codex",
+  "run": 4,
+  "variant": "cli-product-auto-approved-v3",
+  "root": "C:\\tmp_run",
+  "work_dir": "C:\\tmp_run\\S11-corrupt-recovery\\codex\\run4\\work",
+  "product_revision": "ee25e6e3",
+  "started_at": "2026-11-07T21:22:29+08:00",
+  "ended_at": "2026-11-07T21:26:06+08:00",
+  "prompt_sha8": "41d608c4",
+  "inputs_sha8": {
+    "config.json": "4583ff08",
+    "data.csv": "fd668362"
+  },
+  "artifacts_count": 4,
+  "artifacts_sha256": {
+    "config.json": "53bf01763e020c52995360ca0d485f02e904d10edb4f1d87a0b2765758192d31",
+    "data.csv": "fd668362c2f1e6151450be97d7a3d6c444f34275ec978d069dec7f227b037acc",
+    "error_report.md": "bfd7787b55c37613e71a4388d8bc2216f0761d77d1491c93139a7f53e3bc944a",
+    "result.md": "87c8bf6cce19d27ef39dea47c70925f51709a9c1ba491c0812361d520bc0e610"
+  },
+  "evidence": {
+    "cwd_evidence": {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\codex\\run4\\evidence\\cwd_evidence\\native-evidence.json",
+      "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\codex\\run4\\runner\\native-evidence.json",
+      "sha256": "789d079b2b178dd7bcfbb0edb31b470ca1050e7b813fc97c1e84caa15cc8757c"
+    },
+    "session_export": {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\codex\\run4\\evidence\\session_export\\session.jsonl",
+      "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\codex\\run4\\runner\\session.jsonl",
+      "sha256": "e74e30e75cfd36464acd8bcde32c7e5a95f5a029ecffc819560824d533b6fd5e"
+    }
+  },
+  "checker_exit": 0,
+  "interventions": 0,
+  "rerun": false,
+  "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+  "execution_context": {
+    "product_version": "codex-cli 0.167.0",
+    "account": "日常账号",
+    "model": "unknown",
+    "provider": "unknown",
+    "reasoning": "unknown",
+    "sampling": "unknown",
+    "tools": [
+      "shell",
+      "filesystem",
+      "approval-review"
+    ],
+    "permissions": "workspace-write",
+    "network": "not_used_and_trace_verified",
+    "surface": "cli",
+    "context_policy": "isolated_codex_home",
+    "skills_state": "disabled",
+    "memory_state": "disabled",
+    "interface_precheck": "passed",
+    "configuration_evidence": "",
+    "configuration_evidence_sha256": ""
+  }
+}

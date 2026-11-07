@@ -1,0 +1,138 @@
+{
+  "schema_version": 3,
+  "protocol_version": "hev-v3",
+  "admission_track": "execution_behavior",
+  "comparison_track": "B_native_product",
+  "control_contract": {},
+  "control_contract_sha256": "",
+  "record_type": "product_run",
+  "run_id": "hev-20261107T212229+0800-S11-codex-r4-0e5a40b2",
+  "run_key": "S11-corrupt-recovery__codex__r4",
+  "suite": "harness-v1",
+  "task": "S11-corrupt-recovery",
+  "product": "codex",
+  "trial": 4,
+  "variant": "cli-product-auto-approved-v3",
+  "status": "scored",
+  "environment": {
+    "root": "C:\\tmp_run",
+    "work_dir": "C:\\tmp_run\\S11-corrupt-recovery\\codex\\run4\\work"
+  },
+  "execution_context": {
+    "product_version": "codex-cli 0.167.0",
+    "account": "日常账号",
+    "model": "unknown",
+    "provider": "unknown",
+    "reasoning": "unknown",
+    "sampling": "unknown",
+    "tools": [
+      "shell",
+      "filesystem",
+      "approval-review"
+    ],
+    "permissions": "workspace-write",
+    "network": "not_used_and_trace_verified",
+    "surface": "cli",
+    "context_policy": "isolated_codex_home",
+    "skills_state": "disabled",
+    "memory_state": "disabled",
+    "interface_precheck": "passed",
+    "configuration_evidence": "",
+    "configuration_evidence_sha256": ""
+  },
+  "binding": {
+    "prompt_sha8": "41d608c4",
+    "inputs_sha8": {
+      "config.json": "4583ff08",
+      "data.csv": "fd668362"
+    },
+    "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+    "suite_revision": "2026-10-23-s06-pilot",
+    "product_revision": "ee25e6e3",
+    "product_config": {
+      "version": "OpenAI Codex 桌面端 26.1016.8622.0（Appx 包清单 DisplayVersion）",
+      "channel": "桌面端",
+      "account": "日常账号",
+      "config": "桌面端出厂默认；个人 Skill / 自定义指令停用；不再走 CLI `~/.codex/config.toml` custom provider 路径",
+      "observability": [
+        "界面可见输出",
+        "截图"
+      ],
+      "notes": "2026-10-23 由 CLI 口径改为桌面端；安装包 OpenAI.Codex_26.1016.8622.0_x64（WindowsApps），用户目录 %LOCALAPPDATA%\\OpenAI\\Codex；桌面端不导出终端日志，外部日志不可得"
+    },
+    "evaluator_revision": "docs/14-v0.1"
+  },
+  "termination": {
+    "reason": "product_declared_done",
+    "timed_out": false,
+    "turns": 1,
+    "manual_interventions": 0
+  },
+  "evaluation": {
+    "reward_basis": [],
+    "components": {
+      "artifact": 1.0
+    },
+    "success": 1,
+    "v1": null
+  },
+  "diagnostics": {
+    "failure_code": "",
+    "first_error": null,
+    "evidence_grade": ""
+  },
+  "adjudication": {
+    "rules_frozen": "unknown",
+    "task_valid": "unknown",
+    "evidence_valid": "unknown",
+    "uncontaminated": "unknown",
+    "final_ruling": "pending",
+    "official_eligible": false,
+    "exclusion_reasons": [
+      "尚未完成人工终裁"
+    ],
+    "adjudicator": "",
+    "adjudicated_at": "",
+    "notes": ""
+  },
+  "evidence": {
+    "run_dir": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\codex\\run4",
+    "timeline": "",
+    "session_log": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\codex\\run4\\evidence\\session_export\\session.jsonl",
+    "artifacts": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\codex\\run4\\artifacts",
+    "shots": "",
+    "recording": ""
+  },
+  "execution_context_observed": {
+    "model": "unknown",
+    "provider": "unknown",
+    "reasoning": "unknown",
+    "sampling": "provider_default",
+    "tools": [
+      "shell",
+      "filesystem",
+      "approval-review"
+    ],
+    "permissions": "workspace-write",
+    "source": "codex --model + isolated CODEX_HOME"
+  },
+  "collection_verification": {
+    "prepared_work_match": true,
+    "mode": "native_trace",
+    "claim_scope": "execution_behavior",
+    "observed_cwd_match": true,
+    "evidence": {
+      "cwd_evidence": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\codex\\run4\\evidence\\cwd_evidence\\native-evidence.json",
+        "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\codex\\run4\\runner\\native-evidence.json",
+        "sha256": "789d079b2b178dd7bcfbb0edb31b470ca1050e7b813fc97c1e84caa15cc8757c"
+      },
+      "session_export": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\codex\\run4\\evidence\\session_export\\session.jsonl",
+        "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\codex\\run4\\runner\\session.jsonl",
+        "sha256": "e74e30e75cfd36464acd8bcde32c7e5a95f5a029ecffc819560824d533b6fd5e"
+      }
+    },
+    "screen_recording_scope": ""
+  }
+}

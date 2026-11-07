@@ -9,7 +9,7 @@
       "account": "日常账号",
       "config": "桌面端出厂默认；个人 Skill / 自定义指令停用；不再走 CLI `~/.codex/config.toml` custom provider 路径",
       "observability": ["界面可见输出", "截图"],
-      "notes": "2026-10-23 由 CLI 口径改为桌面端；安装包 OpenAI.Codex_26.1016.8622.0_x64（WindowsApps），用户目录 %LOCALAPPDATA%\\OpenAI\\Codex；桌面端不导出终端日志，外部日志不可得"
+      "notes": "2026-10-23 由 CLI 口径改为桌面端；安装包 OpenAI.Codex_26.1016.8622.0_x64（WindowsApps），用户目录 %LOCALAPPDATA%\\OpenAI\\Codex；2026-11-07 自动跑批实际 CLI=0.167.0，非交互写入需使用 --approve-for-me；桌面端不导出终端日志，外部日志不可得"
     },
     "dsh": {
       "version": "桌面端 0.2.1-rc.5（2026-11-01）；CLI 0.2.2-rc.1（2026-11-07，npm 精确版本）",

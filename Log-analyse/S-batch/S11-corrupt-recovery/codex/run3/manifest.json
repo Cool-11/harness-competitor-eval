@@ -1,0 +1,65 @@
+{
+  "schema_version": 3,
+  "protocol_version": "hev-v3",
+  "admission_track": "execution_behavior",
+  "comparison_track": "B_native_product",
+  "control_contract_sha256": "",
+  "record_type": "product_run",
+  "run_id": "hev-20261107T025942+0800-S11-codex-r3-8e282905",
+  "case": "S11-corrupt-recovery",
+  "product": "codex",
+  "run": 3,
+  "variant": "cli-product-default-v3",
+  "root": "C:\\tmp_run",
+  "work_dir": "C:\\tmp_run\\S11-corrupt-recovery\\codex\\run3\\work",
+  "product_revision": "ee25e6e3",
+  "started_at": "2026-11-07T02:59:42+08:00",
+  "ended_at": "2026-11-07T03:01:51+08:00",
+  "prompt_sha8": "41d608c4",
+  "inputs_sha8": {
+    "config.json": "4583ff08",
+    "data.csv": "fd668362"
+  },
+  "artifacts_count": 2,
+  "artifacts_sha256": {
+    "config.json": "4583ff08648b54a173ecb733e52daff6d7721e3dce37feaab08aa29041d064b9",
+    "data.csv": "fd668362c2f1e6151450be97d7a3d6c444f34275ec978d069dec7f227b037acc"
+  },
+  "evidence": {
+    "cwd_evidence": {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\codex\\run3\\evidence\\cwd_evidence\\native-evidence.json",
+      "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\codex\\run3\\runner\\native-evidence.json",
+      "sha256": "f3d8cfcf0e841b15666e3d3989f2b2b409df8de71e52688a8ea3d2d032a78354"
+    },
+    "session_export": {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\codex\\run3\\evidence\\session_export\\session.jsonl",
+      "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\codex\\run3\\runner\\session.jsonl",
+      "sha256": "62d8536d01c7b867b9b710935c02f554bdb526db1ec3233b388f39630bf25b46"
+    }
+  },
+  "checker_exit": 1,
+  "interventions": 0,
+  "rerun": false,
+  "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+  "execution_context": {
+    "product_version": "codex-cli 0.167.0",
+    "account": "日常账号",
+    "model": "unknown",
+    "provider": "unknown",
+    "reasoning": "unknown",
+    "sampling": "unknown",
+    "tools": [
+      "shell",
+      "filesystem"
+    ],
+    "permissions": "workspace-write",
+    "network": "not_used_and_trace_verified",
+    "surface": "cli",
+    "context_policy": "isolated_codex_home",
+    "skills_state": "disabled",
+    "memory_state": "disabled",
+    "interface_precheck": "passed",
+    "configuration_evidence": "",
+    "configuration_evidence_sha256": ""
+  }
+}

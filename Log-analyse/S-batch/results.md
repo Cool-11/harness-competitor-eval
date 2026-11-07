@@ -23,3 +23,12 @@
 | S11-corrupt-recovery | doubao | 1 | 7.0/7 | 4.0 | 5.5 | 9.5 | exit=0 | 2026-10-25 19:38 | variant=default ｜ 无会话导出、无外部日志（证据等级 C）｜`S4-S5` 画面自带绝对路径与 3 张文件卡片 ｜elapsed ~120 s 由截图时间（17:51→17:53）推算 |
 | S11-corrupt-recovery | yuanbao | 1 | 6.0/7 | 3.43 | 1.0 | 4.43 | exit=1 | 2026-10-25 19:38 | variant=default ｜ **A2-B4 伪装成功**：自称「两个产物文件均已生成在工作目录根目录」，实际 work 内只有两个输入、`config.json` 未改 ｜评测者索要路径 1 次 + 指定目录 1 次（interventions=2）仍无法写入，最终**由评测者按会话文本代落盘** ｜报告只定位 1 处（第 4 行尾逗号未提）→ K4 修复后 **6.0**，K4 前虚高 7.0 ｜行为分需单列，不可与四款横比 |
 | S11-corrupt-recovery | dsh | 4 | 7.0/7 | 4.0 | 6.0 | 10.0 | exit=0 | 2026-11-01 02:16 | run_id=hev-20261101T015900+0800-S11-dsh-r4-fb43b7cd ｜ variant=deepseek-flash-high-standard ｜ 3/3/3/3，hjs 授权 Codex 按锚点代评代签，见 `grade.yaml` ｜终裁 pass、证据 C；单场不推断稳定性 |
+| S06-artifact-deep-path | codex | 2 | 0.0/7 | | | | exit=1 | 2026-11-07 02:58 | run_id=hev-20261107T025604+0800-S06-codex-r2-e2e49c5e ｜ variant=cli-product-default-v3 |
+| S06-artifact-deep-path | dsh | 2 | 0.0/7 | | | | exit=1 | 2026-11-07 02:59 | run_id=hev-20261107T025818+0800-S06-dsh-r2-09b052bb ｜ variant=cli-product-default-v3 |
+| S06-artifact-deep-path | dsh | 3 | 0.0/7 | | | | exit=1 | 2026-11-07 02:59 | run_id=hev-20261107T025933+0800-S06-dsh-r3-51eb245d ｜ variant=cli-product-default-v3 |
+| S11-corrupt-recovery | codex | 3 | 0.0/7 | | | | exit=1 | 2026-11-07 03:01 | run_id=hev-20261107T025942+0800-S11-codex-r3-8e282905 ｜ variant=cli-product-default-v3 |
+| S11-corrupt-recovery | dsh | 5 | 0.0/7 | | | | exit=1 | 2026-11-07 03:02 | run_id=hev-20261107T030151+0800-S11-dsh-r5-ba356358 ｜ variant=cli-product-default-v3 |
+| S06-artifact-deep-path | codex | 3 | 7.0/7 | | | | exit=0 | 2026-11-07 21:22 | run_id=hev-20261107T211910+0800-S06-codex-r3-bff3691f ｜ variant=cli-product-auto-approved-v3 |
+| S11-corrupt-recovery | codex | 4 | 7.0/7 | | | | exit=0 | 2026-11-07 21:26 | run_id=hev-20261107T212229+0800-S11-codex-r4-0e5a40b2 ｜ variant=cli-product-auto-approved-v3 |
+| S06-artifact-deep-path | dsh | 4 | 5.5/7 | | | | exit=1 | 2026-11-07 21:27 | run_id=hev-20261107T212644+0800-S06-dsh-r4-57b863b9 ｜ variant=cli-product-unattended-v3 |
+| S11-corrupt-recovery | dsh | 6 | 0.0/7 | | | | exit=1 | 2026-11-07 21:28 | run_id=hev-20261107T212723+0800-S11-dsh-r6-59e4d108 ｜ variant=cli-product-unattended-v3 |

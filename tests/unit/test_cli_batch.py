@@ -55,6 +55,20 @@ def test_preflight_failure_does_not_prepare_or_call_model(sandbox):
     assert not (sandbox / "runs" / "S06-artifact-deep-path").exists()
 
 
+def test_preflight_rejects_missing_required_environment(sandbox, monkeypatch):
+    plan_path = sandbox / "required-env-plan.json"
+    plan = _write_plan(plan_path, sandbox / "runs", executable=sys.executable)
+    plan["adapters"]["dsh"]["required_env"] = ["HEV_UNIT_MISSING_KEY"]
+    plan_path.write_text(json.dumps(plan), encoding="utf-8")
+    monkeypatch.delenv("HEV_UNIT_MISSING_KEY", raising=False)
+    resolved, ledger = cli_batch.resolve_plan(plan_path, plan)
+    passed, receipt = cli_batch.preflight(resolved, ledger)
+    assert passed is False
+    assert receipt["products"][0]["reason"] == "required_env_missing"
+    assert receipt["products"][0]["missing_required_env"] == ["HEV_UNIT_MISSING_KEY"]
+    assert not (sandbox / "runs" / "S06-artifact-deep-path").exists()
+
+
 def test_same_model_track_rejects_unfrozen_contract(sandbox):
     plan_path = sandbox / "plan.json"
     plan = _write_plan(plan_path, sandbox / "runs", executable=sys.executable)
@@ -80,6 +94,49 @@ def test_default_dsh_command_uses_official_headless_profile(sandbox):
     assert cli_batch._adapter_command(resolved, resolved["slots"][0], work) == [
         "dsh", "--profile", "headless"
     ]
+
+
+def test_runtime_reuses_absolute_launcher_validated_by_preflight():
+    receipt = {
+        "products": [{
+            "product": "dsh",
+            "passed": True,
+            "resolved_executable": r"C:\Users\tester\AppData\Roaming\npm\dsh.CMD",
+        }]
+    }
+    assert cli_batch._preflight_executable(receipt, "dsh") == (
+        r"C:\Users\tester\AppData\Roaming\npm\dsh.CMD"
+    )
+
+
+def test_codex_approve_for_me_is_explicit_and_excludes_sandbox(sandbox):
+    plan_path = sandbox / "approve-plan.json"
+    plan = {
+        "schema_version": 1,
+        "batch_id": "unit-codex-approve",
+        "root": str(sandbox / "runs"),
+        "adapters": {"codex": {"executable": "codex", "approval_mode": "approve_for_me"}},
+        "slots": [{"case": "S06", "product": "codex", "run": 1}],
+    }
+    plan_path.write_text(json.dumps(plan), encoding="utf-8")
+    resolved, _ = cli_batch.resolve_plan(plan_path, plan)
+    work = sandbox / "runs" / "S06-artifact-deep-path" / "codex" / "run1" / "work"
+    command = cli_batch._adapter_command(resolved, resolved["slots"][0], work)
+    assert "--approve-for-me" in command
+    assert "--sandbox" not in command
+
+
+def test_codex_approve_for_me_rejects_conflicting_sandbox(sandbox):
+    plan = {
+        "schema_version": 1,
+        "batch_id": "unit-codex-approval-conflict",
+        "root": str(sandbox / "runs"),
+        "adapters": {"codex": {
+            "executable": "codex", "approval_mode": "approve_for_me", "sandbox": "workspace-write",
+        }},
+        "slots": [{"case": "S06", "product": "codex", "run": 1}],
+    }
+    assert "approve_for_me 与 sandbox 互斥；请删除 adapters.codex.sandbox" in cli_batch.validate_plan(plan)
 
 
 def test_find_dsh_session_requires_new_log_with_matching_cwd(sandbox):

@@ -1,0 +1,40 @@
+{
+  "slot_id": "S11-corrupt-recovery__codex__r4",
+  "command": [
+    "C:\\Users\\25634\\AppData\\Roaming\\npm\\codex.CMD",
+    "exec",
+    "--json",
+    "--ephemeral",
+    "--ignore-user-config",
+    "--ignore-rules",
+    "--skip-git-repo-check",
+    "--approve-for-me",
+    "-C",
+    "C:\\tmp_run\\S11-corrupt-recovery\\codex\\run4\\work",
+    "-"
+  ],
+  "cwd": "C:\\tmp_run\\S11-corrupt-recovery\\codex\\run4\\work",
+  "started_at": "2026-11-07T21:22:29+08:00",
+  "ended_at": "2026-11-07T21:26:06+08:00",
+  "returncode": 0,
+  "timed_out": false,
+  "session_export": "C:\\tmp_run\\S11-corrupt-recovery\\codex\\run4\\runner\\session.jsonl",
+  "session_sha256": "e74e30e75cfd36464acd8bcde32c7e5a95f5a029ecffc819560824d533b6fd5e",
+  "observed_context": {
+    "model": "unknown",
+    "provider": "unknown",
+    "reasoning": "unknown",
+    "sampling": "provider_default",
+    "tools": [
+      "shell",
+      "filesystem",
+      "approval-review"
+    ],
+    "permissions": "workspace-write",
+    "source": "codex --model + isolated CODEX_HOME"
+  },
+  "final_stdout": "C:\\tmp_run\\S11-corrupt-recovery\\codex\\run4\\runner\\session.jsonl",
+  "final_stdout_sha256": "e74e30e75cfd36464acd8bcde32c7e5a95f5a029ecffc819560824d533b6fd5e",
+  "stderr": "C:\\tmp_run\\S11-corrupt-recovery\\codex\\run4\\runner\\stderr.log",
+  "stderr_sha256": "c169ab834c32ee67944ba967cc6c3a464545b3ead9c6a5e131f907dc2644e703"
+}

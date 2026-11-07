@@ -1,0 +1,141 @@
+{
+  "schema_version": 3,
+  "protocol_version": "hev-v3",
+  "admission_track": "execution_behavior",
+  "comparison_track": "B_native_product",
+  "control_contract": {},
+  "control_contract_sha256": "",
+  "record_type": "product_run",
+  "run_id": "hev-20261107T025818+0800-S06-dsh-r2-09b052bb",
+  "run_key": "S06-artifact-deep-path__dsh__r2",
+  "suite": "harness-v1",
+  "task": "S06-artifact-deep-path",
+  "product": "dsh",
+  "trial": 2,
+  "variant": "cli-product-default-v3",
+  "status": "error",
+  "environment": {
+    "root": "C:\\tmp_run",
+    "work_dir": "C:\\tmp_run\\S06-artifact-deep-path\\dsh\\run2\\work"
+  },
+  "execution_context": {
+    "product_version": "0.2.2-rc.1",
+    "account": "日常账号",
+    "model": "unknown",
+    "provider": "unknown",
+    "reasoning": "unknown",
+    "sampling": "unknown",
+    "tools": [
+      "shell",
+      "filesystem"
+    ],
+    "permissions": "workspace-write",
+    "network": "not_used_and_trace_verified",
+    "surface": "cli",
+    "context_policy": "headless_new_agent",
+    "skills_state": "unknown",
+    "memory_state": "unknown",
+    "interface_precheck": "passed",
+    "configuration_evidence": "",
+    "configuration_evidence_sha256": ""
+  },
+  "binding": {
+    "prompt_sha8": "94eae96e",
+    "inputs_sha8": {
+      "notes.md": "0d1b0f58"
+    },
+    "task_revision": "sha256:beed0e9ed685560609d21921e0d7b2b1e8ad8498803b331d28fb304802df1f6b",
+    "suite_revision": "2026-10-23-s06-pilot",
+    "product_revision": "ca164b3f",
+    "product_config": {
+      "version": "桌面端 0.2.1-rc.5（2026-11-01）；CLI 0.2.2-rc.1（2026-11-07，npm 精确版本）",
+      "channel": "本地桌面端 + npm CLI（固定版本）",
+      "account": "日常账号",
+      "config": "2026-11-01 F 盘预检原生会话：standard preset；deepseek-official/deepseek-flash high；danger-full-access、approval never；Skills/Memory 未逐项确认",
+      "observability": [
+        "终端输出",
+        "桌面/网页可见输出",
+        "会话日志"
+      ],
+      "notes": "评测面以 docs/01 与 baseline 为准；桌面端安装路径 D:\\dsh-harness\\installation；CLI 路径由 npm global 管理，2026-11-07 dsh --version=0.2.2-rc.1；F:\\for-project-tmp-run\\prechecks\\dsh\\2026-11-01\\work 的 pwsh/write 实测通过，范围仅此工作根"
+    },
+    "evaluator_revision": "docs/14-v0.1"
+  },
+  "termination": {
+    "reason": "error",
+    "timed_out": false,
+    "turns": 0,
+    "manual_interventions": 0
+  },
+  "evaluation": {
+    "reward_basis": [],
+    "components": {
+      "artifact": 0.0
+    },
+    "success": null,
+    "v1": null
+  },
+  "diagnostics": {
+    "failure_code": "",
+    "first_error": null,
+    "evidence_grade": "N"
+  },
+  "adjudication": {
+    "rules_frozen": "yes",
+    "task_valid": "yes",
+    "evidence_valid": "no",
+    "uncontaminated": "yes",
+    "final_ruling": "invalid",
+    "official_eligible": false,
+    "exclusion_reasons": [
+      "证据无效或未核验",
+      "终裁=invalid，不可进入正式比较",
+      "证据等级未登记为 A/B/C",
+      "运行过程证据模式未核验"
+    ],
+    "adjudicator": "Codex runner audit (mechanical)",
+    "adjudicated_at": "2026-11-07T02:59:12+08:00",
+    "notes": "模型调用前 Windows 启动器失败；预检解析 dsh.CMD，但旧 runner 以 shell=False 启动裸 dsh。保留 run2，不计产品结果；修复后使用新 run。",
+    "causal_ready": false,
+    "causal_pair_status": "not_ready",
+    "causal_exclusion_reasons": [
+      "非 A_same_model_cli 轨，只能作整体产品观察"
+    ]
+  },
+  "evidence": {
+    "run_dir": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\dsh\\run2",
+    "timeline": "",
+    "session_log": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\dsh\\run2\\evidence\\session_export\\final-response.txt",
+    "artifacts": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\dsh\\run2\\artifacts",
+    "shots": "",
+    "recording": ""
+  },
+  "execution_context_observed": {
+    "model": "",
+    "provider": "",
+    "reasoning": "",
+    "sampling": "",
+    "tools": [],
+    "permissions": "",
+    "source": ""
+  },
+  "collection_verification": {
+    "prepared_work_match": true,
+    "mode": "unverified",
+    "claim_scope": "unverified",
+    "observed_cwd_match": true,
+    "evidence": {
+      "cwd_evidence": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\dsh\\run2\\evidence\\cwd_evidence\\evidence-error.json",
+        "source_path": "C:\\tmp_run\\S06-artifact-deep-path\\dsh\\run2\\runner\\evidence-error.json",
+        "sha256": "39033f84381af07bcd91b51940efffbd97d6f4acb808af273380400768b3aef0"
+      },
+      "session_export": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\dsh\\run2\\evidence\\session_export\\final-response.txt",
+        "source_path": "C:\\tmp_run\\S06-artifact-deep-path\\dsh\\run2\\runner\\final-response.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "screen_recording_scope": ""
+  }
+}

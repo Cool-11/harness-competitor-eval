@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-04T17:33:23+08:00",
+  "generated_at": "2026-11-07T21:30:25+08:00",
   "scope": [
     "S06-artifact-deep-path",
     "S11-corrupt-recovery"
   ],
   "planned_cells": 10,
-  "observed_run_records": 12,
+  "observed_run_records": 21,
   "formal_run_records": 1,
   "formal_cells": 1,
   "cells": [
@@ -36,6 +36,39 @@
           "artifact_score": 1.0,
           "behavior_score": null,
           "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S06-artifact-deep-path/codex/run1/run.json"
+        },
+        {
+          "run_id": "hev-20261107T025604+0800-S06-codex-r2-e2e49c5e",
+          "trial": 2,
+          "ruling": "invalid",
+          "eligible": false,
+          "reasons": [
+            "终裁=invalid，不可进入正式比较"
+          ],
+          "task_revision": "sha256:beed0e9ed685560609d21921e0d7b2b1e8ad8498803b331d28fb304802df1f6b",
+          "product_revision": "ee25e6e3",
+          "artifact_score": 0.0,
+          "behavior_score": null,
+          "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S06-artifact-deep-path/codex/run2/run.json"
+        },
+        {
+          "run_id": "hev-20261107T211910+0800-S06-codex-r3-bff3691f",
+          "trial": 3,
+          "ruling": "pending",
+          "eligible": false,
+          "reasons": [
+            "规则未冻结",
+            "题面无效或未核验",
+            "证据无效或未核验",
+            "运行受污染或未核验",
+            "终裁=pending，不可进入正式比较",
+            "证据等级未登记为 A/B/C"
+          ],
+          "task_revision": "sha256:beed0e9ed685560609d21921e0d7b2b1e8ad8498803b331d28fb304802df1f6b",
+          "product_revision": "ee25e6e3",
+          "artifact_score": 1.0,
+          "behavior_score": null,
+          "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S06-artifact-deep-path/codex/run3/run.json"
         }
       ],
       "eligible_runs": 0
@@ -65,6 +98,57 @@
           "artifact_score": 1.0,
           "behavior_score": null,
           "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S06-artifact-deep-path/dsh/run1/run.json"
+        },
+        {
+          "run_id": "hev-20261107T025818+0800-S06-dsh-r2-09b052bb",
+          "trial": 2,
+          "ruling": "invalid",
+          "eligible": false,
+          "reasons": [
+            "证据无效或未核验",
+            "终裁=invalid，不可进入正式比较",
+            "证据等级未登记为 A/B/C",
+            "运行过程证据模式未核验"
+          ],
+          "task_revision": "sha256:beed0e9ed685560609d21921e0d7b2b1e8ad8498803b331d28fb304802df1f6b",
+          "product_revision": "ca164b3f",
+          "artifact_score": 0.0,
+          "behavior_score": null,
+          "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S06-artifact-deep-path/dsh/run2/run.json"
+        },
+        {
+          "run_id": "hev-20261107T025933+0800-S06-dsh-r3-51eb245d",
+          "trial": 3,
+          "ruling": "invalid",
+          "eligible": false,
+          "reasons": [
+            "终裁=invalid，不可进入正式比较",
+            "证据等级未登记为 A/B/C"
+          ],
+          "task_revision": "sha256:beed0e9ed685560609d21921e0d7b2b1e8ad8498803b331d28fb304802df1f6b",
+          "product_revision": "ca164b3f",
+          "artifact_score": 0.0,
+          "behavior_score": null,
+          "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S06-artifact-deep-path/dsh/run3/run.json"
+        },
+        {
+          "run_id": "hev-20261107T212644+0800-S06-dsh-r4-57b863b9",
+          "trial": 4,
+          "ruling": "pending",
+          "eligible": false,
+          "reasons": [
+            "规则未冻结",
+            "题面无效或未核验",
+            "证据无效或未核验",
+            "运行受污染或未核验",
+            "终裁=pending，不可进入正式比较",
+            "证据等级未登记为 A/B/C"
+          ],
+          "task_revision": "sha256:beed0e9ed685560609d21921e0d7b2b1e8ad8498803b331d28fb304802df1f6b",
+          "product_revision": "ca164b3f",
+          "artifact_score": 0.7857,
+          "behavior_score": null,
+          "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S06-artifact-deep-path/dsh/run4/run.json"
         }
       ],
       "eligible_runs": 0
@@ -184,6 +268,39 @@
           "artifact_score": 1.0,
           "behavior_score": null,
           "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S11-corrupt-recovery/codex/run1/run.json"
+        },
+        {
+          "run_id": "hev-20261107T025942+0800-S11-codex-r3-8e282905",
+          "trial": 3,
+          "ruling": "invalid",
+          "eligible": false,
+          "reasons": [
+            "终裁=invalid，不可进入正式比较"
+          ],
+          "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+          "product_revision": "ee25e6e3",
+          "artifact_score": 0.0,
+          "behavior_score": null,
+          "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S11-corrupt-recovery/codex/run3/run.json"
+        },
+        {
+          "run_id": "hev-20261107T212229+0800-S11-codex-r4-0e5a40b2",
+          "trial": 4,
+          "ruling": "pending",
+          "eligible": false,
+          "reasons": [
+            "规则未冻结",
+            "题面无效或未核验",
+            "证据无效或未核验",
+            "运行受污染或未核验",
+            "终裁=pending，不可进入正式比较",
+            "证据等级未登记为 A/B/C"
+          ],
+          "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+          "product_revision": "ee25e6e3",
+          "artifact_score": 1.0,
+          "behavior_score": null,
+          "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S11-corrupt-recovery/codex/run4/run.json"
         }
       ],
       "eligible_runs": 0
@@ -243,6 +360,40 @@
           "artifact_score": 1.0,
           "behavior_score": 1.0,
           "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S11-corrupt-recovery/dsh/run4/run.json"
+        },
+        {
+          "run_id": "hev-20261107T030151+0800-S11-dsh-r5-ba356358",
+          "trial": 5,
+          "ruling": "invalid",
+          "eligible": false,
+          "reasons": [
+            "终裁=invalid，不可进入正式比较",
+            "证据等级未登记为 A/B/C"
+          ],
+          "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+          "product_revision": "ca164b3f",
+          "artifact_score": 0.0,
+          "behavior_score": null,
+          "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S11-corrupt-recovery/dsh/run5/run.json"
+        },
+        {
+          "run_id": "hev-20261107T212723+0800-S11-dsh-r6-59e4d108",
+          "trial": 6,
+          "ruling": "pending",
+          "eligible": false,
+          "reasons": [
+            "规则未冻结",
+            "题面无效或未核验",
+            "证据无效或未核验",
+            "运行受污染或未核验",
+            "终裁=pending，不可进入正式比较",
+            "证据等级未登记为 A/B/C"
+          ],
+          "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+          "product_revision": "ca164b3f",
+          "artifact_score": 0.0,
+          "behavior_score": null,
+          "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S11-corrupt-recovery/dsh/run6/run.json"
         }
       ],
       "eligible_runs": 1

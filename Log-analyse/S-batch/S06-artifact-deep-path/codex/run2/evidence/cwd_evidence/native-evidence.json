@@ -1,0 +1,40 @@
+{
+  "slot_id": "S06-artifact-deep-path__codex__r2",
+  "command": [
+    "codex",
+    "exec",
+    "--json",
+    "--ephemeral",
+    "--ignore-user-config",
+    "--ignore-rules",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "workspace-write",
+    "-C",
+    "C:\\tmp_run\\S06-artifact-deep-path\\codex\\run2\\work",
+    "-"
+  ],
+  "cwd": "C:\\tmp_run\\S06-artifact-deep-path\\codex\\run2\\work",
+  "started_at": "2026-11-07T02:56:04+08:00",
+  "ended_at": "2026-11-07T02:58:18+08:00",
+  "returncode": 0,
+  "timed_out": false,
+  "session_export": "C:\\tmp_run\\S06-artifact-deep-path\\codex\\run2\\runner\\session.jsonl",
+  "session_sha256": "8545276a71bddb88b10871dff1547e7aa790ae54a4f8240ffc5b3842758d032a",
+  "observed_context": {
+    "model": "unknown",
+    "provider": "unknown",
+    "reasoning": "unknown",
+    "sampling": "provider_default",
+    "tools": [
+      "shell",
+      "filesystem"
+    ],
+    "permissions": "workspace-write",
+    "source": "codex --model + isolated CODEX_HOME"
+  },
+  "final_stdout": "C:\\tmp_run\\S06-artifact-deep-path\\codex\\run2\\runner\\session.jsonl",
+  "final_stdout_sha256": "8545276a71bddb88b10871dff1547e7aa790ae54a4f8240ffc5b3842758d032a",
+  "stderr": "C:\\tmp_run\\S06-artifact-deep-path\\codex\\run2\\runner\\stderr.log",
+  "stderr_sha256": "0580e112ec1261ccfae4adda5420321d617959382905e76b93c2909300e1c8fe"
+}

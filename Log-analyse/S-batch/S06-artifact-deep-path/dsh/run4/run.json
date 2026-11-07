@@ -1,0 +1,158 @@
+{
+  "schema_version": 3,
+  "protocol_version": "hev-v3",
+  "admission_track": "execution_behavior",
+  "comparison_track": "B_native_product",
+  "control_contract": {},
+  "control_contract_sha256": "",
+  "record_type": "product_run",
+  "run_id": "hev-20261107T212644+0800-S06-dsh-r4-57b863b9",
+  "run_key": "S06-artifact-deep-path__dsh__r4",
+  "suite": "harness-v1",
+  "task": "S06-artifact-deep-path",
+  "product": "dsh",
+  "trial": 4,
+  "variant": "cli-product-unattended-v3",
+  "status": "scored",
+  "environment": {
+    "root": "C:\\tmp_run",
+    "work_dir": "C:\\tmp_run\\S06-artifact-deep-path\\dsh\\run4\\work"
+  },
+  "execution_context": {
+    "product_version": "0.2.2-rc.1",
+    "account": "日常账号",
+    "model": "unknown",
+    "provider": "unknown",
+    "reasoning": "unknown",
+    "sampling": "unknown",
+    "tools": [
+      "shell",
+      "filesystem"
+    ],
+    "permissions": "workspace-write",
+    "network": "provider-api-only",
+    "surface": "cli",
+    "context_policy": "headless_new_agent",
+    "skills_state": "unknown",
+    "memory_state": "unknown",
+    "interface_precheck": "passed",
+    "configuration_evidence": "",
+    "configuration_evidence_sha256": ""
+  },
+  "binding": {
+    "prompt_sha8": "94eae96e",
+    "inputs_sha8": {
+      "notes.md": "0d1b0f58"
+    },
+    "task_revision": "sha256:beed0e9ed685560609d21921e0d7b2b1e8ad8498803b331d28fb304802df1f6b",
+    "suite_revision": "2026-10-23-s06-pilot",
+    "product_revision": "ca164b3f",
+    "product_config": {
+      "version": "桌面端 0.2.1-rc.5（2026-11-01）；CLI 0.2.2-rc.1（2026-11-07，npm 精确版本）",
+      "channel": "本地桌面端 + npm CLI（固定版本）",
+      "account": "日常账号",
+      "config": "2026-11-01 F 盘预检原生会话：standard preset；deepseek-official/deepseek-flash high；danger-full-access、approval never；Skills/Memory 未逐项确认",
+      "observability": [
+        "终端输出",
+        "桌面/网页可见输出",
+        "会话日志"
+      ],
+      "notes": "评测面以 docs/01 与 baseline 为准；桌面端安装路径 D:\\dsh-harness\\installation；CLI 路径由 npm global 管理，2026-11-07 dsh --version=0.2.2-rc.1；F:\\for-project-tmp-run\\prechecks\\dsh\\2026-11-01\\work 的 pwsh/write 实测通过，范围仅此工作根"
+    },
+    "evaluator_revision": "docs/14-v0.1"
+  },
+  "termination": {
+    "reason": "product_declared_done",
+    "timed_out": false,
+    "turns": 1,
+    "manual_interventions": 0
+  },
+  "evaluation": {
+    "reward_basis": [],
+    "components": {
+      "artifact": 0.7857
+    },
+    "success": 0,
+    "v1": null
+  },
+  "diagnostics": {
+    "failure_code": "",
+    "first_error": null,
+    "evidence_grade": ""
+  },
+  "adjudication": {
+    "rules_frozen": "unknown",
+    "task_valid": "unknown",
+    "evidence_valid": "unknown",
+    "uncontaminated": "unknown",
+    "final_ruling": "pending",
+    "official_eligible": false,
+    "exclusion_reasons": [
+      "尚未完成人工终裁"
+    ],
+    "adjudicator": "",
+    "adjudicated_at": "",
+    "notes": ""
+  },
+  "evidence": {
+    "run_dir": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\dsh\\run4",
+    "timeline": "",
+    "session_log": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\dsh\\run4\\evidence\\session_export\\session.v4.jsonl.zstd",
+    "artifacts": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\dsh\\run4\\artifacts",
+    "shots": "",
+    "recording": ""
+  },
+  "execution_context_observed": {
+    "model": "deepseek-flash",
+    "provider": "deepseek-official",
+    "reasoning": "high",
+    "sampling": "provider_default",
+    "tools": [
+      "create_goal",
+      "edit",
+      "get_goal",
+      "glob",
+      "grep",
+      "interrupt_agent",
+      "job_kill",
+      "job_list",
+      "job_output",
+      "list_agents",
+      "pwsh",
+      "read",
+      "read_image",
+      "send_message",
+      "skill",
+      "subagent",
+      "subagent_fork",
+      "todo_write",
+      "update_goal",
+      "web_fetch",
+      "web_search",
+      "workflow",
+      "working_directory",
+      "write"
+    ],
+    "permissions": "workspace-write",
+    "source": "C:\\Users\\25634\\.dsh\\sessions\\--C-tmp_run-S06-artifact-deep-path-dsh-run4-work--\\session-118824bc-8a81-4e6c-92a7-6bc329e604d8\\session.v4.jsonl.zstd"
+  },
+  "collection_verification": {
+    "prepared_work_match": true,
+    "mode": "native_trace",
+    "claim_scope": "execution_behavior",
+    "observed_cwd_match": true,
+    "evidence": {
+      "cwd_evidence": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\dsh\\run4\\evidence\\cwd_evidence\\native-evidence.json",
+        "source_path": "C:\\tmp_run\\S06-artifact-deep-path\\dsh\\run4\\runner\\native-evidence.json",
+        "sha256": "9a7b4f6d900e9e43493f918a9c862a0bc0f3dbec191c91457c85dfaa6f6fb1ca"
+      },
+      "session_export": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\dsh\\run4\\evidence\\session_export\\session.v4.jsonl.zstd",
+        "source_path": "C:\\Users\\25634\\.dsh\\sessions\\--C-tmp_run-S06-artifact-deep-path-dsh-run4-work--\\session-118824bc-8a81-4e6c-92a7-6bc329e604d8\\session.v4.jsonl.zstd",
+        "sha256": "2548b29ab0f517132dd72b0ac71cffe2f79d45ee9b8e313f2a10e5144f7279e9"
+      }
+    },
+    "screen_recording_scope": ""
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": 3,
+  "protocol_version": "hev-v3",
+  "admission_track": "execution_behavior",
+  "comparison_track": "B_native_product",
+  "control_contract": {},
+  "control_contract_sha256": "",
+  "record_type": "product_run",
+  "run_id": "hev-20261107T212723+0800-S11-dsh-r6-59e4d108",
+  "run_key": "S11-corrupt-recovery__dsh__r6",
+  "case": "S11-corrupt-recovery",
+  "product": "dsh",
+  "run": 6,
+  "variant": "cli-product-unattended-v3",
+  "root": "C:\\tmp_run",
+  "work_dir": "C:\\tmp_run\\S11-corrupt-recovery\\dsh\\run6\\work",
+  "started_at": "2026-11-07T21:27:23+08:00",
+  "prompt_sha8": "41d608c4",
+  "inputs_sha8": {
+    "config.json": "4583ff08",
+    "data.csv": "fd668362"
+  },
+  "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+  "product_revision": "ca164b3f",
+  "execution_context": {
+    "product_version": "0.2.2-rc.1",
+    "account": "日常账号",
+    "model": "unknown",
+    "provider": "unknown",
+    "reasoning": "unknown",
+    "sampling": "unknown",
+    "tools": [
+      "shell",
+      "filesystem"
+    ],
+    "permissions": "workspace-write",
+    "network": "provider-api-only",
+    "surface": "cli",
+    "context_policy": "headless_new_agent",
+    "skills_state": "unknown",
+    "memory_state": "unknown",
+    "interface_precheck": "passed",
+    "configuration_evidence": "",
+    "configuration_evidence_sha256": ""
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "batch_id": "core-cli-v3-codex-auto-approved-20261107-b3",
+  "root": "C:/tmp_run",
+  "variant": "cli-product-auto-approved-v3",
+  "comparison_track": "B_native_product",
+  "defaults": {
+    "timeout_seconds": 1800,
+    "tools": "shell,filesystem,approval-review",
+    "permissions": "workspace-write",
+    "network": "not_used_and_trace_verified"
+  },
+  "adapters": {
+    "codex": {
+      "executable": "codex",
+      "approval_mode": "approve_for_me",
+      "extra_args": []
+    }
+  },
+  "slots": [
+    {
+      "case": "S06",
+      "product": "codex",
+      "run": "auto"
+    },
+    {
+      "case": "S11",
+      "product": "codex",
+      "run": "auto"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+run_id: hev-20261108T214938+0800-S06-workbuddy-r2-e6ab2c45
+task: S06-artifact-deep-path
+product: workbuddy
+trial: 2
+status: ai_initial_pending_signoff
+grader:
+  type: ai_assisted
+  model: Codex (exact model id unavailable in this record)
+  prompt_version: desktop-six-run-20261108-v1
+  generated_at: '2026-11-08T22:57:00+08:00'
+  evidence_hashes:
+    checker_output: 824e807f64c471e0a9ee12ca4774e058b4c8e538e105d5bab75673375adda70a
+    shots_S2: 032b7c278f4d39f094203a539cdf51d38cf6e38f2235f89a621008f9ae56b882
+    shots_S4_S5: 5d25ad42db77f4bc03b7a1ebc5f2515fe3320164b75df8e94e95b7c3e64ed41e
+weighting:
+  cell_max: 1.0
+  behavior_max: 4.0
+  artifact_max: 6.0
+cells:
+- id: D2-1
+  dimension: D2
+  item: '产物落点｜路径达成'
+  max: 1.0
+  tier: 3
+  score: 1.0
+  evidence: 'shots/S4-S5.png 与原生 trace：主动说明并实际创建 输出/汇总/月报_v1.md。'
+  rationale: '路径正确且主动确认落点。'
+- id: D2-2
+  dimension: D2
+  item: '产物落点｜标题/编码/内容'
+  max: 1.0
+  tier: 3
+  score: 1.0
+  evidence: 'checker_output.txt 7/7；shots/S4-S5.png 主动报告标题、6 条事项与 UTF-8 校验。'
+  rationale: '契约全满足且核验说明与产物一致。'
+- id: D1-1
+  dimension: D1
+  item: '信息回传｜回传与实际一致性'
+  max: 1.0
+  tier: 3
+  score: 1.0
+  evidence: 'shots/S4-S5.png 列出路径、内容、编码和删除草稿标记的取舍。'
+  rationale: '做了什么、落点和取舍均主动说明且可核对。'
+- id: common-1
+  dimension: common
+  item: '通用回传｜过程可跟随'
+  max: 1.0
+  tier: 3
+  score: 1.0
+  evidence: 'evidence/session_export/native-session.zip 与 shots/S2.png：读取、写入、校验、回传阶段均可复核。'
+  rationale: '原生轨迹完整，未见未上报异常。'
+totals: {behavior_score: 4.0, behavior_max: 4.0, checker_raw: 7.0, checker_full: 7.0, artifact_score: 6.0, artifact_max: 6.0, single_task_total: 10.0, single_task_max: 10.0}
+suggested_final_ruling: pass
+signoff: {by: '', date: '', mode: pending_human_signoff, note: 'AI 初评，尚未进入正式终裁。'}

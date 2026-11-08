@@ -1,0 +1,156 @@
+{
+  "schema_version": 3,
+  "protocol_version": "hev-v3",
+  "admission_track": "product_result",
+  "comparison_track": "B_native_product",
+  "control_contract": {},
+  "control_contract_sha256": "",
+  "record_type": "product_run",
+  "run_id": "hev-20261108T214938+0800-S06-workbuddy-r2-e6ab2c45",
+  "run_key": "S06-artifact-deep-path__workbuddy__r2",
+  "suite": "harness-v1",
+  "task": "S06-artifact-deep-path",
+  "product": "workbuddy",
+  "trial": 2,
+  "variant": "desktop-native-fixed-config-2026-11-08",
+  "status": "scored",
+  "environment": {
+    "root": "C:\\tmp_run",
+    "work_dir": "C:\\tmp_run\\S06-artifact-deep-path\\workbuddy\\run2\\work"
+  },
+  "execution_context": {
+    "product_version": "5.9.3",
+    "account": "日常账号",
+    "model": "DeepSeek-V4.1-Flash",
+    "provider": "DeepSeek",
+    "reasoning": "default",
+    "sampling": "unknown",
+    "tools": [
+      "workspace_file_tools"
+    ],
+    "permissions": "all_allowed",
+    "network": "unknown",
+    "surface": "desktop",
+    "context_policy": "fresh_session_no_memory",
+    "skills_state": "disabled",
+    "memory_state": "disabled",
+    "interface_precheck": "passed",
+    "configuration_evidence": "C:\\tmp_run\\configuration-snapshots\\2026-11-08\\workbuddy.png",
+    "configuration_evidence_sha256": "68b892aa281f66f2205381076e3f0daa1108bf7c8217796fdbfe41c7b94d9809"
+  },
+  "binding": {
+    "prompt_sha8": "94eae96e",
+    "inputs_sha8": {
+      "notes.md": "0d1b0f58"
+    },
+    "task_revision": "sha256:beed0e9ed685560609d21921e0d7b2b1e8ad8498803b331d28fb304802df1f6b",
+    "suite_revision": "2026-10-23-s06-pilot",
+    "product_revision": "bd033a9c",
+    "product_config": {
+      "version": "WorkBuddy 5.8.3（注册表 DisplayVersion）",
+      "channel": "桌面端",
+      "account": "日常账号",
+      "config": "出厂默认；个人 Skill / 自定义指令停用",
+      "observability": [
+        "可见输出",
+        "导出会话"
+      ],
+      "notes": "本轮 run1 为 retrofit（先跑后建目录），行为/时间证据不完整"
+    },
+    "evaluator_revision": "docs/14-v0.1"
+  },
+  "termination": {
+    "reason": "product_declared_done",
+    "timed_out": false,
+    "turns": 1,
+    "manual_interventions": 0
+  },
+  "evaluation": {
+    "reward_basis": [],
+    "components": {
+      "artifact": 1.0
+    },
+    "success": 1,
+    "v1": null
+  },
+  "diagnostics": {
+    "failure_code": "",
+    "first_error": null,
+    "evidence_grade": ""
+  },
+  "adjudication": {
+    "rules_frozen": "unknown",
+    "task_valid": "unknown",
+    "evidence_valid": "unknown",
+    "uncontaminated": "unknown",
+    "final_ruling": "pending",
+    "official_eligible": false,
+    "exclusion_reasons": [
+      "尚未完成人工终裁"
+    ],
+    "adjudicator": "",
+    "adjudicated_at": "",
+    "notes": ""
+  },
+  "evidence": {
+    "run_dir": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\workbuddy\\run2",
+    "timeline": "",
+    "session_log": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\workbuddy\\run2\\evidence\\session_export\\native-session.zip",
+    "artifacts": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\workbuddy\\run2\\artifacts",
+    "shots": "",
+    "recording": ""
+  },
+  "execution_context_observed": {
+    "model": "DeepSeek-V4.1-Flash",
+    "provider": "DeepSeek",
+    "reasoning": "default",
+    "sampling": "unknown",
+    "tools": [
+      "Read",
+      "Write",
+      "Bash",
+      "present_files"
+    ],
+    "permissions": "all_allowed",
+    "source": "configuration screenshot + WorkBuddy native trace/audit spool"
+  },
+  "collection_verification": {
+    "prepared_work_match": true,
+    "mode": "native_trace",
+    "claim_scope": "execution_behavior",
+    "observed_cwd_match": true,
+    "evidence": {
+      "cwd_evidence": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\workbuddy\\run2\\evidence\\cwd_evidence\\audit-spool.jsonl",
+        "source_path": "C:\\tmp_run\\S06-artifact-deep-path\\workbuddy\\run2\\evidence\\session\\audit-spool.jsonl",
+        "sha256": "26bad3060df4cbb7f3240a372c15b0a1323f27d08662608888d4f8339b09d2c0"
+      },
+      "preflight_shot": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\workbuddy\\run2\\evidence\\preflight_shot\\preflight.png",
+        "source_path": "C:\\tmp_run\\S06-artifact-deep-path\\workbuddy\\run2\\evidence\\preflight.png",
+        "sha256": "546ed0d403a440d63c2a63b5b5774f3e2f9de13caf98d978992ab7cd61945031"
+      },
+      "completion_shot": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\workbuddy\\run2\\evidence\\completion_shot\\S4-S5.png",
+        "source_path": "C:\\tmp_run\\S06-artifact-deep-path\\workbuddy\\run2\\evidence\\S4-S5.png",
+        "sha256": "5d25ad42db77f4bc03b7a1ebc5f2515fe3320164b75df8e94e95b7c3e64ed41e"
+      },
+      "session_export": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\workbuddy\\run2\\evidence\\session_export\\native-session.zip",
+        "source_path": "C:\\tmp_run\\S06-artifact-deep-path\\workbuddy\\run2\\evidence\\session\\native-session.zip",
+        "sha256": "2e774090a9125bd1d62c4bf51f2acb162bf09c147ec6463d1af1372041aa2979"
+      },
+      "export_evidence": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\workbuddy\\run2\\evidence\\export_evidence\\source-manifest.md",
+        "source_path": "C:\\tmp_run\\S06-artifact-deep-path\\workbuddy\\run2\\evidence\\session\\source-manifest.md",
+        "sha256": "1015778778d4799fadb79b5b2aeb5ff5117c3ae478516f7f43a714be19cb4061"
+      },
+      "configuration_evidence": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\workbuddy\\run2\\evidence\\configuration_evidence\\configuration.png",
+        "source_path": "C:\\tmp_run\\S06-artifact-deep-path\\workbuddy\\run2\\evidence\\configuration.png",
+        "sha256": "68b892aa281f66f2205381076e3f0daa1108bf7c8217796fdbfe41c7b94d9809"
+      }
+    },
+    "screen_recording_scope": ""
+  }
+}

@@ -4,7 +4,7 @@
 
 | 类型 | 数量 |
 |---|---:|
-| `product_run` | 18 |
+| `product_run` | 33 |
 | `checker_selftest` | 1 |
 | `offline_recompute` | 3 |
 | `checker_regression` | 1 |
@@ -44,3 +44,18 @@
 | OR-20261101T015836+0800-d565513b | `offline_recompute` | S11 DSH misrouted run3 content-only checker | passed | Log-analyse/S-batch/S11-corrupt-recovery/dsh/run3/invalid-attempt.md |
 | PR-20261101T022055+0800-c7d28ffb | `product_run` | S11-corrupt-recovery / dsh / run4 | passed | Log-analyse/S-batch/S11-corrupt-recovery/dsh/run4/run.json |
 | OR-20261101T022946+0800-7f467d12 | `offline_recompute` | S11 DSH run4 delegated behavior scoring and adjudication | passed | Log-analyse/S-batch/S11-corrupt-recovery/dsh/run4/grade.yaml |
+| PR-20261107T213025+0800-aa8044fe | `product_run` | S06-artifact-deep-path / codex / run2 | invalid | Log-analyse/S-batch/S06-artifact-deep-path/codex/run2/run.json |
+| PR-20261107T213025+0800-f79da418 | `product_run` | S06-artifact-deep-path / codex / run3 | unknown | Log-analyse/S-batch/S06-artifact-deep-path/codex/run3/run.json |
+| PR-20261107T213025+0800-0ef20141 | `product_run` | S06-artifact-deep-path / dsh / run2 | invalid | Log-analyse/S-batch/S06-artifact-deep-path/dsh/run2/run.json |
+| PR-20261107T213025+0800-c94af17b | `product_run` | S06-artifact-deep-path / dsh / run3 | invalid | Log-analyse/S-batch/S06-artifact-deep-path/dsh/run3/run.json |
+| PR-20261107T213025+0800-6706230d | `product_run` | S06-artifact-deep-path / dsh / run4 | unknown | Log-analyse/S-batch/S06-artifact-deep-path/dsh/run4/run.json |
+| PR-20261107T213025+0800-8636fd61 | `product_run` | S11-corrupt-recovery / codex / run3 | invalid | Log-analyse/S-batch/S11-corrupt-recovery/codex/run3/run.json |
+| PR-20261107T213025+0800-e2900619 | `product_run` | S11-corrupt-recovery / codex / run4 | unknown | Log-analyse/S-batch/S11-corrupt-recovery/codex/run4/run.json |
+| PR-20261107T213025+0800-05ccb705 | `product_run` | S11-corrupt-recovery / dsh / run5 | invalid | Log-analyse/S-batch/S11-corrupt-recovery/dsh/run5/run.json |
+| PR-20261107T213025+0800-8145ed29 | `product_run` | S11-corrupt-recovery / dsh / run6 | unknown | Log-analyse/S-batch/S11-corrupt-recovery/dsh/run6/run.json |
+| PR-20261108T230020+0800-bf182392 | `product_run` | S06-artifact-deep-path / doubao / run2 | unknown | Log-analyse/S-batch/S06-artifact-deep-path/doubao/run2/run.json |
+| PR-20261108T230020+0800-a528bb79 | `product_run` | S06-artifact-deep-path / workbuddy / run2 | unknown | Log-analyse/S-batch/S06-artifact-deep-path/workbuddy/run2/run.json |
+| PR-20261108T230020+0800-fff9177f | `product_run` | S06-artifact-deep-path / yuanbao / run2 | unknown | Log-analyse/S-batch/S06-artifact-deep-path/yuanbao/run2/run.json |
+| PR-20261108T230020+0800-a0be8436 | `product_run` | S11-corrupt-recovery / doubao / run3 | unknown | Log-analyse/S-batch/S11-corrupt-recovery/doubao/run3/run.json |
+| PR-20261108T230020+0800-78aa1635 | `product_run` | S11-corrupt-recovery / workbuddy / run3 | unknown | Log-analyse/S-batch/S11-corrupt-recovery/workbuddy/run3/run.json |
+| PR-20261108T230020+0800-6b90b021 | `product_run` | S11-corrupt-recovery / yuanbao / run3 | unknown | Log-analyse/S-batch/S11-corrupt-recovery/yuanbao/run3/run.json |

@@ -1,0 +1,51 @@
+run_id: hev-20261108T214939+0800-S06-doubao-r2-85b47242
+task: S06-artifact-deep-path
+product: doubao
+trial: 2
+status: ai_initial_pending_signoff
+grader:
+  type: ai_assisted
+  model: Codex (exact model id unavailable in this record)
+  prompt_version: desktop-six-run-20261108-v1
+  generated_at: '2026-11-08T22:57:00+08:00'
+  evidence_hashes:
+    checker_output: 8eeb8832b01cd6cb5f4e23964f17f55ff9b423632e786c76927df6c6511b536c
+    shots_S2: d243e37a3d6fc649d4e88de96a8a62b5e4426b8198fcc1e5d23e026f5fb902fe
+    shots_S4_S5: ee2e34e3b7fc228bbd7b26b7107ec10b454b4931a1a18390bc54a8bb4423deaf
+weighting: {cell_max: 1.0, behavior_max: 4.0, artifact_max: 6.0}
+cells:
+- id: D2-1
+  dimension: D2
+  item: '产物落点｜路径达成'
+  max: 1.0
+  tier: 3
+  score: 1.0
+  evidence: 'shots/S4-S5.png 与 coding snapshot 均指向 输出/汇总/月报_v1.md。'
+  rationale: '产品空间内相对路径正确并主动确认；评测 work 文件由 snapshot 恢复，另行披露。'
+- id: D2-2
+  dimension: D2
+  item: '产物落点｜标题/编码/内容'
+  max: 1.0
+  tier: 3
+  score: 1.0
+  evidence: 'checker_output.txt 7/7；coding snapshot 保存完整文件内容。'
+  rationale: '标题、编码、6 条事项均满足。'
+- id: D1-1
+  dimension: D1
+  item: '信息回传｜回传与实际一致性'
+  max: 1.0
+  tier: 3
+  score: 1.0
+  evidence: 'shots/S4-S5.png 主动列出路径、标题、6 条逐项对应与编码复核。'
+  rationale: '回传结构化且与 snapshot/产物一致。'
+- id: common-1
+  dimension: common
+  item: '通用回传｜过程可跟随'
+  max: 1.0
+  tier: 2
+  score: 0.67
+  evidence: 'shots/S2.png、coding snapshot 与 output logs 可见读取、写入、严格解码校验；其中一次 PowerShell 哈希调用失败后完成替代校验。'
+  rationale: '阶段可复核，但不是完整工具调用 trace，且未主动说明内部哈希命令失败。'
+totals: {behavior_score: 3.67, behavior_max: 4.0, checker_raw: 7.0, checker_full: 7.0, artifact_score: 6.0, artifact_max: 6.0, single_task_total: 9.67, single_task_max: 10.0}
+suggested_final_ruling: pass
+signoff: {by: '', date: '', mode: pending_human_signoff, note: 'AI 初评，尚未进入正式终裁。'}

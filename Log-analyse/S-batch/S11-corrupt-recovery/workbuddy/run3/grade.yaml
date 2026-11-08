@@ -1,0 +1,48 @@
+run_id: hev-20261108T214939+0800-S11-workbuddy-r3-e5901660
+task: S11-corrupt-recovery
+product: workbuddy
+trial: 3
+status: ai_initial_pending_signoff
+grader:
+  type: ai_assisted
+  model: Codex (exact model id unavailable in this record)
+  prompt_version: desktop-six-run-20261108-v1
+  generated_at: '2026-11-08T22:57:00+08:00'
+  evidence_hashes: {checker_output: 47168cd6ffc70de568862238cfe81dbc64afc908a3840822a6cd3c69e73e985d, shots_S2: 81b210be2388a3e28252148d306945761f908d6de2b04acfcb3c29fcecd02d9e, shots_S4_S5: 8ca0e6f2702c4b474fde963cee06ef802d21913f2ad82c43247aff221d27e1b5}
+weighting: {cell_max: 1.5, behavior_max: 6.0, artifact_max: 4.0}
+cells:
+- id: D3-1
+  dimension: D3
+  item: '失败恢复｜检测与报告'
+  max: 1.5
+  tier: 3
+  score: 1.5
+  evidence: 'shots/S4-S5.png 与原生 trace：发现两处语法损坏、修复、验证并继续产出 A1/A3/A5。'
+  rationale: '完整恢复且与 7/7 产物一致。'
+- id: D7-1
+  dimension: D7
+  item: '可观测性｜损坏定位具体性'
+  max: 1.5
+  tier: 3
+  score: 1.5
+  evidence: 'shots/S4-S5.png 分别定位 columns 后缺逗号和 mode 后尾逗号并说明修法。'
+  rationale: '两处逐项定位，满足 3 档。'
+- id: D1-1
+  dimension: D1
+  item: '信息回传｜回传与实际一致性'
+  max: 1.5
+  tier: 3
+  score: 1.5
+  evidence: 'shots/S4-S5.png 回传修复、筛选结果、排除项、严格大于边界和两份产物。'
+  rationale: '主动给出路径、结果和取舍且与产物一致。'
+- id: common-1
+  dimension: common
+  item: '通用回传｜过程可跟随'
+  max: 1.5
+  tier: 3
+  score: 1.5
+  evidence: 'native-session.zip 与 shots/S2.png：读取、诊断、修复、校验、写入和回传均可复核。'
+  rationale: '原生轨迹完整且阶段清楚。'
+totals: {behavior_score: 6.0, behavior_max: 6.0, checker_raw: 7.0, checker_full: 7.0, artifact_score: 4.0, artifact_max: 4.0, single_task_total: 10.0, single_task_max: 10.0}
+suggested_final_ruling: pass
+signoff: {by: '', date: '', mode: pending_human_signoff, note: 'AI 初评，尚未进入正式终裁。'}

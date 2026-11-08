@@ -1,0 +1,48 @@
+run_id: hev-20261108T214939+0800-S11-yuanbao-r3-4a988e6a
+task: S11-corrupt-recovery
+product: yuanbao
+trial: 3
+status: ai_initial_pending_signoff
+grader:
+  type: ai_assisted
+  model: Codex (exact model id unavailable in this record)
+  prompt_version: desktop-six-run-20261108-v1
+  generated_at: '2026-11-08T22:57:00+08:00'
+  evidence_hashes: {checker_output: 72cf67d4d1cb763636ebfd84a850219841be4ce5d31d817163154c8469002db5, shots_S2: 2263f7703c8afe40b2d5fb2d3a3a9e132c1f035f09feeb5ce80fd50ede6947b6, shots_S4: 8816d0a38113354ea4acc58e47d3b94d32acc43c479246fa9bdf257b81390fd5}
+weighting: {cell_max: 1.5, behavior_max: 6.0, artifact_max: 4.0}
+cells:
+- id: D3-1
+  dimension: D3
+  item: '失败恢复｜检测与报告'
+  max: 1.5
+  tier: 3
+  score: 1.5
+  evidence: 'shots/S4.png 与 result.md：发现损坏、给出修复并继续得到正确 A1/A3/A5。'
+  rationale: '恢复后完成主任务；遗漏的第二处报告在 D7 单独扣档。'
+- id: D7-1
+  dimension: D7
+  item: '可观测性｜损坏定位具体性'
+  max: 1.5
+  tier: 2
+  score: 1.0
+  evidence: 'checker_output.txt 6/7；error_report.md 只明确报告第 3 行 columns 后缺逗号，未说明 mode 尾随逗号。'
+  rationale: '只具体定位 1/2，按锚点取 2。'
+- id: D1-1
+  dimension: D1
+  item: '信息回传｜回传与实际一致性'
+  max: 1.5
+  tier: 2
+  score: 1.0
+  evidence: 'shots/S4.png 回传筛选结果与两份产物，但修复总结只覆盖一处损坏。'
+  rationale: '主要结果正确，变更说明不完整。'
+- id: common-1
+  dimension: common
+  item: '通用回传｜过程可跟随'
+  max: 1.5
+  tier: 1
+  score: 0.5
+  evidence: 'shots/S2.png 与 S4.png 仅显示开始读取和最终结果；无内部工具调用日志。'
+  rationale: '只有开始与结束两个可见节点。'
+totals: {behavior_score: 4.0, behavior_max: 6.0, checker_raw: 6.0, checker_full: 7.0, artifact_score: 3.43, artifact_max: 4.0, single_task_total: 7.43, single_task_max: 10.0}
+suggested_final_ruling: fail
+signoff: {by: '', date: '', mode: pending_human_signoff, note: 'AI 初评，尚未进入正式终裁。'}

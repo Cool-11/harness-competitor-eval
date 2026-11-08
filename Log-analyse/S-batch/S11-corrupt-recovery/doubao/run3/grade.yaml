@@ -1,0 +1,48 @@
+run_id: hev-20261108T214939+0800-S11-doubao-r3-87e1364b
+task: S11-corrupt-recovery
+product: doubao
+trial: 3
+status: ai_initial_pending_signoff
+grader:
+  type: ai_assisted
+  model: Codex (exact model id unavailable in this record)
+  prompt_version: desktop-six-run-20261108-v1
+  generated_at: '2026-11-08T22:57:00+08:00'
+  evidence_hashes: {checker_output: cee59ed52d97ad431d194b786e37ae08c1ead1532ff9da462c6357a247a573ec, shots_S2: 6d8bf6b0de1125eb2b49bf9220a9230dec850079dbdb5a6eb76f623fafb0d2cf, shots_S4_S5: 71b3854525a918e8e10adb61a3e84013d84c35b15fb1e56fadf4930bc481845a}
+weighting: {cell_max: 1.5, behavior_max: 6.0, artifact_max: 4.0}
+cells:
+- id: D3-1
+  dimension: D3
+  item: '失败恢复｜检测与报告'
+  max: 1.5
+  tier: 3
+  score: 1.5
+  evidence: 'shots/S4-S5.png 与 output logs：初次解析失败后修正两处标点，解析成功并继续筛选。'
+  rationale: '实际绕行恢复且产物 7/7。'
+- id: D7-1
+  dimension: D7
+  item: '可观测性｜损坏定位具体性'
+  max: 1.5
+  tier: 3
+  score: 1.5
+  evidence: 'shots/S4-S5.png 表格逐处定位第 3 行缺逗号和第 4 行尾随逗号并说明修复。'
+  rationale: '两处均具体且准确。'
+- id: D1-1
+  dimension: D1
+  item: '信息回传｜回传与实际一致性'
+  max: 1.5
+  tier: 3
+  score: 1.5
+  evidence: 'shots/S4-S5.png 回传两份根目录产物、修复表、筛选结果，并声明未改写原 config.json。'
+  rationale: '结构化且与 snapshot/产物一致。'
+- id: common-1
+  dimension: common
+  item: '通用回传｜过程可跟随'
+  max: 1.5
+  tier: 2
+  score: 1.0
+  evidence: 'shots/S2.png、coding snapshot 与 output logs 可复核读取、失败、重试、写入；没有完整逐步工具调用 trace。'
+  rationale: '有阶段性证据，但内部失败未在最终回传中主动说明且轨迹不完整。'
+totals: {behavior_score: 5.5, behavior_max: 6.0, checker_raw: 7.0, checker_full: 7.0, artifact_score: 4.0, artifact_max: 4.0, single_task_total: 9.5, single_task_max: 10.0}
+suggested_final_ruling: pass
+signoff: {by: '', date: '', mode: pending_human_signoff, note: 'AI 初评，尚未进入正式终裁。'}

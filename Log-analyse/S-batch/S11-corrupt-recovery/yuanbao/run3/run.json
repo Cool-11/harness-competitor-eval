@@ -1,0 +1,149 @@
+{
+  "schema_version": 3,
+  "protocol_version": "hev-v3",
+  "admission_track": "product_result",
+  "comparison_track": "B_native_product",
+  "control_contract": {},
+  "control_contract_sha256": "",
+  "record_type": "product_run",
+  "run_id": "hev-20261108T214939+0800-S11-yuanbao-r3-4a988e6a",
+  "run_key": "S11-corrupt-recovery__yuanbao__r3",
+  "suite": "harness-v1",
+  "task": "S11-corrupt-recovery",
+  "product": "yuanbao",
+  "trial": 3,
+  "variant": "desktop-native-fixed-config-2026-11-08",
+  "status": "scored",
+  "environment": {
+    "root": "C:\\tmp_run",
+    "work_dir": "C:\\tmp_run\\S11-corrupt-recovery\\yuanbao\\run3\\work"
+  },
+  "execution_context": {
+    "product_version": "2.91.0.607",
+    "account": "日常账号",
+    "model": "default",
+    "provider": "Tencent-Yuanbao",
+    "reasoning": "expert_mode",
+    "sampling": "unknown",
+    "tools": [
+      "file_attachment"
+    ],
+    "permissions": "all_allowed",
+    "network": "unknown",
+    "surface": "desktop",
+    "context_policy": "fresh_session_no_memory",
+    "skills_state": "disabled",
+    "memory_state": "disabled",
+    "interface_precheck": "passed",
+    "configuration_evidence": "C:\\tmp_run\\configuration-snapshots\\2026-11-08\\yuanbao.png",
+    "configuration_evidence_sha256": "ec8ead2c162a38c882e60771e3b197593ec54fda110181781ba0af74c349369d"
+  },
+  "binding": {
+    "prompt_sha8": "41d608c4",
+    "inputs_sha8": {
+      "config.json": "4583ff08",
+      "data.csv": "fd668362"
+    },
+    "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+    "suite_revision": "2026-10-23-s06-pilot",
+    "product_revision": "7a34ef7a",
+    "product_config": {
+      "version": "元宝 2.89.0.612（注册表 DisplayVersion）",
+      "channel": "桌面端·专家模式",
+      "account": "日常账号",
+      "config": "专家模式开启；个人 Skill / 自定义指令停用",
+      "observability": [
+        "可见输出",
+        "导出会话（如支持）"
+      ],
+      "notes": "安装路径 D:\\元宝\\installation\\Yuanbao；无“工作区”选项，产物默认落其沙箱 /data/workspace；run1 的 输出/汇总/月报_v1.md 已由评测者从会话文件卡片手动导出"
+    },
+    "evaluator_revision": "docs/14-v0.1"
+  },
+  "termination": {
+    "reason": "product_declared_done",
+    "timed_out": false,
+    "turns": 1,
+    "manual_interventions": 0
+  },
+  "evaluation": {
+    "reward_basis": [],
+    "components": {
+      "artifact": 0.8571
+    },
+    "success": 0,
+    "v1": null
+  },
+  "diagnostics": {
+    "failure_code": "",
+    "first_error": null,
+    "evidence_grade": ""
+  },
+  "adjudication": {
+    "rules_frozen": "unknown",
+    "task_valid": "unknown",
+    "evidence_valid": "unknown",
+    "uncontaminated": "unknown",
+    "final_ruling": "pending",
+    "official_eligible": false,
+    "exclusion_reasons": [
+      "尚未完成人工终裁"
+    ],
+    "adjudicator": "",
+    "adjudicated_at": "",
+    "notes": ""
+  },
+  "evidence": {
+    "run_dir": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\yuanbao\\run3",
+    "timeline": "",
+    "session_log": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\yuanbao\\run3\\evidence\\session_export\\session-snapshot.md",
+    "artifacts": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\yuanbao\\run3\\artifacts",
+    "shots": "",
+    "recording": ""
+  },
+  "execution_context_observed": {
+    "model": "default",
+    "provider": "Tencent-Yuanbao",
+    "reasoning": "expert_mode",
+    "sampling": "unknown",
+    "tools": [
+      "file_attachment"
+    ],
+    "permissions": "all_allowed",
+    "source": "configuration screenshot + local session identity + manual artifact export"
+  },
+  "collection_verification": {
+    "prepared_work_match": true,
+    "mode": "desktop_export",
+    "claim_scope": "product_result",
+    "observed_cwd_match": false,
+    "evidence": {
+      "preflight_shot": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\yuanbao\\run3\\evidence\\preflight_shot\\preflight.png",
+        "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\yuanbao\\run3\\evidence\\preflight.png",
+        "sha256": "72b92c6bb9491a15dccf93782f7136a384f4eebcf2c99695462566cba2039a90"
+      },
+      "completion_shot": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\yuanbao\\run3\\evidence\\completion_shot\\S4.png",
+        "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\yuanbao\\run3\\evidence\\S4.png",
+        "sha256": "8816d0a38113354ea4acc58e47d3b94d32acc43c479246fa9bdf257b81390fd5"
+      },
+      "session_export": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\yuanbao\\run3\\evidence\\session_export\\session-snapshot.md",
+        "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\yuanbao\\run3\\evidence\\session\\session-snapshot.md",
+        "sha256": "7c1d05bada94ca026a91f11ded448006dd309600a980e8f0d84c72a13f937d24"
+      },
+      "export_evidence": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\yuanbao\\run3\\evidence\\export_evidence\\manual-export-evidence.zip",
+        "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\yuanbao\\run3\\evidence\\manual-export-evidence.zip",
+        "sha256": "d2e6db4960b27aa5ae791c28a630f44d1e3b3237777aa55da07688eca6693da8"
+      },
+      "configuration_evidence": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\yuanbao\\run3\\evidence\\configuration_evidence\\configuration.png",
+        "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\yuanbao\\run3\\evidence\\configuration.png",
+        "sha256": "ec8ead2c162a38c882e60771e3b197593ec54fda110181781ba0af74c349369d"
+      }
+    },
+    "screen_recording_scope": ""
+  }
+}

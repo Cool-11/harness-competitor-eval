@@ -29,13 +29,15 @@ def _out(tmp_path, case="S06-artifact-deep-path", product="dsh", run=1):
     return tmp_path / "out" / case / product / f"run{run}"
 
 
-def test_prepare_custom_root(sandbox):
+def test_prepare_custom_root(sandbox, capsys):
     root = sandbox / "custom-root"
     assert sbatch.prepare(
         "S06", "dsh", 1, root=root, variant="path-hint",
+        product_version="9.9.9",
         model="deepseek-flash", tools="fs,pwsh", permissions="workspace-write",
         skills_state="disabled", memory_state="disabled", interface_precheck="passed",
     ) == 0
+    assert "version=9.9.9" in capsys.readouterr().out
     work = root / "S06-artifact-deep-path" / "dsh" / "run1" / "work"
     assert work.is_dir()
     evidence = work.parent / "evidence"

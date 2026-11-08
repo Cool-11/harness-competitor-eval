@@ -38,12 +38,17 @@ def test_prepare_custom_root(sandbox):
     ) == 0
     work = root / "S06-artifact-deep-path" / "dsh" / "run1" / "work"
     assert work.is_dir()
+    evidence = work.parent / "evidence"
+    assert evidence.is_dir()
+    for name in ("session", "export-source", "original-artifacts"):
+        assert (evidence / name).is_dir()
     prep = json.loads((work.parent / "prepare.json").read_text(encoding="utf-8"))
     assert prep["run_id"].startswith("hev-")
     assert prep["schema_version"] == 3
     assert prep["protocol_version"] == "hev-v3"
     assert prep["admission_track"] == "product_result"
     assert prep["root"] == str(root)
+    assert prep["evidence_dir"] == str(evidence)
     assert prep["variant"] == "path-hint"
     run_doc = json.loads((work.parent / "run.json").read_text(encoding="utf-8"))
     assert run_doc["run_id"] == prep["run_id"]
@@ -53,6 +58,7 @@ def test_prepare_custom_root(sandbox):
     assert run_doc["binding"]["product_config"]["version"]
     assert run_doc["execution_context"]["model"] == "deepseek-flash"
     assert run_doc["execution_context"]["tools"] == ["fs", "pwsh"]
+    assert run_doc["environment"]["evidence_dir"] == str(evidence)
 
 
 def test_collect_writes_evidence(sandbox):

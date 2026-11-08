@@ -1,0 +1,51 @@
+run_id: hev-20261108T214939+0800-S06-yuanbao-r2-8ef7c081
+task: S06-artifact-deep-path
+product: yuanbao
+trial: 2
+status: ai_initial_pending_signoff
+grader:
+  type: ai_assisted
+  model: Codex (exact model id unavailable in this record)
+  prompt_version: desktop-six-run-20261108-v1
+  generated_at: '2026-11-08T22:57:00+08:00'
+  evidence_hashes:
+    checker_output: 23fdc11d440f47398c12c878c53760d0fa6f2633ed5c7581914f186ba90fbdef
+    shots_S2: fe3b38fe82e2566584eca2721b0f5ffca157bd46882e7a0ea9f004a902e20b11
+    shots_S4: f01941723ea40854cffd942e23652b625793a488a0d49ee736d2975e61338009
+weighting: {cell_max: 1.0, behavior_max: 4.0, artifact_max: 6.0}
+cells:
+- id: D2-1
+  dimension: D2
+  item: '产物落点｜路径达成'
+  max: 1.0
+  tier: 3
+  score: 1.0
+  evidence: 'shots/S4.png 明确给出 /data/workspace/输出/汇总/月报_v1.md；S5 展示产品产物。'
+  rationale: '产品虚拟空间内相对路径正确并主动确认；手动导出归一化另行披露。'
+- id: D2-2
+  dimension: D2
+  item: '产物落点｜标题/编码/内容'
+  max: 1.0
+  tier: 3
+  score: 1.0
+  evidence: 'checker_output.txt 7/7；shots/S4.png/S5.png 与手工导出原件一致。'
+  rationale: '标题、编码、6 条事项均满足。'
+- id: D1-1
+  dimension: D1
+  item: '信息回传｜回传与实际一致性'
+  max: 1.0
+  tier: 3
+  score: 1.0
+  evidence: 'shots/S4.png 主动列出路径、目录创建、标题、内容完整性和编码。'
+  rationale: '结构化回传与产品产物一致。'
+- id: common-1
+  dimension: common
+  item: '通用回传｜过程可跟随'
+  max: 1.0
+  tier: 1
+  score: 0.33
+  evidence: 'shots/S2.png 与 S4.png 仅能确认开始读取和最终完成；无可导出的内部工具轨迹。'
+  rationale: '只有开始与结束两个可见节点，按通用锚点取 1。'
+totals: {behavior_score: 3.33, behavior_max: 4.0, checker_raw: 7.0, checker_full: 7.0, artifact_score: 6.0, artifact_max: 6.0, single_task_total: 9.33, single_task_max: 10.0}
+suggested_final_ruling: pass
+signoff: {by: '', date: '', mode: pending_human_signoff, note: 'AI 初评，尚未进入正式终裁。'}

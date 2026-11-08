@@ -1,0 +1,157 @@
+{
+  "schema_version": 3,
+  "protocol_version": "hev-v3",
+  "admission_track": "product_result",
+  "comparison_track": "B_native_product",
+  "control_contract": {},
+  "control_contract_sha256": "",
+  "record_type": "product_run",
+  "run_id": "hev-20261108T214939+0800-S11-workbuddy-r3-e5901660",
+  "run_key": "S11-corrupt-recovery__workbuddy__r3",
+  "suite": "harness-v1",
+  "task": "S11-corrupt-recovery",
+  "product": "workbuddy",
+  "trial": 3,
+  "variant": "desktop-native-fixed-config-2026-11-08",
+  "status": "scored",
+  "environment": {
+    "root": "C:\\tmp_run",
+    "work_dir": "C:\\tmp_run\\S11-corrupt-recovery\\workbuddy\\run3\\work"
+  },
+  "execution_context": {
+    "product_version": "5.9.3",
+    "account": "日常账号",
+    "model": "DeepSeek-V4.1-Flash",
+    "provider": "DeepSeek",
+    "reasoning": "default",
+    "sampling": "unknown",
+    "tools": [
+      "workspace_file_tools"
+    ],
+    "permissions": "all_allowed",
+    "network": "unknown",
+    "surface": "desktop",
+    "context_policy": "fresh_session_no_memory",
+    "skills_state": "disabled",
+    "memory_state": "disabled",
+    "interface_precheck": "passed",
+    "configuration_evidence": "C:\\tmp_run\\configuration-snapshots\\2026-11-08\\workbuddy.png",
+    "configuration_evidence_sha256": "68b892aa281f66f2205381076e3f0daa1108bf7c8217796fdbfe41c7b94d9809"
+  },
+  "binding": {
+    "prompt_sha8": "41d608c4",
+    "inputs_sha8": {
+      "config.json": "4583ff08",
+      "data.csv": "fd668362"
+    },
+    "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+    "suite_revision": "2026-10-23-s06-pilot",
+    "product_revision": "bd033a9c",
+    "product_config": {
+      "version": "WorkBuddy 5.8.3（注册表 DisplayVersion）",
+      "channel": "桌面端",
+      "account": "日常账号",
+      "config": "出厂默认；个人 Skill / 自定义指令停用",
+      "observability": [
+        "可见输出",
+        "导出会话"
+      ],
+      "notes": "本轮 run1 为 retrofit（先跑后建目录），行为/时间证据不完整"
+    },
+    "evaluator_revision": "docs/14-v0.1"
+  },
+  "termination": {
+    "reason": "product_declared_done",
+    "timed_out": false,
+    "turns": 1,
+    "manual_interventions": 0
+  },
+  "evaluation": {
+    "reward_basis": [],
+    "components": {
+      "artifact": 1.0
+    },
+    "success": 1,
+    "v1": null
+  },
+  "diagnostics": {
+    "failure_code": "",
+    "first_error": null,
+    "evidence_grade": ""
+  },
+  "adjudication": {
+    "rules_frozen": "unknown",
+    "task_valid": "unknown",
+    "evidence_valid": "unknown",
+    "uncontaminated": "unknown",
+    "final_ruling": "pending",
+    "official_eligible": false,
+    "exclusion_reasons": [
+      "尚未完成人工终裁"
+    ],
+    "adjudicator": "",
+    "adjudicated_at": "",
+    "notes": ""
+  },
+  "evidence": {
+    "run_dir": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\workbuddy\\run3",
+    "timeline": "",
+    "session_log": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\workbuddy\\run3\\evidence\\session_export\\native-session.zip",
+    "artifacts": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\workbuddy\\run3\\artifacts",
+    "shots": "",
+    "recording": ""
+  },
+  "execution_context_observed": {
+    "model": "DeepSeek-V4.1-Flash",
+    "provider": "DeepSeek",
+    "reasoning": "default",
+    "sampling": "unknown",
+    "tools": [
+      "Read",
+      "Write",
+      "Bash",
+      "present_files"
+    ],
+    "permissions": "all_allowed",
+    "source": "configuration screenshot + WorkBuddy native trace/audit spool"
+  },
+  "collection_verification": {
+    "prepared_work_match": true,
+    "mode": "native_trace",
+    "claim_scope": "execution_behavior",
+    "observed_cwd_match": true,
+    "evidence": {
+      "cwd_evidence": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\workbuddy\\run3\\evidence\\cwd_evidence\\audit-spool.jsonl",
+        "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\workbuddy\\run3\\evidence\\session\\audit-spool.jsonl",
+        "sha256": "b0fe43382f0477807ea12e213b76532d1f6bcd6e445feaff8df1f297b9a1e9d6"
+      },
+      "preflight_shot": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\workbuddy\\run3\\evidence\\preflight_shot\\preflight.png",
+        "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\workbuddy\\run3\\evidence\\preflight.png",
+        "sha256": "2e77171a69c6f013f7ad372c12d0d99cd7028f3dee390ea514e8951a7a9e1504"
+      },
+      "completion_shot": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\workbuddy\\run3\\evidence\\completion_shot\\S4-S5.png",
+        "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\workbuddy\\run3\\evidence\\S4-S5.png",
+        "sha256": "8ca0e6f2702c4b474fde963cee06ef802d21913f2ad82c43247aff221d27e1b5"
+      },
+      "session_export": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\workbuddy\\run3\\evidence\\session_export\\native-session.zip",
+        "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\workbuddy\\run3\\evidence\\session\\native-session.zip",
+        "sha256": "592ebc2e92630aa235e27487512b0ec45df5c398a29156ac586b3f868497f07e"
+      },
+      "export_evidence": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\workbuddy\\run3\\evidence\\export_evidence\\source-manifest.md",
+        "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\workbuddy\\run3\\evidence\\session\\source-manifest.md",
+        "sha256": "d0b5aafce774c2c439bdbfe02e1046b26c2ac12725e647764d6b7903192085c5"
+      },
+      "configuration_evidence": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\workbuddy\\run3\\evidence\\configuration_evidence\\configuration.png",
+        "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\workbuddy\\run3\\evidence\\configuration.png",
+        "sha256": "68b892aa281f66f2205381076e3f0daa1108bf7c8217796fdbfe41c7b94d9809"
+      }
+    },
+    "screen_recording_scope": ""
+  }
+}

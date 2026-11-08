@@ -1,0 +1,83 @@
+{
+  "schema_version": 3,
+  "protocol_version": "hev-v3",
+  "admission_track": "product_result",
+  "comparison_track": "B_native_product",
+  "control_contract_sha256": "",
+  "record_type": "product_run",
+  "run_id": "hev-20261108T214939+0800-S11-yuanbao-r3-4a988e6a",
+  "case": "S11-corrupt-recovery",
+  "product": "yuanbao",
+  "run": 3,
+  "variant": "desktop-native-fixed-config-2026-11-08",
+  "root": "C:\\tmp_run",
+  "work_dir": "C:\\tmp_run\\S11-corrupt-recovery\\yuanbao\\run3\\work",
+  "product_revision": "7a34ef7a",
+  "started_at": "2026-11-08T21:49:39+08:00",
+  "ended_at": "2026-11-08T22:54:19+08:00",
+  "prompt_sha8": "41d608c4",
+  "inputs_sha8": {
+    "config.json": "4583ff08",
+    "data.csv": "fd668362"
+  },
+  "artifacts_count": 6,
+  "artifacts_sha256": {
+    "config.json": "4583ff08648b54a173ecb733e52daff6d7721e3dce37feaab08aa29041d064b9",
+    "data.csv": "fd668362c2f1e6151450be97d7a3d6c444f34275ec978d069dec7f227b037acc",
+    "error_report.md": "6a63bbfdee915687f1ee9ee16df3a2760af9a7bb94b9ec9dfede28a9ca58aca8",
+    "result.md": "87c8bf6cce19d27ef39dea47c70925f51709a9c1ba491c0812361d520bc0e610",
+    "输出/error_report.md": "6a63bbfdee915687f1ee9ee16df3a2760af9a7bb94b9ec9dfede28a9ca58aca8",
+    "输出/result.md": "87c8bf6cce19d27ef39dea47c70925f51709a9c1ba491c0812361d520bc0e610"
+  },
+  "evidence": {
+    "preflight_shot": {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\yuanbao\\run3\\evidence\\preflight_shot\\preflight.png",
+      "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\yuanbao\\run3\\evidence\\preflight.png",
+      "sha256": "72b92c6bb9491a15dccf93782f7136a384f4eebcf2c99695462566cba2039a90"
+    },
+    "completion_shot": {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\yuanbao\\run3\\evidence\\completion_shot\\S4.png",
+      "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\yuanbao\\run3\\evidence\\S4.png",
+      "sha256": "8816d0a38113354ea4acc58e47d3b94d32acc43c479246fa9bdf257b81390fd5"
+    },
+    "session_export": {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\yuanbao\\run3\\evidence\\session_export\\session-snapshot.md",
+      "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\yuanbao\\run3\\evidence\\session\\session-snapshot.md",
+      "sha256": "7c1d05bada94ca026a91f11ded448006dd309600a980e8f0d84c72a13f937d24"
+    },
+    "export_evidence": {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\yuanbao\\run3\\evidence\\export_evidence\\manual-export-evidence.zip",
+      "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\yuanbao\\run3\\evidence\\manual-export-evidence.zip",
+      "sha256": "d2e6db4960b27aa5ae791c28a630f44d1e3b3237777aa55da07688eca6693da8"
+    },
+    "configuration_evidence": {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\yuanbao\\run3\\evidence\\configuration_evidence\\configuration.png",
+      "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\yuanbao\\run3\\evidence\\configuration.png",
+      "sha256": "ec8ead2c162a38c882e60771e3b197593ec54fda110181781ba0af74c349369d"
+    }
+  },
+  "checker_exit": 1,
+  "interventions": 0,
+  "rerun": false,
+  "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+  "execution_context": {
+    "product_version": "2.91.0.607",
+    "account": "日常账号",
+    "model": "default",
+    "provider": "Tencent-Yuanbao",
+    "reasoning": "expert_mode",
+    "sampling": "unknown",
+    "tools": [
+      "file_attachment"
+    ],
+    "permissions": "all_allowed",
+    "network": "unknown",
+    "surface": "desktop",
+    "context_policy": "fresh_session_no_memory",
+    "skills_state": "disabled",
+    "memory_state": "disabled",
+    "interface_precheck": "passed",
+    "configuration_evidence": "C:\\tmp_run\\configuration-snapshots\\2026-11-08\\yuanbao.png",
+    "configuration_evidence_sha256": "ec8ead2c162a38c882e60771e3b197593ec54fda110181781ba0af74c349369d"
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "schema_version": 3,
+  "protocol_version": "hev-v3",
+  "admission_track": "product_result",
+  "comparison_track": "B_native_product",
+  "control_contract": {},
+  "control_contract_sha256": "",
+  "record_type": "product_run",
+  "run_id": "hev-20261108T214939+0800-S11-doubao-r3-87e1364b",
+  "run_key": "S11-corrupt-recovery__doubao__r3",
+  "suite": "harness-v1",
+  "task": "S11-corrupt-recovery",
+  "product": "doubao",
+  "trial": 3,
+  "variant": "desktop-native-fixed-config-2026-11-08",
+  "status": "scored",
+  "environment": {
+    "root": "C:\\tmp_run",
+    "work_dir": "C:\\tmp_run\\S11-corrupt-recovery\\doubao\\run3\\work"
+  },
+  "execution_context": {
+    "product_version": "2.28.13",
+    "account": "日常账号",
+    "model": "automatic",
+    "provider": "Doubao",
+    "reasoning": "high",
+    "sampling": "unknown",
+    "tools": [
+      "local_computer"
+    ],
+    "permissions": "all_allowed",
+    "network": "unknown",
+    "surface": "desktop",
+    "context_policy": "fresh_session_no_memory",
+    "skills_state": "disabled",
+    "memory_state": "disabled",
+    "interface_precheck": "passed",
+    "configuration_evidence": "C:\\tmp_run\\configuration-snapshots\\2026-11-08\\doubao.png",
+    "configuration_evidence_sha256": "3632c9a317aa202c82ec595c9bc1d39c447e31acb5ed7be30ae3a3cd207d0c6f"
+  },
+  "binding": {
+    "prompt_sha8": "41d608c4",
+    "inputs_sha8": {
+      "config.json": "4583ff08",
+      "data.csv": "fd668362"
+    },
+    "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+    "suite_revision": "2026-10-23-s06-pilot",
+    "product_revision": "d7795560",
+    "product_config": {
+      "version": "豆包 2.28.13（注册表 DisplayVersion）",
+      "channel": "桌面端·办公入口",
+      "account": "日常账号",
+      "config": "出厂默认；不添加自定义智能体/指令",
+      "observability": [
+        "可见输出",
+        "导出会话（如支持）"
+      ],
+      "notes": "run1 产物落在 F:\\runs_tmp\\S06-artifact-deep-path\\doubao\\输出\\汇总\\；本轮为 retrofit"
+    },
+    "evaluator_revision": "docs/14-v0.1"
+  },
+  "termination": {
+    "reason": "product_declared_done",
+    "timed_out": false,
+    "turns": 1,
+    "manual_interventions": 0
+  },
+  "evaluation": {
+    "reward_basis": [],
+    "components": {
+      "artifact": 1.0
+    },
+    "success": 1,
+    "v1": null
+  },
+  "diagnostics": {
+    "failure_code": "",
+    "first_error": null,
+    "evidence_grade": ""
+  },
+  "adjudication": {
+    "rules_frozen": "unknown",
+    "task_valid": "unknown",
+    "evidence_valid": "unknown",
+    "uncontaminated": "unknown",
+    "final_ruling": "pending",
+    "official_eligible": false,
+    "exclusion_reasons": [
+      "尚未完成人工终裁"
+    ],
+    "adjudicator": "",
+    "adjudicated_at": "",
+    "notes": ""
+  },
+  "evidence": {
+    "run_dir": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\doubao\\run3",
+    "timeline": "",
+    "session_log": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\doubao\\run3\\evidence\\session_export\\native-session.zip",
+    "artifacts": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\doubao\\run3\\artifacts",
+    "shots": "",
+    "recording": ""
+  },
+  "execution_context_observed": {
+    "model": "automatic",
+    "provider": "Doubao",
+    "reasoning": "high",
+    "sampling": "unknown",
+    "tools": [
+      "coding_snapshot",
+      "local_file_tools"
+    ],
+    "permissions": "all_allowed",
+    "source": "configuration screenshot + local coding snapshot"
+  },
+  "collection_verification": {
+    "prepared_work_match": true,
+    "mode": "desktop_export",
+    "claim_scope": "product_result",
+    "observed_cwd_match": false,
+    "evidence": {
+      "preflight_shot": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\doubao\\run3\\evidence\\preflight_shot\\preflight.png",
+        "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\doubao\\run3\\evidence\\preflight.png",
+        "sha256": "30d1e67890cd56485f09cefc09a7fec88b4714531a28f27e2a27a355d27d7ab6"
+      },
+      "completion_shot": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\doubao\\run3\\evidence\\completion_shot\\S4-S5.png",
+        "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\doubao\\run3\\evidence\\S4-S5.png",
+        "sha256": "71b3854525a918e8e10adb61a3e84013d84c35b15fb1e56fadf4930bc481845a"
+      },
+      "session_export": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\doubao\\run3\\evidence\\session_export\\native-session.zip",
+        "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\doubao\\run3\\evidence\\session\\native-session.zip",
+        "sha256": "bb7d8e6b36fada0c3aeab82fae8d552744a6340f587823903c725bb9908fcf46"
+      },
+      "export_evidence": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\doubao\\run3\\evidence\\export_evidence\\source-manifest.md",
+        "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\doubao\\run3\\evidence\\session\\source-manifest.md",
+        "sha256": "b1597962bc0ed6b516c586edd8e1ad85e0cb2d04ae8d21824d931569a758a22c"
+      },
+      "configuration_evidence": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\doubao\\run3\\evidence\\configuration_evidence\\configuration.png",
+        "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\doubao\\run3\\evidence\\configuration.png",
+        "sha256": "3632c9a317aa202c82ec595c9bc1d39c447e31acb5ed7be30ae3a3cd207d0c6f"
+      }
+    },
+    "screen_recording_scope": ""
+  }
+}

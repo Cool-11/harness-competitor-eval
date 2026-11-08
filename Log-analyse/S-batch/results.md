@@ -32,3 +32,9 @@
 | S11-corrupt-recovery | codex | 4 | 7.0/7 | | | | exit=0 | 2026-11-07 21:26 | run_id=hev-20261107T212229+0800-S11-codex-r4-0e5a40b2 ｜ variant=cli-product-auto-approved-v3 |
 | S06-artifact-deep-path | dsh | 4 | 5.5/7 | | | | exit=1 | 2026-11-07 21:27 | run_id=hev-20261107T212644+0800-S06-dsh-r4-57b863b9 ｜ variant=cli-product-unattended-v3 |
 | S11-corrupt-recovery | dsh | 6 | 0.0/7 | | | | exit=1 | 2026-11-07 21:28 | run_id=hev-20261107T212723+0800-S11-dsh-r6-59e4d108 ｜ variant=cli-product-unattended-v3 |
+| S06-artifact-deep-path | workbuddy | 2 | 7.0/7 | | | | exit=0 | 2026-11-08 22:54 | run_id=hev-20261108T214938+0800-S06-workbuddy-r2-e6ab2c45 ｜ variant=desktop-native-fixed-config-2026-11-08 |
+| S06-artifact-deep-path | doubao | 2 | 7.0/7 | | | | exit=0 | 2026-11-08 22:54 | run_id=hev-20261108T214939+0800-S06-doubao-r2-85b47242 ｜ variant=desktop-native-fixed-config-2026-11-08 |
+| S06-artifact-deep-path | yuanbao | 2 | 7.0/7 | | | | exit=0 | 2026-11-08 22:54 | run_id=hev-20261108T214939+0800-S06-yuanbao-r2-8ef7c081 ｜ variant=desktop-native-fixed-config-2026-11-08 |
+| S11-corrupt-recovery | workbuddy | 3 | 7.0/7 | | | | exit=0 | 2026-11-08 22:54 | run_id=hev-20261108T214939+0800-S11-workbuddy-r3-e5901660 ｜ variant=desktop-native-fixed-config-2026-11-08 |
+| S11-corrupt-recovery | doubao | 3 | 7.0/7 | | | | exit=0 | 2026-11-08 22:54 | run_id=hev-20261108T214939+0800-S11-doubao-r3-87e1364b ｜ variant=desktop-native-fixed-config-2026-11-08 |
+| S11-corrupt-recovery | yuanbao | 3 | 6.0/7 | | | | exit=1 | 2026-11-08 22:54 | run_id=hev-20261108T214939+0800-S11-yuanbao-r3-4a988e6a ｜ variant=desktop-native-fixed-config-2026-11-08 |

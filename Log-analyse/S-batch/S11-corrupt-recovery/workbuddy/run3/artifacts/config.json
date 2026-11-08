@@ -1,0 +1,5 @@
+{
+  "threshold": 10,
+  "columns": ["id", "amount"]
+  "mode": "gt",
+}

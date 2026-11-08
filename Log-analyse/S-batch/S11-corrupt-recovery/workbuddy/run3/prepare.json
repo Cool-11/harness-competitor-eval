@@ -1,0 +1,46 @@
+{
+  "schema_version": 3,
+  "protocol_version": "hev-v3",
+  "admission_track": "product_result",
+  "comparison_track": "B_native_product",
+  "control_contract": {},
+  "control_contract_sha256": "",
+  "record_type": "product_run",
+  "run_id": "hev-20261108T214939+0800-S11-workbuddy-r3-e5901660",
+  "run_key": "S11-corrupt-recovery__workbuddy__r3",
+  "case": "S11-corrupt-recovery",
+  "product": "workbuddy",
+  "run": 3,
+  "variant": "desktop-native-fixed-config-2026-11-08",
+  "root": "C:\\tmp_run",
+  "work_dir": "C:\\tmp_run\\S11-corrupt-recovery\\workbuddy\\run3\\work",
+  "evidence_dir": "C:\\tmp_run\\S11-corrupt-recovery\\workbuddy\\run3\\evidence",
+  "started_at": "2026-11-08T21:49:39+08:00",
+  "prompt_sha8": "41d608c4",
+  "inputs_sha8": {
+    "config.json": "4583ff08",
+    "data.csv": "fd668362"
+  },
+  "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+  "product_revision": "bd033a9c",
+  "execution_context": {
+    "product_version": "5.9.3",
+    "account": "日常账号",
+    "model": "DeepSeek-V4.1-Flash",
+    "provider": "DeepSeek",
+    "reasoning": "default",
+    "sampling": "unknown",
+    "tools": [
+      "workspace_file_tools"
+    ],
+    "permissions": "all_allowed",
+    "network": "unknown",
+    "surface": "desktop",
+    "context_policy": "fresh_session_no_memory",
+    "skills_state": "disabled",
+    "memory_state": "disabled",
+    "interface_precheck": "passed",
+    "configuration_evidence": "C:\\tmp_run\\configuration-snapshots\\2026-11-08\\workbuddy.png",
+    "configuration_evidence_sha256": "68b892aa281f66f2205381076e3f0daa1108bf7c8217796fdbfe41c7b94d9809"
+  }
+}

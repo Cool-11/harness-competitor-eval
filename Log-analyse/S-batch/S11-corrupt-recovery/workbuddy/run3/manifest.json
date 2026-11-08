@@ -1,0 +1,86 @@
+{
+  "schema_version": 3,
+  "protocol_version": "hev-v3",
+  "admission_track": "product_result",
+  "comparison_track": "B_native_product",
+  "control_contract_sha256": "",
+  "record_type": "product_run",
+  "run_id": "hev-20261108T214939+0800-S11-workbuddy-r3-e5901660",
+  "case": "S11-corrupt-recovery",
+  "product": "workbuddy",
+  "run": 3,
+  "variant": "desktop-native-fixed-config-2026-11-08",
+  "root": "C:\\tmp_run",
+  "work_dir": "C:\\tmp_run\\S11-corrupt-recovery\\workbuddy\\run3\\work",
+  "product_revision": "bd033a9c",
+  "started_at": "2026-11-08T21:49:39+08:00",
+  "ended_at": "2026-11-08T22:54:18+08:00",
+  "prompt_sha8": "41d608c4",
+  "inputs_sha8": {
+    "config.json": "4583ff08",
+    "data.csv": "fd668362"
+  },
+  "artifacts_count": 4,
+  "artifacts_sha256": {
+    "config.json": "4583ff08648b54a173ecb733e52daff6d7721e3dce37feaab08aa29041d064b9",
+    "data.csv": "fd668362c2f1e6151450be97d7a3d6c444f34275ec978d069dec7f227b037acc",
+    "error_report.md": "0952873aa7d862422f27a463eefe7534b56c74143f030c84413f09594476f315",
+    "result.md": "86fb1eef199e05efcd014c328d11447a5615a1df688593058ca83d4199cc4790"
+  },
+  "evidence": {
+    "cwd_evidence": {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\workbuddy\\run3\\evidence\\cwd_evidence\\audit-spool.jsonl",
+      "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\workbuddy\\run3\\evidence\\session\\audit-spool.jsonl",
+      "sha256": "b0fe43382f0477807ea12e213b76532d1f6bcd6e445feaff8df1f297b9a1e9d6"
+    },
+    "preflight_shot": {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\workbuddy\\run3\\evidence\\preflight_shot\\preflight.png",
+      "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\workbuddy\\run3\\evidence\\preflight.png",
+      "sha256": "2e77171a69c6f013f7ad372c12d0d99cd7028f3dee390ea514e8951a7a9e1504"
+    },
+    "completion_shot": {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\workbuddy\\run3\\evidence\\completion_shot\\S4-S5.png",
+      "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\workbuddy\\run3\\evidence\\S4-S5.png",
+      "sha256": "8ca0e6f2702c4b474fde963cee06ef802d21913f2ad82c43247aff221d27e1b5"
+    },
+    "session_export": {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\workbuddy\\run3\\evidence\\session_export\\native-session.zip",
+      "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\workbuddy\\run3\\evidence\\session\\native-session.zip",
+      "sha256": "592ebc2e92630aa235e27487512b0ec45df5c398a29156ac586b3f868497f07e"
+    },
+    "export_evidence": {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\workbuddy\\run3\\evidence\\export_evidence\\source-manifest.md",
+      "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\workbuddy\\run3\\evidence\\session\\source-manifest.md",
+      "sha256": "d0b5aafce774c2c439bdbfe02e1046b26c2ac12725e647764d6b7903192085c5"
+    },
+    "configuration_evidence": {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\workbuddy\\run3\\evidence\\configuration_evidence\\configuration.png",
+      "source_path": "C:\\tmp_run\\S11-corrupt-recovery\\workbuddy\\run3\\evidence\\configuration.png",
+      "sha256": "68b892aa281f66f2205381076e3f0daa1108bf7c8217796fdbfe41c7b94d9809"
+    }
+  },
+  "checker_exit": 0,
+  "interventions": 0,
+  "rerun": false,
+  "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+  "execution_context": {
+    "product_version": "5.9.3",
+    "account": "日常账号",
+    "model": "DeepSeek-V4.1-Flash",
+    "provider": "DeepSeek",
+    "reasoning": "default",
+    "sampling": "unknown",
+    "tools": [
+      "workspace_file_tools"
+    ],
+    "permissions": "all_allowed",
+    "network": "unknown",
+    "surface": "desktop",
+    "context_policy": "fresh_session_no_memory",
+    "skills_state": "disabled",
+    "memory_state": "disabled",
+    "interface_precheck": "passed",
+    "configuration_evidence": "C:\\tmp_run\\configuration-snapshots\\2026-11-08\\workbuddy.png",
+    "configuration_evidence_sha256": "68b892aa281f66f2205381076e3f0daa1108bf7c8217796fdbfe41c7b94d9809"
+  }
+}

@@ -123,7 +123,11 @@ def _run_skeleton(cdir: Path, product: str, run: int, variant: str,
         "trial": run,
         "variant": variant,
         "status": "prepared",
-        "environment": {"root": str(root), "work_dir": str(work)},
+        "environment": {
+            "root": str(root),
+            "work_dir": str(work),
+            "evidence_dir": prep.get("evidence_dir", ""),
+        },
         "execution_context": prep.get("execution_context", {}),
         "binding": {
             "prompt_sha8": prep.get("prompt_sha8", ""),
@@ -250,6 +254,14 @@ def prepare(case: str, product: str, run: int,
 
     prompt = cdir / "prompt.txt"
     run_id = _new_run_id(cdir, product, run)
+    evidence = work.parent / "evidence"
+    for directory in (
+        evidence,
+        evidence / "session",
+        evidence / "export-source",
+        evidence / "original-artifacts",
+    ):
+        directory.mkdir(parents=True, exist_ok=True)
     cfg = _product_config(product)
     prep = {
         "schema_version": RUN_SCHEMA_VERSION,
@@ -267,6 +279,7 @@ def prepare(case: str, product: str, run: int,
         "variant": variant,
         "root": str(root),
         "work_dir": str(work),
+        "evidence_dir": str(evidence),
         "started_at": datetime.datetime.now().astimezone().isoformat(timespec="seconds"),
         "prompt_sha8": _sha8(prompt),
         "inputs_sha8": {
@@ -300,6 +313,7 @@ def prepare(case: str, product: str, run: int,
     ver = cfg.get("version", "未登记")
     print(f"运行唯一 ID：{run_id}")
     print(f"工作目录已就绪：{work}（放入 {n} 个输入文件）")
+    print(f"证据目录已就绪：{evidence}")
     print(f"产品配置：{product} version={ver} ｜ 如需更新，改 products/products.json")
     print(f"投喂指令：{prompt}  ｜ sha256[:8] = {_sha8(prompt)}")
     print(f"→ 新开 {product} 会话，把 prompt.txt 全文粘贴投喂；会话 / 外部日志 / 截图留痕。")

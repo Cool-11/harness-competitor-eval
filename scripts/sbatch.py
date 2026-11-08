@@ -310,7 +310,7 @@ def prepare(case: str, product: str, run: int,
     _write_json(work.parent / "prepare.json", prep)
     _write_json(work.parent / "run.json",
                 _run_skeleton(cdir, product, run, variant, root, work, prep))
-    ver = cfg.get("version", "未登记")
+    ver = prep["execution_context"]["product_version"]
     print(f"运行唯一 ID：{run_id}")
     print(f"工作目录已就绪：{work}（放入 {n} 个输入文件）")
     print(f"证据目录已就绪：{evidence}")

@@ -69,31 +69,40 @@
     "manual_interventions": 0
   },
   "evaluation": {
-    "reward_basis": [],
+    "reward_basis": [
+      "checker_output.txt",
+      "grade.yaml"
+    ],
     "components": {
-      "artifact": 0.0
+      "artifact": 0.0,
+      "behavior": 0.25
     },
     "success": 0,
-    "v1": null
+    "v1": 1.5,
+    "single_task_total": 1.5,
+    "single_task_max": 10.0
   },
   "diagnostics": {
     "failure_code": "",
     "first_error": null,
-    "evidence_grade": ""
+    "evidence_grade": "C"
   },
   "adjudication": {
-    "rules_frozen": "unknown",
-    "task_valid": "unknown",
-    "evidence_valid": "unknown",
-    "uncontaminated": "unknown",
-    "final_ruling": "pending",
-    "official_eligible": false,
-    "exclusion_reasons": [
-      "尚未完成人工终裁"
-    ],
-    "adjudicator": "",
-    "adjudicated_at": "",
-    "notes": ""
+    "rules_frozen": "yes",
+    "task_valid": "yes",
+    "evidence_valid": "yes",
+    "uncontaminated": "yes",
+    "final_ruling": "fail",
+    "official_eligible": true,
+    "exclusion_reasons": [],
+    "adjudicator": "用户本人（本对话终裁确认）",
+    "adjudicated_at": "2026-11-09T17:36:12+08:00",
+    "notes": "2026-11-09 用户确认四项门槛均 yes、证据等级 C、终裁 fail；config.json 仍非法且缺 result.md/error_report.md，行为格见 grade.yaml；审计边界见 reviews/评测链审计-S06-S11-2026-11-09.md",
+    "causal_ready": false,
+    "causal_pair_status": "not_ready",
+    "causal_exclusion_reasons": [
+      "非 A_same_model_cli 轨，只能作整体产品观察"
+    ]
   },
   "evidence": {
     "run_dir": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\dsh\\run6",

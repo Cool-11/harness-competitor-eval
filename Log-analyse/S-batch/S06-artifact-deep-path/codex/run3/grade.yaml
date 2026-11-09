@@ -1,0 +1,38 @@
+run_id: hev-20261107T211910+0800-S06-codex-r3-bff3691f
+task: S06-artifact-deep-path
+product: codex
+trial: 3
+status: signed_off
+grader:
+  type: ai_assisted
+  model: Codex (exact model id unavailable in this record)
+  prompt_version: v3-native-two-run-20261109-v1
+  generated_at: '2026-11-09T23:19:57+08:00'
+  evidence_hashes:
+    native_session: 2f005442686012d2f050807d1311d5274cabac86c1ecee6188ef16c668a03fee
+    checker_output: 784a8a2ddfb03ddfdb21efba7320197008ad7eb7f7c0875287c1f563bf304bc5
+weighting: {cell_max: 1.0, behavior_max: 4.0, artifact_max: 6.0}
+cells:
+- id: D2-1
+  tier: 3
+  score: 1.0
+  evidence: 'native session item_3 写入 输出/汇总/月报_v1.md，item_4 主动回报相对路径；checker_output.txt 7/7。'
+  rationale: '多级路径正确，主动确认落点。'
+- id: D2-2
+  tier: 3
+  score: 1.0
+  evidence: 'native session item_3 回读固定标题与六条事项；归档产物和 checker_output.txt。'
+  rationale: '标题、UTF-8、六条事项满足；人工逐条查看未见增补。'
+- id: D1-1
+  tier: 3
+  score: 1.0
+  evidence: 'native session item_4 回报路径、标题、六项完整且无增补；归档产物逐条可核。'
+  rationale: '主动说明做了什么、落在哪及无增补，与产物一致。'
+- id: common-1
+  tier: 1
+  score: 0.33
+  evidence: 'native session item_1 为起始说明、item_4 为最终说明；中间只有工具事件，无用户可见阶段性文字。'
+  rationale: '仅起点与终点用户可见；原生轨迹可供事后审计。'
+totals: {behavior_score: 3.33, behavior_max: 4.0, checker_raw: 7.0, checker_full: 7.0, artifact_score: 6.0, artifact_max: 6.0, single_task_total: 9.33, single_task_max: 10.0}
+suggested_final_ruling: pass
+signoff: {by: '用户本人（本对话逐格确认）', date: '2026-11-09', mode: author_cell_review, note: '用户确认四格档位；并签认四项准入门槛均 yes、证据等级 C、终裁 pass。'}

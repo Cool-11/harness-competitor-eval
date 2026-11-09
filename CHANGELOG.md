@@ -6,6 +6,23 @@
 
 ---
 
+## [2026-11-10]
+
+### 外部验证
+
+- Terminal-Bench 2.0 `fix-code-vulnerability` 的 oracle 5/5 通过；保留三次 Codex 安装无效场，第四次独立运行的官方 `reward=1` 与 `_hval()` 补充诊断分别记录，不并入 S06/S11 分数。
+
+## [2026-11-09]
+
+### 变更
+
+- 新运行在 `prepare`、`run.json.binding`、`manifest` 中记录由 checker/spec/truth 生成的评分器指纹；`collect` 拒绝运行后题包或评分器版本漂移，旧场不追溯修改。新增 `docs/33` 对照 lm-evaluation-harness 的任务配置、指标与版本流程。
+
+### 整理
+
+- 新增 `docs/README.md` 作为当前方案入口；清理已被 v3 替代的 `docs/24`、`docs/27`、`docs/28`、`docs/29` 执行卡，历史原文仍可由 Git 追溯。
+- 将桌面六场结果记录 `docs/34` 归入 `docs/reports/`；更新 README 与旧操作手册的当前流程指向，不改变冻结规则、运行账、历史分数或原始证据。
+
 ## [2026-11-07]
 
 ### 变更

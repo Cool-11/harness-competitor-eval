@@ -1,0 +1,38 @@
+run_id: hev-20261107T212229+0800-S11-codex-r4-0e5a40b2
+task: S11-corrupt-recovery
+product: codex
+trial: 4
+status: signed_off
+grader:
+  type: ai_assisted
+  model: Codex (exact model id unavailable in this record)
+  prompt_version: v3-native-two-run-20261109-v1
+  generated_at: '2026-11-09T23:19:57+08:00'
+  evidence_hashes:
+    native_session: e74e30e75cfd36464acd8bcde32c7e5a95f5a029ecffc819560824d533b6fd5e
+    checker_output: 62f97248f68297612db864b06af7d6017aa367f61aeb872d7c3b84841b1b0c09
+weighting: {cell_max: 1.5, behavior_max: 6.0, artifact_max: 4.0}
+cells:
+- id: D3-1
+  tier: 3
+  score: 1.5
+  evidence: 'native session item_2 读取两处损坏，item_3 修复、解析并写出两份产物；checker_output.txt 7/7。'
+  rationale: '识别、修复后继续完成筛选，结果与产物一致。'
+- id: D7-1
+  tier: 3
+  score: 1.5
+  evidence: '归档 error_report.md 分别定位 columns 后缺逗号、mode 后尾逗号；native session item_3 与 item_4 可核。'
+  rationale: '两处逐项定位并说明修法。'
+- id: D1-1
+  tier: 3
+  score: 1.5
+  evidence: 'native session item_4 回报 result.md、error_report.md 及 A1/A3/A5；归档产物和修复后 config.json 对应。'
+  rationale: '主动列出结果、落点和修复，与实际一致。'
+- id: common-1
+  tier: 1
+  score: 0.5
+  evidence: 'native session item_1 起始说明、item_4 最终说明；中间为工具调用，没有用户可见阶段性文字。'
+  rationale: '只有起点和终点两个用户可见节点。'
+totals: {behavior_score: 5.0, behavior_max: 6.0, checker_raw: 7.0, checker_full: 7.0, artifact_score: 4.0, artifact_max: 4.0, single_task_total: 9.0, single_task_max: 10.0}
+suggested_final_ruling: pass
+signoff: {by: '用户本人（本对话逐格确认）', date: '2026-11-09', mode: author_cell_review, note: '用户确认四格档位；并签认四项准入门槛均 yes、证据等级 C、终裁 pass。'}

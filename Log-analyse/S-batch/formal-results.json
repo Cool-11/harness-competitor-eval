@@ -1,8 +1,141 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-08T23:00:20+08:00",
+  "generated_at": "2026-11-10T01:05:02+08:00",
   "policy": "仅纳入规则冻结、题面有效、证据有效、无污染且终裁为 pass/fail 的 product_run。",
   "included": [
+    {
+      "run_id": "hev-20261107T211910+0800-S06-codex-r3-bff3691f",
+      "task": "S06-artifact-deep-path",
+      "product": "codex",
+      "trial": 3,
+      "final_ruling": "pass",
+      "evidence_grade": "C",
+      "admission_track": "execution_behavior",
+      "evidence_mode": "native_trace",
+      "comparison_track": "B_native_product",
+      "control_contract_sha256": "",
+      "task_revision": "sha256:beed0e9ed685560609d21921e0d7b2b1e8ad8498803b331d28fb304802df1f6b",
+      "causal_ready": false,
+      "causal_eligible": false,
+      "causal_reasons": [
+        "非 A_same_model_cli 轨，只能作整体产品观察"
+      ],
+      "reasons": []
+    },
+    {
+      "run_id": "hev-20261108T214939+0800-S06-doubao-r2-85b47242",
+      "task": "S06-artifact-deep-path",
+      "product": "doubao",
+      "trial": 2,
+      "final_ruling": "pass",
+      "evidence_grade": "C",
+      "admission_track": "product_result",
+      "evidence_mode": "desktop_export",
+      "comparison_track": "B_native_product",
+      "control_contract_sha256": "",
+      "task_revision": "sha256:beed0e9ed685560609d21921e0d7b2b1e8ad8498803b331d28fb304802df1f6b",
+      "causal_ready": false,
+      "causal_eligible": false,
+      "causal_reasons": [
+        "非 A_same_model_cli 轨，只能作整体产品观察"
+      ],
+      "reasons": []
+    },
+    {
+      "run_id": "hev-20261107T212644+0800-S06-dsh-r4-57b863b9",
+      "task": "S06-artifact-deep-path",
+      "product": "dsh",
+      "trial": 4,
+      "final_ruling": "fail",
+      "evidence_grade": "C",
+      "admission_track": "execution_behavior",
+      "evidence_mode": "native_trace",
+      "comparison_track": "B_native_product",
+      "control_contract_sha256": "",
+      "task_revision": "sha256:beed0e9ed685560609d21921e0d7b2b1e8ad8498803b331d28fb304802df1f6b",
+      "causal_ready": false,
+      "causal_eligible": false,
+      "causal_reasons": [
+        "非 A_same_model_cli 轨，只能作整体产品观察"
+      ],
+      "reasons": []
+    },
+    {
+      "run_id": "hev-20261108T214938+0800-S06-workbuddy-r2-e6ab2c45",
+      "task": "S06-artifact-deep-path",
+      "product": "workbuddy",
+      "trial": 2,
+      "final_ruling": "pass",
+      "evidence_grade": "C",
+      "admission_track": "product_result",
+      "evidence_mode": "native_trace",
+      "comparison_track": "B_native_product",
+      "control_contract_sha256": "",
+      "task_revision": "sha256:beed0e9ed685560609d21921e0d7b2b1e8ad8498803b331d28fb304802df1f6b",
+      "causal_ready": false,
+      "causal_eligible": false,
+      "causal_reasons": [
+        "非 A_same_model_cli 轨，只能作整体产品观察"
+      ],
+      "reasons": []
+    },
+    {
+      "run_id": "hev-20261108T214939+0800-S06-yuanbao-r2-8ef7c081",
+      "task": "S06-artifact-deep-path",
+      "product": "yuanbao",
+      "trial": 2,
+      "final_ruling": "pass",
+      "evidence_grade": "C",
+      "admission_track": "product_result",
+      "evidence_mode": "desktop_export",
+      "comparison_track": "B_native_product",
+      "control_contract_sha256": "",
+      "task_revision": "sha256:beed0e9ed685560609d21921e0d7b2b1e8ad8498803b331d28fb304802df1f6b",
+      "causal_ready": false,
+      "causal_eligible": false,
+      "causal_reasons": [
+        "非 A_same_model_cli 轨，只能作整体产品观察"
+      ],
+      "reasons": []
+    },
+    {
+      "run_id": "hev-20261107T212229+0800-S11-codex-r4-0e5a40b2",
+      "task": "S11-corrupt-recovery",
+      "product": "codex",
+      "trial": 4,
+      "final_ruling": "pass",
+      "evidence_grade": "C",
+      "admission_track": "execution_behavior",
+      "evidence_mode": "native_trace",
+      "comparison_track": "B_native_product",
+      "control_contract_sha256": "",
+      "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+      "causal_ready": false,
+      "causal_eligible": false,
+      "causal_reasons": [
+        "非 A_same_model_cli 轨，只能作整体产品观察"
+      ],
+      "reasons": []
+    },
+    {
+      "run_id": "hev-20261108T214939+0800-S11-doubao-r3-87e1364b",
+      "task": "S11-corrupt-recovery",
+      "product": "doubao",
+      "trial": 3,
+      "final_ruling": "pass",
+      "evidence_grade": "C",
+      "admission_track": "product_result",
+      "evidence_mode": "desktop_export",
+      "comparison_track": "B_native_product",
+      "control_contract_sha256": "",
+      "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+      "causal_ready": false,
+      "causal_eligible": false,
+      "causal_reasons": [
+        "非 A_same_model_cli 轨，只能作整体产品观察"
+      ],
+      "reasons": []
+    },
     {
       "run_id": "hev-20261101T015900+0800-S11-dsh-r4-fb43b7cd",
       "task": "S11-corrupt-recovery",
@@ -12,6 +145,63 @@
       "evidence_grade": "C",
       "admission_track": "product_result",
       "evidence_mode": "unverified",
+      "comparison_track": "B_native_product",
+      "control_contract_sha256": "",
+      "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+      "causal_ready": false,
+      "causal_eligible": false,
+      "causal_reasons": [
+        "非 A_same_model_cli 轨，只能作整体产品观察"
+      ],
+      "reasons": []
+    },
+    {
+      "run_id": "hev-20261107T212723+0800-S11-dsh-r6-59e4d108",
+      "task": "S11-corrupt-recovery",
+      "product": "dsh",
+      "trial": 6,
+      "final_ruling": "fail",
+      "evidence_grade": "C",
+      "admission_track": "execution_behavior",
+      "evidence_mode": "native_trace",
+      "comparison_track": "B_native_product",
+      "control_contract_sha256": "",
+      "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+      "causal_ready": false,
+      "causal_eligible": false,
+      "causal_reasons": [
+        "非 A_same_model_cli 轨，只能作整体产品观察"
+      ],
+      "reasons": []
+    },
+    {
+      "run_id": "hev-20261108T214939+0800-S11-workbuddy-r3-e5901660",
+      "task": "S11-corrupt-recovery",
+      "product": "workbuddy",
+      "trial": 3,
+      "final_ruling": "pass",
+      "evidence_grade": "C",
+      "admission_track": "product_result",
+      "evidence_mode": "native_trace",
+      "comparison_track": "B_native_product",
+      "control_contract_sha256": "",
+      "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+      "causal_ready": false,
+      "causal_eligible": false,
+      "causal_reasons": [
+        "非 A_same_model_cli 轨，只能作整体产品观察"
+      ],
+      "reasons": []
+    },
+    {
+      "run_id": "hev-20261108T214939+0800-S11-yuanbao-r3-4a988e6a",
+      "task": "S11-corrupt-recovery",
+      "product": "yuanbao",
+      "trial": 3,
+      "final_ruling": "fail",
+      "evidence_grade": "C",
+      "admission_track": "product_result",
+      "evidence_mode": "desktop_export",
       "comparison_track": "B_native_product",
       "control_contract_sha256": "",
       "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
@@ -77,32 +267,6 @@
       ]
     },
     {
-      "run_id": "hev-20261107T211910+0800-S06-codex-r3-bff3691f",
-      "task": "S06-artifact-deep-path",
-      "product": "codex",
-      "trial": 3,
-      "final_ruling": "pending",
-      "evidence_grade": "",
-      "admission_track": "execution_behavior",
-      "evidence_mode": "native_trace",
-      "comparison_track": "B_native_product",
-      "control_contract_sha256": "",
-      "task_revision": "sha256:beed0e9ed685560609d21921e0d7b2b1e8ad8498803b331d28fb304802df1f6b",
-      "causal_ready": false,
-      "causal_eligible": false,
-      "causal_reasons": [
-        "非 A_same_model_cli 轨，只能作整体产品观察"
-      ],
-      "reasons": [
-        "规则未冻结",
-        "题面无效或未核验",
-        "证据无效或未核验",
-        "运行受污染或未核验",
-        "终裁=pending，不可进入正式比较",
-        "证据等级未登记为 A/B/C"
-      ]
-    },
-    {
       "run_id": "S06__doubao__r1",
       "task": "S06-artifact-deep-path",
       "product": "doubao",
@@ -129,32 +293,6 @@
         "缺单题 task_revision",
         "缺产品版本快照",
         "接口预检未通过或未登记"
-      ]
-    },
-    {
-      "run_id": "hev-20261108T214939+0800-S06-doubao-r2-85b47242",
-      "task": "S06-artifact-deep-path",
-      "product": "doubao",
-      "trial": 2,
-      "final_ruling": "pending",
-      "evidence_grade": "",
-      "admission_track": "product_result",
-      "evidence_mode": "desktop_export",
-      "comparison_track": "B_native_product",
-      "control_contract_sha256": "",
-      "task_revision": "sha256:beed0e9ed685560609d21921e0d7b2b1e8ad8498803b331d28fb304802df1f6b",
-      "causal_ready": false,
-      "causal_eligible": false,
-      "causal_reasons": [
-        "非 A_same_model_cli 轨，只能作整体产品观察"
-      ],
-      "reasons": [
-        "规则未冻结",
-        "题面无效或未核验",
-        "证据无效或未核验",
-        "运行受污染或未核验",
-        "终裁=pending，不可进入正式比较",
-        "证据等级未登记为 A/B/C"
       ]
     },
     {
@@ -233,32 +371,6 @@
       ]
     },
     {
-      "run_id": "hev-20261107T212644+0800-S06-dsh-r4-57b863b9",
-      "task": "S06-artifact-deep-path",
-      "product": "dsh",
-      "trial": 4,
-      "final_ruling": "pending",
-      "evidence_grade": "",
-      "admission_track": "execution_behavior",
-      "evidence_mode": "native_trace",
-      "comparison_track": "B_native_product",
-      "control_contract_sha256": "",
-      "task_revision": "sha256:beed0e9ed685560609d21921e0d7b2b1e8ad8498803b331d28fb304802df1f6b",
-      "causal_ready": false,
-      "causal_eligible": false,
-      "causal_reasons": [
-        "非 A_same_model_cli 轨，只能作整体产品观察"
-      ],
-      "reasons": [
-        "规则未冻结",
-        "题面无效或未核验",
-        "证据无效或未核验",
-        "运行受污染或未核验",
-        "终裁=pending，不可进入正式比较",
-        "证据等级未登记为 A/B/C"
-      ]
-    },
-    {
       "run_id": "S06__workbuddy__r1",
       "task": "S06-artifact-deep-path",
       "product": "workbuddy",
@@ -288,32 +400,6 @@
       ]
     },
     {
-      "run_id": "hev-20261108T214938+0800-S06-workbuddy-r2-e6ab2c45",
-      "task": "S06-artifact-deep-path",
-      "product": "workbuddy",
-      "trial": 2,
-      "final_ruling": "pending",
-      "evidence_grade": "",
-      "admission_track": "product_result",
-      "evidence_mode": "native_trace",
-      "comparison_track": "B_native_product",
-      "control_contract_sha256": "",
-      "task_revision": "sha256:beed0e9ed685560609d21921e0d7b2b1e8ad8498803b331d28fb304802df1f6b",
-      "causal_ready": false,
-      "causal_eligible": false,
-      "causal_reasons": [
-        "非 A_same_model_cli 轨，只能作整体产品观察"
-      ],
-      "reasons": [
-        "规则未冻结",
-        "题面无效或未核验",
-        "证据无效或未核验",
-        "运行受污染或未核验",
-        "终裁=pending，不可进入正式比较",
-        "证据等级未登记为 A/B/C"
-      ]
-    },
-    {
       "run_id": "S06__yuanbao__r1",
       "task": "S06-artifact-deep-path",
       "product": "yuanbao",
@@ -340,32 +426,6 @@
         "缺单题 task_revision",
         "缺产品版本快照",
         "接口预检未通过或未登记"
-      ]
-    },
-    {
-      "run_id": "hev-20261108T214939+0800-S06-yuanbao-r2-8ef7c081",
-      "task": "S06-artifact-deep-path",
-      "product": "yuanbao",
-      "trial": 2,
-      "final_ruling": "pending",
-      "evidence_grade": "",
-      "admission_track": "product_result",
-      "evidence_mode": "desktop_export",
-      "comparison_track": "B_native_product",
-      "control_contract_sha256": "",
-      "task_revision": "sha256:beed0e9ed685560609d21921e0d7b2b1e8ad8498803b331d28fb304802df1f6b",
-      "causal_ready": false,
-      "causal_eligible": false,
-      "causal_reasons": [
-        "非 A_same_model_cli 轨，只能作整体产品观察"
-      ],
-      "reasons": [
-        "规则未冻结",
-        "题面无效或未核验",
-        "证据无效或未核验",
-        "运行受污染或未核验",
-        "终裁=pending，不可进入正式比较",
-        "证据等级未登记为 A/B/C"
       ]
     },
     {
@@ -422,32 +482,6 @@
       ]
     },
     {
-      "run_id": "hev-20261107T212229+0800-S11-codex-r4-0e5a40b2",
-      "task": "S11-corrupt-recovery",
-      "product": "codex",
-      "trial": 4,
-      "final_ruling": "pending",
-      "evidence_grade": "",
-      "admission_track": "execution_behavior",
-      "evidence_mode": "native_trace",
-      "comparison_track": "B_native_product",
-      "control_contract_sha256": "",
-      "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
-      "causal_ready": false,
-      "causal_eligible": false,
-      "causal_reasons": [
-        "非 A_same_model_cli 轨，只能作整体产品观察"
-      ],
-      "reasons": [
-        "规则未冻结",
-        "题面无效或未核验",
-        "证据无效或未核验",
-        "运行受污染或未核验",
-        "终裁=pending，不可进入正式比较",
-        "证据等级未登记为 A/B/C"
-      ]
-    },
-    {
       "run_id": "S11__doubao__r1",
       "task": "S11-corrupt-recovery",
       "product": "doubao",
@@ -475,32 +509,6 @@
         "缺单题 task_revision",
         "缺产品版本快照",
         "接口预检未通过或未登记"
-      ]
-    },
-    {
-      "run_id": "hev-20261108T214939+0800-S11-doubao-r3-87e1364b",
-      "task": "S11-corrupt-recovery",
-      "product": "doubao",
-      "trial": 3,
-      "final_ruling": "pending",
-      "evidence_grade": "",
-      "admission_track": "product_result",
-      "evidence_mode": "desktop_export",
-      "comparison_track": "B_native_product",
-      "control_contract_sha256": "",
-      "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
-      "causal_ready": false,
-      "causal_eligible": false,
-      "causal_reasons": [
-        "非 A_same_model_cli 轨，只能作整体产品观察"
-      ],
-      "reasons": [
-        "规则未冻结",
-        "题面无效或未核验",
-        "证据无效或未核验",
-        "运行受污染或未核验",
-        "终裁=pending，不可进入正式比较",
-        "证据等级未登记为 A/B/C"
       ]
     },
     {
@@ -580,32 +588,6 @@
       ]
     },
     {
-      "run_id": "hev-20261107T212723+0800-S11-dsh-r6-59e4d108",
-      "task": "S11-corrupt-recovery",
-      "product": "dsh",
-      "trial": 6,
-      "final_ruling": "pending",
-      "evidence_grade": "",
-      "admission_track": "execution_behavior",
-      "evidence_mode": "native_trace",
-      "comparison_track": "B_native_product",
-      "control_contract_sha256": "",
-      "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
-      "causal_ready": false,
-      "causal_eligible": false,
-      "causal_reasons": [
-        "非 A_same_model_cli 轨，只能作整体产品观察"
-      ],
-      "reasons": [
-        "规则未冻结",
-        "题面无效或未核验",
-        "证据无效或未核验",
-        "运行受污染或未核验",
-        "终裁=pending，不可进入正式比较",
-        "证据等级未登记为 A/B/C"
-      ]
-    },
-    {
       "run_id": "S11__workbuddy__r1",
       "task": "S11-corrupt-recovery",
       "product": "workbuddy",
@@ -636,32 +618,6 @@
       ]
     },
     {
-      "run_id": "hev-20261108T214939+0800-S11-workbuddy-r3-e5901660",
-      "task": "S11-corrupt-recovery",
-      "product": "workbuddy",
-      "trial": 3,
-      "final_ruling": "pending",
-      "evidence_grade": "",
-      "admission_track": "product_result",
-      "evidence_mode": "native_trace",
-      "comparison_track": "B_native_product",
-      "control_contract_sha256": "",
-      "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
-      "causal_ready": false,
-      "causal_eligible": false,
-      "causal_reasons": [
-        "非 A_same_model_cli 轨，只能作整体产品观察"
-      ],
-      "reasons": [
-        "规则未冻结",
-        "题面无效或未核验",
-        "证据无效或未核验",
-        "运行受污染或未核验",
-        "终裁=pending，不可进入正式比较",
-        "证据等级未登记为 A/B/C"
-      ]
-    },
-    {
       "run_id": "S11__yuanbao__r1",
       "task": "S11-corrupt-recovery",
       "product": "yuanbao",
@@ -689,32 +645,6 @@
         "缺单题 task_revision",
         "缺产品版本快照",
         "接口预检未通过或未登记"
-      ]
-    },
-    {
-      "run_id": "hev-20261108T214939+0800-S11-yuanbao-r3-4a988e6a",
-      "task": "S11-corrupt-recovery",
-      "product": "yuanbao",
-      "trial": 3,
-      "final_ruling": "pending",
-      "evidence_grade": "",
-      "admission_track": "product_result",
-      "evidence_mode": "desktop_export",
-      "comparison_track": "B_native_product",
-      "control_contract_sha256": "",
-      "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
-      "causal_ready": false,
-      "causal_eligible": false,
-      "causal_reasons": [
-        "非 A_same_model_cli 轨，只能作整体产品观察"
-      ],
-      "reasons": [
-        "规则未冻结",
-        "题面无效或未核验",
-        "证据无效或未核验",
-        "运行受污染或未核验",
-        "终裁=pending，不可进入正式比较",
-        "证据等级未登记为 A/B/C"
       ]
     },
     {

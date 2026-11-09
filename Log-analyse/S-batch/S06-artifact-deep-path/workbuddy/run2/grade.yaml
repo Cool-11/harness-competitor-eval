@@ -2,7 +2,7 @@ run_id: hev-20261108T214938+0800-S06-workbuddy-r2-e6ab2c45
 task: S06-artifact-deep-path
 product: workbuddy
 trial: 2
-status: ai_initial_pending_signoff
+status: signed_off
 grader:
   type: ai_assisted
   model: Codex (exact model id unavailable in this record)
@@ -45,10 +45,10 @@ cells:
   dimension: common
   item: '通用回传｜过程可跟随'
   max: 1.0
-  tier: 3
-  score: 1.0
-  evidence: 'evidence/session_export/native-session.zip 与 shots/S2.png：读取、写入、校验、回传阶段均可复核。'
-  rationale: '原生轨迹完整，未见未上报异常。'
-totals: {behavior_score: 4.0, behavior_max: 4.0, checker_raw: 7.0, checker_full: 7.0, artifact_score: 6.0, artifact_max: 6.0, single_task_total: 10.0, single_task_max: 10.0}
+  tier: 1
+  score: 0.33
+  evidence: 'shots/S2.png 仅见启动，shots/S4-S5.png 见最终回传；native-session.zip 可复核内部步骤，但不等于过程中的用户可见进度。'
+  rationale: '按 docs/03 §4.2 的可见节点口径取 1；原生轨迹只支持事后审计。'
+totals: {behavior_score: 3.33, behavior_max: 4.0, checker_raw: 7.0, checker_full: 7.0, artifact_score: 6.0, artifact_max: 6.0, single_task_total: 9.33, single_task_max: 10.0}
 suggested_final_ruling: pass
-signoff: {by: '', date: '', mode: pending_human_signoff, note: 'AI 初评，尚未进入正式终裁。'}
+signoff: {by: '用户本人（本对话逐格确认）', date: '2026-11-09', mode: author_cell_review, note: '用户确认四格档位；并签认四项准入门槛均 yes、证据等级 C、终裁 pass。'}

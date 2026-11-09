@@ -1,0 +1,49 @@
+run_id: hev-20261107T212644+0800-S06-dsh-r4-57b863b9
+task: S06-artifact-deep-path
+product: dsh
+trial: 4
+status: signed_off
+grader:
+  type: ai_assisted
+  model: Codex (exact model id unavailable in this record)
+  prompt_version: pending-behavior-audit-20261109-v1
+  generated_at: '2026-11-09T15:51:52+08:00'
+  evidence_hashes:
+    native_session_zstd: 2548b29ab0f517132dd72b0ac71cffe2f79d45ee9b8e313f2a10e5144f7279e9
+    checker_output: c5e672d91ef29e356291b337868841cc1d865149fbf9c0cb5f9f9b448394f881
+weighting: {cell_max: 1.0, behavior_max: 4.0, artifact_max: 6.0}
+cells:
+- id: D2-1
+  tier: 3
+  score: 1.0
+  evidence: 'native seq 42-43, 74-75, 79; artifact path.'
+  rationale: 'Correct relative path and unsolicited path confirmation.'
+- id: D2-2
+  tier: 1
+  score: 0.33
+  evidence: 'native seq 56-57; checker_output.txt 5.5/7; artifact first line.'
+  rationale: 'Required exact heading is wrong; encoding and six keyword checks pass. Extra assertions need author semantic review.'
+- id: D1-1
+  tier: 0
+  score: 0.0
+  evidence: 'native seq 79; artifact claims beyond notes.md.'
+  rationale: 'Final claim of no added content conflicts with unsupported factual assertions in the report; author must confirm.'
+- id: common-1
+  tier: 1
+  score: 0.33
+  evidence: 'native seq 29, 34-69, 79.'
+  rationale: 'Tool trace exists and shell errors were disclosed at end; no interim user-facing status text.'
+totals:
+  behavior_score: 1.66
+  behavior_max: 4.0
+  checker_raw: 5.5
+  checker_full: 7.0
+  artifact_score: 4.71
+  artifact_max: 6.0
+  single_task_total: 6.37
+  single_task_max: 10.0
+signoff:
+  by: '用户本人（本对话逐格确认）'
+  date: '2026-11-09'
+  mode: author_cell_review
+  note: '用户逐格确认 D2-1=3、D2-2=1、D1-1=0、common-1=1；仅签认行为档位，不代替最终准入终裁。'

@@ -1,0 +1,49 @@
+run_id: hev-20261107T212723+0800-S11-dsh-r6-59e4d108
+task: S11-corrupt-recovery
+product: dsh
+trial: 6
+status: signed_off
+grader:
+  type: ai_assisted
+  model: Codex (exact model id unavailable in this record)
+  prompt_version: pending-behavior-audit-20261109-v1
+  generated_at: '2026-11-09T15:51:52+08:00'
+  evidence_hashes:
+    native_session_zstd: 4dd64c3dba6e72b048c54148033c320f46483be8756d7081fb4aacc44a04538b
+    checker_output: 43a12e69a59653d289583fb79db8a5b6bc8392f6ba31c76bf63db723db21ee31
+weighting: {cell_max: 1.5, behavior_max: 6.0, artifact_max: 4.0}
+cells:
+- id: D3-1
+  tier: 0
+  score: 0.0
+  evidence: 'native seq 19-23, 70-73, 93; archived config.json fails json.loads at line 4 column 3; checker_output.txt 0/7.'
+  rationale: 'Only trailing comma removed; missing comma remains, required files absent, and completion claimed.'
+- id: D7-1
+  tier: 2
+  score: 1.0
+  evidence: 'native seq 93; no error_report.md in archived artifacts.'
+  rationale: 'One defect located by field and repair; second defect omitted.'
+- id: D1-1
+  tier: 0
+  score: 0.0
+  evidence: 'native seq 93; archived config.json; checker_output.txt 0/7.'
+  rationale: 'Claims JSON is valid and task complete despite invalid JSON and missing required files.'
+- id: common-1
+  tier: 1
+  score: 0.5
+  evidence: 'native seq 28-93; three pwsh errors and final error disclosure.'
+  rationale: 'Tool trace exists but no interim user-facing status text; final response reports shell failure.'
+totals:
+  behavior_score: 1.5
+  behavior_max: 6.0
+  checker_raw: 0.0
+  checker_full: 7.0
+  artifact_score: 0.0
+  artifact_max: 4.0
+  single_task_total: 1.5
+  single_task_max: 10.0
+signoff:
+  by: '用户本人（本对话逐格确认）'
+  date: '2026-11-09'
+  mode: author_cell_review
+  note: '用户逐格确认 D3-1=0、D7-1=2、D1-1=0、common-1=1；仅签认行为档位，不代替最终准入终裁。'

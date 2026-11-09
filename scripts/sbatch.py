@@ -66,6 +66,16 @@ def _task_revision(cdir: Path) -> str:
     return "sha256:" + hashlib.sha256(raw).hexdigest()
 
 
+def _evaluator_revision(cdir: Path) -> str:
+    """冻结评分依据；与包含 prompt/inputs 的题包指纹分开记录。"""
+    entries = []
+    for name in ("checker.py", "spec.md", "truth.json"):
+        path = cdir / name
+        if path.is_file():
+            entries.append(f"{name}:{_sha256(path)}")
+    return "sha256:" + hashlib.sha256("\n".join(entries).encode("utf-8")).hexdigest()
+
+
 def _new_run_id(cdir: Path, product: str, run: int) -> str:
     """生成不可复用的运行身份；语义槽位另存 run_key。"""
     stamp = datetime.datetime.now().astimezone().strftime("%Y%m%dT%H%M%S%z")
@@ -132,11 +142,11 @@ def _run_skeleton(cdir: Path, product: str, run: int, variant: str,
         "binding": {
             "prompt_sha8": prep.get("prompt_sha8", ""),
             "inputs_sha8": prep.get("inputs_sha8", {}),
-            "task_revision": _task_revision(cdir),
+            "task_revision": prep.get("task_revision") or _task_revision(cdir),
             "suite_revision": _suite_revision(),
             "product_revision": _product_revision(product),
             "product_config": _product_config(product),
-            "evaluator_revision": "docs/14-v0.1",
+            "evaluator_revision": prep.get("evaluator_revision") or _evaluator_revision(cdir),
         },
         "termination": {
             "reason": "",
@@ -287,6 +297,7 @@ def prepare(case: str, product: str, run: int,
             for f in src.rglob("*") if f.is_file()
         } if src.is_dir() else {},
         "task_revision": _task_revision(cdir),
+        "evaluator_revision": _evaluator_revision(cdir),
         "product_revision": _product_revision(product),
         "execution_context": {
             "product_version": product_version or cfg.get("version", "unknown"),
@@ -387,6 +398,12 @@ def collect(case: str, product: str, run: int, work: str,
             or prep.get("run") != run or not prep.get("run_id")
             or Path(prep.get("work_dir", "")).resolve() != w.resolve()):
         print("[错误] prepare 身份或工作目录与 collect 参数不一致；拒绝归档。")
+        return 3
+    if (prep.get("protocol_version") == CURRENT_PROTOCOL
+            and (prep.get("task_revision") != _task_revision(cdir)
+                 or (prep.get("evaluator_revision")
+                     and prep["evaluator_revision"] != _evaluator_revision(cdir)))):
+        print("[错误] 题包或评分器在 prepare 后变化；拒绝用当前 checker 判这场。")
         return 3
     run_src = w.parent / "run.json"
     if not run_src.is_file() or json.loads(run_src.read_text(encoding="utf-8")).get("run_id") != prep["run_id"]:
@@ -513,6 +530,7 @@ def collect(case: str, product: str, run: int, work: str,
         "interventions": interventions,
         "rerun": rerun,
         "task_revision": prep.get("task_revision") or _task_revision(cdir),
+        "evaluator_revision": prep.get("evaluator_revision", ""),
         "execution_context": prep.get("execution_context", {}),
     })
     _write_json(out / "usage.json", {

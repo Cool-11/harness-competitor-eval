@@ -66,31 +66,39 @@
     "manual_interventions": 0
   },
   "evaluation": {
-    "reward_basis": [],
+    "reward_basis": [
+      "grade.yaml"
+    ],
     "components": {
-      "artifact": 1.0
+      "artifact": 1.0,
+      "behavior": 0.9175
     },
     "success": 1,
-    "v1": null
+    "v1": 3.67,
+    "single_task_total": 9.67,
+    "single_task_max": 10.0
   },
   "diagnostics": {
     "failure_code": "",
     "first_error": null,
-    "evidence_grade": ""
+    "evidence_grade": "C"
   },
   "adjudication": {
-    "rules_frozen": "unknown",
-    "task_valid": "unknown",
-    "evidence_valid": "unknown",
-    "uncontaminated": "unknown",
-    "final_ruling": "pending",
-    "official_eligible": false,
-    "exclusion_reasons": [
-      "尚未完成人工终裁"
-    ],
-    "adjudicator": "",
-    "adjudicated_at": "",
-    "notes": ""
+    "rules_frozen": "yes",
+    "task_valid": "yes",
+    "evidence_valid": "yes",
+    "uncontaminated": "yes",
+    "final_ruling": "pass",
+    "official_eligible": true,
+    "exclusion_reasons": [],
+    "adjudicator": "用户本人（本对话逐格及终裁确认）",
+    "adjudicated_at": "2026-11-09T23:24:36+08:00",
+    "notes": "2026-11-09 用户逐格签认 grade.yaml 四格及四项 yes、C 级、终裁；证据字节边界见 reviews/十格覆盖-其余八场终裁预审-2026-11-09.md",
+    "causal_ready": false,
+    "causal_pair_status": "not_ready",
+    "causal_exclusion_reasons": [
+      "非 A_same_model_cli 轨，只能作整体产品观察"
+    ]
   },
   "evidence": {
     "run_dir": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\doubao\\run2",

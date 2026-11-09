@@ -56,6 +56,8 @@ def test_prepare_custom_root(sandbox, capsys):
     assert run_doc["run_id"] == prep["run_id"]
     assert run_doc["record_type"] == "product_run"
     assert run_doc["binding"]["task_revision"].startswith("sha256:")
+    assert prep["evaluator_revision"] == sbatch._evaluator_revision(sbatch._resolve("S06"))
+    assert run_doc["binding"]["evaluator_revision"] == prep["evaluator_revision"]
     assert run_doc["binding"]["product_revision"]
     assert run_doc["binding"]["product_config"]["version"]
     assert run_doc["execution_context"]["model"] == "deepseek-flash"
@@ -98,6 +100,35 @@ def test_collect_writes_evidence(sandbox):
     assert run_doc["termination"]["turns"] == 3
     assert run_doc["evaluation"]["components"]["artifact"] == 1.0
     assert run_doc["evaluation"]["success"] == 1
+    assert manifest["evaluator_revision"] == run_doc["binding"]["evaluator_revision"]
+
+
+def test_collect_rejects_checker_changed_after_prepare(sandbox, monkeypatch):
+    cases = sandbox / "cases"
+    cases.mkdir()
+    case = cases / "S06-artifact-deep-path"
+    shutil.copytree(REPO / "tasks" / "second_tasks" / case.name, case)
+    monkeypatch.setattr(sbatch, "CASES", cases)
+    assert sbatch.prepare("S06", "dsh", 1) == 0
+    work = sandbox / "tmp" / case.name / "dsh" / "run1" / "work"
+    _install_golden(work)
+    with (case / "checker.py").open("a", encoding="utf-8") as fh:
+        fh.write("\n# changed after prepare\n")
+    assert sbatch.collect("S06", "dsh", 1, str(work)) == 3
+    assert not _out(sandbox).exists()
+
+
+def test_collect_preserves_preexisting_v3_prepare_without_evaluator_revision(sandbox):
+    assert sbatch.prepare("S06", "dsh", 1) == 0
+    work = sandbox / "tmp" / "S06-artifact-deep-path" / "dsh" / "run1" / "work"
+    prep_path = work.parent / "prepare.json"
+    prep = json.loads(prep_path.read_text(encoding="utf-8"))
+    prep.pop("evaluator_revision")
+    prep_path.write_text(json.dumps(prep), encoding="utf-8")
+    _install_golden(work)
+    assert sbatch.collect("S06", "dsh", 1, str(work)) == 0
+    manifest = json.loads((_out(sandbox) / "manifest.json").read_text(encoding="utf-8"))
+    assert manifest["evaluator_revision"] == ""
 
 
 def test_summary_writes_pilot_results(sandbox):

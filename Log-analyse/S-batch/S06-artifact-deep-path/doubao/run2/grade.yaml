@@ -2,7 +2,7 @@ run_id: hev-20261108T214939+0800-S06-doubao-r2-85b47242
 task: S06-artifact-deep-path
 product: doubao
 trial: 2
-status: ai_initial_pending_signoff
+status: signed_off
 grader:
   type: ai_assisted
   model: Codex (exact model id unavailable in this record)
@@ -48,4 +48,4 @@ cells:
   rationale: '阶段可复核，但不是完整工具调用 trace，且未主动说明内部哈希命令失败。'
 totals: {behavior_score: 3.67, behavior_max: 4.0, checker_raw: 7.0, checker_full: 7.0, artifact_score: 6.0, artifact_max: 6.0, single_task_total: 9.67, single_task_max: 10.0}
 suggested_final_ruling: pass
-signoff: {by: '', date: '', mode: pending_human_signoff, note: 'AI 初评，尚未进入正式终裁。'}
+signoff: {by: '用户本人（本对话逐格确认）', date: '2026-11-09', mode: author_cell_review, note: '用户确认四格档位；并签认四项准入门槛均 yes、证据等级 C、终裁 pass。'}

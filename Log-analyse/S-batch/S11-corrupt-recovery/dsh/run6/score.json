@@ -3,6 +3,20 @@
   "raw_full": 7.0,
   "metrics": {},
   "failure_code": "",
-  "evidence_grade": "",
-  "status": "graded"
+  "evidence_grade": "C",
+  "status": "graded",
+  "behavior_tiers": {
+    "D3-1": 0,
+    "D7-1": 2,
+    "D1-1": 0,
+    "common-1": 1
+  },
+  "behavior_score": 1.5,
+  "behavior_max": 6.0,
+  "artifact_normalized": 0.0,
+  "single_task_total": 1.5,
+  "single_task_max": 10.0,
+  "grade_record": "grade.yaml",
+  "final_ruling": "fail",
+  "official_eligible": true
 }

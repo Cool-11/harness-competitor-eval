@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-08T23:00:20+08:00",
+  "generated_at": "2026-11-10T01:05:02+08:00",
   "scope": [
     "S06-artifact-deep-path",
     "S11-corrupt-recovery"
   ],
   "planned_cells": 10,
   "observed_run_records": 27,
-  "formal_run_records": 1,
-  "formal_cells": 1,
+  "formal_run_records": 11,
+  "formal_cells": 10,
   "cells": [
     {
       "task": "S06-artifact-deep-path",
@@ -54,24 +54,17 @@
         {
           "run_id": "hev-20261107T211910+0800-S06-codex-r3-bff3691f",
           "trial": 3,
-          "ruling": "pending",
-          "eligible": false,
-          "reasons": [
-            "规则未冻结",
-            "题面无效或未核验",
-            "证据无效或未核验",
-            "运行受污染或未核验",
-            "终裁=pending，不可进入正式比较",
-            "证据等级未登记为 A/B/C"
-          ],
+          "ruling": "pass",
+          "eligible": true,
+          "reasons": [],
           "task_revision": "sha256:beed0e9ed685560609d21921e0d7b2b1e8ad8498803b331d28fb304802df1f6b",
           "product_revision": "ee25e6e3",
           "artifact_score": 1.0,
-          "behavior_score": null,
+          "behavior_score": 0.8325,
           "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S06-artifact-deep-path/codex/run3/run.json"
         }
       ],
-      "eligible_runs": 0
+      "eligible_runs": 1
     },
     {
       "task": "S06-artifact-deep-path",
@@ -134,24 +127,17 @@
         {
           "run_id": "hev-20261107T212644+0800-S06-dsh-r4-57b863b9",
           "trial": 4,
-          "ruling": "pending",
-          "eligible": false,
-          "reasons": [
-            "规则未冻结",
-            "题面无效或未核验",
-            "证据无效或未核验",
-            "运行受污染或未核验",
-            "终裁=pending，不可进入正式比较",
-            "证据等级未登记为 A/B/C"
-          ],
+          "ruling": "fail",
+          "eligible": true,
+          "reasons": [],
           "task_revision": "sha256:beed0e9ed685560609d21921e0d7b2b1e8ad8498803b331d28fb304802df1f6b",
           "product_revision": "ca164b3f",
           "artifact_score": 0.7857,
-          "behavior_score": null,
+          "behavior_score": 0.415,
           "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S06-artifact-deep-path/dsh/run4/run.json"
         }
       ],
-      "eligible_runs": 0
+      "eligible_runs": 1
     },
     {
       "task": "S06-artifact-deep-path",
@@ -182,24 +168,17 @@
         {
           "run_id": "hev-20261108T214938+0800-S06-workbuddy-r2-e6ab2c45",
           "trial": 2,
-          "ruling": "pending",
-          "eligible": false,
-          "reasons": [
-            "规则未冻结",
-            "题面无效或未核验",
-            "证据无效或未核验",
-            "运行受污染或未核验",
-            "终裁=pending，不可进入正式比较",
-            "证据等级未登记为 A/B/C"
-          ],
+          "ruling": "pass",
+          "eligible": true,
+          "reasons": [],
           "task_revision": "sha256:beed0e9ed685560609d21921e0d7b2b1e8ad8498803b331d28fb304802df1f6b",
           "product_revision": "bd033a9c",
           "artifact_score": 1.0,
-          "behavior_score": null,
+          "behavior_score": 0.8325,
           "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S06-artifact-deep-path/workbuddy/run2/run.json"
         }
       ],
-      "eligible_runs": 0
+      "eligible_runs": 1
     },
     {
       "task": "S06-artifact-deep-path",
@@ -230,24 +209,17 @@
         {
           "run_id": "hev-20261108T214939+0800-S06-yuanbao-r2-8ef7c081",
           "trial": 2,
-          "ruling": "pending",
-          "eligible": false,
-          "reasons": [
-            "规则未冻结",
-            "题面无效或未核验",
-            "证据无效或未核验",
-            "运行受污染或未核验",
-            "终裁=pending，不可进入正式比较",
-            "证据等级未登记为 A/B/C"
-          ],
+          "ruling": "pass",
+          "eligible": true,
+          "reasons": [],
           "task_revision": "sha256:beed0e9ed685560609d21921e0d7b2b1e8ad8498803b331d28fb304802df1f6b",
           "product_revision": "7a34ef7a",
           "artifact_score": 1.0,
-          "behavior_score": null,
+          "behavior_score": 0.8325,
           "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S06-artifact-deep-path/yuanbao/run2/run.json"
         }
       ],
-      "eligible_runs": 0
+      "eligible_runs": 1
     },
     {
       "task": "S06-artifact-deep-path",
@@ -278,24 +250,17 @@
         {
           "run_id": "hev-20261108T214939+0800-S06-doubao-r2-85b47242",
           "trial": 2,
-          "ruling": "pending",
-          "eligible": false,
-          "reasons": [
-            "规则未冻结",
-            "题面无效或未核验",
-            "证据无效或未核验",
-            "运行受污染或未核验",
-            "终裁=pending，不可进入正式比较",
-            "证据等级未登记为 A/B/C"
-          ],
+          "ruling": "pass",
+          "eligible": true,
+          "reasons": [],
           "task_revision": "sha256:beed0e9ed685560609d21921e0d7b2b1e8ad8498803b331d28fb304802df1f6b",
           "product_revision": "d7795560",
           "artifact_score": 1.0,
-          "behavior_score": null,
+          "behavior_score": 0.9175,
           "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S06-artifact-deep-path/doubao/run2/run.json"
         }
       ],
-      "eligible_runs": 0
+      "eligible_runs": 1
     },
     {
       "task": "S11-corrupt-recovery",
@@ -343,24 +308,17 @@
         {
           "run_id": "hev-20261107T212229+0800-S11-codex-r4-0e5a40b2",
           "trial": 4,
-          "ruling": "pending",
-          "eligible": false,
-          "reasons": [
-            "规则未冻结",
-            "题面无效或未核验",
-            "证据无效或未核验",
-            "运行受污染或未核验",
-            "终裁=pending，不可进入正式比较",
-            "证据等级未登记为 A/B/C"
-          ],
+          "ruling": "pass",
+          "eligible": true,
+          "reasons": [],
           "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
           "product_revision": "ee25e6e3",
           "artifact_score": 1.0,
-          "behavior_score": null,
+          "behavior_score": 0.8333,
           "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S11-corrupt-recovery/codex/run4/run.json"
         }
       ],
-      "eligible_runs": 0
+      "eligible_runs": 1
     },
     {
       "task": "S11-corrupt-recovery",
@@ -436,24 +394,17 @@
         {
           "run_id": "hev-20261107T212723+0800-S11-dsh-r6-59e4d108",
           "trial": 6,
-          "ruling": "pending",
-          "eligible": false,
-          "reasons": [
-            "规则未冻结",
-            "题面无效或未核验",
-            "证据无效或未核验",
-            "运行受污染或未核验",
-            "终裁=pending，不可进入正式比较",
-            "证据等级未登记为 A/B/C"
-          ],
+          "ruling": "fail",
+          "eligible": true,
+          "reasons": [],
           "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
           "product_revision": "ca164b3f",
           "artifact_score": 0.0,
-          "behavior_score": null,
+          "behavior_score": 0.25,
           "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S11-corrupt-recovery/dsh/run6/run.json"
         }
       ],
-      "eligible_runs": 1
+      "eligible_runs": 2
     },
     {
       "task": "S11-corrupt-recovery",
@@ -485,24 +436,17 @@
         {
           "run_id": "hev-20261108T214939+0800-S11-workbuddy-r3-e5901660",
           "trial": 3,
-          "ruling": "pending",
-          "eligible": false,
-          "reasons": [
-            "规则未冻结",
-            "题面无效或未核验",
-            "证据无效或未核验",
-            "运行受污染或未核验",
-            "终裁=pending，不可进入正式比较",
-            "证据等级未登记为 A/B/C"
-          ],
+          "ruling": "pass",
+          "eligible": true,
+          "reasons": [],
           "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
           "product_revision": "bd033a9c",
           "artifact_score": 1.0,
-          "behavior_score": null,
+          "behavior_score": 0.8333,
           "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S11-corrupt-recovery/workbuddy/run3/run.json"
         }
       ],
-      "eligible_runs": 0
+      "eligible_runs": 1
     },
     {
       "task": "S11-corrupt-recovery",
@@ -534,24 +478,17 @@
         {
           "run_id": "hev-20261108T214939+0800-S11-yuanbao-r3-4a988e6a",
           "trial": 3,
-          "ruling": "pending",
-          "eligible": false,
-          "reasons": [
-            "规则未冻结",
-            "题面无效或未核验",
-            "证据无效或未核验",
-            "运行受污染或未核验",
-            "终裁=pending，不可进入正式比较",
-            "证据等级未登记为 A/B/C"
-          ],
+          "ruling": "fail",
+          "eligible": true,
+          "reasons": [],
           "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
           "product_revision": "7a34ef7a",
           "artifact_score": 0.8571,
-          "behavior_score": null,
+          "behavior_score": 0.6667,
           "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S11-corrupt-recovery/yuanbao/run3/run.json"
         }
       ],
-      "eligible_runs": 0
+      "eligible_runs": 1
     },
     {
       "task": "S11-corrupt-recovery",
@@ -583,24 +520,17 @@
         {
           "run_id": "hev-20261108T214939+0800-S11-doubao-r3-87e1364b",
           "trial": 3,
-          "ruling": "pending",
-          "eligible": false,
-          "reasons": [
-            "规则未冻结",
-            "题面无效或未核验",
-            "证据无效或未核验",
-            "运行受污染或未核验",
-            "终裁=pending，不可进入正式比较",
-            "证据等级未登记为 A/B/C"
-          ],
+          "ruling": "pass",
+          "eligible": true,
+          "reasons": [],
           "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
           "product_revision": "d7795560",
           "artifact_score": 1.0,
-          "behavior_score": null,
+          "behavior_score": 0.9167,
           "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S11-corrupt-recovery/doubao/run3/run.json"
         }
       ],
-      "eligible_runs": 0
+      "eligible_runs": 1
     }
   ]
 }

@@ -6,6 +6,12 @@
 
 ---
 
+## [2026-11-10]
+
+### 外部验证
+
+- Terminal-Bench 2.0 `fix-code-vulnerability` 的 oracle 5/5 通过；保留三次 Codex 安装无效场，第四次独立运行的官方 `reward=1` 与 `_hval()` 补充诊断分别记录，不并入 S06/S11 分数。
+
 ## [2026-11-09]
 
 ### 变更

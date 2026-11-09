@@ -60,4 +60,4 @@
 
 本日复核并经用户逐格签认其余八场后，正式覆盖已到 **10/10 格、11 条准入运行**；S11 DSH 两条不同运行占同一产品格。八场原本都有 v3 `prepare.json` 和相应的原生轨迹或桌面导出证据；本次先核旧现场再终裁，没有重跑产品。详见 `reviews/十格覆盖-其余八场终裁预审-2026-11-09.md` 与 `Log-analyse/S-batch/coverage-status.md`。`lm-evaluation-harness` 继续作为方法参照，下一步只验证三件事：原始输出与处理结果能否回溯、单场分数是否与终裁分离、跨题聚合的单位/缺失口径是否预注册；不为学框架而提前做产品排行或通用聚合器。
 
-公开代码题已选定 Terminal-Bench 2.0 的 `fix-code-vulnerability`，固定任务 commit、题面、测试与环境要求见 `experiments/external-terminal-bench-fix-code-vulnerability/plan.md`。本题使用真实 Bottle 代码库，但通过 Dockerfile 人工构造缺陷，不能外推为原生 GitHub issue。2026-11-09 Docker Desktop 恢复后，官方 oracle 对同一题重复 5 次均得 `reward=1`。Codex 三次产品尝试分别在 Agent 安装阶段遇到 Docker API 500、360 秒超时、Debian 镜像 HTTP 500；均未进入 Agent 执行和官方 verifier，保留为环境无效场，尚无外部产品成绩。
+公开代码题已选定 Terminal-Bench 2.0 的 `fix-code-vulnerability`，固定任务 commit、题面、测试与环境要求见 `experiments/external-terminal-bench-fix-code-vulnerability/plan.md`。本题使用真实 Bottle 代码库，但通过 Dockerfile 人工构造缺陷，不能外推为原生 GitHub issue。2026-11-09 Docker Desktop 恢复后，官方 oracle 对同一题重复 5 次均得 `reward=1`。前三次 Codex 产品尝试在 Agent 安装阶段无效；2026-11-10 第四次独立运行完成，官方 verifier 得 `reward=1`，预登记的 `_hval()` 补充诊断通过。该结果是一条产品配置下的外部观察，不与 S06/S11 的 0–10 分合并，也不支持稳定性或单因素因果结论。

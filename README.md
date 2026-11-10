@@ -10,7 +10,7 @@
 
 [Terminal-Bench 2.0 `fix-code-vulnerability` 文件交互变体](experiments/external-terminal-bench-fix-code-vulnerability/file-interface-v1/README.md)已由五款产品各尝试一次，并完成五场离线诊断。它改变了原题的输入接口，结果不计作 Terminal-Bench 官方成绩，也不并入 S06/S11 十格。Codex CLI、DSH CLI 的两场产物均通过离线脚本；[桌面端首轮复核](experiments/external-terminal-bench-fix-code-vulnerability/file-interface-v1/desktop-r1-adjudication.md)为 WorkBuddy `invalid`（读取了本场预备路径之外的同哈希 `staging` 输入）、元宝 `fail`（报告仅在回复中声称写入，未取得真实文件，代码亦未修复目标漏洞）、豆包 `invalid`（工作目录仍选 `inputs`，产物落在 `staging`）。`invalid` 是运行路径偏差，不等于产品修复能力失败；离线通过也不把无效场转为有效通过。独立人工签署仍待完成。
 
-下一步见 [WorkBuddy/豆包 run2 运行卡](experiments/external-terminal-bench-fix-code-vulnerability/file-interface-v1/run2-card.md)。两场新 `run_id` 已在投喂前创建，尚未运行；旧 `staging` 已被豆包首轮写入，不能再作为新场取件处。元宝首轮已有可判失败，不需为修正缺失下载而覆盖旧场。
+下一步见 [三款桌面端 run2 运行卡](experiments/external-terminal-bench-fix-code-vulnerability/file-interface-v1/run2-card.md)。三场新 `run_id` 已在投喂前创建，尚未运行；旧 `staging` 已被豆包首轮写入，不能再作为新场取件处。元宝 run2 是独立复测，不替换首轮失败结论。
 
 五款 Agent 产品的 Harness 竞品评测（个人课题作业）
 

@@ -6,6 +6,12 @@
 
 > 下一步的自动/手工责任边界、10 格核心矩阵与 Harness 因果路线见 [v3 执行与覆盖路线图](docs/32-v3执行与覆盖路线图-2026-11-07.md)。
 
+## 外部验证进度（2026-11-10）
+
+[Terminal-Bench 2.0 `fix-code-vulnerability` 文件交互变体](experiments/external-terminal-bench-fix-code-vulnerability/file-interface-v1/README.md)已由五款产品各尝试一次，并完成五场离线诊断。它改变了原题的输入接口，结果不计作 Terminal-Bench 官方成绩，也不并入 S06/S11 十格。Codex CLI、DSH CLI 的两场产物均通过离线脚本；[桌面端首轮复核](experiments/external-terminal-bench-fix-code-vulnerability/file-interface-v1/desktop-r1-adjudication.md)为 WorkBuddy `invalid`（读取了本场预备路径之外的同哈希 `staging` 输入）、元宝 `fail`（报告仅在回复中声称写入，未取得真实文件，代码亦未修复目标漏洞）、豆包 `invalid`（工作目录仍选 `inputs`，产物落在 `staging`）。`invalid` 是运行路径偏差，不等于产品修复能力失败；离线通过也不把无效场转为有效通过。独立人工签署仍待完成。
+
+下一步见 [WorkBuddy/豆包 run2 运行卡](experiments/external-terminal-bench-fix-code-vulnerability/file-interface-v1/run2-card.md)。两场新 `run_id` 已在投喂前创建，尚未运行；旧 `staging` 已被豆包首轮写入，不能再作为新场取件处。元宝首轮已有可判失败，不需为修正缺失下载而覆盖旧场。
+
 五款 Agent 产品的 Harness 竞品评测（个人课题作业）
 
 **评测对象**：Codex ｜ Workbuddy ｜ DSH ｜ 元宝专家模式 ｜ 豆包办公

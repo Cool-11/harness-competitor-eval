@@ -25,7 +25,15 @@ def test_prepare_freezes_input_and_rejects_reused_run_slot(tmp_path):
         prepare_module.prepare("workbuddy", 1, "test-version", "test-account", tmp_path)
 
 
-def test_remote_surface_keeps_workdir_unselected(tmp_path):
+def test_doubao_prepares_selectable_workdir(tmp_path):
+    slot = prepare_module.prepare("doubao", 1, "test-version", "test-account", tmp_path)
+    record = json.loads((slot / "prepare.json").read_text(encoding="utf-8"))
+    assert record["execution_context"]["actual_work_dir"] == "unverified"
+    assert record["execution_context"]["requested_work_dir"] == str(slot / "work")
+    assert record["inputs_sha256"]["bottle.py"] == prepare_module.sha256(slot / "work" / "bottle.py")
+
+
+def test_yuanbao_keeps_workdir_unselected(tmp_path):
     slot = prepare_module.prepare("yuanbao", 2, "test-version", "test-account", tmp_path)
     record = json.loads((slot / "prepare.json").read_text(encoding="utf-8"))
     assert record["execution_context"]["actual_work_dir"] == "not_selectable"

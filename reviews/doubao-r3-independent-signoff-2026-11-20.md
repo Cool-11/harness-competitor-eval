@@ -1,6 +1,12 @@
-# 豆包 run3 独立人工复核签署卡（待签）
+# 豆包 run3 人工复核签署卡（签名原件已收，独立性待核）
 
-对象：`file-interface-v1__doubao__r3`，运行身份 `tb2file-20261116T170302+0800-doubao-r3-2d71a076`。本卡供未参与[裁判文件](../experiments/external-terminal-bench-fix-code-vulnerability/file-interface-v1/evidence/doubao-r3/adjudication.json)制作的人复核。当前**没有独立人工签署**；裁判通道的 `pass` 不等于独立验收完成。
+对象：`file-interface-v1__doubao__r3`，运行身份 `tb2file-20261116T170302+0800-doubao-r3-2d71a076`。本卡供未参与[裁判文件](../experiments/external-terminal-bench-fix-code-vulnerability/file-interface-v1/evidence/doubao-r3/adjudication.json)制作的人复核。已收到签名照片，但独立性声明仍待核；裁判通道的 `pass` 不等于独立验收完成。
+
+## 本次收到的签署材料与来源
+
+- 复核人姓名：**黄钧锶**（用户在 2026-11-20 明确给出照片中字形的准确文字；此前“小高”仅为用户转述的称呼）。GitHub 身份：无。
+- [手写签名原图](doubao-r3-signature-original-2026-11-20.jpg)：由用户在会话中上传；SHA-256 `fba206202ffd0453ab84c7b8ab087aef605c3d6508666ec660002e73907c94f7`。图片仅显示签名，没有日期、任务名、复核意见或独立性声明。
+- 用户在 2026-11-20 转述“核对都是没有问题”“同意 pass”，并指定签署日期为当天、签名与姓名一致；随后确认签名由复核人本人写下并由其转交。这些文字是**用户的转述**，不伪装成图片上可读的文字或 GitHub review。
 
 ## 复核顺序
 
@@ -17,8 +23,8 @@
 | 附件来源与工作目录证据足以准入，或需标为 unknown/invalid | 待填 |
 | 两份产物确属本场且哈希与快照一致 | 待填 |
 | 冻结镜像、脚本、CTRF、reward 与容器日志一致 | 待填 |
-| 对裁判 `pass` 的意见及理由 | 待填 |
-| 利益冲突或未参与裁判文件制作声明 | 待填 |
-| 复核人姓名或 GitHub 身份、日期、签名 | 待填 |
+| 对裁判 `pass` 的意见及理由 | 用户转述复核人同意 `pass`、核对无问题；逐项依据未由复核人本人单独写出 |
+| 利益冲突或未参与裁判文件制作声明 | 待核 |
+| 复核人姓名或 GitHub 身份、日期、签名 | 黄钧锶；GitHub 身份无；日期 2026-11-20（用户提供，照片未显示）；签名见原图 |
 
-签署前保持 `independent_human_signoff=pending`。如不同意裁判结果，保留原裁判文件，另写复核意见和更正版本，不覆盖原始证据。
+独立性和逐项核对依据未确认前，保持 `independent_human_signoff=pending`。如不同意裁判结果，保留原裁判文件，另写复核意见和更正版本，不覆盖原始证据。

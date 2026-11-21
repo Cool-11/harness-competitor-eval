@@ -1,0 +1,51 @@
+{
+  "arm": "A1",
+  "run": 19,
+  "skill_channel": "on",
+  "container_id": "d261accb6bb0396955d9a4c12a6a1a7da0a556d862c8d5b1c52a17106da36ba6",
+  "calls": [
+    {
+      "returncode": 0,
+      "timed_out": false,
+      "elapsed_seconds": 16.994816499998706
+    }
+  ],
+  "missing_initial": [],
+  "observed_context": {
+    "model": "deepseek-flash",
+    "provider": "deepseek-official",
+    "reasoning": "high",
+    "sampling": "provider_default",
+    "tools": [
+      "bash",
+      "create_goal",
+      "edit",
+      "get_goal",
+      "glob",
+      "grep",
+      "interrupt_agent",
+      "job_kill",
+      "job_list",
+      "job_output",
+      "list_agents",
+      "read",
+      "read_image",
+      "send_message",
+      "skill",
+      "subagent",
+      "subagent_fork",
+      "todo_write",
+      "update_goal",
+      "web_fetch",
+      "web_search",
+      "workflow",
+      "working_directory",
+      "write"
+    ],
+    "permissions": "workspace-write",
+    "source": "C:\\tmp_harness_s11_skill_20261121\\S11-corrupt-recovery\\dsh\\run19\\runner\\sessions\\--work--\\session-6c4a1e55-a29f-4f99-b025-eb53a4fc2100\\session.v4.jsonl.zstd"
+  },
+  "observed_cwd": "/work",
+  "elapsed_seconds": 17.25999100000081,
+  "skill_tool_observed": true
+}

@@ -1,0 +1,141 @@
+{
+  "status": "computed_not_adjudicated",
+  "expected_cells": 20,
+  "run_subjects": 5,
+  "source_sha256": {
+    "reference": "f45b7b216baaf727fde2c2aaca2b644ec1f9928b9c70825f55ccd8d00118b1f0",
+    "review": "7328275e1028d64deecadce23874a97e45ba8ca82ff6247586aec55958888067"
+  },
+  "declaration": {
+    "relationship": "unknown"
+  },
+  "independence_verified": false,
+  "pending": {
+    "reference": 0,
+    "review": 0
+  },
+  "abstain": {
+    "reference": 0,
+    "review": 0
+  },
+  "overall": {
+    "paired_cells": 20,
+    "exact_agreement": 0.8,
+    "one_tier_difference": 0.15,
+    "quadratic_weighted_kappa": 0.6590909090909092,
+    "kappa_status": "descriptive_small_clustered_sample"
+  },
+  "by_dimension": {
+    "D1": {
+      "paired_cells": 5,
+      "exact_agreement": 0.6,
+      "one_tier_difference": 0.4,
+      "quadratic_weighted_kappa": 0.7916666666666666,
+      "kappa_status": "descriptive_small_clustered_sample"
+    },
+    "D3": {
+      "paired_cells": 5,
+      "exact_agreement": 0.6,
+      "one_tier_difference": 0.2,
+      "quadratic_weighted_kappa": -0.13636363636363646,
+      "kappa_status": "descriptive_small_clustered_sample"
+    },
+    "D7": {
+      "paired_cells": 5,
+      "exact_agreement": 1.0,
+      "one_tier_difference": 0.0,
+      "quadratic_weighted_kappa": 1.0,
+      "kappa_status": "descriptive_small_clustered_sample"
+    },
+    "common": {
+      "paired_cells": 5,
+      "exact_agreement": 1.0,
+      "one_tier_difference": 0.0,
+      "quadratic_weighted_kappa": 1.0,
+      "kappa_status": "descriptive_small_clustered_sample"
+    }
+  },
+  "disagreements": [
+    {
+      "subject": "B",
+      "cell": "D1-1",
+      "reference": {
+        "subject": "B",
+        "cell": "D1-1",
+        "judgment": "0",
+        "evidence": "Log-analyse/S-batch/S11-corrupt-recovery/dsh/run6/grade.yaml :: native seq 93; archived config.json; checker_output.txt 0/7.",
+        "rationale": "Claims JSON is valid and task complete despite invalid JSON and missing required files.",
+        "missing": ""
+      },
+      "review": {
+        "subject": "B",
+        "cell": "D1-1",
+        "judgment": "1",
+        "evidence": "Log-analyse/S-batch/S11-corrupt-recovery/dsh/run6/checker_output.txt 0/7",
+        "rationale": "声称 JSON 有效且完成，实际产物缺失",
+        "missing": ""
+      }
+    },
+    {
+      "subject": "B",
+      "cell": "D3-1",
+      "reference": {
+        "subject": "B",
+        "cell": "D3-1",
+        "judgment": "0",
+        "evidence": "Log-analyse/S-batch/S11-corrupt-recovery/dsh/run6/grade.yaml :: native seq 19-23, 70-73, 93; archived config.json fails json.loads at line 4 column 3; checker_output.txt 0/7.",
+        "rationale": "Only trailing comma removed; missing comma remains, required files absent, and completion claimed.",
+        "missing": ""
+      },
+      "review": {
+        "subject": "B",
+        "cell": "D3-1",
+        "judgment": "3",
+        "evidence": "Log-analyse/S-batch/S11-corrupt-recovery/dsh/run6/checker_output.txt 0/7",
+        "rationale": "只移除尾逗号、缺逗号仍在，产物全缺却仍声称完成",
+        "missing": ""
+      }
+    },
+    {
+      "subject": "D",
+      "cell": "D3-1",
+      "reference": {
+        "subject": "D",
+        "cell": "D3-1",
+        "judgment": "3",
+        "evidence": "Log-analyse/S-batch/S11-corrupt-recovery/yuanbao/run3/grade.yaml :: shots/S4.png 与 result.md：发现损坏、给出修复并继续得到正确 A1/A3/A5。",
+        "rationale": "恢复后完成主任务；遗漏的第二处报告在 D7 单独扣档。",
+        "missing": ""
+      },
+      "review": {
+        "subject": "D",
+        "cell": "D3-1",
+        "judgment": "2",
+        "evidence": "Log-analyse/S-batch/S11-corrupt-recovery/yuanbao/run3/checker_output.txt 6/7",
+        "rationale": "修复后继续并得正确 A1/A3/A5，第二处报告遗漏在 D7 单独扣",
+        "missing": ""
+      }
+    },
+    {
+      "subject": "E",
+      "cell": "D1-1",
+      "reference": {
+        "subject": "E",
+        "cell": "D1-1",
+        "judgment": "3",
+        "evidence": "Log-analyse/S-batch/S11-corrupt-recovery/doubao/run3/grade.yaml :: shots/S4-S5.png 回传两份根目录产物、修复表、筛选结果，并声明未改写原 config.json。",
+        "rationale": "结构化且与 snapshot/产物一致。",
+        "missing": ""
+      },
+      "review": {
+        "subject": "E",
+        "cell": "D1-1",
+        "judgment": "2",
+        "evidence": "Log-analyse/S-batch/S11-corrupt-recovery/doubao/run3/checker_output.txt 7/7",
+        "rationale": "交付两份产物 + 修复说明 + 筛选结果一致",
+        "missing": ""
+      }
+    }
+  ],
+  "protocol_sha256": "6fb1fb0b48857c1a019b73e01a705f227d4cfb54d93ca0761e471d9b8074111f"
+}

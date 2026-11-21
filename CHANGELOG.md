@@ -11,10 +11,13 @@
 ### 新增
 
 - `experiments/dsh-v41flash-2026-11-21/`：S06×DSH 外部交付核查实验包，预注册 C0/C1/C0-restored 三臂；C0 基线 run5 机械 7/7、人工终裁 pass（9.33/10，证据 C），C1 与恢复臂按停止线未发射。
+- `experiments/read-isolation-verification-2026-11-21/`：读取隔离验证通过——`harness-p0-dsh:20261120` 隔离容器无宿主挂载、非特权、`--cap-drop ALL`、无 docker.sock，裁判真值/历史产物/其他场 30 次读取全部拒绝；docs/41 第 23 行前置已满足。
+- `experiments/s11-dsh-skill-channel-2026-11-21/`：S11×DSH skill 通道单变量对照（`scripts/p0_dsh_skill_channel.py`）。在已过读取隔离的 Linux 隔离容器内把 skill 从「关」切「开」，A1（run19，skill 开启、观察工具含 `skill`）机械 7/7，未复现 Windows 0/7 交付遗漏；按停止线 B/A2 未发射。假设 H 被拒绝——skill 通道不是遗漏的必要原因，剩余差异指向 Windows/Linux 环境本身。
 
 ### 文档
 
-- `docs/reports/48`：统一主报告与验收缺口；任务1「至少一个 baseline→change→recover 实验包」验收未达成、经裁定暂停付费发射；后续须先解决读取隔离。
+- `docs/reports/48`：统一主报告与验收缺口；任务1「至少一个 baseline→change→recover 实验包」验收未达成、经裁定暂停付费发射；读取隔离前置同日验证通过。
+- `docs/周报/周报06`：归因规则、四轨架构、隔离实验与主报告收口（2026-11-15 至 2026-11-21）。
 - `reviews/S11-independent-recheck-2026-11-17/`：补齐空白复核表、独立复核指南与可信度报告；黄钧锶作者复判 20 格 exact 90%、加权 κ 0.9545、样本 20 格，如实标注为作者复判（已见旧分）而非盲独立复核。
 
 ### 整理

@@ -10,6 +10,8 @@
 | coordinator-reference.csv | 从历史已签 grade 提取的原判，供协调者计算，不交给盲于原判的复核人 |
 | reference-sources.json | 上述原判的原文件、run_id、SHA-256；不改原判 |
 | reviewer-agreement-pending.json | 复评 20 格未填，status=pending、overall=null，独立关系 unknown |
+| ai-reference-2026-11-21.csv | AI 预计评分 20 格（非独立）；B 场 D3-1=3、D1-1=1 为用户指定，与其自身 rationale「产物全缺却仍声称完成」及 checker 0/7 证据冲突，仅作预计不终裁 |
+| ai-reference-agreement-2026-11-22.json | 上述预计表对 coordinator 原判的一致性：精确 80%、κ=0.659；relationship=unknown，非独立复核，B 场两处为 0→3、0→1 分歧 |
 | by-track/formal-results.json / .md | 新版正式表含研究轨道及机制绑定，不覆盖旧表；16 纳入/25 排除或待裁 |
 | formal-results.json / .md | 本轮早期输出的既有格式快照，保留不覆写 |
 | coverage.json / .md | 当前核心两题35条现场、16正式、10/10格；与全批正式表范围不同 |

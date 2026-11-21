@@ -49,3 +49,4 @@
 | S11-corrupt-recovery | dsh | 16 | 7.0/7 | | | | exit=0 | 2026-11-20 21:43 | run_id=hev-20261120T214236+0800-S11-dsh-r16-36035514 ｜ variant=execution-01-C0 |
 | S11-corrupt-recovery | dsh | 17 | 7.0/7 | | | | exit=0 | 2026-11-20 22:19 | run_id=hev-20261120T221915+0800-S11-dsh-r17-b058e4a8 ｜ variant=execution-02-C1 |
 | S06-artifact-deep-path | dsh | 5 | 7.0/7 | | | | exit=0 | 2026-11-21 16:51 | run_id=hev-20261121T165146+0800-S06-dsh-r5-ebe2218c ｜ variant=execution-01-C0 |
+| S11-corrupt-recovery | dsh | 19 | 7.0/7 | | | | exit=0 | 2026-11-22 02:00 | run_id=hev-20261122T020017+0800-S11-dsh-r19-22b3296c ｜ variant=execution-01-A1 |

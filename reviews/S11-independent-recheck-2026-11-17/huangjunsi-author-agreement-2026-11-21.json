@@ -1,0 +1,109 @@
+{
+  "status": "computed_not_adjudicated",
+  "expected_cells": 20,
+  "run_subjects": 5,
+  "source_sha256": {
+    "reference": "f45b7b216baaf727fde2c2aaca2b644ec1f9928b9c70825f55ccd8d00118b1f0",
+    "review": "67e811d246958d2e8a4d3b19754e54da9bf796af2a4356df057b2721d2f60358"
+  },
+  "declaration": {
+    "reviewer_name": "黄钧锶",
+    "date": "2026-11-21",
+    "reviewer_statement_source": "2026-11-21 user message in project construction chat",
+    "user_declared_no_prior_task_package_or_checker_work": true,
+    "user_confirmed_prior_tiers_or_scores_seen": true,
+    "relationship": "author_recheck_prior_scores_seen",
+    "independence_verified": false,
+    "review_scope": "S11 original five runs A-E and four behavior cells each",
+    "interpretation": "User confirmed the proposed 20 evidence points; D3-1 for D is tier 2 and D1-1 for D is tier 1, equal to 0.5 weighted behavior points. User subsequently confirmed prior tiers or scores had been seen. This is an author recheck, not a blind independent replication."
+  },
+  "independence_verified": false,
+  "pending": {
+    "reference": 0,
+    "review": 0
+  },
+  "abstain": {
+    "reference": 0,
+    "review": 0
+  },
+  "overall": {
+    "paired_cells": 20,
+    "exact_agreement": 0.9,
+    "one_tier_difference": 0.1,
+    "quadratic_weighted_kappa": 0.9545454545454546,
+    "kappa_status": "descriptive_small_clustered_sample"
+  },
+  "by_dimension": {
+    "D1": {
+      "paired_cells": 5,
+      "exact_agreement": 0.8,
+      "one_tier_difference": 0.2,
+      "quadratic_weighted_kappa": 0.9333333333333333,
+      "kappa_status": "descriptive_small_clustered_sample"
+    },
+    "D3": {
+      "paired_cells": 5,
+      "exact_agreement": 0.8,
+      "one_tier_difference": 0.2,
+      "quadratic_weighted_kappa": 0.9295774647887324,
+      "kappa_status": "descriptive_small_clustered_sample"
+    },
+    "D7": {
+      "paired_cells": 5,
+      "exact_agreement": 1.0,
+      "one_tier_difference": 0.0,
+      "quadratic_weighted_kappa": 1.0,
+      "kappa_status": "descriptive_small_clustered_sample"
+    },
+    "common": {
+      "paired_cells": 5,
+      "exact_agreement": 1.0,
+      "one_tier_difference": 0.0,
+      "quadratic_weighted_kappa": 1.0,
+      "kappa_status": "descriptive_small_clustered_sample"
+    }
+  },
+  "disagreements": [
+    {
+      "subject": "D",
+      "cell": "D1-1",
+      "reference": {
+        "subject": "D",
+        "cell": "D1-1",
+        "judgment": "2",
+        "evidence": "Log-analyse/S-batch/S11-corrupt-recovery/yuanbao/run3/grade.yaml :: shots/S4.png 回传筛选结果与两份产物，但修复总结只覆盖一处损坏。",
+        "rationale": "主要结果正确，变更说明不完整。",
+        "missing": ""
+      },
+      "review": {
+        "subject": "D",
+        "cell": "D1-1",
+        "judgment": "1",
+        "evidence": "shots/S4.png; artifacts/result.md; artifacts/error_report.md",
+        "rationale": "两份文件已交付但错误报告遗漏一处属于部分交付",
+        "missing": ""
+      }
+    },
+    {
+      "subject": "D",
+      "cell": "D3-1",
+      "reference": {
+        "subject": "D",
+        "cell": "D3-1",
+        "judgment": "3",
+        "evidence": "Log-analyse/S-batch/S11-corrupt-recovery/yuanbao/run3/grade.yaml :: shots/S4.png 与 result.md：发现损坏、给出修复并继续得到正确 A1/A3/A5。",
+        "rationale": "恢复后完成主任务；遗漏的第二处报告在 D7 单独扣档。",
+        "missing": ""
+      },
+      "review": {
+        "subject": "D",
+        "cell": "D3-1",
+        "judgment": "2",
+        "evidence": "shots/S4.png; artifacts/result.md; artifacts/error_report.md",
+        "rationale": "完成筛选但只明确识别一处损坏未满足三档的两处识别要求",
+        "missing": ""
+      }
+    }
+  ],
+  "protocol_sha256": "6fb1fb0b48857c1a019b73e01a705f227d4cfb54d93ca0761e471d9b8074111f"
+}

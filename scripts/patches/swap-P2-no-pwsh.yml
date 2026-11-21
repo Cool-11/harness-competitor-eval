@@ -1,0 +1,4 @@
+# S11 机制试验：仅关闭 Windows PowerShell 模型工具，保留 tool-fs 和其余配置。
+# 只通过 --patch 叠加，不编辑用户的 headless profile。
+- id: tool-pwsh
+  disabled: true

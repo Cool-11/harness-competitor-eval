@@ -1,0 +1,10 @@
+[
+  {"from_run_id": "hev-20261107T025604+0800-S06-codex-r2-e2e49c5e", "to_run_id": "hev-20261107T211910+0800-S06-codex-r3-bff3691f", "evidence": "docs/周报/周报04-2026-11-07.md §3"},
+  {"from_run_id": "hev-20261107T025942+0800-S11-codex-r3-8e282905", "to_run_id": "hev-20261107T212229+0800-S11-codex-r4-0e5a40b2", "evidence": "docs/周报/周报04-2026-11-07.md §3"},
+  {"from_run_id": "hev-20261107T025818+0800-S06-dsh-r2-09b052bb", "to_run_id": "hev-20261107T212644+0800-S06-dsh-r4-57b863b9", "evidence": "docs/周报/周报04-2026-11-07.md §3"},
+  {"from_run_id": "hev-20261107T025933+0800-S06-dsh-r3-51eb245d", "to_run_id": "hev-20261107T212644+0800-S06-dsh-r4-57b863b9", "evidence": "docs/周报/周报04-2026-11-07.md §3"},
+  {"from_run_id": "hev-20261107T030151+0800-S11-dsh-r5-ba356358", "to_run_id": "hev-20261107T212723+0800-S11-dsh-r6-59e4d108", "evidence": "docs/周报/周报04-2026-11-07.md §3"},
+  {"from_run_id": "hev-20261101T014857+0800-S11-dsh-r3-f31eec6c", "to_run_id": "hev-20261101T015900+0800-S11-dsh-r4-fb43b7cd", "evidence": "docs/26-S11-DSH-F盘试点执行卡-2026-11-01.md §1, §3"},
+  {"from_run_id": "hev-20261112T022448+0800-S11-dsh-r8-d974f57e", "to_run_id": "hev-20261112T022929+0800-S11-dsh-r9-10cb0c55", "evidence": "experiments/s11-dsh-delivery-repeat-2026-11-12/preregistration.md 补充预注册"},
+  {"from_run_id": "hev-20261112T022719+0800-S11-dsh-r2-f5f7f698", "to_run_id": "hev-20261112T022929+0800-S11-dsh-r9-10cb0c55", "evidence": "experiments/s11-dsh-delivery-repeat-2026-11-12/preregistration.md 再次补充预注册"}
+]

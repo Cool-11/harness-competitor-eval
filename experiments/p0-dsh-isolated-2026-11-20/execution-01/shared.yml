@@ -1,0 +1,14 @@
+- id: llm-deepseek
+  config:
+    baseURL: http://budget-proxy:9444/anthropic
+    maxTokens: 8192
+    reasoningEffort: high
+- id: skill
+  disabled: true
+- id: skill-filesystem
+  disabled: true
+- id: tool-skill
+  disabled: true
+- id: session-telemetry-otel
+  config:
+    mode: DISABLED

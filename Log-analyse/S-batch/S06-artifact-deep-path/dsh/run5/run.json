@@ -1,0 +1,197 @@
+{
+  "schema_version": 3,
+  "protocol_version": "hev-v3",
+  "admission_track": "execution_behavior",
+  "comparison_track": "B_native_product",
+  "control_contract": {
+    "experiment_id": "execution-01",
+    "image_id": "sha256:dc919cc1285ec94a9909bfc08900715c1cd9c2ad6f28915c754e6cf1747fa879",
+    "task_revision": "sha256:beed0e9ed685560609d21921e0d7b2b1e8ad8498803b331d28fb304802df1f6b",
+    "max_scenes": 3,
+    "total_timeout_seconds": 120,
+    "budget_cny": 2,
+    "runs": [
+      5,
+      6,
+      7
+    ],
+    "only_variable": "external_s06_delivery_check",
+    "shared_patch_sha256": "680cb8a524583932cc93a0ef927237ab22b3e53cbfb6827be6e8eb0ad4913581",
+    "not_comparable_to_windows_p2": true,
+    "frozen_sources": {
+      "F:\\for-project-new\\harness-competitor-eval\\scripts\\s06_gate_v41.py": "1045980b1ebbc936e152caac306e7405e522ff973d49e3ebf751b1781b8ae24c",
+      "F:\\for-project-new\\harness-competitor-eval\\scripts\\s06_gate_budget_proxy.mjs": "e667bcd998e0c58d92815172d046b40dee1bbb541326dea7082b344755c527c6",
+      "F:\\for-project-new\\harness-competitor-eval\\scripts\\p0-dsh-isolated.Dockerfile": "c562cfc44bc2e549a5bfdb442880cd1d08d728770fc24269eff89766604485ec",
+      "F:\\for-project-new\\harness-competitor-eval\\experiments\\dsh-v41flash-2026-11-21\\s06-gate-preregistration.md": "0a02ac90a2bae91c43969a6b430b6a3138bd2aa549032ffc44fcb5546c872182",
+      "F:\\for-project-new\\harness-competitor-eval\\experiments\\dsh-v41flash-2026-11-21\\execution-01\\shared.yml": "680cb8a524583932cc93a0ef927237ab22b3e53cbfb6827be6e8eb0ad4913581"
+    }
+  },
+  "control_contract_sha256": "952fbb57f5e2b79b252e5a51e5bc19b1e36a247c3a52b626847b11c56227d468",
+  "record_type": "product_run",
+  "run_id": "hev-20261121T165146+0800-S06-dsh-r5-ebe2218c",
+  "run_key": "S06-artifact-deep-path__dsh__r5",
+  "suite": "harness-v1",
+  "task": "S06-artifact-deep-path",
+  "product": "dsh",
+  "trial": 5,
+  "variant": "execution-01-C0",
+  "status": "scored",
+  "environment": {
+    "root": "C:\\tmp_s06_gate_v41_20261121",
+    "work_dir": "C:\\tmp_s06_gate_v41_20261121\\S06-artifact-deep-path\\dsh\\run5\\work",
+    "runtime_work_dir": "/work"
+  },
+  "execution_context": {
+    "product_version": "0.2.2-rc.1",
+    "account": "日常账号",
+    "model": "deepseek-flash",
+    "provider": "deepseek-official",
+    "reasoning": "high",
+    "sampling": "provider_default",
+    "tools": [
+      "read",
+      "write",
+      "bash"
+    ],
+    "permissions": "workspace-write",
+    "network": "internal_network_api_proxy",
+    "surface": "cli",
+    "context_policy": "isolated_container",
+    "skills_state": "disabled",
+    "memory_state": "disabled",
+    "interface_precheck": "passed",
+    "configuration_evidence": "F:\\for-project-new\\harness-competitor-eval\\experiments\\dsh-v41flash-2026-11-21\\execution-01\\C0-configuration.json",
+    "configuration_evidence_sha256": "df33f140f80dbc16aeb7becb9830821b4b97f51fba92078b2fea5e91439adac7"
+  },
+  "binding": {
+    "prompt_sha8": "94eae96e",
+    "inputs_sha8": {
+      "notes.md": "0d1b0f58"
+    },
+    "task_revision": "sha256:beed0e9ed685560609d21921e0d7b2b1e8ad8498803b331d28fb304802df1f6b",
+    "suite_revision": "2026-10-23-s06-pilot",
+    "product_revision": "ca164b3f",
+    "product_config": {
+      "version": "桌面端 0.2.1-rc.5（2026-11-01）；CLI 0.2.2-rc.1（2026-11-07，npm 精确版本）",
+      "channel": "本地桌面端 + npm CLI（固定版本）",
+      "account": "日常账号",
+      "config": "2026-11-01 F 盘预检原生会话：standard preset；deepseek-official/deepseek-flash high；danger-full-access、approval never；Skills/Memory 未逐项确认",
+      "observability": [
+        "终端输出",
+        "桌面/网页可见输出",
+        "会话日志"
+      ],
+      "notes": "评测面以 docs/01 与 baseline 为准；桌面端安装路径 D:\\dsh-harness\\installation；CLI 路径由 npm global 管理，2026-11-07 dsh --version=0.2.2-rc.1；F:\\for-project-tmp-run\\prechecks\\dsh\\2026-11-01\\work 的 pwsh/write 实测通过，范围仅此工作根"
+    },
+    "evaluator_revision": "sha256:fe5fa48bf38589766568533d3edb96e9c2ba167f97c8bb717c170c71ca43dcbe"
+  },
+  "termination": {
+    "reason": "product_declared_done",
+    "timed_out": false,
+    "turns": 1,
+    "manual_interventions": 0
+  },
+  "evaluation": {
+    "reward_basis": [
+      "checker_output.txt",
+      "grade.yaml"
+    ],
+    "components": {
+      "artifact": 1.0,
+      "behavior": 0.8325
+    },
+    "success": 1,
+    "v1": 3.33,
+    "v1_basis": "behavior_score (docs/03 section 9.1 R1: 4 x 1.0)",
+    "grader": "ai_assisted; user per-cell confirmation 2026-11-21",
+    "single_task_total": 9.33,
+    "single_task_max": 10.0
+  },
+  "diagnostics": {
+    "failure_code": "",
+    "first_error": null,
+    "evidence_grade": "C"
+  },
+  "adjudication": {
+    "rules_frozen": "yes",
+    "task_valid": "yes",
+    "evidence_valid": "yes",
+    "uncontaminated": "yes",
+    "final_ruling": "pass",
+    "official_eligible": true,
+    "exclusion_reasons": [],
+    "adjudicator": "用户本人（本对话逐格确认）",
+    "adjudicated_at": "2026-11-21T19:28:26+08:00",
+    "notes": "用户本对话确认3/3/3/1、四门槛yes、证据C、终裁pass；单场观察，不作组件因果结论。",
+    "causal_ready": false,
+    "causal_pair_status": "not_ready",
+    "causal_exclusion_reasons": [
+      "非 A_same_model_cli 轨，只能作整体产品观察"
+    ]
+  },
+  "evidence": {
+    "run_dir": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\dsh\\run5",
+    "timeline": "",
+    "session_log": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\dsh\\run5\\evidence\\session_export\\session.v4.jsonl.zstd",
+    "artifacts": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\dsh\\run5\\artifacts",
+    "shots": "",
+    "recording": ""
+  },
+  "execution_context_observed": {
+    "model": "deepseek-flash",
+    "provider": "deepseek-official",
+    "reasoning": "high",
+    "sampling": "provider_default",
+    "tools": [
+      "bash",
+      "create_goal",
+      "edit",
+      "get_goal",
+      "glob",
+      "grep",
+      "interrupt_agent",
+      "job_kill",
+      "job_list",
+      "job_output",
+      "list_agents",
+      "read",
+      "read_image",
+      "send_message",
+      "subagent",
+      "subagent_fork",
+      "todo_write",
+      "update_goal",
+      "web_fetch",
+      "web_search",
+      "workflow",
+      "working_directory",
+      "write"
+    ],
+    "permissions": "workspace-write",
+    "source": "C:\\tmp_s06_gate_v41_20261121\\S06-artifact-deep-path\\dsh\\run5\\runner\\sessions\\--work--\\session-3c35abd4-3765-41f5-8f03-28e3cd36da6e\\session.v4.jsonl.zstd"
+  },
+  "collection_verification": {
+    "prepared_work_match": true,
+    "mode": "native_trace",
+    "claim_scope": "execution_behavior",
+    "observed_cwd_match": true,
+    "evidence": {
+      "cwd_evidence": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\dsh\\run5\\evidence\\cwd_evidence\\native-evidence.json",
+        "source_path": "C:\\tmp_s06_gate_v41_20261121\\S06-artifact-deep-path\\dsh\\run5\\runner\\native-evidence.json",
+        "sha256": "af92d6cef0a0acf36cc4b496f3c767bbda16530e693b4f29c3ee17c2c131ff07"
+      },
+      "session_export": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\dsh\\run5\\evidence\\session_export\\session.v4.jsonl.zstd",
+        "source_path": "C:\\tmp_s06_gate_v41_20261121\\S06-artifact-deep-path\\dsh\\run5\\runner\\sessions\\--work--\\session-3c35abd4-3765-41f5-8f03-28e3cd36da6e\\session.v4.jsonl.zstd",
+        "sha256": "12de7a5b773fab5b2e1e6eaf29912cc599ac0aa42c61d4f594350ad4d91b6aba"
+      },
+      "configuration_evidence": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\dsh\\run5\\evidence\\configuration_evidence\\C0-configuration.json",
+        "source_path": "F:\\for-project-new\\harness-competitor-eval\\experiments\\dsh-v41flash-2026-11-21\\execution-01\\C0-configuration.json",
+        "sha256": "df33f140f80dbc16aeb7becb9830821b4b97f51fba92078b2fea5e91439adac7"
+      }
+    },
+    "screen_recording_scope": ""
+  }
+}

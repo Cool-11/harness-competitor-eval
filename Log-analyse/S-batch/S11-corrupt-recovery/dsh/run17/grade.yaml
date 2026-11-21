@@ -1,0 +1,64 @@
+run_id: hev-20261120T221915+0800-S11-dsh-r17-b058e4a8
+task: S11-corrupt-recovery
+product: dsh
+trial: 17
+status: signed_off
+grader:
+  type: ai_assisted
+  model: Codex (exact model id unavailable in this conversation)
+  prompt_version: s11-run16-run17-ai-reference-20261120-v1
+  generated_at: '2026-11-20T22:32:10+08:00'
+  evidence_hashes:
+    prompt: 41d608c42045fb2512489baf080aaa1d1cdd3452d4d0e946b7784f748fa88bb1
+    rubric: ae1c7e0425a96e2455ab16e95f81cdd94fa3639e4e46c279eab4b488cb7e74c9
+    spec: 47a4edcf4b9ef81053bd2f2461a69a68acc9f7f246baa2d430fd3aaafbcd81ad
+    native_session_zstd: 47de0d484735032b2ab4a92764069e78a9565d994c2d6986f1d0946f9013021e
+    checker_output: b0461d21ba0dec4c1eb6910188b3c99b452bc1aaa0a58fefcd14623c080f4211
+    initial_stdout: ce3f25346e63cb19ea2bc0be26a6edac8c6cfb89c690ff99a47c475bee902253
+    result_md: 87c8bf6cce19d27ef39dea47c70925f51709a9c1ba491c0812361d520bc0e610
+    error_report_md: ed026fb2c0377a3d802b56d52474350fe560e6d6ce4794032d7e062869a1e7a5
+    repaired_config_json: 75510f61abc54d3526a1a9d3b49f284af4420636eee0b8eded35c8e72479860f
+weighting: {cell_max: 1.5, behavior_max: 6.0, artifact_max: 4.0}
+cells:
+- id: D3-1
+  tier: 3
+  score: 1.5
+  evidence: 'Native seq 35/38 backup and syntax error, 43/44 repair, 49/52 filter/result, 57/58 report, 63/66 verify; archived config.json, result.md, error_report.md; initial.stdout.txt.'
+  rationale: 'Both JSON defects repaired, filtering completed, required files exist, and final statement matches artifacts.'
+- id: D7-1
+  tier: 3
+  score: 1.5
+  evidence: 'Archived error_report.md sections for line 3 columns missing comma and line 4 mode trailing comma; checker_output.txt location item 2/2.'
+  rationale: 'Both defects have specific locations and repair actions.'
+- id: D1-1
+  tier: 3
+  score: 1.5
+  evidence: 'execution-02/results.json missing_initial=[]; archived result.md and error_report.md; initial.stdout.txt lists results and file names.'
+  rationale: 'Both requested root files arrived in the first completion without gate feedback; final response proactively lists content.'
+- id: common-1
+  tier: 1
+  score: 0.5
+  evidence: 'Native tool seq 19-66 shows stages; initial.stdout.txt contains only the confirmed final user-facing statement.'
+  rationale: 'Tool trace is replayable, but interim user-visible progress or timely abnormality reporting is not confirmed; use conservative signed S11 precedent.'
+totals:
+  behavior_score: 5.0
+  behavior_max: 6.0
+  checker_raw: 7.0
+  checker_full: 7.0
+  artifact_score: 4.0
+  artifact_max: 4.0
+  single_task_total: 9.0
+  single_task_max: 10.0
+confirmed_adjudication:
+  rules_frozen: 'yes'
+  task_valid: 'yes'
+  evidence_valid: 'yes'
+  uncontaminated: 'yes'
+  evidence_grade: B
+  final_ruling: pass
+  status: applied_to_run_json
+signoff:
+  by: '用户本人（本对话逐格确认）'
+  date: '2026-11-20'
+  mode: author_cell_review
+  note: '用户本对话确认 D3-1/D7-1/D1-1/common-1=3/3/3/1、四门槛 yes、证据 B、终裁 pass；独立评委关系未披露。'

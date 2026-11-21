@@ -1,0 +1,25 @@
+{
+  "experiment_id": "execution-02",
+  "original_experiment": "F:\\for-project-new\\harness-competitor-eval\\experiments\\p0-dsh-isolated-2026-11-20\\execution-01",
+  "original_run_id": "hev-20261120T214236+0800-S11-dsh-r16-36035514",
+  "arm": "C1",
+  "run": 17,
+  "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+  "image_id": "sha256:dc919cc1285ec94a9909bfc08900715c1cd9c2ad6f28915c754e6cf1747fa879",
+  "shared_patch_sha256": "680cb8a524583932cc93a0ef927237ab22b3e53cbfb6827be6e8eb0ad4913581",
+  "only_variable": "external_delivery_gate",
+  "max_new_scenes": 1,
+  "scene_timeout_seconds": 600,
+  "budget_cny_cumulative": 5,
+  "carryover_reserved_cny": 1.57044,
+  "frozen_sources": {
+    "F:\\for-project-new\\harness-competitor-eval\\scripts\\p0_dsh_followup.py": "2534d0d47f97a6b30a8c82a614f4c22fc5ce8453354e2090bb55be531e4a93d3",
+    "F:\\for-project-new\\harness-competitor-eval\\scripts\\p0_budget_proxy_followup.mjs": "4dc89c4a2fab7c01d41ccbe171a78370781c1ab38ba699146fa8862299a2d2f4",
+    "F:\\for-project-new\\harness-competitor-eval\\experiments\\p0-dsh-isolated-2026-11-20\\preregistration-addendum-01.md": "88cc4c34742768b264f45e79b373be5da74abd7933eb41eef65855b5e3030ad2",
+    "F:\\for-project-new\\harness-competitor-eval\\experiments\\p0-dsh-isolated-2026-11-20\\execution-01\\manifest.json": "50fcff373cc3557817ff34b10e8ae89f779625ea8b8b6866df40d68cc1e4c49f",
+    "F:\\for-project-new\\harness-competitor-eval\\experiments\\p0-dsh-isolated-2026-11-20\\execution-02\\shared.yml": "680cb8a524583932cc93a0ef927237ab22b3e53cbfb6827be6e8eb0ad4913581",
+    "F:\\for-project-new\\harness-competitor-eval\\scripts\\p0_dsh_isolated.py": "bf835bd58d65affb4eb3687e8b32af763167baed97777fd40062e254f48d0bca",
+    "F:\\for-project-new\\harness-competitor-eval\\scripts\\p0-dsh-isolated.Dockerfile": "c562cfc44bc2e549a5bfdb442880cd1d08d728770fc24269eff89766604485ec"
+  },
+  "inference_scope": "non_regression_or_gate_activation_only_no_repair_effect"
+}

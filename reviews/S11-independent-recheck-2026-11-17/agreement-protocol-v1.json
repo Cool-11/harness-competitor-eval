@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "purpose": "Existing S11 independent recheck; freezes computation, does not fabricate reviews",
+  "subjects": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "cells": {
+    "D3-1": "D3",
+    "D7-1": "D7",
+    "D1-1": "D1",
+    "common-1": "common"
+  },
+  "frozen_sources": [
+    {
+      "path": "../../tasks/second_tasks/S11-corrupt-recovery/prompt.txt",
+      "sha256": "41d608c42045fb2512489baf080aaa1d1cdd3452d4d0e946b7784f748fa88bb1"
+    },
+    {
+      "path": "../S11-round1-2026-11-06/reviewer/rubric.md",
+      "sha256": "ae1c7e0425a96e2455ab16e95f81cdd94fa3639e4e46c279eab4b488cb7e74c9"
+    }
+  ]
+}

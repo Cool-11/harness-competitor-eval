@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """Codex / DSH CLI 的前瞻批量运行器。
 
-只负责：计划解析、CLI 预检、逐槽 prepare、一次发射、原始日志保存和 collect。
+只负责：计划解析、CLI 预检、逐槽 prepare、发射、可选一次同会话交付检查、原始日志保存和 collect。
 它不会自动终裁，也不会把 CLI 进程成功退出当作任务通过。
 """
 
@@ -20,6 +20,7 @@ from pathlib import Path
 
 import dsh_export
 import sbatch
+import mechanism_contract
 
 
 SUPPORTED_PRODUCTS = {"codex", "dsh"}
@@ -73,9 +74,16 @@ def _slot_out(case: str, product: str, run: int) -> Path:
 
 
 def _next_run(root: Path, case: str, product: str, reserved: set[tuple[str, str, int]]) -> int:
-    run = 1
+    case_name = _case_dir(case).name
+    archive = sbatch.SBATCH / case_name / product
+    workspace = root / case_name / product
+    used = {int(path.name[3:]) for parent in (archive, workspace)
+            for path in parent.glob("run*") if path.is_dir() and path.name[3:].isdigit()}
+    used.update(number for task, name, number in reserved
+                if task == case_name and name == product)
+    run = max(used, default=0) + 1
     while True:
-        key = (_case_dir(case).name, product, run)
+        key = (case_name, product, run)
         if (key not in reserved
                 and not _slot_work(root, case, product, run).parent.exists()
                 and not _slot_out(case, product, run).exists()):
@@ -119,6 +127,14 @@ def validate_plan(plan: dict) -> list[str]:
         timeout = slot.get("timeout_seconds", plan.get("defaults", {}).get("timeout_seconds", 1800))
         if not isinstance(timeout, int) or isinstance(timeout, bool) or timeout < 1:
             errors.append(f"{prefix}.timeout_seconds 必须是正整数")
+        gate = slot.get("delivery_gate")
+        if gate is not None:
+            files = gate.get("required_files") if isinstance(gate, dict) else None
+            if product != "dsh" or not isinstance(files, list) or not files or any(
+                not isinstance(name, str) or not name or Path(name).name != name
+                or name in {".", ".."} for name in files
+            ) or len(files) != len(set(files)):
+                errors.append(f"{prefix}.delivery_gate 只允许 DSH 和互不重复的根目录文件名")
     for product in {slot.get("product") for slot in plan.get("slots", []) if isinstance(slot, dict)}:
         adapter = plan.get("adapters", {}).get(product, {})
         if not isinstance(adapter, dict):
@@ -140,6 +156,34 @@ def validate_plan(plan: dict) -> list[str]:
             or any(not isinstance(part, str) or not part for part in command)
         ):
             errors.append(f"adapters.{product}.command 必须是非空字符串数组")
+    if comparison_track == "M_mechanism":
+        contract = plan.get("control_contract")
+        errors.extend(mechanism_contract.validate_contract(contract))
+        adapter = plan.get("adapters", {}).get("dsh", {})
+        if not isinstance(adapter, dict):
+            adapter = {}
+        if any(slot.get("product") != "dsh" for slot in plan.get("slots", []) if isinstance(slot, dict)):
+            errors.append("M_mechanism 仅支持同一 DSH 内部干预")
+        if any(slot.get("delivery_gate") is not None for slot in plan.get("slots", []) if isinstance(slot, dict)):
+            errors.append("P2 机制计划不得同时加入 delivery_gate 第二项干预")
+        if adapter.get("command") or adapter.get("profile", "headless") != "headless":
+            errors.append("M_mechanism 必须使用标准 DSH headless 命令")
+        if not adapter.get("configuration_evidence"):
+            errors.append("M_mechanism 必须提供配置快照")
+        elif isinstance(contract, dict):
+            snapshot = Path(adapter["configuration_evidence"])
+            hashes = contract.get("configuration_sha256", {})
+            arm = "C1" if contract.get("arm") == "C1" else "C0"
+            if not snapshot.is_file() or not isinstance(hashes, dict) or _sha256(snapshot) != hashes.get(arm):
+                errors.append("机制臂配置快照与冻结 SHA-256 不一致")
+        if isinstance(contract, dict):
+            for key in ("model", "provider", "reasoning", "sampling"):
+                if adapter.get(key) != contract.get(key):
+                    errors.append(f"adapters.dsh.{key} 与机制合同不一致")
+            budget = contract.get("budget")
+            max_runs = budget.get("max_runs", 0) if isinstance(budget, dict) else 0
+            if isinstance(max_runs, (int, float)) and len(plan.get("slots", [])) > max_runs:
+                errors.append("机制槽位数超过冻结调用预算")
     if comparison_track == "A_same_model_cli":
         contract = plan.get("control_contract")
         if not isinstance(contract, dict):
@@ -214,6 +258,7 @@ def resolve_plan(plan_path: Path, plan: dict) -> tuple[dict, Path]:
         resolved = json.loads(resolved_path.read_text(encoding="utf-8"))
         if resolved.get("source_plan_sha256") != source_sha:
             raise ValueError("计划在 resolved-plan.json 生成后发生变化；请新建 batch_id")
+        _assert_frozen_sources(resolved)
         return resolved, ledger
     if ledger.exists() and any(ledger.iterdir()):
         raise ValueError(f"批次账目录非空且缺 resolved-plan.json：{ledger}")
@@ -244,9 +289,47 @@ def resolve_plan(plan_path: Path, plan: dict) -> tuple[dict, Path]:
         "protocol_version": sbatch.CURRENT_PROTOCOL,
         "root": str(root.resolve()),
         "slots": slots,
+        "frozen_sources": _source_fingerprints(plan),
     })
     _write_json(resolved_path, resolved)
     return resolved, ledger
+
+
+def _source_fingerprints(plan: dict) -> dict[str, str]:
+    paths = set()
+    for slot in plan["slots"]:
+        case = _case_dir(slot["case"])
+        paths.update(path.resolve() for path in case.rglob("*") if path.is_file()
+                     and (path.name in sbatch.TASK_REVISION_FILES or "inputs" in path.relative_to(case).parts[:1]))
+    for adapter in plan.get("adapters", {}).values():
+        if adapter.get("configuration_evidence"):
+            paths.add(Path(adapter["configuration_evidence"]).resolve())
+        args = adapter.get("extra_args", [])
+        for index, value in enumerate(args):
+            if value == "--patch":
+                if index + 1 == len(args):
+                    raise ValueError("--patch 缺文件路径")
+                paths.add(Path(args[index + 1]).resolve())
+            elif value.startswith("--patch="):
+                paths.add(Path(value.split("=", 1)[1]).resolve())
+    contract = plan.get("control_contract", {})
+    if plan.get("comparison_track") == "M_mechanism" and contract.get("preregistration"):
+        paths.add(Path(contract["preregistration"]).resolve())
+    try:
+        return {str(path): _sha256(path) for path in sorted(paths)}
+    except OSError as exc:
+        raise ValueError(f"无法冻结依赖文件：{exc}") from exc
+
+
+def _assert_frozen_sources(resolved: dict) -> None:
+    source_plan = Path(resolved["source_plan"])
+    if not source_plan.is_file() or _sha256(source_plan) != resolved["source_plan_sha256"]:
+        raise ValueError("源计划在 resolve 后变化；请新建 batch_id")
+    expected = resolved.get("frozen_sources")
+    if not expected:
+        raise ValueError("旧解析计划缺依赖冻结清单；请新建 batch_id，不补写历史")
+    if _source_fingerprints(resolved) != expected:
+        raise ValueError("题包/评分器/配置/补丁/预注册在 resolve 后变化；禁止调用模型，请新开实验版本")
 
 
 def _executable_path(name: str) -> str | None:
@@ -336,6 +419,15 @@ def _find_dsh_session(root: Path, before: dict[str, tuple[int, int]], work: Path
     return matches[0]
 
 
+def _missing_delivery_files(work: Path, required: list[str]) -> list[str]:
+    root = work.resolve()
+    return [name for name in required if not (
+        (work / name).is_file()
+        and (work / name).resolve().parent == root
+        and (work / name).stat().st_size > 0
+    )]
+
+
 def _dsh_request_context(log: Path) -> dict:
     events = dsh_export.read_events(log)
     contexts = [event.get("data") or {} for event in events if event.get("type") == "request/context"]
@@ -379,7 +471,35 @@ def _dsh_request_context(log: Path) -> dict:
     }
 
 
+def _dsh_read_probe(targets: list[Path]) -> dict:
+    """Necessary OS read-denial check for the current local child-process launcher.
+
+    No file contents are returned. A missing path or probe error is not a denial.
+    This deliberately rejects the same-user, unrestricted launcher seen in r13.
+    """
+    code = """import json,sys
+rows=[]
+for name in json.loads(sys.argv[1]):
+    try:
+        with open(name,'rb') as handle: handle.read(1)
+        status='readable'
+    except PermissionError: status='denied'
+    except OSError: status='unknown'
+    rows.append({'path':name,'status':status})
+print(json.dumps(rows))
+"""
+    try:
+        proc = subprocess.run([sys.executable, "-c", code, json.dumps([str(p) for p in targets])],
+                              capture_output=True, text=True, encoding="utf-8", timeout=20, check=True)
+        rows = json.loads(proc.stdout)
+    except (OSError, subprocess.SubprocessError, ValueError):
+        return {"passed": False, "reason": "probe_error", "paths": []}
+    return {"passed": bool(rows) and all(row["status"] == "denied" for row in rows),
+            "scope": "same_os_identity_as_local_dsh_child; necessary_check_only", "paths": rows}
+
+
 def preflight(resolved: dict, ledger: Path) -> tuple[bool, dict]:
+    _assert_frozen_sources(resolved)
     rows = []
     ok = True
     checked = set()
@@ -433,6 +553,15 @@ def preflight(resolved: dict, ledger: Path) -> tuple[bool, dict]:
             })
         except (OSError, subprocess.SubprocessError) as exc:
             row.update({"passed": False, "reason": type(exc).__name__, "version": ""})
+        if product == "dsh" and row["passed"]:
+            targets = {sbatch.REPO / "AGENTS.md"}
+            for candidate in resolved["slots"]:
+                if candidate["product"] == "dsh":
+                    targets.update(_case_dir(candidate["case"]) / name
+                                   for name in ("checker.py", "spec.md", "truth.json"))
+            row["read_isolation"] = _dsh_read_probe(sorted(targets))
+            if not row["read_isolation"]["passed"]:
+                row.update({"passed": False, "reason": "judge_read_isolation_failed"})
         ok = ok and row["passed"]
         rows.append(row)
     receipt = {
@@ -490,21 +619,24 @@ def run_batch(resolved: dict, ledger: Path) -> int:
     root = Path(resolved["root"])
     defaults = resolved.get("defaults", {})
     comparison_track = resolved.get("comparison_track", "B_native_product")
-    contract = resolved.get("control_contract", {}) if comparison_track == "A_same_model_cli" else {}
+    contract = resolved.get("control_contract", {}) if comparison_track in {"A_same_model_cli", "M_mechanism"} else {}
     results = []
     for slot in resolved["slots"]:
+        _assert_frozen_sources(resolved)
         cdir = _case_dir(slot["case"])
         product = slot["product"]
         run = slot["run"]
         adapter = resolved.get("adapters", {}).get(product, {})
         model = slot.get("model", adapter.get("model", "unknown")) or "unknown"
-        if comparison_track == "A_same_model_cli":
+        if comparison_track in {"A_same_model_cli", "M_mechanism"}:
             model = contract["model"]
             provider = contract["provider"]
             reasoning = contract["reasoning"]
             sampling = contract["sampling"]
             network = contract["network"]
             tools = slot.get("tools", adapter.get("tools", ""))
+            if comparison_track == "M_mechanism":
+                tools = contract["intervention_tools" if contract["arm"] == "C1" else "baseline_tools"]
             if isinstance(tools, list):
                 tools = ",".join(tools)
             permissions = contract["permissions"]
@@ -550,6 +682,7 @@ def run_batch(resolved: dict, ledger: Path) -> int:
             raise ValueError(f"{product} input_mode 只允许 stdin/argv")
         command = _adapter_command(resolved, slot, work)
         command[0] = _preflight_executable(receipt, product)
+        _assert_frozen_sources(resolved)
         if input_mode == "argv":
             command.append(prompt)
         if product == "codex":
@@ -572,6 +705,8 @@ def run_batch(resolved: dict, ledger: Path) -> int:
         timed_out = False
         returncode = None
         timeout_seconds = slot.get("timeout_seconds", defaults.get("timeout_seconds", 1800))
+        if comparison_track == "M_mechanism":
+            timeout_seconds = contract["budget"]["timeout_seconds"]
         _write_json(runtime / "invocation.json", {
             "slot_id": slot["slot_id"], "command": command, "cwd": str(work),
             "prompt_sha256": hashlib.sha256(prompt.encode("utf-8")).hexdigest(),
@@ -598,6 +733,72 @@ def run_batch(resolved: dict, ledger: Path) -> int:
                 if runtime.resolve() not in isolated_codex_home.resolve().parents:
                     raise RuntimeError("拒绝清理不在 runner 目录内的 CODEX_HOME")
                 shutil.rmtree(isolated_codex_home)
+        turns = 1
+        gate_record = None
+        gate = slot.get("delivery_gate")
+        if gate is not None:
+            if product != "dsh" or custom_command:
+                raise ValueError("delivery_gate 只支持 DSH 标准 headless 启动命令")
+            missing = _missing_delivery_files(work, gate["required_files"])
+            gate_record = {
+                "required_files": gate["required_files"],
+                "missing_before": missing,
+                "first_returncode": returncode,
+                "first_stdout": str(stdout_path),
+                "first_stdout_sha256": _sha256(stdout_path),
+                "repair_attempted": False,
+            }
+            if missing and returncode == 0 and not timed_out:
+                try:
+                    first_session = _find_dsh_session(dsh_session_root, dsh_before, work)
+                    header = dsh_export.read_events(first_session)[0]
+                    session_id = header.get("id") if header.get("type") == "session" else None
+                    if not isinstance(session_id, str) or not session_id:
+                        raise ValueError("DSH 原生会话缺 session id")
+                except ValueError as exc:
+                    gate_record["resume_error"] = str(exc)
+                else:
+                    feedback = (
+                        "交付前检查发现工作目录根目录缺少或留空以下题面要求的文件："
+                        + "、".join(missing)
+                        + "。请依据原任务补齐这些文件并核对位置和内容；不要把聊天回复当作文件。"
+                    )
+                    repair_command = _adapter_command(resolved, slot, work)
+                    repair_command[0] = _preflight_executable(receipt, product)
+                    repair_command.extend(["--session-id", session_id])
+                    if input_mode == "argv":
+                        repair_command.append(feedback)
+                    repair_stdout = runtime / "repair-response.txt"
+                    repair_stderr = runtime / "repair-stderr.log"
+                    gate_record.update({
+                        "repair_attempted": True,
+                        "session_id": session_id,
+                        "feedback": feedback,
+                        "repair_command": repair_command[:-1] if input_mode == "argv" else repair_command,
+                    })
+                    with repair_stdout.open("w", encoding="utf-8", newline="") as out, \
+                            repair_stderr.open("w", encoding="utf-8", newline="") as err:
+                        repair = subprocess.Popen(
+                            repair_command, cwd=work, stdin=subprocess.PIPE,
+                            stdout=out, stderr=err, text=True, encoding="utf-8",
+                            errors="replace", env=process_env, shell=False,
+                        )
+                        try:
+                            repair.communicate(feedback if input_mode == "stdin" else None,
+                                               timeout=timeout_seconds)
+                        except subprocess.TimeoutExpired:
+                            timed_out = True
+                            repair.kill()
+                            repair.communicate()
+                        returncode = repair.returncode
+                    stdout_path, stderr_path = repair_stdout, repair_stderr
+                    turns = 2
+                    gate_record.update({
+                        "repair_returncode": returncode,
+                        "repair_stdout_sha256": _sha256(repair_stdout),
+                        "repair_stderr_sha256": _sha256(repair_stderr),
+                        "missing_after": _missing_delivery_files(work, gate["required_files"]),
+                    })
         ended = datetime.datetime.now().astimezone()
         elapsed = (ended - started).total_seconds()
         termination = "timeout" if timed_out else ("product_declared_done" if returncode == 0 else "error")
@@ -637,6 +838,8 @@ def run_batch(resolved: dict, ledger: Path) -> int:
                 })
                 break
         native_evidence = runtime / "native-evidence.json"
+        mechanism_errors = (mechanism_contract.verify_observed(contract, observed_context)
+                            if comparison_track == "M_mechanism" else [])
         _write_json(native_evidence, {
             "slot_id": slot["slot_id"], "command": command, "cwd": str(work),
             "started_at": started.isoformat(timespec="seconds"),
@@ -646,9 +849,19 @@ def run_batch(resolved: dict, ledger: Path) -> int:
             "observed_context": observed_context,
             "final_stdout": str(stdout_path), "final_stdout_sha256": _sha256(stdout_path),
             "stderr": str(stderr_path), "stderr_sha256": _sha256(stderr_path),
+            "delivery_gate": gate_record,
+            "mechanism_verification": {"errors": mechanism_errors,
+                                       "effective": not mechanism_errors} if comparison_track == "M_mechanism" else None,
         })
+        try:
+            _assert_frozen_sources(resolved)
+        except ValueError as exc:
+            _write_json(runtime / "freeze-error.json", {"error": str(exc), "raw_evidence_retained": True})
+            results.append({"slot_id": slot["slot_id"], "status": "source_drift",
+                            "runtime_dir": str(runtime)})
+            break
         collect_code = sbatch.collect(
-            cdir.name, product, run, str(work), turns=1, elapsed=elapsed,
+            cdir.name, product, run, str(work), turns=turns, elapsed=elapsed,
             timed_out=timed_out, termination=termination,
             observed_cwd=str(work), cwd_evidence=str(native_evidence),
             observed_model=observed_context["model"],
@@ -658,16 +871,17 @@ def run_batch(resolved: dict, ledger: Path) -> int:
             observed_tools=observed_context["tools"],
             observed_permissions=observed_context["permissions"],
             observed_context_source=observed_context["source"],
-            evidence_mode="native_trace", session_export=str(session_export),
+            evidence_mode="unverified" if mechanism_errors else "native_trace", session_export=str(session_export),
             configuration_evidence=adapter.get("configuration_evidence", ""),
         )
         results.append({
-            "slot_id": slot["slot_id"], "status": "collected" if collect_code == 0 else "collect_failed",
+            "slot_id": slot["slot_id"], "status": ("mechanism_unverified" if mechanism_errors
+                                                       else "collected" if collect_code == 0 else "collect_failed"),
             "process_returncode": returncode, "timed_out": timed_out,
             "collect_code": collect_code, "runtime_dir": str(runtime),
         })
         _write_json(ledger / "batch-results.json", {"batch_id": resolved["batch_id"], "results": results})
-        if collect_code != 0:
+        if collect_code != 0 or mechanism_errors:
             break
 
     success = len(results) == len(resolved["slots"]) and all(r["status"] == "collected" for r in results)

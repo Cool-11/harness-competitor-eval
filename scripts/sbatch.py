@@ -215,7 +215,8 @@ def prepare(case: str, product: str, run: int,
             sampling: str = "unknown", network: str = "unknown",
             configuration_evidence: str = "",
             comparison_track: str = "B_native_product",
-            control_contract: dict | None = None) -> int:
+            control_contract: dict | None = None,
+            runtime_work_dir: str = "") -> int:
     cdir = _resolve(case)
     if cdir is None:
         print(f"[错误] 找不到用例目录：{CASES}\\{case}*")
@@ -289,6 +290,7 @@ def prepare(case: str, product: str, run: int,
         "variant": variant,
         "root": str(root),
         "work_dir": str(work),
+        "runtime_work_dir": runtime_work_dir,
         "evidence_dir": str(evidence),
         "started_at": datetime.datetime.now().astimezone().isoformat(timespec="seconds"),
         "prompt_sha8": _sha8(prompt),
@@ -405,6 +407,15 @@ def collect(case: str, product: str, run: int, work: str,
                      and prep["evaluator_revision"] != _evaluator_revision(cdir)))):
         print("[错误] 题包或评分器在 prepare 后变化；拒绝用当前 checker 判这场。")
         return 3
+    if prep.get("protocol_version") == CURRENT_PROTOCOL:
+        src = cdir / "inputs"
+        expected_inputs = ({str(f.relative_to(src)): _sha8(f)
+                            for f in src.rglob("*") if f.is_file()}
+                           if src.is_dir() else {})
+        if (prep.get("prompt_sha8") != _sha8(cdir / "prompt.txt")
+                or prep.get("inputs_sha8") != expected_inputs):
+            print("[错误] prepare 中的题面或输入指纹与本题真源不一致；拒绝归档。")
+            return 3
     run_src = w.parent / "run.json"
     if not run_src.is_file() or json.loads(run_src.read_text(encoding="utf-8")).get("run_id") != prep["run_id"]:
         print("[错误] 运行前 run.json 与 prepare 身份不一致；拒绝归档。")
@@ -413,7 +424,10 @@ def collect(case: str, product: str, run: int, work: str,
     if evidence_mode not in {"unverified", "native_trace", "desktop_export", "screen_recording"}:
         print("[错误] 未知证据模式。")
         return 3
-    if observed_cwd and Path(observed_cwd).resolve() != w.resolve():
+    expected_runtime = prep.get("runtime_work_dir", "")
+    cwd_matches = (observed_cwd == expected_runtime if expected_runtime
+                   else Path(observed_cwd).resolve() == w.resolve())
+    if observed_cwd and not cwd_matches:
         print("[错误] 原生会话 cwd 与准备工作区不同；拒绝归档。")
         return 3
     if bool(observed_cwd) != bool(cwd_evidence):
@@ -582,6 +596,7 @@ def collect(case: str, product: str, run: int, work: str,
         "environment": {
             "root": prep.get("root", ""),
             "work_dir": str(w),
+            "runtime_work_dir": expected_runtime,
         },
         "execution_context": prep.get("execution_context", run_doc.get("execution_context", {})),
         "execution_context_observed": {
@@ -715,6 +730,8 @@ def _causal_readiness(run_doc: dict) -> tuple[bool, list[str]]:
     由 formal_report 在批次层完成配对判断。
     """
     reasons = []
+    if run_doc.get("comparison_track") == "M_mechanism":
+        return False, ["DSH 单组件机制轨单独审核，不进入 Codex/DSH 整体因果配对"]
     if run_doc.get("comparison_track") != "A_same_model_cli":
         return False, ["非 A_same_model_cli 轨，只能作整体产品观察"]
     if run_doc.get("admission_track") != "execution_behavior":
@@ -837,8 +854,13 @@ def adjudicate(case: str, product: str, run: int, *, evidence_grade: str,
     return 0
 
 
-def formal_report() -> int:
+def formal_report(output_dir: Path | None = None) -> int:
     """只汇总规则冻结、题面有效、证据有效且无污染的产品运行。"""
+    target = Path(output_dir) if output_dir is not None else SBATCH
+    if output_dir is not None and any((target / name).exists() for name in ("formal-results.json", "formal-results.md")):
+        print("[错误] 报告输出已存在；请使用新的输出目录，保留历史派生结果。")
+        return 3
+    target.mkdir(parents=True, exist_ok=True)
     included = []
     excluded = []
     for path in sorted(SBATCH.glob("S*/**/run*/run.json")):
@@ -860,6 +882,11 @@ def formal_report() -> int:
             "admission_track": doc.get("admission_track", "product_result"),
             "evidence_mode": doc.get("collection_verification", {}).get("mode", "unverified"),
             "comparison_track": doc.get("comparison_track", "B_native_product"),
+            "research_track": {"B_native_product": "product_observation", "M_mechanism": "dsh_mechanism",
+                               "A_same_model_cli": "whole_harness_auxiliary"}.get(doc.get("comparison_track", "B_native_product")),
+            "mechanism_binding": {key: doc.get("control_contract", {}).get(key)
+                                  for key in ("experiment_id", "component", "arm", "baseline_config_id", "intervention_config_id")}
+                                 if doc.get("comparison_track") == "M_mechanism" else None,
             "control_contract_sha256": doc.get("control_contract_sha256", ""),
             "task_revision": doc.get("binding", {}).get("task_revision", ""),
             "causal_ready": eligible and causal_ready,
@@ -899,8 +926,15 @@ def formal_report() -> int:
         "included": included,
         "excluded": excluded,
         "causal_pairs": causal_pairs,
+        "research_tracks": {
+            "product_observation": {"included": sum(r["research_track"] == "product_observation" for r in included)},
+            "dsh_mechanism": {"included": sum(r["research_track"] == "dsh_mechanism" for r in included),
+                              "causal_adjudication": "separate_component_review_required"},
+            "external_validation": {"scope": "separate_experiment_not_s_batch"},
+            "unseen_acceptance": {"scope": "separate_frozen_dataset_not_s_batch"},
+        },
     }
-    _write_json(SBATCH / "formal-results.json", report)
+    _write_json(target / "formal-results.json", report)
     lines = [
         "# 正式比较准入表", "",
         "> 只纳入规则冻结、题面有效、证据有效、无污染且终裁为 pass/fail 的产品运行。", "",
@@ -919,7 +953,7 @@ def formal_report() -> int:
     for row in excluded:
         reason = "；".join(row["reasons"]) or "未登记"
         lines.append(f"| {row['run_id']} | {row['task']} / {row['product']} | {reason} |")
-    (SBATCH / "formal-results.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    (target / "formal-results.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"正式比较：纳入 {len(included)}，排除/待裁 {len(excluded)}")
     return 0
 
@@ -1068,7 +1102,7 @@ def main():
     p2.add_argument("--variant", default=None, help="覆盖 prepare.json 中的 variant")
     p2.add_argument("--termination", default="product_declared_done",
                     choices=["product_declared_done", "timeout", "error", "manual_stop"],
-                    help="终止原因；error 会从成功率分母剔除")
+                    help="流程终止原因；最终是否纳入比较仍按冻结合同和人工终裁，不自动剔除 error")
 
     p3 = sub.add_parser("summary", help="汇总试点五款 score.json / run.json")
     p3.add_argument("case")
@@ -1086,7 +1120,8 @@ def main():
     p4.add_argument("--adjudicator", required=True)
     p4.add_argument("--notes", default="")
 
-    sub.add_parser("formal-report", help="生成仅含合格运行的正式比较准入表")
+    p5 = sub.add_parser("formal-report", help="生成仅含合格运行的正式比较准入表")
+    p5.add_argument("--output-dir", type=Path, help="写到新目录，保留已有派生表")
 
     a = ap.parse_args()
     if a.cmd == "prepare":
@@ -1126,7 +1161,7 @@ def main():
             notes=a.notes,
         ))
     elif a.cmd == "formal-report":
-        sys.exit(formal_report())
+        sys.exit(formal_report(a.output_dir))
     else:
         sys.exit(collect(a.case, a.product, a.run, a.work,
                          interventions=a.interventions, turns=a.turns,

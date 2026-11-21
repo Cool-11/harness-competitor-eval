@@ -9,6 +9,8 @@ from _util import REPO
 sys.path.insert(0, str(REPO / "scripts"))
 import cli_batch  # noqa: E402
 
+REAL_READ_PROBE = cli_batch._dsh_read_probe
+
 
 def _write_plan(path: Path, root: Path, *, executable: str, version_command=None):
     adapter = {
@@ -31,6 +33,8 @@ def _write_plan(path: Path, root: Path, *, executable: str, version_command=None
 def sandbox(tmp_path, monkeypatch):
     monkeypatch.setattr(cli_batch.sbatch, "TMP_ROOT", tmp_path / "tmp")
     monkeypatch.setattr(cli_batch.sbatch, "SBATCH", tmp_path / "out")
+    # These tests use fake product processes. Real read isolation is tested below.
+    monkeypatch.setattr(cli_batch, "_dsh_read_probe", lambda targets: {"passed": True, "scope": "unit_mock"})
     return tmp_path
 
 
@@ -43,6 +47,15 @@ def test_resolve_freezes_auto_run_before_prepare(sandbox):
     assert (ledger / "resolved-plan.json").is_file()
     work = sandbox / "runs" / "S06-artifact-deep-path" / "dsh" / "run1" / "work"
     assert not work.exists()
+
+
+def test_auto_run_advances_past_archived_runs_with_new_root(sandbox):
+    archive = sandbox / "out" / "S06-artifact-deep-path" / "dsh" / "run8"
+    archive.mkdir(parents=True)
+    plan_path = sandbox / "plan.json"
+    plan = _write_plan(plan_path, sandbox / "fresh-root", executable=sys.executable)
+    resolved, _ = cli_batch.resolve_plan(plan_path, plan)
+    assert resolved["slots"][0]["run"] == 9
 
 
 def test_preflight_failure_does_not_prepare_or_call_model(sandbox):
@@ -237,6 +250,79 @@ def test_missing_dsh_native_session_is_preserved_as_unverified(sandbox):
     assert result["results"][0]["status"] == "collected_unverified"
 
 
+def test_delivery_gate_only_checks_nonempty_files_inside_work_root(sandbox):
+    work = sandbox / "work"
+    work.mkdir()
+    (work / "result.md").write_text("A1\n", encoding="utf-8")
+    (work / "error_report.md").write_text("", encoding="utf-8")
+    assert cli_batch._missing_delivery_files(work, ["result.md", "error_report.md"]) == ["error_report.md"]
+    (work / "error_report.md").write_text("未发现损坏\n", encoding="utf-8")
+    assert cli_batch._missing_delivery_files(work, ["result.md", "error_report.md"]) == []
+    (work / "result.md").unlink()
+    (work / "result.md").symlink_to(sandbox / "outside.md")
+    (sandbox / "outside.md").write_text("A1\n", encoding="utf-8")
+    assert cli_batch._missing_delivery_files(work, ["result.md", "error_report.md"]) == ["result.md"]
+
+
+def test_delivery_gate_rejects_path_escape_and_non_dsh(sandbox):
+    plan = _write_plan(sandbox / "plan.json", sandbox / "runs", executable=sys.executable)
+    plan["slots"][0]["delivery_gate"] = {"required_files": ["../truth.json"]}
+    assert any("delivery_gate" in item for item in cli_batch.validate_plan(plan))
+    plan["slots"][0]["delivery_gate"] = {"required_files": ["result.md", "error_report.md"]}
+    assert cli_batch.validate_plan(plan) == []
+    plan["slots"][0]["product"] = "codex"
+    assert any("delivery_gate" in item for item in cli_batch.validate_plan(plan))
+
+
+def test_delivery_gate_resumes_same_dsh_session_once_when_files_missing(sandbox, monkeypatch):
+    plan_path = sandbox / "gate-plan.json"
+    plan = {
+        "schema_version": 1, "batch_id": "unit-delivery-gate", "root": str(sandbox / "runs"),
+        "adapters": {"dsh": {"executable": sys.executable}},
+        "slots": [{"case": "S11", "product": "dsh", "run": 1,
+                   "delivery_gate": {"required_files": ["result.md", "error_report.md"]}}],
+    }
+    plan_path.write_text(json.dumps(plan), encoding="utf-8")
+    resolved, ledger = cli_batch.resolve_plan(plan_path, plan)
+    receipt = {"products": [{"product": "dsh", "passed": True,
+                             "resolved_executable": sys.executable, "version": "test"}]}
+    monkeypatch.setattr(cli_batch, "preflight", lambda *_: (True, receipt))
+    session = sandbox / "session.v4.jsonl"
+    session.write_text("session fixture\n", encoding="utf-8")
+    monkeypatch.setattr(cli_batch, "_find_dsh_session", lambda *_: session)
+    monkeypatch.setattr(cli_batch.dsh_export, "read_events", lambda *_: [
+        {"type": "session", "id": "session-fixture", "cwd": "fixture"}
+    ])
+    monkeypatch.setattr(cli_batch, "_dsh_request_context", lambda *_: {
+        "model": "deepseek-flash", "provider": "deepseek-official", "reasoning": "high",
+        "sampling": "provider_default", "tools": ["read", "write"],
+        "permissions": "workspace-write", "source": str(session),
+    })
+    calls = []
+    class FakeProcess:
+        returncode = 0
+        def __init__(self, command, *, cwd, stdout, **_):
+            calls.append(command)
+            self.cwd, self.stdout = Path(cwd), stdout
+        def communicate(self, *_args, **_kwargs):
+            if len(calls) == 2:
+                (self.cwd / "result.md").write_text("A1\n", encoding="utf-8")
+                (self.cwd / "error_report.md").write_text("第 3 行缺逗号\n", encoding="utf-8")
+            self.stdout.write("completed\n")
+    monkeypatch.setattr(cli_batch.subprocess, "Popen", FakeProcess)
+    collected = []
+    monkeypatch.setattr(cli_batch.sbatch, "collect", lambda *a, **kw: collected.append(kw) or 0)
+
+    assert cli_batch.run_batch(resolved, ledger) == 0
+    assert len(calls) == 2
+    assert calls[1][-3:-1] == ["--session-id", "session-fixture"]
+    assert "result.md" in calls[1][-1] and "error_report.md" in calls[1][-1]
+    assert "checker" not in calls[1][-1] and "truth" not in calls[1][-1]
+    assert collected[0]["turns"] == 2
+    native = sandbox / "runs" / "S11-corrupt-recovery" / "dsh" / "run1" / "runner" / "native-evidence.json"
+    assert json.loads(native.read_text(encoding="utf-8"))["delivery_gate"]["missing_after"] == []
+
+
 def test_run_batch_saves_raw_session_and_collects_without_adjudicating(sandbox):
     plan_path = sandbox / "plan.json"
     plan = _write_plan(plan_path, sandbox / "runs", executable=sys.executable)
@@ -258,3 +344,109 @@ def test_run_batch_saves_raw_session_and_collects_without_adjudicating(sandbox):
     assert (runtime / "native-evidence.json").is_file()
     result = json.loads((ledger / "batch-results.json").read_text(encoding="utf-8"))
     assert result["all_collected"] is True
+
+
+def test_readable_judge_blocks_launch_before_prepare(sandbox, monkeypatch):
+    monkeypatch.setattr(cli_batch, '_dsh_read_probe', REAL_READ_PROBE)
+    plan_path = sandbox / 'read-isolation.json'
+    plan = _write_plan(plan_path, sandbox / 'runs', executable=sys.executable)
+    resolved, ledger = cli_batch.resolve_plan(plan_path, plan)
+    assert cli_batch.run_batch(resolved, ledger) == 3
+    receipt = json.loads((ledger / 'preflight.json').read_text(encoding='utf-8'))
+    assert receipt['products'][0]['reason'] == 'judge_read_isolation_failed'
+    assert any(row['status'] == 'readable' for row in receipt['products'][0]['read_isolation']['paths'])
+    assert not (sandbox / 'out').exists()
+    assert not (sandbox / 'runs' / 'S06-artifact-deep-path').exists()
+
+
+@pytest.mark.parametrize('change', ['config', 'patch', 'new_input', 'plan'])
+def test_dependency_drift_blocks_model_without_rewriting_frozen_plan(sandbox, monkeypatch, change):
+    import shutil
+    case = sandbox / 'case'
+    shutil.copytree(cli_batch._case_dir('S06'), case)
+    monkeypatch.setattr(cli_batch, '_case_dir', lambda _: case)
+    plan_path = sandbox / 'frozen.json'
+    plan = _write_plan(plan_path, sandbox / 'runs', executable=sys.executable)
+    config, patch = sandbox / 'config.yml', sandbox / 'patch.yml'
+    config.write_text('baseline')
+    patch.write_text('patch')
+    plan['adapters']['dsh'].update(configuration_evidence=str(config), extra_args=['--patch', str(patch)])
+    plan_path.write_text(json.dumps(plan))
+    resolved, ledger = cli_batch.resolve_plan(plan_path, plan)
+    before = (ledger / 'resolved-plan.json').read_bytes()
+    target = {'config': config, 'patch': patch, 'new_input': case / 'inputs/new.txt', 'plan': plan_path}[change]
+    target.write_text('changed')
+    with pytest.raises(ValueError, match='变化'):
+        cli_batch.run_batch(resolved, ledger)
+    assert (ledger / 'resolved-plan.json').read_bytes() == before
+    assert not (sandbox / 'out').exists()
+
+
+def test_mechanism_track_cannot_use_an_empty_contract(sandbox):
+    plan = _write_plan(sandbox / 'plan.json', sandbox / 'runs', executable=sys.executable)
+    plan['comparison_track'] = 'M_mechanism'
+    errors = cli_batch.validate_plan(plan)
+    assert any('control_contract' in error for error in errors)
+    assert any('标准 DSH' in error for error in errors)
+
+
+@pytest.mark.parametrize('failure', ['inactive', 'source_drift'])
+def test_mechanism_run_preserves_evidence_and_stops_on_ineffective_or_changed_config(sandbox, monkeypatch, failure):
+    import mechanism_contract
+    config = sandbox / 'merged.yml'
+    config.write_text('frozen config')
+    prereg = sandbox / 'prereg.md'
+    prereg.write_text('unit protocol; no real product runs')
+    contract = {key: 'unit-frozen' for key in mechanism_contract.FIELDS}
+    contract.update(component='tool-pwsh', arm='C1', skills='disabled', memory='disabled',
+                    sampling='provider_default', primary_endpoint='task_success',
+                    baseline_config_id='baseline', intervention_config_id='intervention',
+                    baseline_tools=['pwsh', 'read', 'write'], intervention_tools=['read', 'write'],
+                    preregistration=str(prereg), configuration_sha256={'C0': 'a' * 64, 'C1': cli_batch._sha256(config)},
+                    budget={'max_runs': 1, 'timeout_seconds': 30, 'max_tokens': 1000, 'max_cost': 1})
+    plan = {'schema_version': 1, 'batch_id': 'unit-mechanism', 'root': str(sandbox / 'runs'),
+            'comparison_track': 'M_mechanism', 'control_contract': contract,
+            'adapters': {'dsh': {'executable': sys.executable, 'configuration_evidence': str(config),
+                                **{key: contract[key] for key in ('model', 'provider', 'reasoning', 'sampling')}}},
+            'slots': [{'case': 'S11', 'product': 'dsh', 'run': 1}]}
+    plan_path = sandbox / 'mechanism.json'
+    plan_path.write_text(json.dumps(plan))
+    assert cli_batch.validate_plan(plan) == []
+    resolved, ledger = cli_batch.resolve_plan(plan_path, plan)
+    receipt = {'products': [{'product': 'dsh', 'passed': True, 'resolved_executable': sys.executable, 'version': 'unit-version'}]}
+    monkeypatch.setattr(cli_batch, 'preflight', lambda *_: (True, receipt))
+    session = sandbox / 'session.jsonl'
+    session.write_text('raw unit session')
+    monkeypatch.setattr(cli_batch, '_find_dsh_session', lambda *_: session)
+    observed = {key: contract[key] for key in ('model', 'provider', 'reasoning', 'sampling', 'permissions')}
+    # The intervention declaration alone cannot remove pwsh from the actual request.
+    observed.update(tools=contract['baseline_tools'], source=str(session))
+    monkeypatch.setattr(cli_batch, '_dsh_request_context', lambda *_: observed)
+    class FakeProcess:
+        returncode = 0
+        def __init__(self, *args, stdout, **kwargs):
+            stdout.write('raw response')
+        def communicate(self, *args, **kwargs):
+            if failure == 'source_drift':
+                config.write_text('changed while running')
+    real_popen = cli_batch.subprocess.Popen
+    monkeypatch.setattr(cli_batch.subprocess, 'Popen',
+                        lambda *args, **kwargs: (real_popen(*args, **kwargs)
+                                                if isinstance(kwargs.get('stdout'), int)
+                                                else FakeProcess(*args, **kwargs)))
+    assert cli_batch.run_batch(resolved, ledger) == 4
+    runtime = sandbox / 'runs/S11-corrupt-recovery/dsh/run1/runner'
+    assert (runtime / 'final-response.txt').read_text(encoding='utf-8') == 'raw response'
+    result = json.loads((ledger / 'batch-results.json').read_text(encoding='utf-8'))
+    assert result['all_collected'] is False
+    if failure == 'source_drift':
+        assert result['results'][0]['status'] == 'source_drift'
+        assert (runtime / 'freeze-error.json').is_file()
+        assert not (sandbox / 'out').exists()
+    else:
+        assert result['results'][0]['status'] == 'mechanism_unverified'
+        run = json.loads((sandbox / 'out/S11-corrupt-recovery/dsh/run1/run.json').read_text(encoding='utf-8'))
+        assert run['comparison_track'] == 'M_mechanism'
+        assert run['control_contract']['experiment_id'] == contract['experiment_id']
+        assert run['collection_verification']['mode'] == 'unverified'
+        assert not run['adjudication']['official_eligible']

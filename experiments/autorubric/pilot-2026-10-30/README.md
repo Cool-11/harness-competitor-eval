@@ -2,6 +2,8 @@
 
 状态：`discovery_only_not_for_official_scoring`。
 
+2026-11-10 更新：16 行 holdout 已由独立新会话盲评；冻结候选缺少 S06 `D2-2` 锚点，两行无法有效给分，因此 v2 停止晋级。汇总、预测和运行哈希见 [results/holdout-summary.md](results/holdout-summary.md)；含人工标签的逐行审查仅在本机 `_local/`，不进入公开仓库。
+
 源样本已由 `sources.json` 固定为原 10 个 `grade.yaml` 路径及 SHA-256。新增签署场次不会自动进入此 pilot；源文件变动会使导出直接失败。新样本需另开实验版本。
 
 本目录用已签署的 S06/S11 行为格探索更清晰的 rubric 锚点。它不调用产品、不修改 checker、不回写历史分，也不构成正式 rubric 变更。

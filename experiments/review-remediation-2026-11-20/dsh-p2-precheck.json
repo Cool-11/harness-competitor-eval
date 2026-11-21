@@ -1,0 +1,17 @@
+{
+  "status": "merged_configuration_verified_not_a_product_run",
+  "version": "0.2.2-rc.1",
+  "profile": "headless",
+  "platform": "nt",
+  "patch_sha256": "5170a4a681868abcef242f3a0db45217c9b99c0ff5dc7268ddde6d2351a407f2",
+  "unique_field_diff": [
+    "-   disabled: !!js process.platform !== 'win32'",
+    "+   disabled: true"
+  ],
+  "config_fingerprints_lf": [
+    "f91653429ceb04f5e98bae2c7ee3ae79a58d1de462f890bb5f46c5beedd3c8ca",
+    "8f7ce6b8f2c11fb8ff817236adf98d835a5fd702059238b636cec30d0e492679"
+  ],
+  "runtime_effect": "requires native request tool list; dump-config retains JS expressions",
+  "restoration": "omit patch; reuse baseline configuration with a new run_id"
+}

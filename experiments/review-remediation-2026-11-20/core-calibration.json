@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "status": "local_calibration_not_official_rescoring",
+  "independent_review": "pending",
+  "results": [
+    {
+      "task": "S06-artifact-deep-path",
+      "case": "golden",
+      "checker_score": 7.0,
+      "fixture": "tests/fixtures/golden/S06-artifact-deep-path",
+      "checker_sha256": "7ce8ce3c2fc0d4d8c2eecf185294eb80db382d26c9dafe724ef92073c972c479"
+    },
+    {
+      "task": "S06-artifact-deep-path",
+      "case": "partial",
+      "checker_score": 5.5,
+      "fixture": "tests/fixtures/partial/S06-artifact-deep-path",
+      "checker_sha256": "7ce8ce3c2fc0d4d8c2eecf185294eb80db382d26c9dafe724ef92073c972c479"
+    },
+    {
+      "task": "S06-artifact-deep-path",
+      "case": "unsupported_addition",
+      "checker_score": 7.0,
+      "sample_text": "# 九月月报\n\n- 9/3 完成 v0.3 发版\n- 客户 A 反馈：导出慢，约 8 秒\n- 9/10 修复导出性能，降到 2 秒\n- 团队扩到 6 人（新增 2 名测试）\n- 9/18 与供应商 B 签署续约\n- 遗留：移动端适配尚未启动\n\n- 本月营收翻倍。\n",
+      "semantic_expectation_draft": "reject: 无依据增补",
+      "checker_sha256": "7ce8ce3c2fc0d4d8c2eecf185294eb80db382d26c9dafe724ef92073c972c479"
+    },
+    {
+      "task": "S06-artifact-deep-path",
+      "case": "keywords_only",
+      "checker_score": 7.0,
+      "sample_text": "# 九月月报\n\nv0.3、8 秒、2 秒、6 人、供应商 B、移动端适配。\n",
+      "semantic_expectation_draft": "reject: 未列原材料事项",
+      "checker_sha256": "7ce8ce3c2fc0d4d8c2eecf185294eb80db382d26c9dafe724ef92073c972c479"
+    },
+    {
+      "task": "S06-artifact-deep-path",
+      "case": "omission",
+      "checker_score": 6.58,
+      "sample_text": "# 九月月报\n\n- 9/3 完成 v0.3 发版\n- 客户 A 反馈：导出慢，约 8 秒\n- 9/10 修复导出性能，降到 2 秒\n- 团队扩到 6 人（新增 2 名测试）\n- 9/18 与供应商 B 签署续约\n",
+      "semantic_expectation_draft": "reject: 遗漏",
+      "checker_sha256": "7ce8ce3c2fc0d4d8c2eecf185294eb80db382d26c9dafe724ef92073c972c479"
+    },
+    {
+      "task": "S06-artifact-deep-path",
+      "case": "equivalent",
+      "checker_score": 7.0,
+      "sample_text": "# 九月月报\n\n- 9/3 完成 v0.3 发版\n- 客户 A 反馈：导出慢，约 8 秒\n- 9/10 修复导出性能，缩短至 2 秒\n- 团队扩到 6 人（新增 2 名测试）\n- 9/18 与供应商 B 签署续约\n- 遗留：移动端适配尚未启动\n",
+      "semantic_expectation_draft": "accept: 等价改写",
+      "checker_sha256": "7ce8ce3c2fc0d4d8c2eecf185294eb80db382d26c9dafe724ef92073c972c479"
+    },
+    {
+      "task": "S11-corrupt-recovery",
+      "case": "golden",
+      "checker_score": 7.0,
+      "fixture": "tests/fixtures/golden/S11-corrupt-recovery",
+      "checker_sha256": "e2d80a7a72e1e51a198c0a757b12577cfc75cb6c8aff48320b0889fe2d2f200e"
+    },
+    {
+      "task": "S11-corrupt-recovery",
+      "case": "partial",
+      "checker_score": 6.0,
+      "fixture": "tests/fixtures/partial/S11-corrupt-recovery",
+      "checker_sha256": "e2d80a7a72e1e51a198c0a757b12577cfc75cb6c8aff48320b0889fe2d2f200e"
+    },
+    {
+      "task": "S11-corrupt-recovery",
+      "case": "tampered",
+      "checker_score": 6.0,
+      "fixture": "tests/fixtures/tampered/S11-corrupt-recovery",
+      "checker_sha256": "e2d80a7a72e1e51a198c0a757b12577cfc75cb6c8aff48320b0889fe2d2f200e"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "schema_version": 3,
+  "protocol_version": "hev-v3",
+  "admission_track": "execution_behavior",
+  "comparison_track": "B_native_product",
+  "control_contract_sha256": "",
+  "record_type": "product_run",
+  "run_id": "hev-20261112T022929+0800-S11-dsh-r9-10cb0c55",
+  "case": "S11-corrupt-recovery",
+  "product": "dsh",
+  "run": 9,
+  "variant": "s11-dsh-same-config-repeat-isolated-r9-20261112",
+  "root": "C:\\tmp_s11_dsh_isolated_r9_20261112",
+  "work_dir": "C:\\tmp_s11_dsh_isolated_r9_20261112\\S11-corrupt-recovery\\dsh\\run9\\work",
+  "product_revision": "ca164b3f",
+  "started_at": "2026-11-12T02:29:29+08:00",
+  "ended_at": "2026-11-12T02:30:15+08:00",
+  "prompt_sha8": "41d608c4",
+  "inputs_sha8": {
+    "config.json": "4583ff08",
+    "data.csv": "fd668362"
+  },
+  "artifacts_count": 6,
+  "artifacts_sha256": {
+    ".dsh_write_probe": "25be323556dad377abb57fe7ec8c4b99a6527f488dda28d0c9b686528659c909",
+    "config.json": "75510f61abc54d3526a1a9d3b49f284af4420636eee0b8eded35c8e72479860f",
+    "config.json.bak": "abdeceeb01fa75cf3f66a321579f2b3428fe76bda4f7c7301eece2375de9702c",
+    "data.csv": "fd668362c2f1e6151450be97d7a3d6c444f34275ec978d069dec7f227b037acc",
+    "filtered.csv": "349fa30935c0649d29bc467a2a7ccc8a1c214d34e650a2296ebf602f453df7be",
+    "output.csv": "349fa30935c0649d29bc467a2a7ccc8a1c214d34e650a2296ebf602f453df7be"
+  },
+  "evidence": {
+    "cwd_evidence": {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\dsh\\run9\\evidence\\cwd_evidence\\native-evidence.json",
+      "source_path": "C:\\tmp_s11_dsh_isolated_r9_20261112\\S11-corrupt-recovery\\dsh\\run9\\runner\\native-evidence.json",
+      "sha256": "cc63e2e8dbfb067ddff65cae7fc0d4dfab6ff679baab8d2d0f079e6db3fbc35c"
+    },
+    "session_export": {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\dsh\\run9\\evidence\\session_export\\session.v4.jsonl.zstd",
+      "source_path": "C:\\Users\\25634\\.dsh\\sessions\\--C-tmp_s11_dsh_isolated_r9_20261112-S11-corrupt-recovery-dsh-run9-work--\\session-dc0f6f1e-7723-415c-9498-d5e49788c5e2\\session.v4.jsonl.zstd",
+      "sha256": "4e61f575dd884c48b60967ae05f8d85d015a33f5f214b1c905a3e2b1ca36cdd7"
+    }
+  },
+  "checker_exit": 1,
+  "interventions": 0,
+  "rerun": false,
+  "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+  "evaluator_revision": "sha256:d24f216a64fc17b5115d336baf4f0613260b518b1f4a0c48fd49d200d97f1747",
+  "execution_context": {
+    "product_version": "0.2.2-rc.1",
+    "account": "日常账号",
+    "model": "unknown",
+    "provider": "unknown",
+    "reasoning": "unknown",
+    "sampling": "unknown",
+    "tools": [
+      "shell",
+      "filesystem"
+    ],
+    "permissions": "workspace-write",
+    "network": "provider-api-only",
+    "surface": "cli",
+    "context_policy": "headless_new_agent",
+    "skills_state": "unknown",
+    "memory_state": "unknown",
+    "interface_precheck": "passed",
+    "configuration_evidence": "",
+    "configuration_evidence_sha256": ""
+  }
+}

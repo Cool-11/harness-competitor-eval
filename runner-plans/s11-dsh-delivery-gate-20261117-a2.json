@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "batch_id": "s11-dsh-delivery-gate-20261117-a2",
+  "root": "C:/tmp_s11_delivery_gate_20261117",
+  "variant": "s11-delivery-gate-off-a2-20261117",
+  "comparison_track": "B_native_product",
+  "defaults": {"timeout_seconds": 600, "tools": "shell,filesystem", "permissions": "workspace-write", "network": "provider-api-only"},
+  "adapters": {"dsh": {"executable": "dsh", "profile": "headless", "model": "deepseek-flash", "provider": "deepseek-official", "reasoning": "high", "sampling": "provider_default", "required_env": [], "configuration_evidence": "experiments/s11-dsh-delivery-gate-2026-11-17/preregistration.md", "extra_args": ["--patch", "F:/for-project-new/harness-competitor-eval/scripts/patches/s11-gate-shared-headless-auth.yml", "--permission-mode", "workspace-write", "--approval-policy", "never"]}},
+  "slots": [{"case": "S11", "product": "dsh", "run": 15, "skills_state": "enabled_unchanged", "memory_state": "unknown"}]
+}

@@ -1,0 +1,12 @@
+{
+  "dsh-agent-loop": {
+    "sha256": "a6fa8e0c7c90191caf5f4a3bb5c624a86e9845cf3c79d020b71420d0e20ae4c1",
+    "path": "C:\\Users\\25634\\AppData\\Roaming\\npm\\node_modules\\@deepseek-ai\\dsh\\node_modules\\@deepseek-ai\\dsh-agent-loop\\lib\\index.js",
+    "observed_marker": "dispatch.serial(\"agent/turn-stopping\""
+  },
+  "dsh-session-telemetry-otel": {
+    "sha256": "20dae4a8a0cf4855dc5150066cc727249eb9b8107b1686367dad13a5a5a50b59",
+    "path": "C:\\Users\\25634\\AppData\\Roaming\\npm\\node_modules\\@deepseek-ai\\dsh\\node_modules\\@deepseek-ai\\dsh-session-telemetry-otel\\lib\\index.js",
+    "observed_marker": "FEEDBACK_ONLY / DISABLED; feedback-bounded telemetry"
+  }
+}

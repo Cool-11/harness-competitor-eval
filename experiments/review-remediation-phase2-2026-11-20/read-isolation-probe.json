@@ -1,0 +1,24 @@
+{
+  "passed": false,
+  "scope": "same_os_identity_as_local_dsh_child; necessary_check_only",
+  "paths": [
+    {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\AGENTS.md",
+      "status": "readable"
+    },
+    {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\tasks\\second_tasks\\S11-corrupt-recovery\\checker.py",
+      "status": "readable"
+    },
+    {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\tasks\\second_tasks\\S11-corrupt-recovery\\spec.md",
+      "status": "readable"
+    },
+    {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\tasks\\second_tasks\\S11-corrupt-recovery\\truth.json",
+      "status": "readable"
+    }
+  ],
+  "record_type": "local_guard_probe_not_product_run",
+  "product_runs": 0
+}

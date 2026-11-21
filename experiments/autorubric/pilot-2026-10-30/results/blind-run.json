@@ -1,0 +1,15 @@
+{
+  "judge": "DSH CLI headless fresh session",
+  "judge_model": "deepseek-flash",
+  "rubric_sha256": "ca756895deaec84246f3e990011695312d877ebfb317c9a15975295729f1f38f",
+  "holdout_sha256": "cbbf66d070ba480f5cbe2108ff423abc94530a95dc8eaca9f1b220945850405d",
+  "predictions_sha256": "38a37161fb9d6894136c6369230546f0014a6e7f301921cffa41546293febcd4",
+  "isolation": "fresh headless session; temporary cwd; prompt contained only protocol, rubric, unlabeled holdout",
+  "rows": 16,
+  "abstain": 0,
+  "judge_provider": "deepseek-official",
+  "reasoning_effort": "high",
+  "judge_cli_version": "0.2.2-rc.1",
+  "not_applicable": 2,
+  "native_trace_sha256": "eb158227c758120af37a3edc8681d3e1122a542983385f2ee2456c53076b1c70"
+}

@@ -53,7 +53,7 @@ flowchart LR
 
 详细对照表见 [`tasks/first_tasks/all-inputs/README.md`](tasks/first_tasks/all-inputs/README.md) 与 [`tasks/second_tasks/all-inputs/README.md`](tasks/second_tasks/all-inputs/README.md)。
 
-## 状态（2026-10-25）
+## 状态（2026-11-21）
 
 **已完成**
 
@@ -71,6 +71,11 @@ flowchart LR
 - [x] **周报 02 已出**（运行账 5/5/0/0 + 现场链接 + 3 项可验收目标；[周报02](docs/周报/周报02-2026-10-23.md)）
 - [x] **未知登记表**（[docs/18](docs/18-未知登记表.md)：3 条开放 + 6 条已结清，均带下一步与停止条件）
 - [x] 仓库维护机制：变更日志 [CHANGELOG.md](CHANGELOG.md)、周报留档 [docs/周报/](docs/周报/)
+- [x] 四轨架构与前三项整改执行合同（[docs/43](docs/43-四轨架构与前三项整改执行合同-2026-11-20.md)）、归因与研究轨道现行规则（[docs/41](docs/41-归因与研究轨道现行规则-2026-11-20.md)）
+- [x] P0 DSH 隔离实验 run16/run17 各 9.0/10；S06×DSH 外部交付核查 C0 基线 7/7（C1/恢复臂按停止线未发射）
+- [x] S11 五场作者复判（黄钧锶）20 格：exact 90%、加权 κ 0.9545
+- [x] 统一主报告与验收缺口（[docs/reports/48](docs/reports/48-统一主报告与验收缺口-2026-11-21.md)）
+- [x] file-interface-v1 三场 r2 + doubao-r3 + desktop 复核证据入库
 
 **进行中 / 待做**
 
@@ -80,5 +85,7 @@ flowchart LR
 - [ ] 阶段 4 · 全量逐格判分 → 单题分 / 维度剖面 / 总分 —— **S06 五款行为分已签认**
 - [ ] 阶段 5 · 归因闭环：裸模型探针 → DSH 换件（最低 3 件 × 2 题 × 2 次，见 [docs/09 §5.3](docs/09-执行层压力测试设计-v1.md)）→ 复测 —— **T02 已结清（B）；U-05 探针 2/2 已跑；DSH 换件仍为 0**
 - [ ] 阶段 6 · 评测报告
+- [ ] 任务1「至少一个 baseline→change→recover 实验包」——S06 基线直接成功、未形成闭环，暂停付费发射（见[主报告](docs/reports/48-统一主报告与验收缺口-2026-11-21.md)）
+- [ ] 任务2「未见样本独立复评」——现有 20 格为作者复判（已见旧分），换人可靠性仍未验收
 
 > 周报每周六更新，留档于 [`docs/周报/`](docs/周报/)；实质性变更同步登记在 [`CHANGELOG.md`](CHANGELOG.md)。

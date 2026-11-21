@@ -1,0 +1,25 @@
+{
+  "recorded_at": "2026-11-20T22:49:34+08:00",
+  "files": [
+    {
+      "path": "adjudication-01/prestate/run16-run.json",
+      "sha256": "285f80ece744f3ec8d682c38596bd31ff44abc18cc8d1c0b4dd59f5a22214b20",
+      "bytes": 8019
+    },
+    {
+      "path": "adjudication-01/prestate/run16-score.json",
+      "sha256": "e50b6b19c4b6052df77186ad440111447949e33d2e0c41edaf4cd83f3e95591b",
+      "bytes": 133
+    },
+    {
+      "path": "adjudication-01/prestate/run17-run.json",
+      "sha256": "228b2044fd7289a3a50494a906b99215466a22b4ffcbe2cf53f84536d71f6aab",
+      "bytes": 8663
+    },
+    {
+      "path": "adjudication-01/prestate/run17-score.json",
+      "sha256": "e50b6b19c4b6052df77186ad440111447949e33d2e0c41edaf4cd83f3e95591b",
+      "bytes": 133
+    }
+  ]
+}

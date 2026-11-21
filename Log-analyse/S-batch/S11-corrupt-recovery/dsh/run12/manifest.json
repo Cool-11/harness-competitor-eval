@@ -1,0 +1,72 @@
+{
+  "schema_version": 3,
+  "protocol_version": "hev-v3",
+  "admission_track": "execution_behavior",
+  "comparison_track": "B_native_product",
+  "control_contract_sha256": "",
+  "record_type": "product_run",
+  "run_id": "hev-20261117T162956+0800-S11-dsh-r12-96c5e7ab",
+  "case": "S11-corrupt-recovery",
+  "product": "dsh",
+  "run": 12,
+  "variant": "s11-p2-pwsh-default-a2-20261117",
+  "root": "C:\\tmp_s11_pwsh_channel_20261117",
+  "work_dir": "C:\\tmp_s11_pwsh_channel_20261117\\S11-corrupt-recovery\\dsh\\run12\\work",
+  "product_revision": "ca164b3f",
+  "started_at": "2026-11-17T16:29:56+08:00",
+  "ended_at": "2026-11-17T16:30:37+08:00",
+  "prompt_sha8": "41d608c4",
+  "inputs_sha8": {
+    "config.json": "4583ff08",
+    "data.csv": "fd668362"
+  },
+  "artifacts_count": 3,
+  "artifacts_sha256": {
+    "config.json": "53bf01763e020c52995360ca0d485f02e904d10edb4f1d87a0b2765758192d31",
+    "data.csv": "fd668362c2f1e6151450be97d7a3d6c444f34275ec978d069dec7f227b037acc",
+    "filtered.csv": "349fa30935c0649d29bc467a2a7ccc8a1c214d34e650a2296ebf602f453df7be"
+  },
+  "evidence": {
+    "cwd_evidence": {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\dsh\\run12\\evidence\\cwd_evidence\\native-evidence.json",
+      "source_path": "C:\\tmp_s11_pwsh_channel_20261117\\S11-corrupt-recovery\\dsh\\run12\\runner\\native-evidence.json",
+      "sha256": "c4c382c1508ad343b2e879b15a8eae2d7af852990965f7c3008422a3707668a4"
+    },
+    "session_export": {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\dsh\\run12\\evidence\\session_export\\session.v4.jsonl.zstd",
+      "source_path": "C:\\Users\\25634\\.dsh\\sessions\\--C-tmp_s11_pwsh_channel_20261117-S11-corrupt-recovery-dsh-run12-work--\\session-2af39aab-baa2-4b5a-bb1a-522348c0df05\\session.v4.jsonl.zstd",
+      "sha256": "4dd9d91ea30a3072cd113f6ada2c721d235614a072c0aec778f4091d73fdbce4"
+    },
+    "configuration_evidence": {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\dsh\\run12\\evidence\\configuration_evidence\\config-precheck.md",
+      "source_path": "F:\\for-project-new\\harness-competitor-eval\\experiments\\s11-dsh-pwsh-channel-2026-11-17\\config-precheck.md",
+      "sha256": "53c71a6b0d3bcd053c8ab1f19be0e0f216655f928b0090bc58a176f337eb7593"
+    }
+  },
+  "checker_exit": 1,
+  "interventions": 0,
+  "rerun": false,
+  "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+  "evaluator_revision": "sha256:d24f216a64fc17b5115d336baf4f0613260b518b1f4a0c48fd49d200d97f1747",
+  "execution_context": {
+    "product_version": "0.2.2-rc.1",
+    "account": "日常账号",
+    "model": "deepseek-flash",
+    "provider": "deepseek-official",
+    "reasoning": "high",
+    "sampling": "provider_default",
+    "tools": [
+      "shell",
+      "filesystem"
+    ],
+    "permissions": "workspace-write",
+    "network": "provider-api-only",
+    "surface": "cli",
+    "context_policy": "headless_new_agent",
+    "skills_state": "enabled_unchanged",
+    "memory_state": "unknown",
+    "interface_precheck": "passed",
+    "configuration_evidence": "F:\\for-project-new\\harness-competitor-eval\\experiments\\s11-dsh-pwsh-channel-2026-11-17\\config-precheck.md",
+    "configuration_evidence_sha256": "53c71a6b0d3bcd053c8ab1f19be0e0f216655f928b0090bc58a176f337eb7593"
+  }
+}

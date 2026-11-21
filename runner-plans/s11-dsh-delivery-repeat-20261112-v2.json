@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "batch_id": "s11-dsh-delivery-repeat-20261112-v2",
+  "root": "C:/tmp_s11_dsh_isolated_20261112",
+  "variant": "s11-dsh-same-config-repeat-isolated-root-20261112",
+  "comparison_track": "B_native_product",
+  "defaults": {
+    "timeout_seconds": 600,
+    "tools": "shell,filesystem",
+    "permissions": "workspace-write",
+    "network": "provider-api-only"
+  },
+  "adapters": {
+    "dsh": {
+      "executable": "dsh",
+      "profile": "headless",
+      "required_env": ["DEEPSEEK_API_KEY"],
+      "extra_args": ["--permission-mode", "workspace-write", "--approval-policy", "never"]
+    }
+  },
+  "slots": [
+    {"case": "S11", "product": "dsh", "run": "auto"}
+  ]
+}

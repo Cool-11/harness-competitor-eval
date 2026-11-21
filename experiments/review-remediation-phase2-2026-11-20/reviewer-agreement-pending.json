@@ -1,0 +1,25 @@
+{
+  "status": "pending",
+  "expected_cells": 20,
+  "run_subjects": 5,
+  "source_sha256": {
+    "reference": "f45b7b216baaf727fde2c2aaca2b644ec1f9928b9c70825f55ccd8d00118b1f0",
+    "review": "1b49ebce791b4cc071d14de016b64f4325f522b4f4d6e5d827d957c8f3589f0b"
+  },
+  "declaration": {
+    "relationship": "unknown"
+  },
+  "independence_verified": false,
+  "pending": {
+    "reference": 0,
+    "review": 20
+  },
+  "abstain": {
+    "reference": 0,
+    "review": 0
+  },
+  "overall": null,
+  "by_dimension": {},
+  "disagreements": [],
+  "protocol_sha256": "6fb1fb0b48857c1a019b73e01a705f227d4cfb54d93ca0761e471d9b8074111f"
+}

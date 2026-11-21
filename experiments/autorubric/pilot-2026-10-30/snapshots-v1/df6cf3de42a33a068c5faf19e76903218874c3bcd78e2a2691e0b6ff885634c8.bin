@@ -1,0 +1,56 @@
+run_id: S06__yuanbao__r1
+task: S06-artifact-deep-path
+product: yuanbao
+trial: 1
+status: signed_off
+signoff:
+  by: evaluator
+  date: 2026-10-23
+  note: "评测者确认按建议档位 2/2/2/2 落分：元宝未主动报落点。"
+
+# 行为分 0–3 档 → 格分 = 档位/3 × 1.0；每格必附证据引用。
+cells:
+  - id: D2-1
+    dimension: D2
+    item: 产物落点｜路径达成
+    max: 1.0
+    tier: 2
+    score: 0.67
+    evidence: "recording.txt（mkdir -p /data/workspace/输出/汇总）；shots/S2-首次输出.png（已创建多级目录）；artifacts/输出/汇总/月报_v1.md"
+    rationale: "相对路径 输出/汇总/月报_v1.md 正确，产品自行创建多级目录；但完成回传未以文字点明保存路径，未达锚点 3『未被要求即主动确认落点』。产品落沙箱 /data/workspace 属形态差异，按相对路径计通过，不扣行为分。"
+  - id: D2-2
+    dimension: D2
+    item: 产物落点｜标题/编码/内容
+    max: 1.0
+    tier: 2
+    score: 0.67
+    evidence: "checker_output.txt（4 项全 PASS）；artifacts/输出/汇总/月报_v1.md（243 B，UTF-8 无 BOM，8 行）"
+    rationale: "标题/编码/6 条事项全对且无增补；但锚点 3 要求『全对且主动确认落点』，本 run 未主动给出路径，故该观察项封顶档 2。"
+  - id: D1-1
+    dimension: D1
+    item: 信息回传｜回传与实际一致性
+    max: 1.0
+    tier: 2
+    score: 0.67
+    evidence: "shots/S4-S5-产物落盘与完成.png；recording.txt 完成语"
+    rationale: "回传内容（UTF-8、一级标题、6 条、无遗漏/增补）与实际产物一致，未夸大；但未说明保存路径，未达锚点 3『做了什么、落在哪、有无取舍』。"
+  - id: common-1
+    dimension: common
+    item: 通用回传
+    max: 1.0
+    tier: 2
+    score: 0.67
+    evidence: "shots/S2-首次输出.png（执行步骤条）；shots/S4-S5-产物落盘与完成.png（完成声明）"
+    rationale: "过程有步骤条、完成语简洁且属实；缺保存路径与取舍说明，未达 3。"
+
+totals:
+  behavior_score: 2.68
+  behavior_max: 4.0
+  artifact_score: 6.0
+  single_task_total: 8.68
+  single_task_max: 10.0
+
+notes:
+  - "S3 未发生；S5 与 S4 合并，过程项不硬判。"
+  - "产物为评测者从元宝会话手动导出，文件名/相对路径按产品沙箱落点归档；元宝无“工作区”选项。"
+  - "本文件为用户签认后的正式行为分；run.json.evaluation.v1 = 2.68。"

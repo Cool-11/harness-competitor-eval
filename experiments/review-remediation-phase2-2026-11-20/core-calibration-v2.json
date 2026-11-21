@@ -1,0 +1,114 @@
+{
+  "version": 2,
+  "status": "local_calibration_not_official_rescoring",
+  "task_contracts": {
+    "S06-artifact-deep-path": {
+      "tasks/second_tasks/S06-artifact-deep-path/prompt.txt": "94eae96e4cdbfbf06edd525f950736300579fef54749a3848eefd232c3671735",
+      "tasks/second_tasks/S06-artifact-deep-path/spec.md": "84a223a593a8b81ccc0d8a4bec646a9ef39ff9ff2b556e04c710fa288e20c226",
+      "tasks/second_tasks/S06-artifact-deep-path/truth.json": "13db6be7fb1c242bae2c1cad31c38be8bae8f5ca108bf566826c523e3f1be331",
+      "tasks/second_tasks/S06-artifact-deep-path/checker.py": "7ce8ce3c2fc0d4d8c2eecf185294eb80db382d26c9dafe724ef92073c972c479",
+      "tasks/second_tasks/S06-artifact-deep-path/inputs/notes.md": "0d1b0f58a6fe93e436034b819dca808023311d3127dda505dd3cad1be950c26e"
+    },
+    "S11-corrupt-recovery": {
+      "tasks/second_tasks/S11-corrupt-recovery/prompt.txt": "41d608c42045fb2512489baf080aaa1d1cdd3452d4d0e946b7784f748fa88bb1",
+      "tasks/second_tasks/S11-corrupt-recovery/spec.md": "47a4edcf4b9ef81053bd2f2461a69a68acc9f7f246baa2d430fd3aaafbcd81ad",
+      "tasks/second_tasks/S11-corrupt-recovery/truth.json": "77de5f78ab52a7372e10aa042618c29962e1f3db6cad51db7a6712add8f75a2a",
+      "tasks/second_tasks/S11-corrupt-recovery/checker.py": "e2d80a7a72e1e51a198c0a757b12577cfc75cb6c8aff48320b0889fe2d2f200e",
+      "tasks/second_tasks/S11-corrupt-recovery/inputs/config.json": "4583ff08648b54a173ecb733e52daff6d7721e3dce37feaab08aa29041d064b9",
+      "tasks/second_tasks/S11-corrupt-recovery/inputs/data.csv": "fd668362c2f1e6151450be97d7a3d6c444f34275ec978d069dec7f227b037acc"
+    }
+  },
+  "independent_review": "pending",
+  "results": [
+    {
+      "task": "S06-artifact-deep-path",
+      "case": "golden",
+      "checker_score": 7.0,
+      "fixture": "tests/fixtures/golden/S06-artifact-deep-path",
+      "fixture_sha256": {
+        "tests/fixtures/golden/S06-artifact-deep-path/WHY.md": "028d0859d66336fd8076587b55200a47a8015ddbace65f9ff6871f63a2783a57",
+        "tests/fixtures/golden/S06-artifact-deep-path/输出/汇总/月报_v1.md": "06b343ee45880523af645bebaad998b299e1ed2f182b2056165bc72c2a3fe64f"
+      },
+      "checker_sha256": "7ce8ce3c2fc0d4d8c2eecf185294eb80db382d26c9dafe724ef92073c972c479"
+    },
+    {
+      "task": "S06-artifact-deep-path",
+      "case": "partial",
+      "checker_score": 5.5,
+      "fixture": "tests/fixtures/partial/S06-artifact-deep-path",
+      "fixture_sha256": {
+        "tests/fixtures/partial/S06-artifact-deep-path/WHY.md": "40ac79b274aefac96b77b6a489e722602048d7559dc854f5c8019624156775e8",
+        "tests/fixtures/partial/S06-artifact-deep-path/输出/汇总/月报_v1.md": "29e9423892f0f32811c2ed37a5d73041d852baff429b0a2bd8e500424a8d12b8"
+      },
+      "checker_sha256": "7ce8ce3c2fc0d4d8c2eecf185294eb80db382d26c9dafe724ef92073c972c479"
+    },
+    {
+      "task": "S06-artifact-deep-path",
+      "case": "unsupported_addition",
+      "checker_score": 7.0,
+      "sample_text": "# 九月月报\n\n- 9/3 完成 v0.3 发版\n- 客户 A 反馈：导出慢，约 8 秒\n- 9/10 修复导出性能，降到 2 秒\n- 团队扩到 6 人（新增 2 名测试）\n- 9/18 与供应商 B 签署续约\n- 遗留：移动端适配尚未启动\n\n- 本月营收翻倍。\n",
+      "semantic_expectation_draft": "reject: 无依据增补",
+      "checker_sha256": "7ce8ce3c2fc0d4d8c2eecf185294eb80db382d26c9dafe724ef92073c972c479"
+    },
+    {
+      "task": "S06-artifact-deep-path",
+      "case": "keywords_only",
+      "checker_score": 7.0,
+      "sample_text": "# 九月月报\n\nv0.3、8 秒、2 秒、6 人、供应商 B、移动端适配。\n",
+      "semantic_expectation_draft": "reject: 未列原材料事项",
+      "checker_sha256": "7ce8ce3c2fc0d4d8c2eecf185294eb80db382d26c9dafe724ef92073c972c479"
+    },
+    {
+      "task": "S06-artifact-deep-path",
+      "case": "omission",
+      "checker_score": 6.58,
+      "sample_text": "# 九月月报\n\n- 9/3 完成 v0.3 发版\n- 客户 A 反馈：导出慢，约 8 秒\n- 9/10 修复导出性能，降到 2 秒\n- 团队扩到 6 人（新增 2 名测试）\n- 9/18 与供应商 B 签署续约\n",
+      "semantic_expectation_draft": "reject: 遗漏",
+      "checker_sha256": "7ce8ce3c2fc0d4d8c2eecf185294eb80db382d26c9dafe724ef92073c972c479"
+    },
+    {
+      "task": "S06-artifact-deep-path",
+      "case": "equivalent",
+      "checker_score": 7.0,
+      "sample_text": "# 九月月报\n\n- 9/3 完成 v0.3 发版\n- 客户 A 反馈：导出慢，约 8 秒\n- 9/10 修复导出性能，缩短至 2 秒\n- 团队扩到 6 人（新增 2 名测试）\n- 9/18 与供应商 B 签署续约\n- 遗留：移动端适配尚未启动\n",
+      "semantic_expectation_draft": "accept: 等价改写",
+      "checker_sha256": "7ce8ce3c2fc0d4d8c2eecf185294eb80db382d26c9dafe724ef92073c972c479"
+    },
+    {
+      "task": "S11-corrupt-recovery",
+      "case": "golden",
+      "checker_score": 7.0,
+      "fixture": "tests/fixtures/golden/S11-corrupt-recovery",
+      "fixture_sha256": {
+        "tests/fixtures/golden/S11-corrupt-recovery/error_report.md": "b45f002f5b7660e6ee37a9432394866944e1976b9323b6d9c9a81158fce72f1c",
+        "tests/fixtures/golden/S11-corrupt-recovery/result.md": "87c8bf6cce19d27ef39dea47c70925f51709a9c1ba491c0812361d520bc0e610",
+        "tests/fixtures/golden/S11-corrupt-recovery/WHY.md": "9f0432328ddee46bc729ec42e15e9ed90a361f1036620ca7e607c4831871fd8d"
+      },
+      "checker_sha256": "e2d80a7a72e1e51a198c0a757b12577cfc75cb6c8aff48320b0889fe2d2f200e"
+    },
+    {
+      "task": "S11-corrupt-recovery",
+      "case": "partial",
+      "checker_score": 6.0,
+      "fixture": "tests/fixtures/partial/S11-corrupt-recovery",
+      "fixture_sha256": {
+        "tests/fixtures/partial/S11-corrupt-recovery/error_report.md": "b5faabbcab44f711a0940f4e26f6d7741372f04ceec92d867af1603cf676fdfa",
+        "tests/fixtures/partial/S11-corrupt-recovery/result.md": "87c8bf6cce19d27ef39dea47c70925f51709a9c1ba491c0812361d520bc0e610",
+        "tests/fixtures/partial/S11-corrupt-recovery/WHY.md": "2299f9ac292154df35551a23244c4f6014b5ed848568f0189acf65d7642caec4"
+      },
+      "checker_sha256": "e2d80a7a72e1e51a198c0a757b12577cfc75cb6c8aff48320b0889fe2d2f200e"
+    },
+    {
+      "task": "S11-corrupt-recovery",
+      "case": "tampered",
+      "checker_score": 6.0,
+      "fixture": "tests/fixtures/tampered/S11-corrupt-recovery",
+      "fixture_sha256": {
+        "tests/fixtures/tampered/S11-corrupt-recovery/error_report.md": "302edb47cc587634ef3437832ea7c3470cb678fc020c82cda6077cf6fdafb852",
+        "tests/fixtures/tampered/S11-corrupt-recovery/result.md": "87c8bf6cce19d27ef39dea47c70925f51709a9c1ba491c0812361d520bc0e610",
+        "tests/fixtures/tampered/S11-corrupt-recovery/WHY.md": "0fa842d4e966a89283b048604046af13a655bc2a8641b5ba2d24ab811a8ecb8a"
+      },
+      "checker_sha256": "e2d80a7a72e1e51a198c0a757b12577cfc75cb6c8aff48320b0889fe2d2f200e"
+    }
+  ]
+}

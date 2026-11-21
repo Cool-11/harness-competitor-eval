@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "scope": "minimal_frozen_export_snapshot_not_full_repository_clone",
+  "product_runs": 0,
+  "checkouts": [
+    {
+      "core.autocrlf": "false",
+      "grade_newline": "LF",
+      "signed_runs": 10,
+      "cells": 40,
+      "passed": true
+    },
+    {
+      "core.autocrlf": "true",
+      "grade_newline": "CRLF",
+      "signed_runs": 10,
+      "cells": 40,
+      "passed": true
+    }
+  ]
+}

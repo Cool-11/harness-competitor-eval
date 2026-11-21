@@ -1,0 +1,2 @@
+# AutoRubric historical bytes must survive every checkout unchanged.
+experiments/autorubric/pilot-2026-10-30/snapshots-v1/*.bin -text -diff

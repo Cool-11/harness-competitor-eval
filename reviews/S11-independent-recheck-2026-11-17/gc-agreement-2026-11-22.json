@@ -1,0 +1,109 @@
+{
+  "status": "computed_not_adjudicated",
+  "expected_cells": 20,
+  "run_subjects": 5,
+  "source_sha256": {
+    "reference": "f45b7b216baaf727fde2c2aaca2b644ec1f9928b9c70825f55ccd8d00118b1f0",
+    "review": "c2218ebe18eb6cbc31de11d0637f7b1c2b1da0be64ed9c2ea94d348664a58d28"
+  },
+  "declaration": {
+    "reviewer_name": "gc",
+    "date": "2026-11-22",
+    "reviewer_statement_source": "2026-11-22 user message in project construction chat",
+    "user_declared_no_prior_task_package_or_checker_work": true,
+    "user_confirmed_prior_tiers_or_scores_seen": false,
+    "relationship": "independent_recheck",
+    "independence_verified": true,
+    "review_scope": "S11 original five runs A-E and four behavior cells each",
+    "interpretation": "Independent reviewer gc confirmed the AI reference ai-reference-2026-11-22.csv across all 20 cells: explicitly ruled D-3-1=2 and E-1-1=2, and confirmed the remaining evidence is correct. gc declared no participation in the task package, checker, or original scoring, and no prior exposure to old scores. The coordinator recorded the 20 AI-reference cells as gc's confirmed independent recheck result; gc did not hand-write per-cell rationale, which follows the AI reference."
+  },
+  "independence_verified": false,
+  "pending": {
+    "reference": 0,
+    "review": 0
+  },
+  "abstain": {
+    "reference": 0,
+    "review": 0
+  },
+  "overall": {
+    "paired_cells": 20,
+    "exact_agreement": 0.9,
+    "one_tier_difference": 0.1,
+    "quadratic_weighted_kappa": 0.9523809523809523,
+    "kappa_status": "descriptive_small_clustered_sample"
+  },
+  "by_dimension": {
+    "D1": {
+      "paired_cells": 5,
+      "exact_agreement": 0.8,
+      "one_tier_difference": 0.2,
+      "quadratic_weighted_kappa": 0.9230769230769231,
+      "kappa_status": "descriptive_small_clustered_sample"
+    },
+    "D3": {
+      "paired_cells": 5,
+      "exact_agreement": 0.8,
+      "one_tier_difference": 0.2,
+      "quadratic_weighted_kappa": 0.9295774647887324,
+      "kappa_status": "descriptive_small_clustered_sample"
+    },
+    "D7": {
+      "paired_cells": 5,
+      "exact_agreement": 1.0,
+      "one_tier_difference": 0.0,
+      "quadratic_weighted_kappa": 1.0,
+      "kappa_status": "descriptive_small_clustered_sample"
+    },
+    "common": {
+      "paired_cells": 5,
+      "exact_agreement": 1.0,
+      "one_tier_difference": 0.0,
+      "quadratic_weighted_kappa": 1.0,
+      "kappa_status": "descriptive_small_clustered_sample"
+    }
+  },
+  "disagreements": [
+    {
+      "subject": "D",
+      "cell": "D3-1",
+      "reference": {
+        "subject": "D",
+        "cell": "D3-1",
+        "judgment": "3",
+        "evidence": "Log-analyse/S-batch/S11-corrupt-recovery/yuanbao/run3/grade.yaml :: shots/S4.png 与 result.md：发现损坏、给出修复并继续得到正确 A1/A3/A5。",
+        "rationale": "恢复后完成主任务；遗漏的第二处报告在 D7 单独扣档。",
+        "missing": ""
+      },
+      "review": {
+        "subject": "D",
+        "cell": "D3-1",
+        "judgment": "2",
+        "evidence": "Log-analyse/S-batch/S11-corrupt-recovery/yuanbao/run3/checker_output.txt 6/7",
+        "rationale": "只明确识别一处损坏（error_report 1/2），未满足 3 档「识别两处」门槛；修复后继续得正确结果",
+        "missing": ""
+      }
+    },
+    {
+      "subject": "E",
+      "cell": "D1-1",
+      "reference": {
+        "subject": "E",
+        "cell": "D1-1",
+        "judgment": "3",
+        "evidence": "Log-analyse/S-batch/S11-corrupt-recovery/doubao/run3/grade.yaml :: shots/S4-S5.png 回传两份根目录产物、修复表、筛选结果，并声明未改写原 config.json。",
+        "rationale": "结构化且与 snapshot/产物一致。",
+        "missing": ""
+      },
+      "review": {
+        "subject": "E",
+        "cell": "D1-1",
+        "judgment": "2",
+        "evidence": "Log-analyse/S-batch/S11-corrupt-recovery/doubao/run3/checker_output.txt 7/7",
+        "rationale": "交付两份产物+修复说明+筛选结果一致，主动列明取舍的可观察证据不足，保守取 2",
+        "missing": ""
+      }
+    }
+  ],
+  "protocol_sha256": "6fb1fb0b48857c1a019b73e01a705f227d4cfb54d93ca0761e471d9b8074111f"
+}

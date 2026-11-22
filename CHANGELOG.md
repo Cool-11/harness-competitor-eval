@@ -6,6 +6,24 @@
 
 ---
 
+## [2026-11-23]
+
+### 文档
+
+- `README.md`：状态更新至 2026-11-23；外部验证进度段更新至 2026-11-18（file-interface-v1 run2/doubao-run3 终裁）；任务1/任务2 收口、从「进行中」移入「已完成」。
+- Harness 改进闭环按方向 D 收口：DSH Windows 0/7 记为环境相关已知限制、闭环标注「无法闭合」（见 docs/reports/48 文末收口入口）。
+
+## [2026-11-22]
+
+### 新增
+
+- `reviews/S11-independent-recheck-2026-11-17/gc-declaration-2026-11-22.json`、`gc-agreement-2026-11-22.json`：gc 独立复核（未见旧分）确认 AI 初评 20 格，exact 90%、加权 κ 0.952。
+- `Log-analyse/S-batch/snapshots/2026-11-22-remote-recheck/results.md`：全仓远端干净检出复算结果（6 条复算命令全通过 + 公开证据 117/120 verified）。
+
+### 文档
+
+- `docs/reports/48`：文末追加 2026-11-22 gc 独立复核入口与远端复算入口。
+
 ## [2026-11-21]
 
 ### 新增

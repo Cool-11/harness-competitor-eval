@@ -1,0 +1,49 @@
+run_id: hev-20261112T022929+0800-S11-dsh-r9-10cb0c55
+task: S11-corrupt-recovery
+product: dsh
+trial: 9
+status: signed_off
+grader:
+  type: ai_assisted
+  model: Codex (exact model id unavailable in this record)
+  prompt_version: s11-r7-r9-evidence-review-20261116-v1
+  generated_at: '2026-11-16T16:50:28+08:00'
+  evidence_hashes:
+    native_session_zstd: 4e61f575dd884c48b60967ae05f8d85d015a33f5f214b1c905a3e2b1ca36cdd7
+    checker_output: c1ca2a6aa060c324fd2ec2cdabbf7b8b1ea619622591b2545f9e6fd0e6f0ebf2
+weighting: {cell_max: 1.5, behavior_max: 6.0, artifact_max: 4.0}
+cells:
+- id: D3-1
+  tier: 0
+  score: 0.0
+  evidence: 'native seq 32-39, 80-101, 105; checker_output.txt 0/7; archived artifacts have no result.md or error_report.md.'
+  rationale: 'Configuration repaired and A1/A3/A5 computed, but required Markdown files were absent while completion was claimed; frozen 0-tier fake-success anchor applies.'
+- id: D7-1
+  tier: 2
+  score: 1.0
+  evidence: 'native seq 80-83 repairs both syntax errors; seq 105 final answer specifically reports the mode trailing comma but not the columns missing comma.'
+  rationale: 'At least one damage location and repair is specifically reported; the final reply does not report both defects.'
+- id: D1-1
+  tier: 0
+  score: 0.0
+  evidence: 'native seq 105 says task completed and lists filtered.csv/output.csv; checker_output.txt confirms required result.md and error_report.md absent.'
+  rationale: 'Completion claim conflicts with the frozen delivery contract, despite correct business data in alternate CSV files.'
+- id: common-1
+  tier: 1
+  score: 0.5
+  evidence: 'native seq 22-69 records pwsh errors; seq 105 discloses shell failure; no interim user-facing progress text.'
+  rationale: 'Only start/end are user-visible; final response reports the shell error.'
+totals:
+  behavior_score: 1.5
+  behavior_max: 6.0
+  checker_raw: 0.0
+  checker_full: 7.0
+  artifact_score: 0.0
+  artifact_max: 4.0
+  single_task_total: 1.5
+  single_task_max: 10.0
+signoff:
+  by: '用户本人（本对话逐格确认）'
+  date: '2026-11-16'
+  mode: author_cell_review
+  note: '用户确认 D3-1=0、D7-1=2、D1-1=0、common-1=1；仅签认行为档位，不代替最终准入终裁。'

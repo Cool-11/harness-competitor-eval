@@ -1,13 +1,65 @@
 {
-  "generated_at": "2026-11-10T01:05:02+08:00",
+  "generated_at": "2026-11-20T22:50:24+08:00",
+  "as_of": "current_snapshot",
+  "undated_excluded": [],
   "scope": [
     "S06-artifact-deep-path",
     "S11-corrupt-recovery"
   ],
   "planned_cells": 10,
-  "observed_run_records": 27,
-  "formal_run_records": 11,
+  "observed_run_records": 37,
+  "formal_run_records": 18,
   "formal_cells": 10,
+  "ruling_counts": {
+    "pass": 10,
+    "fail": 8,
+    "invalid": 9,
+    "pending": 10,
+    "unknown": 0,
+    "not_applicable": 0
+  },
+  "replacement_links": [
+    {
+      "from_run_id": "hev-20261107T025604+0800-S06-codex-r2-e2e49c5e",
+      "to_run_id": "hev-20261107T211910+0800-S06-codex-r3-bff3691f",
+      "evidence": "docs/周报/周报04-2026-11-07.md §3"
+    },
+    {
+      "from_run_id": "hev-20261107T025942+0800-S11-codex-r3-8e282905",
+      "to_run_id": "hev-20261107T212229+0800-S11-codex-r4-0e5a40b2",
+      "evidence": "docs/周报/周报04-2026-11-07.md §3"
+    },
+    {
+      "from_run_id": "hev-20261107T025818+0800-S06-dsh-r2-09b052bb",
+      "to_run_id": "hev-20261107T212644+0800-S06-dsh-r4-57b863b9",
+      "evidence": "docs/周报/周报04-2026-11-07.md §3"
+    },
+    {
+      "from_run_id": "hev-20261107T025933+0800-S06-dsh-r3-51eb245d",
+      "to_run_id": "hev-20261107T212644+0800-S06-dsh-r4-57b863b9",
+      "evidence": "docs/周报/周报04-2026-11-07.md §3"
+    },
+    {
+      "from_run_id": "hev-20261107T030151+0800-S11-dsh-r5-ba356358",
+      "to_run_id": "hev-20261107T212723+0800-S11-dsh-r6-59e4d108",
+      "evidence": "docs/周报/周报04-2026-11-07.md §3"
+    },
+    {
+      "from_run_id": "hev-20261101T014857+0800-S11-dsh-r3-f31eec6c",
+      "to_run_id": "hev-20261101T015900+0800-S11-dsh-r4-fb43b7cd",
+      "evidence": "docs/26-S11-DSH-F盘试点执行卡-2026-11-01.md §1, §3"
+    },
+    {
+      "from_run_id": "hev-20261112T022448+0800-S11-dsh-r8-d974f57e",
+      "to_run_id": "hev-20261112T022929+0800-S11-dsh-r9-10cb0c55",
+      "evidence": "experiments/s11-dsh-delivery-repeat-2026-11-12/preregistration.md 补充预注册"
+    },
+    {
+      "from_run_id": "hev-20261112T022719+0800-S11-dsh-r2-f5f7f698",
+      "to_run_id": "hev-20261112T022929+0800-S11-dsh-r9-10cb0c55",
+      "evidence": "experiments/s11-dsh-delivery-repeat-2026-11-12/preregistration.md 再次补充预注册"
+    }
+  ],
   "cells": [
     {
       "task": "S06-artifact-deep-path",
@@ -348,6 +400,21 @@
           "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S11-corrupt-recovery/dsh/run1/run.json"
         },
         {
+          "run_id": "hev-20261112T022719+0800-S11-dsh-r2-f5f7f698",
+          "trial": 2,
+          "ruling": "invalid",
+          "eligible": false,
+          "reasons": [
+            "运行受污染或未核验",
+            "终裁=invalid，不可进入正式比较"
+          ],
+          "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+          "product_revision": "ca164b3f",
+          "artifact_score": 0.0,
+          "behavior_score": null,
+          "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S11-corrupt-recovery/dsh/run2/run.json"
+        },
+        {
           "run_id": "hev-20261101T014857+0800-S11-dsh-r3-f31eec6c",
           "trial": 3,
           "ruling": "invalid",
@@ -402,9 +469,123 @@
           "artifact_score": 0.0,
           "behavior_score": 0.25,
           "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S11-corrupt-recovery/dsh/run6/run.json"
+        },
+        {
+          "run_id": "hev-20261112T022349+0800-S11-dsh-r7-d3fe8694",
+          "trial": 7,
+          "ruling": "fail",
+          "eligible": true,
+          "reasons": [],
+          "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+          "product_revision": "ca164b3f",
+          "artifact_score": 0.0,
+          "behavior_score": null,
+          "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S11-corrupt-recovery/dsh/run7/run.json"
+        },
+        {
+          "run_id": "hev-20261112T022448+0800-S11-dsh-r8-d974f57e",
+          "trial": 8,
+          "ruling": "invalid",
+          "eligible": false,
+          "reasons": [
+            "运行受污染或未核验",
+            "终裁=invalid，不可进入正式比较"
+          ],
+          "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+          "product_revision": "ca164b3f",
+          "artifact_score": 0.0,
+          "behavior_score": null,
+          "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S11-corrupt-recovery/dsh/run8/run.json"
+        },
+        {
+          "run_id": "hev-20261112T022929+0800-S11-dsh-r9-10cb0c55",
+          "trial": 9,
+          "ruling": "fail",
+          "eligible": true,
+          "reasons": [],
+          "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+          "product_revision": "ca164b3f",
+          "artifact_score": 0.0,
+          "behavior_score": null,
+          "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S11-corrupt-recovery/dsh/run9/run.json"
+        },
+        {
+          "run_id": "hev-20261117T162636+0800-S11-dsh-r10-d75f7caa",
+          "trial": 10,
+          "ruling": "fail",
+          "eligible": true,
+          "reasons": [],
+          "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+          "product_revision": "ca164b3f",
+          "artifact_score": 0.0,
+          "behavior_score": null,
+          "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S11-corrupt-recovery/dsh/run10/run.json"
+        },
+        {
+          "run_id": "hev-20261117T162808+0800-S11-dsh-r11-c47a802a",
+          "trial": 11,
+          "ruling": "fail",
+          "eligible": true,
+          "reasons": [],
+          "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+          "product_revision": "ca164b3f",
+          "artifact_score": 0.0,
+          "behavior_score": null,
+          "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S11-corrupt-recovery/dsh/run11/run.json"
+        },
+        {
+          "run_id": "hev-20261117T162956+0800-S11-dsh-r12-96c5e7ab",
+          "trial": 12,
+          "ruling": "fail",
+          "eligible": true,
+          "reasons": [],
+          "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+          "product_revision": "ca164b3f",
+          "artifact_score": 0.0,
+          "behavior_score": null,
+          "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S11-corrupt-recovery/dsh/run12/run.json"
+        },
+        {
+          "run_id": "hev-20261117T223912+0800-S11-dsh-r13-1ab9bd53",
+          "trial": 13,
+          "ruling": "invalid",
+          "eligible": false,
+          "reasons": [
+            "运行受污染或未核验",
+            "终裁=invalid，不可进入正式比较"
+          ],
+          "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+          "product_revision": "ca164b3f",
+          "artifact_score": 1.0,
+          "behavior_score": null,
+          "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S11-corrupt-recovery/dsh/run13/run.json"
+        },
+        {
+          "run_id": "hev-20261120T214236+0800-S11-dsh-r16-36035514",
+          "trial": 16,
+          "ruling": "pass",
+          "eligible": true,
+          "reasons": [],
+          "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+          "product_revision": "ca164b3f",
+          "artifact_score": 1.0,
+          "behavior_score": 0.8333333333333334,
+          "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S11-corrupt-recovery/dsh/run16/run.json"
+        },
+        {
+          "run_id": "hev-20261120T221915+0800-S11-dsh-r17-b058e4a8",
+          "trial": 17,
+          "ruling": "pass",
+          "eligible": true,
+          "reasons": [],
+          "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+          "product_revision": "ca164b3f",
+          "artifact_score": 1.0,
+          "behavior_score": 0.8333333333333334,
+          "evidence": "F:/for-project-new/harness-competitor-eval/Log-analyse/S-batch/S11-corrupt-recovery/dsh/run17/run.json"
         }
       ],
-      "eligible_runs": 2
+      "eligible_runs": 9
     },
     {
       "task": "S11-corrupt-recovery",

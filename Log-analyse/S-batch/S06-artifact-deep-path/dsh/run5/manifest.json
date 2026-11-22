@@ -1,0 +1,71 @@
+{
+  "schema_version": 3,
+  "protocol_version": "hev-v3",
+  "admission_track": "execution_behavior",
+  "comparison_track": "B_native_product",
+  "control_contract_sha256": "952fbb57f5e2b79b252e5a51e5bc19b1e36a247c3a52b626847b11c56227d468",
+  "record_type": "product_run",
+  "run_id": "hev-20261121T165146+0800-S06-dsh-r5-ebe2218c",
+  "case": "S06-artifact-deep-path",
+  "product": "dsh",
+  "run": 5,
+  "variant": "execution-01-C0",
+  "root": "C:\\tmp_s06_gate_v41_20261121",
+  "work_dir": "C:\\tmp_s06_gate_v41_20261121\\S06-artifact-deep-path\\dsh\\run5\\work",
+  "product_revision": "ca164b3f",
+  "started_at": "2026-11-21T16:51:46+08:00",
+  "ended_at": "2026-11-21T16:51:58+08:00",
+  "prompt_sha8": "94eae96e",
+  "inputs_sha8": {
+    "notes.md": "0d1b0f58"
+  },
+  "artifacts_count": 2,
+  "artifacts_sha256": {
+    "notes.md": "0d1b0f58a6fe93e436034b819dca808023311d3127dda505dd3cad1be950c26e",
+    "输出/汇总/月报_v1.md": "06b343ee45880523af645bebaad998b299e1ed2f182b2056165bc72c2a3fe64f"
+  },
+  "evidence": {
+    "cwd_evidence": {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\dsh\\run5\\evidence\\cwd_evidence\\native-evidence.json",
+      "source_path": "C:\\tmp_s06_gate_v41_20261121\\S06-artifact-deep-path\\dsh\\run5\\runner\\native-evidence.json",
+      "sha256": "af92d6cef0a0acf36cc4b496f3c767bbda16530e693b4f29c3ee17c2c131ff07"
+    },
+    "session_export": {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\dsh\\run5\\evidence\\session_export\\session.v4.jsonl.zstd",
+      "source_path": "C:\\tmp_s06_gate_v41_20261121\\S06-artifact-deep-path\\dsh\\run5\\runner\\sessions\\--work--\\session-3c35abd4-3765-41f5-8f03-28e3cd36da6e\\session.v4.jsonl.zstd",
+      "sha256": "12de7a5b773fab5b2e1e6eaf29912cc599ac0aa42c61d4f594350ad4d91b6aba"
+    },
+    "configuration_evidence": {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S06-artifact-deep-path\\dsh\\run5\\evidence\\configuration_evidence\\C0-configuration.json",
+      "source_path": "F:\\for-project-new\\harness-competitor-eval\\experiments\\dsh-v41flash-2026-11-21\\execution-01\\C0-configuration.json",
+      "sha256": "df33f140f80dbc16aeb7becb9830821b4b97f51fba92078b2fea5e91439adac7"
+    }
+  },
+  "checker_exit": 0,
+  "interventions": 0,
+  "rerun": false,
+  "task_revision": "sha256:beed0e9ed685560609d21921e0d7b2b1e8ad8498803b331d28fb304802df1f6b",
+  "evaluator_revision": "sha256:fe5fa48bf38589766568533d3edb96e9c2ba167f97c8bb717c170c71ca43dcbe",
+  "execution_context": {
+    "product_version": "0.2.2-rc.1",
+    "account": "日常账号",
+    "model": "deepseek-flash",
+    "provider": "deepseek-official",
+    "reasoning": "high",
+    "sampling": "provider_default",
+    "tools": [
+      "read",
+      "write",
+      "bash"
+    ],
+    "permissions": "workspace-write",
+    "network": "internal_network_api_proxy",
+    "surface": "cli",
+    "context_policy": "isolated_container",
+    "skills_state": "disabled",
+    "memory_state": "disabled",
+    "interface_precheck": "passed",
+    "configuration_evidence": "F:\\for-project-new\\harness-competitor-eval\\experiments\\dsh-v41flash-2026-11-21\\execution-01\\C0-configuration.json",
+    "configuration_evidence_sha256": "df33f140f80dbc16aeb7becb9830821b4b97f51fba92078b2fea5e91439adac7"
+  }
+}

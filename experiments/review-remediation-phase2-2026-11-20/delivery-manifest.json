@@ -1,0 +1,88 @@
+{
+  "record_type": "local_remediation_delivery_not_product_run",
+  "product_runs": 0,
+  "validation": {
+    "pytest_passed": 354,
+    "pytest_skipped": 10,
+    "ledger_records": 52,
+    "git_diff_check": "passed"
+  },
+  "files": [
+    {
+      "path": "experiments/review-remediation-phase2-2026-11-20/by-track/formal-results.json",
+      "sha256": "b466c85fced83fb7db2a40c1cb67bf3d426eedb90ca9c7dc1c83fee2f00bf109"
+    },
+    {
+      "path": "experiments/review-remediation-phase2-2026-11-20/by-track/formal-results.md",
+      "sha256": "0547af86d9e546f10bcc7fd20c7c32517f6695f38fe94f353d349a127ab97174"
+    },
+    {
+      "path": "experiments/review-remediation-phase2-2026-11-20/clean-checkout-export.json",
+      "sha256": "114e9b45b6322489d7dcbe2bb01bbbea7352ece573b50ad53c8aa049d46475de"
+    },
+    {
+      "path": "experiments/review-remediation-phase2-2026-11-20/coordinator-reference.csv",
+      "sha256": "f45b7b216baaf727fde2c2aaca2b644ec1f9928b9c70825f55ccd8d00118b1f0"
+    },
+    {
+      "path": "experiments/review-remediation-phase2-2026-11-20/core-calibration-v2.json",
+      "sha256": "86c1b5c8d267dd9dfb71315afa428e4b4eacbe21b87df543b6f05ed9851c9514"
+    },
+    {
+      "path": "experiments/review-remediation-phase2-2026-11-20/coverage.json",
+      "sha256": "f784facda06dccb53c15da66d721b61df1168c55f5397228ef36f508e3660c2a"
+    },
+    {
+      "path": "experiments/review-remediation-phase2-2026-11-20/coverage.md",
+      "sha256": "44b71ecd623082dee599dacd4b14a9eb9edbdefe91423094b022c41de2705ab3"
+    },
+    {
+      "path": "experiments/review-remediation-phase2-2026-11-20/formal-results.json",
+      "sha256": "90631ab37332b02f44a995f30da515179b146b2897396f4459437763edce50ea"
+    },
+    {
+      "path": "experiments/review-remediation-phase2-2026-11-20/formal-results.md",
+      "sha256": "0547af86d9e546f10bcc7fd20c7c32517f6695f38fe94f353d349a127ab97174"
+    },
+    {
+      "path": "experiments/review-remediation-phase2-2026-11-20/read-isolation-probe.json",
+      "sha256": "73c1483151c238c767ca45f9dac2bc82a6d9312e5a941a4c2499c2d36c35d212"
+    },
+    {
+      "path": "experiments/review-remediation-phase2-2026-11-20/README.md",
+      "sha256": "9bdf448e4d0b61573af4d5025df9c4749d683c4aaa8c208d32867cd3d7f2f1cf"
+    },
+    {
+      "path": "experiments/review-remediation-phase2-2026-11-20/reference-sources.json",
+      "sha256": "1eefa4e803431c3376e90b5408f570173cef8f597a01ddbb711e509503dced85"
+    },
+    {
+      "path": "experiments/review-remediation-phase2-2026-11-20/reviewer-agreement-pending.json",
+      "sha256": "ef97140daf35a8cacad87cd768775605778c58ded6bc8b31c0feb3b1d9e850f9"
+    },
+    {
+      "path": "scripts/cli_batch.py",
+      "sha256": "72f4e35490231da6b69ccd59536ca004dc07eb5b570eb061448e38e458e9c4b8"
+    },
+    {
+      "path": "scripts/evaluation_stats.py",
+      "sha256": "6c9e24a759305452e72ab96e125935e5a79267e31a0c9d37f2e3b07514d924a4"
+    },
+    {
+      "path": "scripts/mechanism_contract.py",
+      "sha256": "b6530b6d6f923a96d55d24d491eea8a08e26ff2460234af37f22b980526b8469"
+    },
+    {
+      "path": "scripts/reviewer_agreement.py",
+      "sha256": "39de5923c02fa0aefbf6e26662889f5662ca339ed1e11270b7ba94a529b3fb6e"
+    },
+    {
+      "path": "scripts/sbatch.py",
+      "sha256": "6b2e6a3cdd2f064e98a73505c936c58a1b2f6f1e08aebc78f0693c8b5fc23186"
+    },
+    {
+      "path": "scripts/verify_frozen_checkout.py",
+      "sha256": "3183e11982f65146ca86a58cd036d75741898f658f80aa8bbe0fefc5f6624a07"
+    }
+  ]
+}

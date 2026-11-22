@@ -1,0 +1,11 @@
+# AutoRubric historical bytes must survive every checkout unchanged.
+experiments/autorubric/pilot-2026-10-30/snapshots-v1/*.bin -text -diff
+# Keep the S06 experiment's frozen source bytes stable across LF/CRLF checkouts.
+scripts/s06_gate_v41.py -text
+scripts/s06_gate_budget_proxy.mjs -text
+scripts/p0-dsh-isolated.Dockerfile -text
+experiments/dsh-v41flash-2026-11-21/s06-gate-preregistration.md -text
+experiments/dsh-v41flash-2026-11-21/execution-01/shared.yml -text
+experiments/dsh-v41flash-2026-11-21/execution-01/budget.jsonl -text
+experiments/dsh-v41flash-2026-11-21/execution-01/manifest.json -text
+experiments/dsh-v41flash-2026-11-21/execution-01/results.json -text

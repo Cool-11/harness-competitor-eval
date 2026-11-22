@@ -40,3 +40,8 @@ _archive/
 
 # 环境冻结备份（个人技能/配置，仅本地留档，绝不入库）
 Log-analyse/baseline/_backup/
+
+# 个人简历生成文件与临时 PDF 预览（仅保存在本地）
+/output/
+/tmp/pdfs/
+/scripts/build_resume_trio.py

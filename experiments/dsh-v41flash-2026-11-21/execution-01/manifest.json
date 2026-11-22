@@ -1,0 +1,23 @@
+{
+  "experiment_id": "execution-01",
+  "image_id": "sha256:dc919cc1285ec94a9909bfc08900715c1cd9c2ad6f28915c754e6cf1747fa879",
+  "task_revision": "sha256:beed0e9ed685560609d21921e0d7b2b1e8ad8498803b331d28fb304802df1f6b",
+  "max_scenes": 3,
+  "total_timeout_seconds": 120,
+  "budget_cny": 2,
+  "runs": [
+    5,
+    6,
+    7
+  ],
+  "only_variable": "external_s06_delivery_check",
+  "shared_patch_sha256": "680cb8a524583932cc93a0ef927237ab22b3e53cbfb6827be6e8eb0ad4913581",
+  "not_comparable_to_windows_p2": true,
+  "frozen_sources": {
+    "F:\\for-project-new\\harness-competitor-eval\\scripts\\s06_gate_v41.py": "1045980b1ebbc936e152caac306e7405e522ff973d49e3ebf751b1781b8ae24c",
+    "F:\\for-project-new\\harness-competitor-eval\\scripts\\s06_gate_budget_proxy.mjs": "e667bcd998e0c58d92815172d046b40dee1bbb541326dea7082b344755c527c6",
+    "F:\\for-project-new\\harness-competitor-eval\\scripts\\p0-dsh-isolated.Dockerfile": "c562cfc44bc2e549a5bfdb442880cd1d08d728770fc24269eff89766604485ec",
+    "F:\\for-project-new\\harness-competitor-eval\\experiments\\dsh-v41flash-2026-11-21\\s06-gate-preregistration.md": "0a02ac90a2bae91c43969a6b430b6a3138bd2aa549032ffc44fcb5546c872182",
+    "F:\\for-project-new\\harness-competitor-eval\\experiments\\dsh-v41flash-2026-11-21\\execution-01\\shared.yml": "680cb8a524583932cc93a0ef927237ab22b3e53cbfb6827be6e8eb0ad4913581"
+  }
+}

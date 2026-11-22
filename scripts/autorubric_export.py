@@ -105,10 +105,17 @@ def load_signed_runs(repo_root: Path) -> list[dict[str, Any]]:
         grade_path = repo_root / entry["source"]
         if not grade_path.is_file():
             raise ValueError(f"frozen grade missing: {grade_path}")
-        digest = sha256_file(grade_path)
-        if digest != entry["sha256"]:
+        # Preserve the original byte identity. Only these ten text grades have
+        # an audited snapshot; checkout newline conversion is not evidence drift.
+        snapshot = frozen_path.parent / "snapshots-v1" / f"{entry['sha256']}.bin"
+        if not snapshot.is_file() or sha256_file(snapshot) != entry["sha256"]:
+            raise ValueError(f"frozen snapshot missing or changed: {snapshot}")
+        original = snapshot.read_bytes()
+        lf = original.replace(b"\r\n", b"\n")
+        if grade_path.read_bytes() not in {original, lf, lf.replace(b"\n", b"\r\n")}:
             raise ValueError(f"frozen grade changed: {grade_path}")
-        data = parse_grade(grade_path)
+        digest = entry["sha256"]
+        data = parse_grade(snapshot)
         if data.get("status") != "signed_off" or not data.get("cells"):
             raise ValueError(f"frozen grade no longer signed: {grade_path}")
         data["_source"] = grade_path.relative_to(repo_root).as_posix()

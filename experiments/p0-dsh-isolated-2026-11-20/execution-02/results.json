@@ -1,0 +1,63 @@
+{
+  "status": "executed_pending_human_review",
+  "runs": [
+    {
+      "arm": "C1",
+      "run": 17,
+      "container_id": "2a1f85733081608755df1162a3944b6901816be9dc7250c9d68be89bd87ee6c2",
+      "calls": [
+        {
+          "returncode": 0,
+          "timed_out": false,
+          "elapsed_seconds": 15.705784399993718
+        }
+      ],
+      "missing_initial": [],
+      "observed_context": {
+        "model": "deepseek-flash",
+        "provider": "deepseek-official",
+        "reasoning": "high",
+        "sampling": "provider_default",
+        "tools": [
+          "bash",
+          "create_goal",
+          "edit",
+          "get_goal",
+          "glob",
+          "grep",
+          "interrupt_agent",
+          "job_kill",
+          "job_list",
+          "job_output",
+          "list_agents",
+          "read",
+          "read_image",
+          "send_message",
+          "subagent",
+          "subagent_fork",
+          "todo_write",
+          "update_goal",
+          "web_fetch",
+          "web_search",
+          "workflow",
+          "working_directory",
+          "write"
+        ],
+        "permissions": "workspace-write",
+        "source": "C:\\tmp_harness_p0_isolated_20261120\\S11-corrupt-recovery\\dsh\\run17\\runner\\sessions\\--work--\\session-bc8ed5aa-c573-4802-9cf6-dabf61ed1f7e\\session.v4.jsonl.zstd"
+      },
+      "observed_cwd": "/work",
+      "elapsed_seconds": 16.25695990002714,
+      "score": {
+        "raw_got": 7.0,
+        "raw_full": 7.0,
+        "metrics": {},
+        "failure_code": "",
+        "evidence_grade": "",
+        "status": "graded"
+      },
+      "archive": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\dsh\\run17",
+      "adjudication": "pending"
+    }
+  ]
+}

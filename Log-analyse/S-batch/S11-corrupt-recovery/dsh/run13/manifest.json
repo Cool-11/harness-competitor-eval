@@ -1,0 +1,74 @@
+{
+  "schema_version": 3,
+  "protocol_version": "hev-v3",
+  "admission_track": "execution_behavior",
+  "comparison_track": "B_native_product",
+  "control_contract_sha256": "",
+  "record_type": "product_run",
+  "run_id": "hev-20261117T223912+0800-S11-dsh-r13-1ab9bd53",
+  "case": "S11-corrupt-recovery",
+  "product": "dsh",
+  "run": 13,
+  "variant": "s11-delivery-gate-off-a1-20261117",
+  "root": "C:\\tmp_s11_delivery_gate_20261117",
+  "work_dir": "C:\\tmp_s11_delivery_gate_20261117\\S11-corrupt-recovery\\dsh\\run13\\work",
+  "product_revision": "ca164b3f",
+  "started_at": "2026-11-17T22:39:12+08:00",
+  "ended_at": "2026-11-17T22:40:23+08:00",
+  "prompt_sha8": "41d608c4",
+  "inputs_sha8": {
+    "config.json": "4583ff08",
+    "data.csv": "fd668362"
+  },
+  "artifacts_count": 5,
+  "artifacts_sha256": {
+    ".write_test": "dc51b8c96c2d745df3bd5590d990230a482fd247123599548e0632fdbf97fc22",
+    "config.json": "53bf01763e020c52995360ca0d485f02e904d10edb4f1d87a0b2765758192d31",
+    "data.csv": "fd668362c2f1e6151450be97d7a3d6c444f34275ec978d069dec7f227b037acc",
+    "error_report.md": "468d4b5dfc1f953e1b4d3a4f7d5ee752732052a2daf73c5fc86114d3557ac422",
+    "result.md": "87c8bf6cce19d27ef39dea47c70925f51709a9c1ba491c0812361d520bc0e610"
+  },
+  "evidence": {
+    "cwd_evidence": {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\dsh\\run13\\evidence\\cwd_evidence\\native-evidence.json",
+      "source_path": "C:\\tmp_s11_delivery_gate_20261117\\S11-corrupt-recovery\\dsh\\run13\\runner\\native-evidence.json",
+      "sha256": "a755cb610f82f8f980d101db98ad382daa0b2794c2d35365c9e6b1c54cd961e9"
+    },
+    "session_export": {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\dsh\\run13\\evidence\\session_export\\session.v4.jsonl.zstd",
+      "source_path": "C:\\Users\\25634\\.dsh\\sessions\\--C-tmp_s11_delivery_gate_20261117-S11-corrupt-recovery-dsh-run13-work--\\session-11a02566-1786-4022-b062-ce56a8ece449\\session.v4.jsonl.zstd",
+      "sha256": "ed755143b1a64efb5ae2f2ed04c5665e7f6b4e8187d7e6f52b1cc6843456dccb"
+    },
+    "configuration_evidence": {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\dsh\\run13\\evidence\\configuration_evidence\\preregistration.md",
+      "source_path": "F:\\for-project-new\\harness-competitor-eval\\experiments\\s11-dsh-delivery-gate-2026-11-17\\preregistration.md",
+      "sha256": "978225aa055772fafba7ce076839a5df9554098cc56b8d753c19824f23a123ec"
+    }
+  },
+  "checker_exit": 0,
+  "interventions": 0,
+  "rerun": false,
+  "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+  "evaluator_revision": "sha256:d24f216a64fc17b5115d336baf4f0613260b518b1f4a0c48fd49d200d97f1747",
+  "execution_context": {
+    "product_version": "0.2.2-rc.1",
+    "account": "日常账号",
+    "model": "deepseek-flash",
+    "provider": "deepseek-official",
+    "reasoning": "high",
+    "sampling": "provider_default",
+    "tools": [
+      "shell",
+      "filesystem"
+    ],
+    "permissions": "workspace-write",
+    "network": "provider-api-only",
+    "surface": "cli",
+    "context_policy": "headless_new_agent",
+    "skills_state": "enabled_unchanged",
+    "memory_state": "unknown",
+    "interface_precheck": "passed",
+    "configuration_evidence": "F:\\for-project-new\\harness-competitor-eval\\experiments\\s11-dsh-delivery-gate-2026-11-17\\preregistration.md",
+    "configuration_evidence_sha256": "978225aa055772fafba7ce076839a5df9554098cc56b8d753c19824f23a123ec"
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "record_type": "product_execution_delivery",
+  "product_scenes": 1,
+  "api_messages_requests": 9,
+  "adjudication": "pending",
+  "intervention_executed": false,
+  "restore_executed": false,
+  "tests": {
+    "passed": 356,
+    "skipped": 10,
+    "docker_budget_test_included": true
+  },
+  "ledger_records": 53,
+  "files": [
+    {
+      "path": "experiments/p0-dsh-isolated-2026-11-20/execution-01/balance-after.json",
+      "sha256": "16fb2ed0921a57def5815f1954d05acc7df4738734b21326d631f721c24a4868"
+    },
+    {
+      "path": "experiments/p0-dsh-isolated-2026-11-20/execution-01/balance-before.json",
+      "sha256": "16fb2ed0921a57def5815f1954d05acc7df4738734b21326d631f721c24a4868"
+    },
+    {
+      "path": "experiments/p0-dsh-isolated-2026-11-20/execution-01/balance-later.json",
+      "sha256": "16fb2ed0921a57def5815f1954d05acc7df4738734b21326d631f721c24a4868"
+    },
+    {
+      "path": "experiments/p0-dsh-isolated-2026-11-20/execution-01/budget.jsonl",
+      "sha256": "8bf9ce5046671b953b3b1c8b6c3400be359ade3ee7ab948e66ca5a5205fde12d"
+    },
+    {
+      "path": "experiments/p0-dsh-isolated-2026-11-20/execution-01/C0-configuration.json",
+      "sha256": "df33f140f80dbc16aeb7becb9830821b4b97f51fba92078b2fea5e91439adac7"
+    },
+    {
+      "path": "experiments/p0-dsh-isolated-2026-11-20/execution-01/container-identities.json",
+      "sha256": "2ec20ff09dc0da1b44963c5d67f4a5e65fd85ff896d36a39279d1ac5caab922b"
+    },
+    {
+      "path": "experiments/p0-dsh-isolated-2026-11-20/execution-01/evidence/run16/container-isolation.json",
+      "sha256": "7295cf5e89aaba4ea917e8120251ade4e011de138b2c136debfa8f6d6eeb564f"
+    },
+    {
+      "path": "experiments/p0-dsh-isolated-2026-11-20/execution-01/evidence/run16/initial.stderr.txt",
+      "sha256": "c31ee5fdb8387e8497d4489a0203e7a4fa35a4b71f25465a071644508dd5a505"
+    },
+    {
+      "path": "experiments/p0-dsh-isolated-2026-11-20/execution-01/evidence/run16/initial.stdout.txt",
+      "sha256": "b91cdff0f72e0e69114d2c37dc01bc9ff9ff16d077021aa0bfb546e6e7baa026"
+    },
+    {
+      "path": "experiments/p0-dsh-isolated-2026-11-20/execution-01/evidence/run16/merged-config.yml",
+      "sha256": "a7af0621f0e7a7329e9faf3cf8e88363c97797b8293575160eab35933357ea82"
+    },
+    {
+      "path": "experiments/p0-dsh-isolated-2026-11-20/execution-01/evidence/run16/native-evidence.json",
+      "sha256": "ed6e0148102aa3dc9f510a47f7c2e925d1283697c593ed2a55141a26e57182b5"
+    },
+    {
+      "path": "experiments/p0-dsh-isolated-2026-11-20/execution-01/evidence/run16/sessions/--work--/session-edb5a78d-9718-4f75-956c-75bec74b8d39/session.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "experiments/p0-dsh-isolated-2026-11-20/execution-01/evidence/run16/sessions/--work--/session-edb5a78d-9718-4f75-956c-75bec74b8d39/session.v4.jsonl.zstd",
+      "sha256": "08816371a017aedbf1a50cd853366152ca6f46e5bdefde26f97407b4d8b4d195"
+    },
+    {
+      "path": "experiments/p0-dsh-isolated-2026-11-20/execution-01/manifest.json",
+      "sha256": "50fcff373cc3557817ff34b10e8ae89f779625ea8b8b6866df40d68cc1e4c49f"
+    },
+    {
+      "path": "experiments/p0-dsh-isolated-2026-11-20/execution-01/proxy-launch.log",
+      "sha256": "3dfa3fb239f56c778a1e9b33eb31328349edd155a95806dac4378904e88527e5"
+    },
+    {
+      "path": "experiments/p0-dsh-isolated-2026-11-20/execution-01/report/coverage.json",
+      "sha256": "56bfb24964971f95348c21d4ec185328942e3e4b8d3098b0a5d4c56708c1cd43"
+    },
+    {
+      "path": "experiments/p0-dsh-isolated-2026-11-20/execution-01/report/coverage.md",
+      "sha256": "9e21ba11d45a34f504cc881bb4c45e8fc3d8b1752c445b443828f92aa8d03152"
+    },
+    {
+      "path": "experiments/p0-dsh-isolated-2026-11-20/execution-01/report/evaluation-ledger.md",
+      "sha256": "793a36ff3d1e2cb7530bba6fbbb110ad1530f9c5c2f46bc03421c33a81b7782c"
+    },
+    {
+      "path": "experiments/p0-dsh-isolated-2026-11-20/execution-01/report/formal-results.json",
+      "sha256": "a9c51fccce916d5e052c4c5482db52c29f42b280445cf849265ec7dfe606bd9d"
+    },
+    {
+      "path": "experiments/p0-dsh-isolated-2026-11-20/execution-01/report/formal-results.md",
+      "sha256": "bef43f077aeff147435ec94ea66a6215c76a6d6455b8598e3c740978202fe260"
+    },
+    {
+      "path": "experiments/p0-dsh-isolated-2026-11-20/execution-01/results.json",
+      "sha256": "c1fe78cd70c71ad7fba78f58a535ce629feb398cccf6740203c4536a6737e8e6"
+    },
+    {
+      "path": "experiments/p0-dsh-isolated-2026-11-20/execution-01/runtime-evidence-manifest.json",
+      "sha256": "211b8e0c3b4f0381277ff31f70bd1b3fe3582a596da50c16c55c0b31632a6e09"
+    },
+    {
+      "path": "experiments/p0-dsh-isolated-2026-11-20/execution-01/shared.yml",
+      "sha256": "680cb8a524583932cc93a0ef927237ab22b3e53cbfb6827be6e8eb0ad4913581"
+    },
+    {
+      "path": "experiments/p0-dsh-isolated-2026-11-20/execution-01/tool-trace.json",
+      "sha256": "10e6d713c8e9fe1bbf3eb624f825cc1801c368a0317740a25754878bd05e3921"
+    },
+    {
+      "path": "experiments/p0-dsh-isolated-2026-11-20/execution-01/usage-and-stop.json",
+      "sha256": "337a42c41fa766a8fd8cfb949e3433b69d4c3c7cffbb453540a48a49dc634c68"
+    },
+    {
+      "path": "scripts/p0-dsh-isolated.Dockerfile",
+      "sha256": "c562cfc44bc2e549a5bfdb442880cd1d08d728770fc24269eff89766604485ec"
+    },
+    {
+      "path": "scripts/p0_budget_proxy.mjs",
+      "sha256": "21a8439f8a6ddec52ce47ad79ab0c1738e1f4a1e7a70bafa7919c5734ab3fad6"
+    },
+    {
+      "path": "scripts/p0_dsh_isolated.py",
+      "sha256": "bf835bd58d65affb4eb3687e8b32af763167baed97777fd40062e254f48d0bca"
+    },
+    {
+      "path": "scripts/sbatch.py",
+      "sha256": "cae5eb930a6f83173e045f4d7f9f3d4ddf2cd03b6bf831e2ebd8a1ee9f1cb1ab"
+    },
+    {
+      "path": "tests/unit/test_p0_budget_proxy.py",
+      "sha256": "44d7b7ba6afc3adf6fab44fa6bbe716980f1055c226757ed00ff35239265ea84"
+    }
+  ]
+}

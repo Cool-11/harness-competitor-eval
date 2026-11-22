@@ -6,11 +6,9 @@
 
 > 下一步的自动/手工责任边界、10 格核心矩阵与 Harness 因果路线见 [v3 执行与覆盖路线图](docs/32-v3执行与覆盖路线图-2026-11-07.md)。
 
-## 外部验证进度（2026-11-10）
+## 外部验证进度（2026-11-18）
 
-[Terminal-Bench 2.0 `fix-code-vulnerability` 文件交互变体](experiments/external-terminal-bench-fix-code-vulnerability/file-interface-v1/README.md)已由五款产品各尝试一次，并完成五场离线诊断。它改变了原题的输入接口，结果不计作 Terminal-Bench 官方成绩，也不并入 S06/S11 十格。Codex CLI、DSH CLI 的两场产物均通过离线脚本；[桌面端首轮复核](experiments/external-terminal-bench-fix-code-vulnerability/file-interface-v1/desktop-r1-adjudication.md)为 WorkBuddy `invalid`（读取了本场预备路径之外的同哈希 `staging` 输入）、元宝 `fail`（报告仅在回复中声称写入，未取得真实文件，代码亦未修复目标漏洞）、豆包 `invalid`（工作目录仍选 `inputs`，产物落在 `staging`）。`invalid` 是运行路径偏差，不等于产品修复能力失败；离线通过也不把无效场转为有效通过。独立人工签署仍待完成。
-
-下一步见 [三款桌面端 run2 运行卡](experiments/external-terminal-bench-fix-code-vulnerability/file-interface-v1/run2-card.md)。三场新 `run_id` 已在投喂前创建，尚未运行；旧 `staging` 已被豆包首轮写入，不能再作为新场取件处。元宝 run2 是独立复测，不替换首轮失败结论。
+[Terminal-Bench 2.0 `fix-code-vulnerability` 文件交互变体](experiments/external-terminal-bench-fix-code-vulnerability/file-interface-v1/README.md)已由五款产品各完成并离线诊断。它改变了原题的输入接口，结果不计作 Terminal-Bench 官方成绩，也不并入 S06/S11 十格。Codex CLI、DSH CLI 两场产物均通过离线脚本（367+6 项、诊断 reward=1）。桌面三款：首轮 WorkBuddy `invalid`（读 `staging` 副本）、元宝 `fail`（缺报告且未修复）、豆包 `invalid`（产物落点偏差）；run2 WorkBuddy `pass`、豆包 `fail`、元宝 `fail`；豆包固定配置 run3 `pass`（367/367 + 6/6 + reward=1）。逐场补记见 [file-interface-v1 README](experiments/external-terminal-bench-fix-code-vulnerability/file-interface-v1/README.md)。`invalid` 是运行路径偏差、不等于修复能力失败；独立人工签署仍待完成。
 
 五款 Agent 产品的 Harness 竞品评测（个人课题作业）
 
@@ -53,7 +51,7 @@ flowchart LR
 
 详细对照表见 [`tasks/first_tasks/all-inputs/README.md`](tasks/first_tasks/all-inputs/README.md) 与 [`tasks/second_tasks/all-inputs/README.md`](tasks/second_tasks/all-inputs/README.md)。
 
-## 状态（2026-10-25）
+## 状态（2026-11-23）
 
 **已完成**
 
@@ -71,6 +69,14 @@ flowchart LR
 - [x] **周报 02 已出**（运行账 5/5/0/0 + 现场链接 + 3 项可验收目标；[周报02](docs/周报/周报02-2026-10-23.md)）
 - [x] **未知登记表**（[docs/18](docs/18-未知登记表.md)：3 条开放 + 6 条已结清，均带下一步与停止条件）
 - [x] 仓库维护机制：变更日志 [CHANGELOG.md](CHANGELOG.md)、周报留档 [docs/周报/](docs/周报/)
+- [x] 四轨架构与前三项整改执行合同（[docs/43](docs/43-四轨架构与前三项整改执行合同-2026-11-20.md)）、归因与研究轨道现行规则（[docs/41](docs/41-归因与研究轨道现行规则-2026-11-20.md)）
+- [x] P0 DSH 隔离实验 run16/run17 各 9.0/10；S06×DSH 外部交付核查 C0 基线 7/7（C1/恢复臂按停止线未发射）
+- [x] S11 五场作者复判（黄钧锶）20 格：exact 90%、加权 κ 0.9545
+- [x] 统一主报告与验收缺口（[docs/reports/48](docs/reports/48-统一主报告与验收缺口-2026-11-21.md)）
+- [x] file-interface-v1 三场 r2 + doubao-r3 + desktop 复核证据入库
+- [x] S11 gc 独立复核（未见旧分）确认 AI 初评 20 格：exact 90%、加权 κ 0.952（[gc-agreement](reviews/S11-independent-recheck-2026-11-17/gc-agreement-2026-11-22.json)）
+- [x] 全仓远端干净检出复算通过：6 命令全通过 + 公开证据 117/120 verified（[结果](Log-analyse/S-batch/snapshots/2026-11-22-remote-recheck/results.md)）
+- [x] 任务1「baseline→change→recover」按方向 D 收口（无法闭合）：DSH Windows 0/7 记为环境相关已知限制；任务2「独立复评」已有一份 gc 未见旧分样本（见[主报告](docs/reports/48-统一主报告与验收缺口-2026-11-21.md)）
 
 **进行中 / 待做**
 

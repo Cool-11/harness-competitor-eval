@@ -1,0 +1,37 @@
+[
+  {
+    "path": "container-isolation.json",
+    "bytes": 426,
+    "sha256": "80d8c1f7f50af5b9a253a363267bc9d806cf1d2536d1321baa779ca6c28b4643"
+  },
+  {
+    "path": "initial.stderr.txt",
+    "bytes": 906,
+    "sha256": "cd737d4ea7307273a8d4b17ee71393c501837471e51029f60d220e74f3aed0da"
+  },
+  {
+    "path": "initial.stdout.txt",
+    "bytes": 918,
+    "sha256": "ce3f25346e63cb19ea2bc0be26a6edac8c6cfb89c690ff99a47c475bee902253"
+  },
+  {
+    "path": "merged-config.yml",
+    "bytes": 12951,
+    "sha256": "a7af0621f0e7a7329e9faf3cf8e88363c97797b8293575160eab35933357ea82"
+  },
+  {
+    "path": "native-evidence.json",
+    "bytes": 1215,
+    "sha256": "1a8684946c4adf49570cdc5f632d174b5462290654be637352c1d3aa4e185d66"
+  },
+  {
+    "path": "sessions/--work--/session-bc8ed5aa-c573-4802-9cf6-dabf61ed1f7e/session.lock",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "sessions/--work--/session-bc8ed5aa-c573-4802-9cf6-dabf61ed1f7e/session.v4.jsonl.zstd",
+    "bytes": 31169,
+    "sha256": "47de0d484735032b2ab4a92764069e78a9565d994c2d6986f1d0946f9013021e"
+  }
+]

@@ -1,0 +1,58 @@
+run_id: S06__dsh__r1
+task: S06-artifact-deep-path
+product: dsh
+trial: 1
+status: signed_off
+signoff:
+  by: hjs
+  date: 2026-10-23
+  note: "评测者确认 4 格档位；dsh 主动回传落点与取舍，按锚点 3 落分。"
+
+# 行为分 0–3 档 → 格分 = 档位/3 × 1.0；每格必附证据引用。
+cells:
+  - id: D2-1
+    dimension: D2
+    item: 产物落点｜路径达成
+    max: 1.0
+    tier: 3
+    score: 1.0
+    evidence: "session.log L29-L30（New-Item 建 输出\\汇总）；session.log L35（write 输出/汇总/月报_v1.md）；shots/S4-S5.png（产出：输出\\汇总\\月报_v1.md，多级目录已创建）"
+    rationale: "相对路径正确、多级目录自建；未被要求即在完成语中确认落点，达锚点 3。"
+  - id: D2-2
+    dimension: D2
+    item: 产物落点｜标题/编码/内容
+    max: 1.0
+    tier: 3
+    score: 1.0
+    evidence: "checker_output.txt（4 项 PASS）；session.log L41-L42（Bytes: 243 / BOM: False / UTF-8 strict decode 通过）；shots/S4-S5.png（标题、编码、6 条对照表）"
+    rationale: "四重全对，且主动声明标题/编码/条数等关键约束，与实测一致。"
+  - id: D1-1
+    dimension: D1
+    item: 信息回传｜回传与实际一致性
+    max: 1.0
+    tier: 3
+    score: 1.0
+    evidence: "session.log L53（最终回传：产出/内容/校验/两点取舍）；shots/S4-S5.png；timeline.md 关键量化"
+    rationale: "主动列出做了什么、落在哪、有无取舍，且逐条与实际产物相符。"
+  - id: common-1
+    dimension: common
+    item: 通用回传｜过程可跟随
+    max: 1.0
+    tier: 3
+    score: 1.0
+    evidence: "session.log L8-L56（6 个 step、6 次工具调用与结果）；shots/s2.png（执行链路）"
+    rationale: "过程逐阶段可见；本轮无异常发生，异常上报项无观测机会，不据此加分或减分。"
+
+totals:
+  behavior_score: 4.0
+  behavior_max: 4.0
+  artifact_score: 6.0
+  single_task_total: 10.0
+  single_task_max: 10.0
+
+notes:
+  - "S3 未发生；S5 与 S4 合并。"
+  - "session.log 为 dsh 原生 session.v4 事件流解压所得（56 行 JSONL，未改写）；压缩原件 session.v4.jsonl.zstd 并存。"
+  - "投喂文本前缀 @notes.md 为 dsh 附件引用语法，正文与 prompt.txt 逐字一致；记录为偏差，不扣分。"
+  - "无产品运行时/错误日志，已登记 recording.txt；证据等级 C。"
+  - "本文件为用户签认后的正式行为分；run.json.evaluation.v1 = 4.0。"

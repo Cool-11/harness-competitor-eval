@@ -1,0 +1,26 @@
+{
+  "run_id": "hev-20261120T221915+0800-S11-dsh-r17-b058e4a8",
+  "independent_product_scenes_this_followup": 1,
+  "independent_product_scenes_cumulative": 2,
+  "provider_messages_requests_this_followup": 9,
+  "token_usage_this_followup": {
+    "input_tokens": 1922,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 51584,
+    "output_tokens": 1885
+  },
+  "carryover_reserved_cny": 1.57044,
+  "new_reserved_upper_bound_cny": 1.3962820000000002,
+  "cumulative_reserved_upper_bound_cny": 2.9667220000000003,
+  "peak_rate_usage_estimate_this_followup_cny": 0.02098736,
+  "delivery_gate_triggered": false,
+  "missing_initial": [],
+  "checker_raw_got": 7,
+  "checker_raw_full": 7,
+  "adjudication": "pending",
+  "inference": "gate_not_triggered_no_repair_effect",
+  "same_merged_config_as_run16": true,
+  "runtime_evidence_files": 7,
+  "tool_trace_events": 17,
+  "budget_log_limitation": "first_two_overlapping_requests_share_call_2_label; aggregate final usage events=9"
+}

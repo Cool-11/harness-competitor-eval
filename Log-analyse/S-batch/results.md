@@ -38,3 +38,15 @@
 | S11-corrupt-recovery | workbuddy | 3 | 7.0/7 | | | | exit=0 | 2026-11-08 22:54 | run_id=hev-20261108T214939+0800-S11-workbuddy-r3-e5901660 ｜ variant=desktop-native-fixed-config-2026-11-08 |
 | S11-corrupt-recovery | doubao | 3 | 7.0/7 | | | | exit=0 | 2026-11-08 22:54 | run_id=hev-20261108T214939+0800-S11-doubao-r3-87e1364b ｜ variant=desktop-native-fixed-config-2026-11-08 |
 | S11-corrupt-recovery | yuanbao | 3 | 6.0/7 | | | | exit=1 | 2026-11-08 22:54 | run_id=hev-20261108T214939+0800-S11-yuanbao-r3-4a988e6a ｜ variant=desktop-native-fixed-config-2026-11-08 |
+| S11-corrupt-recovery | dsh | 7 | 0.0/7 | | | | exit=1 | 2026-11-12 02:24 | run_id=hev-20261112T022349+0800-S11-dsh-r7-d3fe8694 ｜ variant=s11-dsh-same-config-repeat-20261112 |
+| S11-corrupt-recovery | dsh | 8 | 0.0/7 | | | | exit=1 | 2026-11-12 02:25 | run_id=hev-20261112T022448+0800-S11-dsh-r8-d974f57e ｜ variant=s11-dsh-same-config-repeat-20261112 |
+| S11-corrupt-recovery | dsh | 2 | 0.0/7 | | | | exit=1 | 2026-11-12 02:28 | run_id=hev-20261112T022719+0800-S11-dsh-r2-f5f7f698 ｜ variant=s11-dsh-same-config-repeat-isolated-root-20261112 |
+| S11-corrupt-recovery | dsh | 9 | 0.0/7 | | | | exit=1 | 2026-11-12 02:30 | run_id=hev-20261112T022929+0800-S11-dsh-r9-10cb0c55 ｜ variant=s11-dsh-same-config-repeat-isolated-r9-20261112 |
+| S11-corrupt-recovery | dsh | 10 | 0.0/7 | | | | exit=1 | 2026-11-17 16:27 | run_id=hev-20261117T162636+0800-S11-dsh-r10-d75f7caa ｜ variant=s11-p2-pwsh-default-a1-20261117 |
+| S11-corrupt-recovery | dsh | 11 | 0.0/7 | | | | exit=1 | 2026-11-17 16:29 | run_id=hev-20261117T162808+0800-S11-dsh-r11-c47a802a ｜ variant=s11-p2-pwsh-disabled-b-20261117 |
+| S11-corrupt-recovery | dsh | 12 | 0.0/7 | | | | exit=1 | 2026-11-17 16:30 | run_id=hev-20261117T162956+0800-S11-dsh-r12-96c5e7ab ｜ variant=s11-p2-pwsh-default-a2-20261117 |
+| S11-corrupt-recovery | dsh | 13 | 7.0/7 | | | | exit=0 | 2026-11-17 22:40 | run_id=hev-20261117T223912+0800-S11-dsh-r13-1ab9bd53 ｜ variant=s11-delivery-gate-off-a1-20261117 |
+| S11-corrupt-recovery | dsh | 16 | 7.0/7 | | | | exit=0 | 2026-11-20 21:43 | run_id=hev-20261120T214236+0800-S11-dsh-r16-36035514 ｜ variant=execution-01-C0 |
+| S11-corrupt-recovery | dsh | 17 | 7.0/7 | | | | exit=0 | 2026-11-20 22:19 | run_id=hev-20261120T221915+0800-S11-dsh-r17-b058e4a8 ｜ variant=execution-02-C1 |
+| S06-artifact-deep-path | dsh | 5 | 7.0/7 | | | | exit=0 | 2026-11-21 16:51 | run_id=hev-20261121T165146+0800-S06-dsh-r5-ebe2218c ｜ variant=execution-01-C0 |
+| S11-corrupt-recovery | dsh | 19 | 7.0/7 | | | | exit=0 | 2026-11-22 02:00 | run_id=hev-20261122T020017+0800-S11-dsh-r19-22b3296c ｜ variant=execution-01-A1 |

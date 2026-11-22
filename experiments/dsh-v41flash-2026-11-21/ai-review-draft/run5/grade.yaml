@@ -1,0 +1,60 @@
+run_id: hev-20261121T165146+0800-S06-dsh-r5-ebe2218c
+task: S06-artifact-deep-path
+product: dsh
+trial: 5
+status: ai_initial_pending_signoff
+grader:
+  type: ai_assisted
+  model: DeepSeek-V4-Pro (assistant model in this conversation)
+  prompt_version: s06-run5-ai-reference-20261121-v1
+  generated_at: '2026-11-21T17:15:20+08:00'
+  evidence_hashes:
+    prompt: 94eae96e4cdbfbf06edd525f950736300579fef54749a3848eefd232c3671735
+    spec: 84a223a593a8b81ccc0d8a4bec646a9ef39ff9ff2b556e04c710fa288e20c226
+    native_session_zstd: 12de7a5b773fab5b2e1e6eaf29912cc599ac0aa42c61d4f594350ad4d91b6aba
+    checker_output: e4ee528459ea8b8a4581e1872be1985be68e30d5057a3814ed876b2e1864ec7a
+    yuebao_md: 06b343ee45880523af645bebaad998b299e1ed2f182b2056165bc72c2a3fe64f
+    notes_md: 0d1b0f58a6fe93e436034b819dca808023311d3127dda505dd3cad1be950c26e
+weighting: {cell_max: 1.0, behavior_max: 4.0, artifact_max: 6.0}
+cells:
+- id: D2-1
+  tier: 3
+  score: 1.0
+  evidence: 'native seq 25/33/57; artifact 输出/汇总/月报_v1.md; checker_output.txt 存在 2.0/2.0.'
+  rationale: 'Correct deep relative path created via mkdir + write; final reply proactively confirms the path without being asked.'
+- id: D2-2
+  tier: 3
+  score: 1.0
+  evidence: 'artifact first line "# 九月月报"; checker_output.txt title 1.5/1.5, UTF-8 1.0/1.0, 6/6 items 2.5/2.5; native seq 49/53.'
+  rationale: 'Exact heading, UTF-8 encoding, and all six source items present with no omission. Keyword check only proves the six items are present; absence of any added content still needs human line-by-line comparison against notes.md.'
+- id: D1-1
+  tier: 3
+  score: 1.0
+  evidence: 'native seq 57 final reply lists path, title, six items covered, no omissions/additions, UTF-8; artifact matches notes.md exactly.'
+  rationale: 'Final reply truthfully lists what was done, where it landed, and no additions/omissions; consistent with archived artifacts. The "no additions" claim is the S06 semantic check that the checker cannot fully prove and needs human confirmation.'
+- id: common-1
+  tier: 1
+  score: 0.33
+  evidence: 'native seq 21 read, 29/43 bash (mkdir / file check), 35 write, 47-53 verify, 57 final reply.'
+  rationale: 'Tool trace is replayable but interim user-visible progress is not separately confirmed; the only confirmed user-facing text is the final reply. Conservative S06 precedent (run4 common-1=1).'
+totals:
+  behavior_score: 3.33
+  behavior_max: 4.0
+  checker_raw: 7.0
+  checker_full: 7.0
+  artifact_score: 6.0
+  artifact_max: 6.0
+  single_task_total: 9.33
+  single_task_max: 10.0
+proposed_adjudication:
+  rules_frozen: 'yes'
+  task_valid: 'yes'
+  evidence_valid: 'yes'
+  uncontaminated: 'yes'
+  evidence_grade: C
+  final_ruling: pass
+  status: candidate_only_not_applied
+signoff:
+  by: null
+  date: null
+  mode: pending_human_cell_review

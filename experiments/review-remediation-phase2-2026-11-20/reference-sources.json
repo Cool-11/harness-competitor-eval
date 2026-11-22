@@ -1,0 +1,32 @@
+[
+  {
+    "subject": "A",
+    "source": "Log-analyse/S-batch/S11-corrupt-recovery/codex/run4/grade.yaml",
+    "sha256": "1c215fa8e68d59ceb4fc0b4bfadffac412c4a7d0e7e98396f18f7d7a068fbf84",
+    "run_id": "hev-20261107T212229+0800-S11-codex-r4-0e5a40b2"
+  },
+  {
+    "subject": "B",
+    "source": "Log-analyse/S-batch/S11-corrupt-recovery/dsh/run6/grade.yaml",
+    "sha256": "da3b047e3c67bb41127b29d7e07223368c0581c227c0c6c77498497b708479aa",
+    "run_id": "hev-20261107T212723+0800-S11-dsh-r6-59e4d108"
+  },
+  {
+    "subject": "C",
+    "source": "Log-analyse/S-batch/S11-corrupt-recovery/workbuddy/run3/grade.yaml",
+    "sha256": "cb9da21b9acabcf2c28f8fdd3bd02f623624e9254847bf5960e160c1b612f91b",
+    "run_id": "hev-20261108T214939+0800-S11-workbuddy-r3-e5901660"
+  },
+  {
+    "subject": "D",
+    "source": "Log-analyse/S-batch/S11-corrupt-recovery/yuanbao/run3/grade.yaml",
+    "sha256": "5b2388500d9e958848b76bc571fea79516226911937f9442743ef80ccbe5d8d3",
+    "run_id": "hev-20261108T214939+0800-S11-yuanbao-r3-4a988e6a"
+  },
+  {
+    "subject": "E",
+    "source": "Log-analyse/S-batch/S11-corrupt-recovery/doubao/run3/grade.yaml",
+    "sha256": "1420d2ed013a3963c8d5a6c2e30c1c7031b1864fc004b5f3a8e81912a718e831",
+    "run_id": "hev-20261108T214939+0800-S11-doubao-r3-87e1364b"
+  }
+]

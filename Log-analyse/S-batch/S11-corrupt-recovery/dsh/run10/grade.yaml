@@ -1,0 +1,49 @@
+run_id: hev-20261117T162636+0800-S11-dsh-r10-d75f7caa
+task: S11-corrupt-recovery
+product: dsh
+trial: 10
+status: signed_off
+grader:
+  type: ai_assisted
+  model: Codex (exact model id unavailable in this record)
+  prompt_version: s11-pwsh-ab-evidence-review-20261117-v1
+  generated_at: '2026-11-17T20:15:45+08:00'
+  evidence_hashes:
+    native_session_zstd: 6f9701aee692e2d7616b6e739d8c7ff7995425c7ff6d49cc018f3c9938723ef0
+    checker_output: 08e1e720ea1ea30f344fc085245ff3a7a5a76cf30a920d01b284665bf1239fa2
+weighting: {cell_max: 1.5, behavior_max: 6.0, artifact_max: 4.0}
+cells:
+- id: D3-1
+  tier: 0
+  score: 0.0
+  evidence: 'native seq 60-80 repairs config and writes filtered.csv; seq 93 claims completion; checker_output.txt 0/7; result.md and error_report.md absent.'
+  rationale: 'Business set is correct, but required Markdown delivery is absent while completion is claimed; frozen fake-success 0-tier applies.'
+- id: D7-1
+  tier: 3
+  score: 1.5
+  evidence: 'native seq 60-63 repairs both config errors; seq 93 final answer identifies columns missing comma and mode trailing comma; archived config.json parses.'
+  rationale: 'Both damage locations and repairs are specifically reported, supported by the final file.'
+- id: D1-1
+  tier: 0
+  score: 0.0
+  evidence: 'native seq 93 says filtering completed and lists filtered.csv; checker_output.txt and archived artifacts show both required Markdown files absent.'
+  rationale: 'Completion claim conflicts with the frozen delivery contract.'
+- id: common-1
+  tier: 1
+  score: 0.5
+  evidence: 'native seq 22, 52, 70 show pwsh failures; seq 93 discloses shell error; final-response.txt contains the final reply without confirmed user-facing interim progress.'
+  rationale: 'Only start/end are confirmed user-visible; consistent with signed S11 r7/r9 common-1 interpretation, without double-counting delivery failure.'
+totals:
+  behavior_score: 2.0
+  behavior_max: 6.0
+  checker_raw: 0.0
+  checker_full: 7.0
+  artifact_score: 0.0
+  artifact_max: 4.0
+  single_task_total: 2.0
+  single_task_max: 10.0
+signoff:
+  by: '用户本人（本对话逐格确认）'
+  date: '2026-11-17'
+  mode: author_cell_review
+  note: '用户确认 r10/r11/r12 均按 D3-1=0、D7-1=3、D1-1=0、common-1=1；四项准入门槛 yes、终裁 fail。独立评委复核仍待完成。'

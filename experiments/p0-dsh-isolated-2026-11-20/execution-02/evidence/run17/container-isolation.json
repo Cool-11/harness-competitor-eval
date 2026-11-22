@@ -1,0 +1,17 @@
+{
+  "inspect": {
+    "container_id": "2a1f85733081608755df1162a3944b6901816be9dc7250c9d68be89bd87ee6c2",
+    "image": "sha256:dc919cc1285ec94a9909bfc08900715c1cd9c2ad6f28915c754e6cf1747fa879",
+    "mounts": [],
+    "networks": [
+      "hev-p0a-7aab53c407-internal"
+    ],
+    "privileged": false
+  },
+  "probe": {
+    "cwd": "/work",
+    "forbidden_present": [],
+    "work_files": []
+  },
+  "network": true
+}

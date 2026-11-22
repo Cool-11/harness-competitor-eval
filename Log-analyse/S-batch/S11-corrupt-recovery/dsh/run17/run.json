@@ -1,0 +1,200 @@
+{
+  "schema_version": 3,
+  "protocol_version": "hev-v3",
+  "admission_track": "execution_behavior",
+  "comparison_track": "M_mechanism",
+  "control_contract": {
+    "experiment_id": "execution-02",
+    "original_experiment": "F:\\for-project-new\\harness-competitor-eval\\experiments\\p0-dsh-isolated-2026-11-20\\execution-01",
+    "original_run_id": "hev-20261120T214236+0800-S11-dsh-r16-36035514",
+    "arm": "C1",
+    "run": 17,
+    "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+    "image_id": "sha256:dc919cc1285ec94a9909bfc08900715c1cd9c2ad6f28915c754e6cf1747fa879",
+    "shared_patch_sha256": "680cb8a524583932cc93a0ef927237ab22b3e53cbfb6827be6e8eb0ad4913581",
+    "only_variable": "external_delivery_gate",
+    "max_new_scenes": 1,
+    "scene_timeout_seconds": 600,
+    "budget_cny_cumulative": 5,
+    "carryover_reserved_cny": 1.57044,
+    "frozen_sources": {
+      "F:\\for-project-new\\harness-competitor-eval\\scripts\\p0_dsh_followup.py": "2534d0d47f97a6b30a8c82a614f4c22fc5ce8453354e2090bb55be531e4a93d3",
+      "F:\\for-project-new\\harness-competitor-eval\\scripts\\p0_budget_proxy_followup.mjs": "4dc89c4a2fab7c01d41ccbe171a78370781c1ab38ba699146fa8862299a2d2f4",
+      "F:\\for-project-new\\harness-competitor-eval\\experiments\\p0-dsh-isolated-2026-11-20\\preregistration-addendum-01.md": "88cc4c34742768b264f45e79b373be5da74abd7933eb41eef65855b5e3030ad2",
+      "F:\\for-project-new\\harness-competitor-eval\\experiments\\p0-dsh-isolated-2026-11-20\\execution-01\\manifest.json": "50fcff373cc3557817ff34b10e8ae89f779625ea8b8b6866df40d68cc1e4c49f",
+      "F:\\for-project-new\\harness-competitor-eval\\experiments\\p0-dsh-isolated-2026-11-20\\execution-02\\shared.yml": "680cb8a524583932cc93a0ef927237ab22b3e53cbfb6827be6e8eb0ad4913581",
+      "F:\\for-project-new\\harness-competitor-eval\\scripts\\p0_dsh_isolated.py": "bf835bd58d65affb4eb3687e8b32af763167baed97777fd40062e254f48d0bca",
+      "F:\\for-project-new\\harness-competitor-eval\\scripts\\p0-dsh-isolated.Dockerfile": "c562cfc44bc2e549a5bfdb442880cd1d08d728770fc24269eff89766604485ec"
+    },
+    "inference_scope": "non_regression_or_gate_activation_only_no_repair_effect"
+  },
+  "control_contract_sha256": "c68431aa2fa7e32cadba4abddda3eeafb881e550d4e0c4067403c5545d34b0af",
+  "record_type": "product_run",
+  "run_id": "hev-20261120T221915+0800-S11-dsh-r17-b058e4a8",
+  "run_key": "S11-corrupt-recovery__dsh__r17",
+  "suite": "harness-v1",
+  "task": "S11-corrupt-recovery",
+  "product": "dsh",
+  "trial": 17,
+  "variant": "execution-02-C1",
+  "status": "scored",
+  "environment": {
+    "root": "C:\\tmp_harness_p0_isolated_20261120",
+    "work_dir": "C:\\tmp_harness_p0_isolated_20261120\\S11-corrupt-recovery\\dsh\\run17\\work",
+    "runtime_work_dir": "/work"
+  },
+  "execution_context": {
+    "product_version": "0.2.2-rc.1",
+    "account": "日常账号",
+    "model": "deepseek-flash",
+    "provider": "deepseek-official",
+    "reasoning": "high",
+    "sampling": "provider_default",
+    "tools": [
+      "read",
+      "write",
+      "bash"
+    ],
+    "permissions": "workspace-write",
+    "network": "internal_network_api_proxy",
+    "surface": "cli",
+    "context_policy": "isolated_container",
+    "skills_state": "disabled",
+    "memory_state": "disabled",
+    "interface_precheck": "passed",
+    "configuration_evidence": "F:\\for-project-new\\harness-competitor-eval\\experiments\\p0-dsh-isolated-2026-11-20\\execution-02\\C1-configuration.json",
+    "configuration_evidence_sha256": "8d8fad2604c8339756e097761eb29708dce65fd97592726733cbdcb0e4e7a066"
+  },
+  "binding": {
+    "prompt_sha8": "41d608c4",
+    "inputs_sha8": {
+      "config.json": "4583ff08",
+      "data.csv": "fd668362"
+    },
+    "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+    "suite_revision": "2026-10-23-s06-pilot",
+    "product_revision": "ca164b3f",
+    "product_config": {
+      "version": "桌面端 0.2.1-rc.5（2026-11-01）；CLI 0.2.2-rc.1（2026-11-07，npm 精确版本）",
+      "channel": "本地桌面端 + npm CLI（固定版本）",
+      "account": "日常账号",
+      "config": "2026-11-01 F 盘预检原生会话：standard preset；deepseek-official/deepseek-flash high；danger-full-access、approval never；Skills/Memory 未逐项确认",
+      "observability": [
+        "终端输出",
+        "桌面/网页可见输出",
+        "会话日志"
+      ],
+      "notes": "评测面以 docs/01 与 baseline 为准；桌面端安装路径 D:\\dsh-harness\\installation；CLI 路径由 npm global 管理，2026-11-07 dsh --version=0.2.2-rc.1；F:\\for-project-tmp-run\\prechecks\\dsh\\2026-11-01\\work 的 pwsh/write 实测通过，范围仅此工作根"
+    },
+    "evaluator_revision": "sha256:d24f216a64fc17b5115d336baf4f0613260b518b1f4a0c48fd49d200d97f1747"
+  },
+  "termination": {
+    "reason": "product_declared_done",
+    "timed_out": false,
+    "turns": 1,
+    "manual_interventions": 0
+  },
+  "evaluation": {
+    "reward_basis": [
+      "checker_output.txt",
+      "grade.yaml"
+    ],
+    "components": {
+      "artifact": 1.0,
+      "behavior": 0.8333333333333334
+    },
+    "success": 1,
+    "v1": 5.0,
+    "v1_basis": "behavior_score (docs/03 section 9.1 R1: 4 x 1.5)",
+    "grader": "ai_assisted; user per-cell confirmation 2026-11-20",
+    "single_task_total": 9.0,
+    "single_task_max": 10.0
+  },
+  "diagnostics": {
+    "failure_code": "",
+    "first_error": null,
+    "evidence_grade": "B"
+  },
+  "adjudication": {
+    "rules_frozen": "yes",
+    "task_valid": "yes",
+    "evidence_valid": "yes",
+    "uncontaminated": "yes",
+    "final_ruling": "pass",
+    "official_eligible": true,
+    "exclusion_reasons": [],
+    "adjudicator": "用户本人（本对话逐格确认）",
+    "adjudicated_at": "2026-11-20T22:49:50+08:00",
+    "notes": "用户确认3/3/3/1、四门槛yes、证据B、终裁pass；逐格证据见grade.yaml；gate未触发，不作修复效应结论。",
+    "causal_ready": false,
+    "causal_pair_status": "not_ready",
+    "causal_exclusion_reasons": [
+      "DSH 单组件机制轨单独审核，不进入 Codex/DSH 整体因果配对"
+    ]
+  },
+  "evidence": {
+    "run_dir": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\dsh\\run17",
+    "timeline": "",
+    "session_log": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\dsh\\run17\\evidence\\session_export\\session.v4.jsonl.zstd",
+    "artifacts": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\dsh\\run17\\artifacts",
+    "shots": "",
+    "recording": ""
+  },
+  "execution_context_observed": {
+    "model": "deepseek-flash",
+    "provider": "deepseek-official",
+    "reasoning": "high",
+    "sampling": "provider_default",
+    "tools": [
+      "bash",
+      "create_goal",
+      "edit",
+      "get_goal",
+      "glob",
+      "grep",
+      "interrupt_agent",
+      "job_kill",
+      "job_list",
+      "job_output",
+      "list_agents",
+      "read",
+      "read_image",
+      "send_message",
+      "subagent",
+      "subagent_fork",
+      "todo_write",
+      "update_goal",
+      "web_fetch",
+      "web_search",
+      "workflow",
+      "working_directory",
+      "write"
+    ],
+    "permissions": "workspace-write",
+    "source": "C:\\tmp_harness_p0_isolated_20261120\\S11-corrupt-recovery\\dsh\\run17\\runner\\sessions\\--work--\\session-bc8ed5aa-c573-4802-9cf6-dabf61ed1f7e\\session.v4.jsonl.zstd"
+  },
+  "collection_verification": {
+    "prepared_work_match": true,
+    "mode": "native_trace",
+    "claim_scope": "execution_behavior",
+    "observed_cwd_match": true,
+    "evidence": {
+      "cwd_evidence": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\dsh\\run17\\evidence\\cwd_evidence\\native-evidence.json",
+        "source_path": "C:\\tmp_harness_p0_isolated_20261120\\S11-corrupt-recovery\\dsh\\run17\\runner\\native-evidence.json",
+        "sha256": "1a8684946c4adf49570cdc5f632d174b5462290654be637352c1d3aa4e185d66"
+      },
+      "session_export": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\dsh\\run17\\evidence\\session_export\\session.v4.jsonl.zstd",
+        "source_path": "C:\\tmp_harness_p0_isolated_20261120\\S11-corrupt-recovery\\dsh\\run17\\runner\\sessions\\--work--\\session-bc8ed5aa-c573-4802-9cf6-dabf61ed1f7e\\session.v4.jsonl.zstd",
+        "sha256": "47de0d484735032b2ab4a92764069e78a9565d994c2d6986f1d0946f9013021e"
+      },
+      "configuration_evidence": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S11-corrupt-recovery\\dsh\\run17\\evidence\\configuration_evidence\\C1-configuration.json",
+        "source_path": "F:\\for-project-new\\harness-competitor-eval\\experiments\\p0-dsh-isolated-2026-11-20\\execution-02\\C1-configuration.json",
+        "sha256": "8d8fad2604c8339756e097761eb29708dce65fd97592726733cbdcb0e4e7a066"
+      }
+    },
+    "screen_recording_scope": ""
+  }
+}

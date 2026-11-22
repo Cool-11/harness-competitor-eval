@@ -1,0 +1,16 @@
+﻿turn,step,callId,tool,target_path,ok,duration_ms,result_chars,args,command
+1,1,call_00_KJROIkyjPymfgYPZb0RA8525,working_directory,,ok,26,45,{},
+1,1,call_01_cp1uyWL9NTusSLoKfmVc0985,read,C:\tmp_run\S11-corrupt-recovery\dsh\run7\work\config.json,ok,7,224,"{""file_path"": ""C:\\tmp_run\\S11-corrupt-recovery\\dsh\\run7\\work\\config.json""}",
+1,2,call_00_BgYxw0UIpKrpc4TgL3cI3595,read,C:\tmp_run\S11-corrupt-recovery\dsh\run7\work\data.csv,ok,10,201,"{""file_path"": ""C:\\tmp_run\\S11-corrupt-recovery\\dsh\\run7\\work\\data.csv""}",
+1,3,call_00_YtifVFiY08osxkzm3yGy3121,pwsh,,ERR,46,104,"{""command"": ""Get-ChildItem -Force -Recurse | Select-Object FullName, Length | Format-Table -AutoSize"", ""description"": ""List all files in working directory""}","Get-ChildItem -Force -Recurse | Select-Object FullName, Length | Format-Table -AutoSize"
+1,4,call_00_YGaEfusgFHN1VTGQMlQE4347,glob,,ok,205,20,"{""pattern"": ""**/*""}",
+1,5,call_00_4nxDIoMZhlVu42TyCDLE5329,pwsh,,ERR,12,104,"{""command"": ""python --version; py --version"", ""description"": ""Check Python availability""}",python --version; py --version
+1,6,call_00_gOvRBaeB1LHN4c0lXRnn1609,pwsh,,ERR,11,104,"{""command"": ""$PSVersionTable.PSVersion.ToString(); Get-Location; Get-ChildItem C:\\tmp_run -Force | Select-Object -First 5 Name"", ""description"": ""Test shell outside workspace"", ""workdir"": ""C:\\Windows\\Temp""}",$PSVersionTable.PSVersion.ToString(); Get-Location; Get-ChildItem C:\tmp_run -Force | Select-Object -First 5 Name
+1,7,call_00_GPZaXllmmis72qySkk7W4621,skill,,ok,13,6725,"{""name"": ""diagnose-windows-sandbox-acl""}",
+1,8,call_00_A9plDkI3I3xWXgTyuNGo8150,write,C:\tmp_run\S11-corrupt-recovery\dsh\run7\work\result.csv,ok,25,121,"{""file_path"": ""C:\\tmp_run\\S11-corrupt-recovery\\dsh\\run7\\work\\result.csv"", ""content"": ""id,amount\nA1,12\nA3,15\nA5,20\n""}",
+1,9,call_00_5k6sv9lLyf6po5nP12ES2155,pwsh,,ERR,9,104,"{""command"": ""Get-ChildItem | Select-Object Name,Length"", ""description"": ""Retry listing workspace""}","Get-ChildItem | Select-Object Name,Length"
+1,10,call_00_PSSkNrBOaKq1O0nGpTq52377,edit,C:\tmp_run\S11-corrupt-recovery\dsh\run7\work\config.json,ok,22,97,"{""file_path"": ""C:\\tmp_run\\S11-corrupt-recovery\\dsh\\run7\\work\\config.json"", ""old_string"": ""  \""mode\"": \""gt\"","", ""new_string"": ""  \""mode\"": \""gt\""""}",
+1,11,call_00_UiCVOcFbXtiuQ07y4XLR7753,read,C:\tmp_run\S11-corrupt-recovery\dsh\run7\work\config.json,ok,15,223,"{""file_path"": ""C:\\tmp_run\\S11-corrupt-recovery\\dsh\\run7\\work\\config.json""}",
+1,11,call_01_qAbuNUY0BFEzuuDgxiDx6951,read,C:\tmp_run\S11-corrupt-recovery\dsh\run7\work\result.csv,ok,15,179,"{""file_path"": ""C:\\tmp_run\\S11-corrupt-recovery\\dsh\\run7\\work\\result.csv""}",
+1,12,call_00_qWuBCOwAZTIgnH4ZSMXr2403,edit,C:\tmp_run\S11-corrupt-recovery\dsh\run7\work\config.json,ok,36,97,"{""file_path"": ""C:\\tmp_run\\S11-corrupt-recovery\\dsh\\run7\\work\\config.json"", ""old_string"": ""  \""columns\"": [\""id\"", \""amount\""]\n  \""mode\"": \""gt\"""", ""new_string"": ""  \""columns\"": [\""id\"", \""amount\""],\n  \""mode\"": \""gt\""""}",
+1,13,call_00_ET_xkOAC9dDCu5ZVn1yWgNb5812,read,C:\tmp_run\S11-corrupt-recovery\dsh\run7\work\config.json,ok,7,224,"{""file_path"": ""C:\\tmp_run\\S11-corrupt-recovery\\dsh\\run7\\work\\config.json""}",

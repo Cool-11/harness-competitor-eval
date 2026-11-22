@@ -1,0 +1,17 @@
+{
+  "independent_product_scenes": 1,
+  "provider_messages_requests": 9,
+  "token_usage": {
+    "input_tokens": 7525,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 55424,
+    "output_tokens": 3864
+  },
+  "reserved_upper_bound_cny": 1.57044,
+  "peak_rate_usage_estimate_cny": 0.04817896,
+  "billing_status": "estimate_and_immediate_balance_observation_not_invoice",
+  "stop_reason": "baseline_checker_full_score_pre_registered_stop",
+  "intervention_executed": false,
+  "restoration_executed": false,
+  "adjudication": "pending"
+}

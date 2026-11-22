@@ -1,0 +1,47 @@
+{
+  "schema_version": 3,
+  "protocol_version": "hev-v3",
+  "admission_track": "execution_behavior",
+  "comparison_track": "B_native_product",
+  "control_contract": {},
+  "control_contract_sha256": "",
+  "record_type": "product_run",
+  "run_id": "hev-20261117T162808+0800-S11-dsh-r11-c47a802a",
+  "run_key": "S11-corrupt-recovery__dsh__r11",
+  "case": "S11-corrupt-recovery",
+  "product": "dsh",
+  "run": 11,
+  "variant": "s11-p2-pwsh-disabled-b-20261117",
+  "root": "C:\\tmp_s11_pwsh_channel_20261117",
+  "work_dir": "C:\\tmp_s11_pwsh_channel_20261117\\S11-corrupt-recovery\\dsh\\run11\\work",
+  "evidence_dir": "C:\\tmp_s11_pwsh_channel_20261117\\S11-corrupt-recovery\\dsh\\run11\\evidence",
+  "started_at": "2026-11-17T16:28:08+08:00",
+  "prompt_sha8": "41d608c4",
+  "inputs_sha8": {
+    "config.json": "4583ff08",
+    "data.csv": "fd668362"
+  },
+  "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+  "evaluator_revision": "sha256:d24f216a64fc17b5115d336baf4f0613260b518b1f4a0c48fd49d200d97f1747",
+  "product_revision": "ca164b3f",
+  "execution_context": {
+    "product_version": "0.2.2-rc.1",
+    "account": "日常账号",
+    "model": "deepseek-flash",
+    "provider": "deepseek-official",
+    "reasoning": "high",
+    "sampling": "provider_default",
+    "tools": [
+      "filesystem"
+    ],
+    "permissions": "workspace-write",
+    "network": "provider-api-only",
+    "surface": "cli",
+    "context_policy": "headless_new_agent",
+    "skills_state": "enabled_unchanged",
+    "memory_state": "unknown",
+    "interface_precheck": "passed",
+    "configuration_evidence": "F:\\for-project-new\\harness-competitor-eval\\experiments\\s11-dsh-pwsh-channel-2026-11-17\\config-precheck.md",
+    "configuration_evidence_sha256": "53c71a6b0d3bcd053c8ab1f19be0e0f216655f928b0090bc58a176f337eb7593"
+  }
+}

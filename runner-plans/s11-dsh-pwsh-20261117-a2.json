@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "batch_id": "s11-dsh-pwsh-20261117-a2",
+  "root": "C:/tmp_s11_pwsh_channel_20261117",
+  "variant": "s11-p2-pwsh-default-a2-20261117",
+  "comparison_track": "B_native_product",
+  "defaults": {
+    "timeout_seconds": 600,
+    "tools": "shell,filesystem",
+    "permissions": "workspace-write",
+    "network": "provider-api-only"
+  },
+  "adapters": {
+    "dsh": {
+      "executable": "dsh",
+      "profile": "headless",
+      "model": "deepseek-flash",
+      "provider": "deepseek-official",
+      "reasoning": "high",
+      "sampling": "provider_default",
+      "required_env": ["DEEPSEEK_API_KEY"],
+      "configuration_evidence": "experiments/s11-dsh-pwsh-channel-2026-11-17/config-precheck.md",
+      "extra_args": ["--permission-mode", "workspace-write", "--approval-policy", "never"]
+    }
+  },
+  "slots": [
+    {"case": "S11", "product": "dsh", "run": 12, "skills_state": "enabled_unchanged", "memory_state": "unknown"}
+  ]
+}

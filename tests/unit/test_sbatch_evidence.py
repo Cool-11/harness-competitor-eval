@@ -65,6 +65,22 @@ def test_prepare_custom_root(sandbox, capsys):
     assert run_doc["environment"]["evidence_dir"] == str(evidence)
 
 
+def test_prepare_rejects_cross_case_input_copy(sandbox, monkeypatch):
+    original_copy = sbatch.shutil.copy2
+    foreign_input = REPO / "tasks" / "second_tasks" / "S11-corrupt-recovery" / "inputs" / "data.csv"
+
+    def copy_wrong_input(src, dst, *args, **kwargs):
+        if Path(src).name == "notes.md" and "S06-artifact-deep-path" in str(src):
+            return original_copy(foreign_input, dst, *args, **kwargs)
+        return original_copy(src, dst, *args, **kwargs)
+
+    monkeypatch.setattr(sbatch.shutil, "copy2", copy_wrong_input)
+    assert sbatch.prepare("S06", "dsh", 1) == 3
+    work = sandbox / "tmp" / "S06-artifact-deep-path" / "dsh" / "run1" / "work"
+    assert not (work.parent / "prepare.json").exists()
+    assert not (work.parent / "run.json").exists()
+
+
 def test_collect_writes_evidence(sandbox):
     assert sbatch.prepare("S06", "dsh", 1) == 0
     work = sandbox / "tmp" / "S06-artifact-deep-path" / "dsh" / "run1" / "work"
@@ -251,6 +267,27 @@ def test_collect_rejects_misrouted_and_duplicate_runs_without_writing(sandbox):
     assert (out / "run.json").read_bytes() == previous
 
 
+def test_collect_rejects_cross_case_prepare_inputs_but_accepts_s11_repair(sandbox):
+    assert sbatch.prepare("S11", "dsh", 1) == 0
+    work = sandbox / "tmp" / "S11-corrupt-recovery" / "dsh" / "run1" / "work"
+    prep_path = work.parent / "prepare.json"
+    original = prep_path.read_bytes()
+    prep = json.loads(original)
+    prep["inputs_sha8"] = {"data.csv": sbatch._sha8(
+        REPO / "tasks" / "second_tasks" / "S06-artifact-deep-path" / "inputs" / "notes.md")}
+    prep_path.write_text(json.dumps(prep), encoding="utf-8")
+    assert sbatch.collect("S11", "dsh", 1, str(work)) == 3
+    assert not _out(sandbox, case="S11-corrupt-recovery").exists()
+
+    prep_path.write_bytes(original)
+    (work / "config.json").write_text(
+        '{"threshold": 10, "mode": "gt", "columns": ["id", "amount"]}', encoding="utf-8")
+    for name in ("result.md", "error_report.md"):
+        shutil.copy2(REPO / "tests" / "fixtures" / "golden" / "S11-corrupt-recovery" / name,
+                     work / name)
+    assert sbatch.collect("S11", "dsh", 1, str(work)) == 0
+
+
 def test_screen_recording_can_be_admitted_with_human_ruling(sandbox):
     assert sbatch.prepare("S06", "workbuddy", 1, interface_precheck="passed") == 0
     work = sandbox / "tmp" / "S06-artifact-deep-path" / "workbuddy" / "run1" / "work"
@@ -385,6 +422,32 @@ def test_harness_causal_pair_requires_same_frozen_contract(sandbox):
     assert len(report["causal_pairs"]) == 1
     paired = [row for row in report["included"] if row["causal_eligible"]]
     assert {row["product"] for row in paired} == {"codex", "dsh"}
+
+
+def test_formal_report_can_write_new_directory_without_overwriting_history(sandbox):
+    historical = sandbox / 'out' / 'formal-results.json'
+    historical.parent.mkdir(parents=True)
+    historical.write_text('historical report', encoding='utf-8')
+    fresh = sandbox / 'new-report'
+    assert sbatch.formal_report(fresh) == 0
+    assert historical.read_text(encoding='utf-8') == 'historical report'
+    before = (fresh / 'formal-results.json').read_bytes()
+    assert sbatch.formal_report(fresh) == 3
+    assert (fresh / 'formal-results.json').read_bytes() == before
+
+
+def test_container_runtime_cwd_is_bound_before_run_and_not_faked_as_host_path(sandbox):
+    assert sbatch.prepare('S06', 'dsh', 1, root=sandbox/'runs', runtime_work_dir='/work') == 0
+    work=sandbox/'runs/S06-artifact-deep-path/dsh/run1/work'
+    session=sandbox/'native.jsonl'
+    session.write_text('native trace fixture',encoding='utf-8')
+    assert sbatch.collect('S06','dsh',1,str(work),observed_cwd='/elsewhere',cwd_evidence=str(session),
+                          evidence_mode='native_trace',session_export=str(session)) == 3
+    assert sbatch.collect('S06','dsh',1,str(work),observed_cwd='/work',cwd_evidence=str(session),
+                          evidence_mode='native_trace',session_export=str(session)) == 0
+    record=json.loads((sandbox/'out/S06-artifact-deep-path/dsh/run1/run.json').read_text(encoding='utf-8'))
+    assert record['environment']['work_dir'] == str(work)
+    assert record['environment']['runtime_work_dir'] == '/work'
 
 
 def test_causal_readiness_rejects_runtime_model_mismatch():

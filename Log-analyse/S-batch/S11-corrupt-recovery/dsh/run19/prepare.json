@@ -1,0 +1,74 @@
+{
+  "schema_version": 3,
+  "protocol_version": "hev-v3",
+  "admission_track": "execution_behavior",
+  "comparison_track": "M_mechanism",
+  "control_contract": {
+    "experiment_id": "execution-01",
+    "image_id": "sha256:dc919cc1285ec94a9909bfc08900715c1cd9c2ad6f28915c754e6cf1747fa879",
+    "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+    "max_scenes": 3,
+    "scene_timeout_seconds": 600,
+    "budget_cny": 5,
+    "runs": [
+      19,
+      20,
+      21
+    ],
+    "only_variable": "skill_channel",
+    "not_comparable_to_windows_p2": true,
+    "patch_skill_on_sha256": "ae4ffb03b4655a647e2b7bd07c48775be9d8e968c3712778c5cadedeb2aa8088",
+    "patch_skill_off_sha256": "680cb8a524583932cc93a0ef927237ab22b3e53cbfb6827be6e8eb0ad4913581",
+    "frozen_sources": {
+      "F:\\for-project-new\\harness-competitor-eval\\scripts\\p0_dsh_skill_channel.py": "8b90ece35400d278e5d39bb1eb1e577e3bed4ea0b4e28510654d0d9fe04aa836",
+      "F:\\for-project-new\\harness-competitor-eval\\scripts\\p0_budget_proxy.mjs": "21a8439f8a6ddec52ce47ad79ab0c1738e1f4a1e7a70bafa7919c5734ab3fad6",
+      "F:\\for-project-new\\harness-competitor-eval\\scripts\\p0-dsh-isolated.Dockerfile": "c562cfc44bc2e549a5bfdb442880cd1d08d728770fc24269eff89766604485ec",
+      "F:\\for-project-new\\harness-competitor-eval\\experiments\\s11-dsh-skill-channel-2026-11-21\\preregistration.md": "b4206522c19c2df8252fc3300f07e5e81e5cd5c7d46f24b452921ccfb5082689",
+      "F:\\for-project-new\\harness-competitor-eval\\experiments\\s11-dsh-skill-channel-2026-11-21\\execution-01\\skill-on.yml": "ae4ffb03b4655a647e2b7bd07c48775be9d8e968c3712778c5cadedeb2aa8088",
+      "F:\\for-project-new\\harness-competitor-eval\\experiments\\s11-dsh-skill-channel-2026-11-21\\execution-01\\skill-off.yml": "680cb8a524583932cc93a0ef927237ab22b3e53cbfb6827be6e8eb0ad4913581"
+    }
+  },
+  "control_contract_sha256": "a83666ab0c8c056085a1d91ecabe786d22ab21dae1c07cca903900296eaafee7",
+  "record_type": "product_run",
+  "run_id": "hev-20261122T020017+0800-S11-dsh-r19-22b3296c",
+  "run_key": "S11-corrupt-recovery__dsh__r19",
+  "case": "S11-corrupt-recovery",
+  "product": "dsh",
+  "run": 19,
+  "variant": "execution-01-A1",
+  "root": "C:\\tmp_harness_s11_skill_20261121",
+  "work_dir": "C:\\tmp_harness_s11_skill_20261121\\S11-corrupt-recovery\\dsh\\run19\\work",
+  "runtime_work_dir": "/work",
+  "evidence_dir": "C:\\tmp_harness_s11_skill_20261121\\S11-corrupt-recovery\\dsh\\run19\\evidence",
+  "started_at": "2026-11-22T02:00:17+08:00",
+  "prompt_sha8": "41d608c4",
+  "inputs_sha8": {
+    "config.json": "4583ff08",
+    "data.csv": "fd668362"
+  },
+  "task_revision": "sha256:855c5f1c13fa1e2c412f10bc396c4fce9a7e9c34149234011aca2de4c0c6543e",
+  "evaluator_revision": "sha256:d24f216a64fc17b5115d336baf4f0613260b518b1f4a0c48fd49d200d97f1747",
+  "product_revision": "ca164b3f",
+  "execution_context": {
+    "product_version": "0.2.2-rc.1",
+    "account": "日常账号",
+    "model": "deepseek-flash",
+    "provider": "deepseek-official",
+    "reasoning": "high",
+    "sampling": "provider_default",
+    "tools": [
+      "read",
+      "write",
+      "bash"
+    ],
+    "permissions": "workspace-write",
+    "network": "internal_network_api_proxy",
+    "surface": "cli",
+    "context_policy": "isolated_container",
+    "skills_state": "enabled",
+    "memory_state": "disabled",
+    "interface_precheck": "passed",
+    "configuration_evidence": "F:\\for-project-new\\harness-competitor-eval\\experiments\\s11-dsh-skill-channel-2026-11-21\\execution-01\\A1-configuration.json",
+    "configuration_evidence_sha256": "c519c3bc7b3acd6b44faec19a6ba1ae286471b29eb56e87ba4e2e79f3395ac06"
+  }
+}

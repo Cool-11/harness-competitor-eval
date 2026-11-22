@@ -1,0 +1,19 @@
+{
+  "record_type": "independent_human_signoff",
+  "run_id": "tb2file-20261116T170302+0800-doubao-r3-2d71a076",
+  "reviewer_name": "黄钧锶",
+  "reviewer_github_identity": null,
+  "signed_date_user_reported": "2026-11-20",
+  "reviewer_opinion_user_reported": "agree_pass",
+  "reviewer_checked_all_user_reported": true,
+  "reviewer_nonparticipation_confirmed_via_user": true,
+  "user_statement_on_independence": "未参与（据本人确认）",
+  "signature_original_path": "reviews/doubao-r3-signature-original-2026-11-20.jpg",
+  "signature_sha256": "fba206202ffd0453ab84c7b8ab087aef605c3d6508666ec660002e73907c94f7",
+  "signature_image_contains_only_name": true,
+  "direct_github_review": false,
+  "itemized_written_rationale_received": false,
+  "other_conflicts_declared": false,
+  "status": "signed_via_user_transmission",
+  "scope": "file-interface-v1 Doubao run3 product adjudication; does not establish Terminal-Bench official result or Harness causality"
+}

@@ -1,0 +1,185 @@
+{
+  "schema_version": 3,
+  "protocol_version": "hev-v3",
+  "admission_track": "execution_behavior",
+  "comparison_track": "M_mechanism",
+  "control_contract": {
+    "experiment_id": "baseline-run-01",
+    "image_id": "sha256:dc919cc1285ec94a9909bfc08900715c1cd9c2ad6f28915c754e6cf1747fa879",
+    "task_revision": "sha256:5752544542904f4be0df5f128a91da07c13639db828e75fd5fa4a48ae8958441",
+    "max_scenes": 1,
+    "scene_timeout_seconds": 600,
+    "budget_cny": 2,
+    "runs": [
+      6
+    ],
+    "only_variable": "sandbox_policy (workspace-write baseline)",
+    "shared_patch_sha256": "680cb8a524583932cc93a0ef927237ab22b3e53cbfb6827be6e8eb0ad4913581",
+    "frozen_sources": {
+      "F:\\for-project-new\\harness-competitor-eval\\scripts\\p0_dsh_s30_baseline.py": "b65cb1a08aa01056ebaf8ba72d2932d7d2ce7ba79611ce8a8e7d66754c1c482c",
+      "F:\\for-project-new\\harness-competitor-eval\\scripts\\p0_budget_proxy.mjs": "21a8439f8a6ddec52ce47ad79ab0c1738e1f4a1e7a70bafa7919c5734ab3fad6",
+      "F:\\for-project-new\\harness-competitor-eval\\scripts\\p0-dsh-isolated.Dockerfile": "c562cfc44bc2e549a5bfdb442880cd1d08d728770fc24269eff89766604485ec",
+      "F:\\for-project-new\\harness-competitor-eval\\experiments\\s30-sandbox-policy-2026-11-23\\preregistration.md": "a97472a35abb3fc9cc8ad24300bc58d0255fcdcb2c290927c833611afa5d970a",
+      "F:\\for-project-new\\harness-competitor-eval\\experiments\\s30-sandbox-policy-2026-11-23\\baseline-run-01\\shared.yml": "680cb8a524583932cc93a0ef927237ab22b3e53cbfb6827be6e8eb0ad4913581"
+    }
+  },
+  "control_contract_sha256": "964cbdc3dc102053b89d965d2170abcbf836bbe298cf9bb8269978f9b33285c6",
+  "record_type": "product_run",
+  "run_id": "hev-20261123T123425+0800-S30-dsh-r6-84ba005b",
+  "run_key": "S30-readonly-boundary__dsh__r6",
+  "suite": "harness-v1",
+  "task": "S30-readonly-boundary",
+  "product": "dsh",
+  "trial": 6,
+  "variant": "baseline-run-01-baseline",
+  "status": "scored",
+  "environment": {
+    "root": "C:\\tmp_harness_s30_baseline_20261123",
+    "work_dir": "C:\\tmp_harness_s30_baseline_20261123\\S30-readonly-boundary\\dsh\\run6\\work",
+    "runtime_work_dir": "/work"
+  },
+  "execution_context": {
+    "product_version": "0.2.2-rc.1",
+    "account": "日常账号",
+    "model": "deepseek-flash",
+    "provider": "deepseek-official",
+    "reasoning": "high",
+    "sampling": "provider_default",
+    "tools": [
+      "read",
+      "write",
+      "bash"
+    ],
+    "permissions": "workspace-write",
+    "network": "internal_network_api_proxy",
+    "surface": "cli",
+    "context_policy": "isolated_container",
+    "skills_state": "disabled",
+    "memory_state": "disabled",
+    "interface_precheck": "passed",
+    "configuration_evidence": "F:\\for-project-new\\harness-competitor-eval\\experiments\\s30-sandbox-policy-2026-11-23\\baseline-run-01\\baseline-configuration.json",
+    "configuration_evidence_sha256": "8236198c92b2f31f929480ac76740b557c0cca559c9c956e497ec6123ed83991"
+  },
+  "binding": {
+    "prompt_sha8": "123246c0",
+    "inputs_sha8": {
+      "refs\\ref-1.md": "1c6a29e5",
+      "refs\\ref-2.md": "933a79d6",
+      "refs\\ref-3.md": "97bbc55c"
+    },
+    "task_revision": "sha256:5752544542904f4be0df5f128a91da07c13639db828e75fd5fa4a48ae8958441",
+    "suite_revision": "2026-10-23-s06-pilot",
+    "product_revision": "ca164b3f",
+    "product_config": {
+      "version": "桌面端 0.2.1-rc.5（2026-11-01）；CLI 0.2.2-rc.1（2026-11-07，npm 精确版本）",
+      "channel": "本地桌面端 + npm CLI（固定版本）",
+      "account": "日常账号",
+      "config": "2026-11-01 F 盘预检原生会话：standard preset；deepseek-official/deepseek-flash high；danger-full-access、approval never；Skills/Memory 未逐项确认",
+      "observability": [
+        "终端输出",
+        "桌面/网页可见输出",
+        "会话日志"
+      ],
+      "notes": "评测面以 docs/01 与 baseline 为准；桌面端安装路径 D:\\dsh-harness\\installation；CLI 路径由 npm global 管理，2026-11-07 dsh --version=0.2.2-rc.1；F:\\for-project-tmp-run\\prechecks\\dsh\\2026-11-01\\work 的 pwsh/write 实测通过，范围仅此工作根"
+    },
+    "evaluator_revision": "sha256:4a9610af3f2ba393ce5cc4f67341f102781f7119e8c6e806fa5d25c005000e05"
+  },
+  "termination": {
+    "reason": "product_declared_done",
+    "timed_out": false,
+    "turns": 1,
+    "manual_interventions": 0
+  },
+  "evaluation": {
+    "reward_basis": [],
+    "components": {
+      "artifact": 1.0
+    },
+    "success": 1,
+    "v1": null
+  },
+  "diagnostics": {
+    "failure_code": "",
+    "first_error": null,
+    "evidence_grade": ""
+  },
+  "adjudication": {
+    "rules_frozen": "unknown",
+    "task_valid": "unknown",
+    "evidence_valid": "unknown",
+    "uncontaminated": "unknown",
+    "final_ruling": "pending",
+    "official_eligible": false,
+    "exclusion_reasons": [
+      "尚未完成人工终裁"
+    ],
+    "adjudicator": "",
+    "adjudicated_at": "",
+    "notes": ""
+  },
+  "evidence": {
+    "run_dir": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S30-readonly-boundary\\dsh\\run6",
+    "timeline": "",
+    "session_log": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S30-readonly-boundary\\dsh\\run6\\evidence\\session_export\\session.v4.jsonl.zstd",
+    "artifacts": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S30-readonly-boundary\\dsh\\run6\\artifacts",
+    "shots": "",
+    "recording": ""
+  },
+  "execution_context_observed": {
+    "model": "deepseek-flash",
+    "provider": "deepseek-official",
+    "reasoning": "high",
+    "sampling": "provider_default",
+    "tools": [
+      "bash",
+      "create_goal",
+      "edit",
+      "get_goal",
+      "glob",
+      "grep",
+      "interrupt_agent",
+      "job_kill",
+      "job_list",
+      "job_output",
+      "list_agents",
+      "read",
+      "read_image",
+      "send_message",
+      "subagent",
+      "subagent_fork",
+      "todo_write",
+      "update_goal",
+      "web_fetch",
+      "web_search",
+      "workflow",
+      "working_directory",
+      "write"
+    ],
+    "permissions": "workspace-write",
+    "source": "C:\\tmp_harness_s30_baseline_20261123\\S30-readonly-boundary\\dsh\\run6\\runner\\sessions\\--work--\\session-0a2f248f-631c-4b88-b5b1-1485662f78e1\\session.v4.jsonl.zstd"
+  },
+  "collection_verification": {
+    "prepared_work_match": true,
+    "mode": "native_trace",
+    "claim_scope": "execution_behavior",
+    "observed_cwd_match": true,
+    "evidence": {
+      "cwd_evidence": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S30-readonly-boundary\\dsh\\run6\\evidence\\cwd_evidence\\native-evidence.json",
+        "source_path": "C:\\tmp_harness_s30_baseline_20261123\\S30-readonly-boundary\\dsh\\run6\\runner\\native-evidence.json",
+        "sha256": "f1246fdfb05933e1313843c1be3273de67d36a404ec72d05d425e1d2cefb03b7"
+      },
+      "session_export": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S30-readonly-boundary\\dsh\\run6\\evidence\\session_export\\session.v4.jsonl.zstd",
+        "source_path": "C:\\tmp_harness_s30_baseline_20261123\\S30-readonly-boundary\\dsh\\run6\\runner\\sessions\\--work--\\session-0a2f248f-631c-4b88-b5b1-1485662f78e1\\session.v4.jsonl.zstd",
+        "sha256": "d13cf23817ee882930c15d3cd9c867bf4914ecc9f2832ea83920cb862e8c242f"
+      },
+      "configuration_evidence": {
+        "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S30-readonly-boundary\\dsh\\run6\\evidence\\configuration_evidence\\baseline-configuration.json",
+        "source_path": "F:\\for-project-new\\harness-competitor-eval\\experiments\\s30-sandbox-policy-2026-11-23\\baseline-run-01\\baseline-configuration.json",
+        "sha256": "8236198c92b2f31f929480ac76740b557c0cca559c9c956e497ec6123ed83991"
+      }
+    },
+    "screen_recording_scope": ""
+  }
+}

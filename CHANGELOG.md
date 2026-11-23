@@ -21,6 +21,14 @@
 ### 文档
 
 - 两份 `results.md` 登记无效臂归档、预算日志覆盖缺陷与 reserved 上界口径（不等于实际扣费）。
+- 新增随机值/高密度题面 v1：`mechanism-probe-tool-bash-random-2026-11-24`、`mechanism-probe-tool-fs-dense-2026-11-24`；两版 A1 均 7.00/7，B 臂均因 ¥10 上限截断记 invalid（模型在无工具时持续寻找旁路）。
+
+### 新增
+
+- 题面 v2（只加退出指令，`inputs`/`checker`/`truth` 不变）：`mechanism-probe-tool-bash-random-v2-2026-11-24`、`mechanism-probe-tool-fs-dense-v2-2026-11-24`。
+- `tool-bash` v2：A1 **7.00** → B **1.00** → A2 **7.00**，三臂 rc=0、无 429；B 如实报告 `read` 返回 `binary file`、无执行工具，未编造记录。边际贡献 6.00 分。
+- `tool-fs` v2：A1 **7.00** → B **3.00** → A2 **7.00**；语义复核显示 B 的 12 条数值与总计全部正确，仅编号前缀误写为 `itGM-`，4.0 分损失来自转录错误而非数值缺失，故不表述为「读图必要通道」。
+- 订正：`read` 对二进制确有守卫（实测返回 `binary file`），此前静态分析称「无守卫」有误。
 
 ## [2026-11-23]
 

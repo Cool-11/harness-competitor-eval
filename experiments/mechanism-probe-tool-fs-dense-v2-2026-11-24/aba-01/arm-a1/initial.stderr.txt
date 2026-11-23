@@ -1,0 +1,18 @@
+dsh: reasoning:
+Read values:
+item-01 943
+item-02 277
+item-03 791
+item-04 103
+item-05 145
+item-06 788
+item-07 915
+item-08 808
+item-09 241
+item-10 998
+item-11 720
+item-12 576
+
+Total: 943+277=1220; +791=2011; +103=2114; +145=2259; +788=3047; +915=3962; +808=4770; +241=5011; +998=6009; +720=6729; +576=7305.
+
+Let me verify with a computation.

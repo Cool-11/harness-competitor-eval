@@ -1,0 +1,21 @@
+{
+  "component": "tool-bash",
+  "arms": [
+    "arm-b"
+  ],
+  "only_variable": "tool-bash",
+  "image_id": "sha256:dc919cc1285ec94a9909bfc08900715c1cd9c2ad6f28915c754e6cf1747fa879",
+  "budget_limit_cny": 10.0,
+  "manifest": {
+    "variant": "mechanism-probe-tool-bash-random-2026-11-24",
+    "prompt_sha256": "580ad9fb53cebd3dc330954c574476148b04fc486b619d5808fc94300e85da0b",
+    "checker_sha256": "b01942354e0312b8dfc4de351b843aea1dd092ff1f26de5083e93d5183e46538",
+    "inputs": {
+      "data.gz": "ded71feb9ed4ce62f7fddc633621974d67324bee4ee9317cadc990b0bc656d1f"
+    },
+    "image": "harness-p0-dsh:20261120",
+    "truth_sha256": "f650e6880a8f92f73155a345f1bb646190bfba19186e0dab018b626e81f64d1c"
+  },
+  "preregistration": "F:\\for-project-new\\harness-competitor-eval\\experiments\\mechanism-probe-tool-bash-random-2026-11-24\\preregistration.md",
+  "task_dir": "F:\\for-project-new\\harness-competitor-eval\\experiments\\mechanism-probe-tool-bash-random-2026-11-24"
+}

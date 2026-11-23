@@ -1,0 +1,10 @@
+{
+  "variant": "mechanism-probe-tool-fs-dense-v2-2026-11-24",
+  "prompt_sha256": "e35e6007b9a1027b9b33f5d3ddf4faa15f7828d07b0eab7aa6da9fd00b47a5f0",
+  "checker_sha256": "7c2deced9c30b55f057b71c5861ed5ca09830f31e2eb4fa929f726c6ca4cd928",
+  "inputs": {
+    "inventory.png": "aa1f0e0ac6cabd4194ec4d9b651a1a7d3956e978d6e8bdaab18dd23cc2673a7c"
+  },
+  "image": "harness-p0-dsh:20261120",
+  "truth_sha256": "869aa32710956248d46952245c910a5686c587ff7824d4873b9ee15a69009097"
+}

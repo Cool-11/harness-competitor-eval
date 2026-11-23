@@ -1,0 +1,17 @@
+{
+  "arm": "arm-a1",
+  "only_variable": "tool-bash",
+  "component_state": "on",
+  "image": "harness-p0-dsh:20261120",
+  "image_id": "sha256:dc919cc1285ec94a9909bfc08900715c1cd9c2ad6f28915c754e6cf1747fa879",
+  "shared_patch_sha256": "680cb8a524583932cc93a0ef927237ab22b3e53cbfb6827be6e8eb0ad4913581",
+  "prompt_sha256": "e9b9bfccaedbf9a085b372dce530ae0d1149f17d4b7db697f5ade78ada39c66c",
+  "inputs_sha256": {
+    "data.gz": "ded71feb9ed4ce62f7fddc633621974d67324bee4ee9317cadc990b0bc656d1f"
+  },
+  "runtime_work_dir": "/work",
+  "model": "deepseek-flash",
+  "provider": "deepseek-official",
+  "reasoning": "high",
+  "permissions": "workspace-write"
+}

@@ -1,0 +1,9 @@
+`cross_ref.md` 已写入，但**未能完成汇总**。
+
+原因：`/work/data.gz` 确实是 gzip 文件，其字节头为 `1f 8b 08`；不过当前会话没有 shell、Python、`gzip`、`zcat` 等可以解压该文件的工具，因此无法取得其中的 60 条记录。文本读取工具对它的报错为：
+
+```text
+Error: cannot read "/work/data.gz": binary file
+```
+
+按照你的要求，我没有尝试其他绕过方式，也没有编造任何编号或金额。详细说明已写入 `/work/cross_ref.md`。

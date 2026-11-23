@@ -11,6 +11,7 @@
 ### 新增
 
 - `scripts/p0_dsh_s30_baseline.py`、`scripts/p0_dsh_s26_baseline.py`、`experiments/s30-sandbox-policy-2026-11-23/`、`experiments/s26-approval-2026-11-23/`：方向 E 单变量实验。核查确认 S30 `sandboxPolicy`、S26 `approval` 可切，S22 `turn-stopping` 组件不存在；S30（workspace-write）、S26（approval never）baseline 均 7/7 无失败 baseline，方向 E 收口（deepseek-flash 在受控容器自觉遵守权限边界，无失败 baseline 可做 A/B/A 闭环）。
+- `scripts/probe_tool_bash_aba.py`、`experiments/mechanism-probe-tool-bash-2026-11-23/`：`tool-bash` 三臂机制探针（gzip 解压型题面）。A1 7.00/7 → B（tool-bash 关闭）0.0/7 → A2 7.00/7，A/B/A 闭环成立；B 臂失败为能力缺失，按 docs/41 计 fail。该实验只作机制灵敏度阳性对照，不解释 S11。
 
 ### 文档
 

@@ -1,0 +1,9 @@
+{
+  "removed_in_b": [
+    "edit",
+    "read",
+    "read_image",
+    "write"
+  ],
+  "added_in_b": []
+}

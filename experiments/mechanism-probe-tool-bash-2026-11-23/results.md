@@ -1,40 +1,39 @@
-# tool-bash A/B/A 机制探针结果（2026-11-23）
+# tool-bash A/B/A 机制探针结果（2026-11-23 执行，2026-11-24 订正）
 
-## 实验身份
+## 2026-11-24 订正：A/B/A 不成立
 
-- 目录：`experiments/mechanism-probe-tool-bash-2026-11-23/aba-01/`
-- 镜像：`harness-p0-dsh:20261120`；配置：`workspace-write`、`deepseek-flash` / `deepseek-official` / `high`
-- 题面：`data.gz`（gzip CSV，60 条）解压后逐条汇总到 `cross_ref.md` 并给出总计（冻结真值 7830）
-- 唯一改动：`tool-bash` 开 → 关 → 开
-- 读取隔离：内部网络、`--cap-drop ALL`、非特权、无挂载，每臂独立容器与 run 身份
+首轮（11-23）记录的「A1 7.00 → B 0.0 → A2 7.00，闭环成立」**作废**。复核发现首轮 B 的 0/7 不是能力缺失：
 
-## 三臂结果
+- B 场 stderr 出现 `dsh: RATE_LIMIT: Experiment proxy stopped request`；
+- 首轮预算日志 29 次请求、reserved ¥4.824、`budget_limit` 拦截 6 次；代理硬上限为 ¥5，B 臂把额度耗尽后被 429 中止；
+- A2 之所以成功，是续跑时起了新代理、拿到了新额度。
 
-| 臂 | tool-bash | 工具目录含 bash | 产物分 | 说明 |
-|---|---|---|---|---|
-| A1（run1）| 开 | 是 | **7.00/7**（60/60 + 总计 7830）| 解压成功 |
-| B（run2）| 关 | **否** | **0.0/7**（cross_ref.md 不存在）| 无执行通道 |
-| A2（run3）| 开 | 是 | **7.00/7**（60/60 + 总计 7830）| 解压成功 |
+按 docs/41，被基础设施打断的现场记 `invalid`，不计作 `fail`。首轮 B 归档于 `arm-b-invalid-01-budget/`，原件保留。
 
-三臂 observed 均为 `deepseek-flash`、reasoning `high`，cwd `/work`，未超时（15.4s / — / 14.8s）。
+## 独立额度重跑 B
+
+用独立代理（¥10 上限）重跑 `arm-b`：
+
+| 项 | 结果 |
+|---|---|
+| 产物分 | **7.00/7**（60/60 条 + 总计 7830）|
+| 返回码 | 0（模型自行结束，非超时、非 429）|
+| 耗时 | 102.9s |
+| observed 工具 | **不含 `bash`**（含 read/write/edit/glob/grep/read_image/workflow/subagent）|
+| 预算 | 28 次请求，reserved ¥5.831，0 次拦截 |
 
 ## 结论
 
-**A/B/A 闭环成立**：开 → 成功、关 → 失败、开 → 再次成功，唯一变化是 `tool-bash`。B 臂失败是能力缺失（无法解压 gzip），不是网络或权限阻断，按 docs/41 计 `fail`，不记 `invalid`。
+题面数据是 `item-01..item-60` 与金额 `101..160` 的规则序列，模型在没有任何执行通道的情况下按规律重建出全部 60 条与总计，checker 7/7。
 
-同时验证了两道物理门槛：
+因此：
 
-- `read` 对 gzip 不作二进制拒绝，只按行渲染乱码，未泄露明文数值。
-- `workflow`（PTC，`node:vm`）无 `child_process`/`zlib`，无法替代 shell 解压。B 场另出现 1 个嵌套会话（70 事件，主会话 116 事件），模型的旁路尝试未产出 `cross_ref.md`。
+- **`tool-bash` 不是本任务的物理必需**，本题面不能用来证明它的因果作用；
+- A/B/A 三臂未形成反转（开 7 → 关 7），停止条件 2 触发；
+- 只有把输入改成高熵、不可推断的数据，才可能让 B 臂真正为 0，届时才具备重做 A/B/A 的前提。
 
-## 边界
+## 证据与缺陷登记
 
-- 这是**机制灵敏度阳性对照**：证明评测尺子能检出真实的能力缺失差，并提供可反转的三臂先例。
-- 它不解释 S11 的 Windows 0/7，也不构成 S 题库新题或正式准入样本。
-- 单场三臂、每臂 1 次，不作稳定性结论。
-- 残留：vm 构造器链逃逸理论上未排除；本场未触发。
-
-## 现场处置
-
-- 首轮 runner 在 B 臂「会话选择」处崩溃（该场有两个 session 目录）。B 臂执行本身已完成，`run.json` 由归档的会话与产物重建，字段 `recovered: true` 已标注；未补造运行前字段，也未重复调用模型。
-- 预算：预算代理记录 121 + 33 条请求；`balance-before/after` 均为 ¥8.03（账面未变，与代理计数并存，不做折算）。
+- 首轮 A1/A2 与新 B 臂均为独立 run 身份；容器、`shared.yml`、`merged-config.yml`、session、产物、checker 输出均已归档。
+- 缺陷：预算日志曾按固定名 `budget-run2.jsonl` 写入，重跑时覆盖了原 A2 的日志（原为 8 次请求、¥1.219）。A2 的 `run.json` 与 `checker_output.txt` 未受影响；脚本已改为顺序命名（`budget-run<n>.jsonl`），本次订正后生效。
+- 预算口径：以上均为 `reserved` 上界，不等于实际扣费；`balance-before/after` 两次读数均为 ¥8.03，与代理计数并存，不做折算。

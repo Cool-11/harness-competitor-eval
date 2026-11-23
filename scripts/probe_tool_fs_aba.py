@@ -147,9 +147,12 @@ def _recover_arm(task_dir: Path, slot: Path, arm: str, index: int) -> dict:
 
 
 def run(out: Path, task_dir: Path, component: str, prereg: Path,
-        resume: bool = False) -> None:
+        resume: bool = False, only: str | None = None, limit_cny: float = 5.0) -> None:
     if not prereg.is_file():
         raise ValueError(f'pre-registration missing: {prereg}')
+    if only and only not in ARMS:
+        raise ValueError(f'unknown arm: {only}')
+    arms_order = [only] if only else list(ARMS)
     if out.exists() and not resume:
         raise ValueError('experiment identity already exists; choose a new --output')
     manifest = frozen_manifest(task_dir, component)
@@ -161,8 +164,9 @@ def run(out: Path, task_dir: Path, component: str, prereg: Path,
     prefix = 'hev-aba-' + secrets.token_hex(5)
     network, proxy = prefix + '-internal', prefix + '-proxy'
     image_id = json.loads(docker('image', 'inspect', IMAGE))[0]['Id']
-    write(out / 'plan.json', {'component': component, 'arms': list(ARMS),
+    write(out / 'plan.json', {'component': component, 'arms': arms_order,
                               'only_variable': component, 'image_id': image_id,
+                              'budget_limit_cny': limit_cny,
                               'manifest': manifest, 'preregistration': str(prereg),
                               'task_dir': str(task_dir)})
     docker('network', 'create', '--internal', network)
@@ -174,7 +178,7 @@ def run(out: Path, task_dir: Path, component: str, prereg: Path,
     process = subprocess.Popen(['docker', 'exec', '-i', proxy, 'node', '/control/proxy.mjs'],
                                stdin=subprocess.PIPE, stdout=proxy_log, stderr=proxy_log,
                                text=True, encoding='utf-8')
-    process.stdin.write(json.dumps({'key': key, 'nonce': nonce}) + '\n')
+    process.stdin.write(json.dumps({'key': key, 'nonce': nonce, 'limitCny': limit_cny}) + '\n')
     process.stdin.flush()
     process.stdin.close()
     arms: list[dict] = []
@@ -185,7 +189,8 @@ def run(out: Path, task_dir: Path, component: str, prereg: Path,
             time.sleep(.1)
         else:
             raise ValueError('budget proxy failed to start')
-        for index, arm in enumerate(ARMS, start=1):
+        for arm in arms_order:
+            index = ARMS.index(arm) + 1
             slot = out / arm
             if (slot / 'run.json').is_file():
                 result = json.loads((slot / 'run.json').read_text(encoding='utf-8'))
@@ -200,18 +205,28 @@ def run(out: Path, task_dir: Path, component: str, prereg: Path,
                 break
             if arm == 'arm-b' and result['score']['got'] > full * 0.15:
                 break
-        if len(arms) == 3:
-            before = set(arms[0]['observed_context']['tools'])
-            after = set(arms[1]['observed_context']['tools'])
+        merged: dict[str, dict] = {}
+        path = out / 'results.json'
+        if path.is_file():
+            for row in json.loads(path.read_text(encoding='utf-8')).get('arms', []):
+                merged[row['arm']] = row
+        for row in arms:
+            merged[row['arm']] = row
+        if all(arm in merged for arm in ARMS):
+            before = set(merged['arm-a1']['observed_context']['tools'])
+            after = set(merged['arm-b']['observed_context']['tools'])
             write(out / 'tool-diff.json',
                   {'removed_in_b': sorted(before - after), 'added_in_b': sorted(after - before)})
         write(out / 'results.json', {'status': 'executed_pending_human_review',
-                                     'component': component, 'arms': arms})
+                                     'component': component,
+                                     'arms': [merged[arm] for arm in ARMS if arm in merged]})
     finally:
         try:
             budget = out / 'budget.jsonl'
-            if budget.exists():
-                budget = out / 'budget-run2.jsonl'
+            suffix = 1
+            while budget.exists():
+                suffix += 1
+                budget = out / f'budget-run{suffix}.jsonl'
             docker('cp', proxy + ':/state/budget.jsonl', str(budget))
         except subprocess.CalledProcessError:
             pass
@@ -233,6 +248,9 @@ if __name__ == '__main__':
     parser.add_argument('--component', default='tool-fs', help='要开关的 DSH 组件 id')
     parser.add_argument('--preregistration', type=Path, required=True)
     parser.add_argument('--resume', action='store_true', help='补齐已归档臂并继续未执行臂')
+    parser.add_argument('--only', choices=ARMS, help='只跑指定臂（每臂独立代理额度）')
+    parser.add_argument('--limit-cny', type=float, default=5.0, help='本次代理预算上限（默认 5）')
     args = parser.parse_args()
     run(args.output.resolve(), args.task_dir.resolve(),
-        args.component, args.preregistration.resolve(), args.resume)
+        args.component, args.preregistration.resolve(), args.resume,
+        args.only, args.limit_cny)

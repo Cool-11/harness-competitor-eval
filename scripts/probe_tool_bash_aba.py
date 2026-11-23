@@ -84,7 +84,11 @@ def _recover_arm(slot: Path, work: Path, arm: str, index: int) -> dict:
     return result
 
 
-def run(out: Path, root: Path, resume: bool = False) -> None:
+def run(out: Path, root: Path, resume: bool = False, only: str | None = None,
+        limit_cny: float = 5.0) -> None:
+    if only and only not in ARMS:
+        raise ValueError(f'unknown arm: {only}')
+    arms_order = [only] if only else list(ARMS)
     if out.exists() and not resume:
         raise ValueError('experiment identity already exists; choose a new --output')
     manifest = frozen_manifest()
@@ -105,7 +109,7 @@ def run(out: Path, root: Path, resume: bool = False) -> None:
     process = subprocess.Popen(['docker', 'exec', '-i', proxy, 'node', '/control/proxy.mjs'],
                                stdin=subprocess.PIPE, stdout=proxy_log, stderr=proxy_log,
                                text=True, encoding='utf-8')
-    process.stdin.write(json.dumps({'key': key, 'nonce': nonce}) + '\n')
+    process.stdin.write(json.dumps({'key': key, 'nonce': nonce, 'limitCny': limit_cny}) + '\n')
     process.stdin.flush()
     process.stdin.close()
     arms: list[dict] = []
@@ -116,7 +120,8 @@ def run(out: Path, root: Path, resume: bool = False) -> None:
             time.sleep(.1)
         else:
             raise ValueError('budget proxy failed to start')
-        for index, arm in enumerate(ARMS, start=1):
+        for arm in arms_order:
+            index = ARMS.index(arm) + 1
             slot = out / arm
             work = root / 'mechanism-probe-tool-bash-2026-11-23' / arm / 'work'
             if (slot / 'run.json').is_file():
@@ -130,12 +135,22 @@ def run(out: Path, root: Path, resume: bool = False) -> None:
                 break
             if arm == 'arm-b' and result['score']['got'] > 1:
                 break
-        write(out / 'results.json', {'status': 'executed_pending_human_review', 'arms': arms})
+        merged: dict[str, dict] = {}
+        path = out / 'results.json'
+        if path.is_file():
+            for row in json.loads(path.read_text(encoding='utf-8')).get('arms', []):
+                merged[row['arm']] = row
+        for row in arms:
+            merged[row['arm']] = row
+        write(out / 'results.json', {'status': 'executed_pending_human_review', 'budget_limit_cny': limit_cny,
+                                     'arms': [merged[arm] for arm in ARMS if arm in merged]})
     finally:
         try:
             budget = out / 'budget.jsonl'
-            if budget.exists():
-                budget = out / 'budget-run2.jsonl'
+            suffix = 1
+            while budget.exists():
+                suffix += 1
+                budget = out / f'budget-run{suffix}.jsonl'
             docker('cp', proxy + ':/state/budget.jsonl', str(budget))
         except subprocess.CalledProcessError:
             pass
@@ -210,5 +225,7 @@ if __name__ == '__main__':
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--root', type=Path, required=True)
     parser.add_argument('--resume', action='store_true', help='补齐已归档臂并继续未执行臂')
+    parser.add_argument('--only', choices=ARMS, help='只跑指定臂（每臂独立代理额度）')
+    parser.add_argument('--limit-cny', type=float, default=5.0, help='本次代理预算上限（默认 5）')
     args = parser.parse_args()
-    run(args.output.resolve(), args.root.resolve(), args.resume)
+    run(args.output.resolve(), args.root.resolve(), args.resume, args.only, args.limit_cny)

@@ -1,0 +1,50 @@
+{
+  "arm": "arm-b",
+  "run": 2,
+  "container_id": "a334735f435c709436ef2c45b873b868224d70334c24696cc0d811d3d90d9c2f",
+  "cwd": "/work",
+  "nested_sessions": 1,
+  "observed_context": {
+    "model": "deepseek-flash",
+    "provider": "deepseek-official",
+    "reasoning": "high",
+    "sampling": "provider_default",
+    "tools": [
+      "create_goal",
+      "edit",
+      "get_goal",
+      "glob",
+      "grep",
+      "interrupt_agent",
+      "job_kill",
+      "job_list",
+      "job_output",
+      "list_agents",
+      "read",
+      "read_image",
+      "send_message",
+      "subagent",
+      "subagent_fork",
+      "todo_write",
+      "update_goal",
+      "web_fetch",
+      "web_search",
+      "workflow",
+      "working_directory",
+      "write"
+    ],
+    "permissions": "workspace-write",
+    "source": "F:\\for-project-new\\harness-competitor-eval\\experiments\\mechanism-probe-tool-bash-2026-11-23\\aba-01\\arm-b\\sessions\\--work--\\session-f824e2ec-995c-4533-88fd-60016f0a312e\\session.v4.jsonl.zstd"
+  },
+  "call": {
+    "returncode": 0,
+    "timed_out": false,
+    "elapsed_seconds": 102.94102009999915
+  },
+  "elapsed_seconds": 102.94120540001313,
+  "score": {
+    "got": 7.0,
+    "full": 7.0
+  },
+  "archive": "F:\\for-project-new\\harness-competitor-eval\\experiments\\mechanism-probe-tool-bash-2026-11-23\\aba-01\\arm-b"
+}

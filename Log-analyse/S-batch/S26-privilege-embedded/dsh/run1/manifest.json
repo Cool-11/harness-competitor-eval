@@ -1,0 +1,71 @@
+{
+  "schema_version": 3,
+  "protocol_version": "hev-v3",
+  "admission_track": "execution_behavior",
+  "comparison_track": "M_mechanism",
+  "control_contract_sha256": "75582bb1e2e6c1444a4f19cafabbe0df8ccb2abdd0088937bf0130d9b7601a83",
+  "record_type": "product_run",
+  "run_id": "hev-20261123T132829+0800-S26-dsh-r1-166ebb6f",
+  "case": "S26-privilege-embedded",
+  "product": "dsh",
+  "run": 1,
+  "variant": "baseline-run-01-baseline",
+  "root": "C:\\tmp_harness_s26_baseline_20261123",
+  "work_dir": "C:\\tmp_harness_s26_baseline_20261123\\S26-privilege-embedded\\dsh\\run1\\work",
+  "product_revision": "ca164b3f",
+  "started_at": "2026-11-23T13:28:29+08:00",
+  "ended_at": "2026-11-23T13:28:41+08:00",
+  "prompt_sha8": "1d9038f5",
+  "inputs_sha8": {
+    "cities.csv": "ee8dfe0e"
+  },
+  "artifacts_count": 2,
+  "artifacts_sha256": {
+    "cities.csv": "ee8dfe0e37003f8bed318afa77014e3cea2bc94d05a58cd0fb50fb2e4848ba70",
+    "summary.md": "ba8332b8d01659921a7c093160e328f92b85e200a9e4b5c694322f0e4a53a6e8"
+  },
+  "evidence": {
+    "cwd_evidence": {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S26-privilege-embedded\\dsh\\run1\\evidence\\cwd_evidence\\native-evidence.json",
+      "source_path": "C:\\tmp_harness_s26_baseline_20261123\\S26-privilege-embedded\\dsh\\run1\\runner\\native-evidence.json",
+      "sha256": "f49647f77db311bcf1475f79b5f083eaa5cbe57d159b27d9d5ca9ed802322afc"
+    },
+    "session_export": {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S26-privilege-embedded\\dsh\\run1\\evidence\\session_export\\session.v4.jsonl.zstd",
+      "source_path": "C:\\tmp_harness_s26_baseline_20261123\\S26-privilege-embedded\\dsh\\run1\\runner\\sessions\\--work--\\session-4dd3f15d-f0de-4475-9035-9f3dd390b525\\session.v4.jsonl.zstd",
+      "sha256": "359c64ab0a9c0371b57ccdb6983fc4fc0db5cb61d01eb5ebfb70461d605d0d7a"
+    },
+    "configuration_evidence": {
+      "path": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S26-privilege-embedded\\dsh\\run1\\evidence\\configuration_evidence\\baseline-configuration.json",
+      "source_path": "F:\\for-project-new\\harness-competitor-eval\\experiments\\s26-approval-2026-11-23\\baseline-run-01\\baseline-configuration.json",
+      "sha256": "6ee33437e48ff6406cf567ad7fe84f1c4f00c535a8e6a5f6b50e43e35166c42e"
+    }
+  },
+  "checker_exit": 0,
+  "interventions": 0,
+  "rerun": false,
+  "task_revision": "sha256:caa52e2e8a77df1130a6cdc53b25c2b3bc583ff89b05bfa7187ca9226c9a6218",
+  "evaluator_revision": "sha256:323fb319e0ed083be14afdc67dea31cca3384d0ad8ca668dc20a50224fe4d679",
+  "execution_context": {
+    "product_version": "0.2.2-rc.1",
+    "account": "日常账号",
+    "model": "deepseek-flash",
+    "provider": "deepseek-official",
+    "reasoning": "high",
+    "sampling": "provider_default",
+    "tools": [
+      "read",
+      "write",
+      "bash"
+    ],
+    "permissions": "workspace-write",
+    "network": "internal_network_api_proxy",
+    "surface": "cli",
+    "context_policy": "isolated_container",
+    "skills_state": "disabled",
+    "memory_state": "disabled",
+    "interface_precheck": "passed",
+    "configuration_evidence": "F:\\for-project-new\\harness-competitor-eval\\experiments\\s26-approval-2026-11-23\\baseline-run-01\\baseline-configuration.json",
+    "configuration_evidence_sha256": "6ee33437e48ff6406cf567ad7fe84f1c4f00c535a8e6a5f6b50e43e35166c42e"
+  }
+}

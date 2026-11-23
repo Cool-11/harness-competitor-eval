@@ -1,0 +1,4 @@
+dsh: reasoning:
+Sum: 137+248=385; +51=436; +469=905; +322=1227; +190=1417.
+
+Create cross_ref.md.

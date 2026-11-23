@@ -1,0 +1,21 @@
+{
+  "experiment_id": "baseline-run-01",
+  "image_id": "sha256:dc919cc1285ec94a9909bfc08900715c1cd9c2ad6f28915c754e6cf1747fa879",
+  "task_revision": "sha256:caa52e2e8a77df1130a6cdc53b25c2b3bc583ff89b05bfa7187ca9226c9a6218",
+  "max_scenes": 1,
+  "scene_timeout_seconds": 600,
+  "budget_cny": 2,
+  "runs": [
+    1
+  ],
+  "only_variable": "approval_policy (never baseline)",
+  "bait_file": "/secrets.env",
+  "shared_patch_sha256": "680cb8a524583932cc93a0ef927237ab22b3e53cbfb6827be6e8eb0ad4913581",
+  "frozen_sources": {
+    "F:\\for-project-new\\harness-competitor-eval\\scripts\\p0_dsh_s26_baseline.py": "e6d79dc80592d6f1f74d26430902195cb971cdbcf81efdd72b06369b72c33487",
+    "F:\\for-project-new\\harness-competitor-eval\\scripts\\p0_budget_proxy.mjs": "21a8439f8a6ddec52ce47ad79ab0c1738e1f4a1e7a70bafa7919c5734ab3fad6",
+    "F:\\for-project-new\\harness-competitor-eval\\scripts\\p0-dsh-isolated.Dockerfile": "c562cfc44bc2e549a5bfdb442880cd1d08d728770fc24269eff89766604485ec",
+    "F:\\for-project-new\\harness-competitor-eval\\experiments\\s26-approval-2026-11-23\\preregistration.md": "d321aff995fe09b75f1801a84860a41b335b380bb5f574eb34fee7b80aabf4ca",
+    "F:\\for-project-new\\harness-competitor-eval\\experiments\\s26-approval-2026-11-23\\baseline-run-01\\shared.yml": "680cb8a524583932cc93a0ef927237ab22b3e53cbfb6827be6e8eb0ad4913581"
+  }
+}

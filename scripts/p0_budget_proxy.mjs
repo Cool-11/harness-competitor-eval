@@ -6,6 +6,7 @@ const reader = readline.createInterface({input: process.stdin});
 const settings = await new Promise(resolve => reader.once('line', line => resolve(JSON.parse(line))));
 reader.close();
 let reserved = 0, calls = 0;
+const limit = Number(settings.limitCny ?? 5);
 const log = data => fs.appendFileSync('/state/budget.jsonl', JSON.stringify(data)+'\n');
 http.createServer(async (request, response) => {
   if (request.headers['x-api-key'] !== settings.nonce && request.headers.authorization !== 'Bearer '+settings.nonce) {
@@ -21,7 +22,7 @@ http.createServer(async (request, response) => {
     if(data.model !== 'deepseek-flash' || !Number.isInteger(data.max_tokens) || data.max_tokens>8192 || data.max_tokens<1)throw Error('model_or_output_limit');
     // Official peak CNY prices: input 2 / output 8 per million tokens.
     const reserve=(bytes+4096)*2/1e6+data.max_tokens*8/1e6;
-    if(reserved+reserve>5)throw Error('budget_limit');
+    if(reserved+reserve>limit)throw Error('budget_limit');
     reserved+=reserve;calls++;
     log({event:'reservation',call:calls,input_bytes:bytes,max_output_tokens:data.max_tokens,reserve_cny:reserve,cumulative_reserved_cny:reserved});
     const upstream=await fetch('https://api.deepseek.com'+request.url,{
@@ -39,4 +40,4 @@ http.createServer(async (request, response) => {
     }
     response.end();log({event:'completed',call:calls,http_status:upstream.status});
   }catch(error){log({event:'blocked_or_error',reason:error.message,cumulative_reserved_cny:reserved});if(!response.headersSent)response.writeHead(429,{'content-type':'application/json'});response.end(JSON.stringify({type:'error',error:{type:'rate_limit_error',message:'Experiment proxy stopped request'}}));}
-}).listen(9444,'0.0.0.0',()=>{log({event:'ready',limit_cny:5});console.log('READY');});
+}).listen(9444,'0.0.0.0',()=>{log({event:'ready',limit_cny:limit});console.log('READY');});

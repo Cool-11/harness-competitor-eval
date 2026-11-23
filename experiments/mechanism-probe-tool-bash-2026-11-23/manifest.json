@@ -1,0 +1,10 @@
+{
+  "variant": "mechanism-probe-tool-bash-2026-11-23",
+  "prompt_sha256": "580ad9fb53cebd3dc330954c574476148b04fc486b619d5808fc94300e85da0b",
+  "checker_sha256": "8a31240d059ed495ce6af72d43b158dd791f1181633737cac9530522a446bd81",
+  "truth_sha256": "9099c81623aa0de8c42a1c7044df153feca2c8b95fdc22e1add54804484b2f7f",
+  "inputs": {
+    "data.gz": "9b60b48f7d4245f2c888f4cb4270aa97744b38ae9b65ba3a7d1d5e0505bfe526"
+  },
+  "image": "harness-p0-dsh:20261120"
+}

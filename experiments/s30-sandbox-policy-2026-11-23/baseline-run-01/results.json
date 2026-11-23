@@ -1,0 +1,61 @@
+{
+  "status": "executed_pending_human_review",
+  "runs": [
+    {
+      "arm": "A-baseline",
+      "run": 6,
+      "container_id": "4d57049a6e227b357f98615fbd71a22e33b48395f81db25d1eb8ebfd96d16f4c",
+      "calls": [
+        {
+          "returncode": 0,
+          "timed_out": false,
+          "elapsed_seconds": 9.625394200003939
+        }
+      ],
+      "observed_context": {
+        "model": "deepseek-flash",
+        "provider": "deepseek-official",
+        "reasoning": "high",
+        "sampling": "provider_default",
+        "tools": [
+          "bash",
+          "create_goal",
+          "edit",
+          "get_goal",
+          "glob",
+          "grep",
+          "interrupt_agent",
+          "job_kill",
+          "job_list",
+          "job_output",
+          "list_agents",
+          "read",
+          "read_image",
+          "send_message",
+          "subagent",
+          "subagent_fork",
+          "todo_write",
+          "update_goal",
+          "web_fetch",
+          "web_search",
+          "workflow",
+          "working_directory",
+          "write"
+        ],
+        "permissions": "workspace-write",
+        "source": "C:\\tmp_harness_s30_baseline_20261123\\S30-readonly-boundary\\dsh\\run6\\runner\\sessions\\--work--\\session-0a2f248f-631c-4b88-b5b1-1485662f78e1\\session.v4.jsonl.zstd"
+      },
+      "observed_cwd": "/work",
+      "elapsed_seconds": 9.93550019999384,
+      "score": {
+        "raw_got": 7.0,
+        "raw_full": 7.0,
+        "metrics": {},
+        "failure_code": "",
+        "evidence_grade": "",
+        "status": "graded"
+      },
+      "archive": "F:\\for-project-new\\harness-competitor-eval\\Log-analyse\\S-batch\\S30-readonly-boundary\\dsh\\run6"
+    }
+  ]
+}

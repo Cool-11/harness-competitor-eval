@@ -1,0 +1,9 @@
+{
+  "image_id": "sha256:dc919cc1285ec94a9909bfc08900715c1cd9c2ad6f28915c754e6cf1747fa879",
+  "dsh_version": "0.2.2-rc.1",
+  "profile": "headless",
+  "shared_patch": "- id: llm-deepseek\n  config:\n    baseURL: http://budget-proxy:9444/anthropic\n    maxTokens: 8192\n    reasoningEffort: high\n- id: skill\n  disabled: true\n- id: skill-filesystem\n  disabled: true\n- id: tool-skill\n  disabled: true\n- id: session-telemetry-otel\n  config:\n    mode: DISABLED\n",
+  "configuration_id": "A-baseline-workspace-write",
+  "permission_mode": "workspace-write",
+  "runtime_work_dir": "/work"
+}

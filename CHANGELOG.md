@@ -6,7 +6,27 @@
 
 ---
 
+## [2026-11-24]
+
+### 修复
+
+- `scripts/p0_budget_proxy.mjs`：预算上限改为可配置（`limitCny`，缺省仍为 ¥5，安全边界不变）；两版 ABA 探针脚本新增 `--only` 与 `--limit-cny`，并修正预算日志固定名 `budget-run2.jsonl` 覆盖旧记录的问题，改为顺序命名。
+
+### 变更
+
+- **订正 2026-11-23 `tool-bash` 探针结论**：首轮 B 臂的 0/7 系代理 ¥5 上限触发 429（`budget_limit` 拦截 6 次）所致，按 docs/41 记 `invalid`，原件归档于 `arm-b-invalid-01-budget/`；以独立 ¥10 额度重跑 B 臂得 **7.00/7**（60/60 + 7830，rc=0，无 429），observed 工具确不含 `bash`。原「A/B/A 闭环成立」作废——题面数据为 `item-NN → 100+NN` 规则序列，可在无执行通道下推断重建，`tool-bash` 不构成物理必需。
+- `tool-fs` 图像探针（`experiments/mechanism-probe-tool-fs-2026-11-24/`）：A1 **7.00/7**；B 臂在移除 `read`/`write`/`edit`/`read_image` 后以 `bash` + 纯 Python 解码 PNG、ASCII 渲染目视 OCR，得 **4.33/7**（5/6 + 总计错），触发预注册停止条件 2，A2 未发射，A/B/A 不成立。
+
+### 文档
+
+- 两份 `results.md` 登记无效臂归档、预算日志覆盖缺陷与 reserved 上界口径（不等于实际扣费）。
+
 ## [2026-11-23]
+
+### 新增
+
+- `scripts/p0_dsh_s30_baseline.py`、`scripts/p0_dsh_s26_baseline.py`、`experiments/s30-sandbox-policy-2026-11-23/`、`experiments/s26-approval-2026-11-23/`：方向 E 单变量实验。核查确认 S30 `sandboxPolicy`、S26 `approval` 可切，S22 `turn-stopping` 组件不存在；S30（workspace-write）、S26（approval never）baseline 均 7/7 无失败 baseline，方向 E 收口（deepseek-flash 在受控容器自觉遵守权限边界，无失败 baseline 可做 A/B/A 闭环）。
+- `scripts/probe_tool_bash_aba.py`、`experiments/mechanism-probe-tool-bash-2026-11-23/`：`tool-bash` 三臂机制探针（gzip 解压型题面）。A1 7.00/7 → B（tool-bash 关闭）0.0/7 → A2 7.00/7，A/B/A 闭环成立；B 臂失败为能力缺失，按 docs/41 计 fail。该实验只作机制灵敏度阳性对照，不解释 S11。
 
 ### 文档
 

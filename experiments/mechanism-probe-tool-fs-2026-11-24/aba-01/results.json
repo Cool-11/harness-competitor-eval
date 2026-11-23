@@ -101,7 +101,7 @@
     {
       "arm": "arm-a2",
       "run": 3,
-      "container_id": "b44b404d26b9c252621f0063357fb63715cdc4c93899278b4c9de0ae7be5de49",
+      "container_id": "99a4974e247b704776fb99c60b0356e24961b064f551a75c48d0eef7a5f65965",
       "cwd": "/work",
       "observed_context": {
         "model": "deepseek-flash",
@@ -134,16 +134,16 @@
           "write"
         ],
         "permissions": "workspace-write",
-        "source": "F:\\for-project-new\\harness-competitor-eval\\experiments\\mechanism-probe-tool-fs-2026-11-24\\aba-01\\arm-a2\\sessions\\--work--\\session-6f659c41-e06d-42b4-b85a-4fb6b6ca4bdb\\session.v4.jsonl.zstd"
+        "source": "F:\\for-project-new\\harness-competitor-eval\\experiments\\mechanism-probe-tool-fs-2026-11-24\\aba-01\\arm-a2\\sessions\\--work--\\session-c6de4604-e09a-4d5c-a219-102fee877bac\\session.v4.jsonl.zstd"
       },
       "call": {
-        "returncode": 1,
+        "returncode": 0,
         "timed_out": false,
-        "elapsed_seconds": 18.721112100000028
+        "elapsed_seconds": 9.168862799997441
       },
-      "elapsed_seconds": 18.721316400013166,
+      "elapsed_seconds": 9.16905830000178,
       "score": {
-        "got": 0.0,
+        "got": 7.0,
         "full": 7.0
       },
       "archive": "F:\\for-project-new\\harness-competitor-eval\\experiments\\mechanism-probe-tool-fs-2026-11-24\\aba-01\\arm-a2"

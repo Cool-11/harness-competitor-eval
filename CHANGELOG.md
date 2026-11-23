@@ -8,6 +8,10 @@
 
 ## [2026-11-23]
 
+### 新增
+
+- `scripts/p0_dsh_s30_baseline.py`、`scripts/p0_dsh_s26_baseline.py`、`experiments/s30-sandbox-policy-2026-11-23/`、`experiments/s26-approval-2026-11-23/`：方向 E 单变量实验。核查确认 S30 `sandboxPolicy`、S26 `approval` 可切，S22 `turn-stopping` 组件不存在；S30（workspace-write）、S26（approval never）baseline 均 7/7 无失败 baseline，方向 E 收口（deepseek-flash 在受控容器自觉遵守权限边界，无失败 baseline 可做 A/B/A 闭环）。
+
 ### 文档
 
 - `README.md`：状态更新至 2026-11-23；外部验证进度段更新至 2026-11-18（file-interface-v1 run2/doubao-run3 终裁）；任务1/任务2 收口、从「进行中」移入「已完成」。

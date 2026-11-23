@@ -1,7 +1,7 @@
 {
   "component": "tool-fs",
   "arms": [
-    "arm-b"
+    "arm-a2"
   ],
   "only_variable": "tool-fs",
   "image_id": "sha256:dc919cc1285ec94a9909bfc08900715c1cd9c2ad6f28915c754e6cf1747fa879",
@@ -16,6 +16,6 @@
     "image": "harness-p0-dsh:20261120",
     "truth_sha256": "d57330b797af73c42158e51b9540c438b891ae153a9098d1015f545f59c70d54"
   },
-  "preregistration": "F:\\for-project-new\\harness-competitor-eval\\experiments\\mechanism-probe-tool-fs-2026-11-24\\preregistration.md",
+  "preregistration": "F:\\for-project-new\\harness-competitor-eval\\experiments\\mechanism-probe-tool-fs-2026-11-24\\preregistration-addendum-01.md",
   "task_dir": "F:\\for-project-new\\harness-competitor-eval\\experiments\\mechanism-probe-tool-fs-2026-11-24"
 }
